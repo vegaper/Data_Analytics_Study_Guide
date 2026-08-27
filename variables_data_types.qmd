@@ -1,0 +1,404 @@
+---
+title: "Variables and Data Types"
+format: html
+---
+```{python}
+#| include: false
+import _setup
+```
+# Understanding Variables
+
+Variables in Python act like labeled containers that point to values stored in the computer's memory, similar to nouns in language. Variables can store values of various data types such as strings, integers, floats, lists, and dictionaries, with Python dynamically determining the type upon assignment. Variable Naming and Assignment
+
+Choosing meaningful variable names helps keep code understandable and maintainable. Assigning a value to a variable is called initialization, and variables can be reassigned to new values or different data types as needed. Using Variables in Python Code
+
+Python allows dynamic typing. Dynamic typing in Python means that variables can point to objects of any data type without needing to declare the type explicitly. When you assign a value to a variable, Python automatically determines and assigns the data type based on the value. This allows you to reassign the same variable to different data types during the program execution.
+
+For example, a variable can first hold an integer and later be reassigned to a string without any errors.
+
+This flexibility is a key feature of Python's variable handling. Expressions involving variables can be used to perform operations, such as finding the maximum age in a list or calculating differences between values. Reassigning variables is necessary to update their contents, and the order of code execution affects variable values in environments like Jupyter Notebook.
+
+# Naming Conventions in Python
+
+Avoid using Python keywords (e.g., for, if, else) as variable names since they are reserved for specific purposes. Variable names should not use names of existing functions like print or str to prevent conflicts. Naming Restrictions for Variables
+
+Variable names can only include letters, numbers, and underscores; spaces and special characters like \$ or & are not allowed. Variable names must start with a letter or underscore and are case sensitive; parentheses are not allowed in variable names.
+
+# Use of Parentheses in Python
+
+Parentheses follow standard mathematical order of operations, ensuring expressions inside parentheses are evaluated first. Understanding these rules helps in writing precise and error-free Python code, especially when performing calculations.
+
+# Explore Python syntax
+
+Python is a flexible programming language used in a wide range of fields, including software development, machine learning, and data analysis. Python is one of the most popular programming languages for data professionals, so getting familiar with its fundamental syntax and semantics will be useful for your future career. In this reading, you will learn about Python’s syntax and semantics, as well as where to find resources to further your learning.
+
+The Language of Python People use language to communicate and give instructions to each other. Computers do the same thing, except computers use languages like Python, C++, and Java. So, in order to communicate instructions to the computer, programmers need to arrange ideas and concepts into a language it will understand.
+
+Python syntax includes words that represent objects and commands, as well as punctuation that gives the words structure, hierarchy, and context. Together, the words and punctuation communicate ideas and processes; this is known as semantics. Semantics is the meaning conveyed by the syntax. The best way to learn syntax and semantics is through exposure. Practice coding and become familiar and comfortable with reading other people’s code. In addition, there are some general conventions that practitioners use to help maintain stylistic uniformity within the language.
+
+Coding languages are similar to spoken languages in that they have a way to classify words according to their function. For example, English sentences are composed of nouns, verbs, prepositions, etc.
+
+Here are some of the basics:
+
+**Variables**: Represent data stored as strings, tuples, dictionaries, lists, and objects (note: future readings explain these categories)
+
+Example: student_name
+
+**Keywords**: Special words that are reserved for specific purposes and that can only be used for those purposes
+
+Examples:
+
+-   in
+
+-   not
+
+-   or
+
+-   for
+
+-   while
+
+-   return
+
+**Operators**: Symbols that perform operations on objects and values
+
+Examples: Addition Subtraction\
+Multiplication Division Exponentiation % Modulo (returns the remainder after a division). Example: 10 % 3 = 1 Floor division (divides the first operand by the second operand and rounds the result down to the nearest integer. Example: 5 // 2 = 2 \> Greater than (returns a Boolean of whether the left operand is greater than the right operand) \< Less than (returns a Boolean of whether the left operand is less than the right operand) == Equality (returns a Boolean of whether the left operand is equal to the right operand)
+
+**Expressions**: A combination of numbers, symbols, and variables to compute and return a result upon evaluation
+
+Example: \[1, 2, 3\] + \[2, 4, 6\]
+
+**Functions**: A group of related statements to perform a task and return a value
+
+Example:
+
+```{python}
+def to_celsius(x):
+   '''Convert Fahrenheit to Celsius'''
+   return (x-32) * 5/9
+
+to_celsius(75)
+```
+
+**Conditional statements:** Sections of code that direct program execution based on specified conditions
+
+```{python}
+number = -4
+
+if number > 0:
+   print('Number is positive.')
+elif number == 0:
+   print('Number is zero.')
+else:
+   print('Number is negative.')
+```
+
+As you’ll surely discover, Python generates syntax errors for incorrectly used keywords and syntax.
+
+```{python}
+#| error: true
+print(This will throw an error because I didnt make it a string.)
+```
+
+## Naming rules and conventions
+
+When assigning names to objects, programmers adhere to a set of rules and conventions which help to standardize code and make it more accessible to everyone. Here are some naming rules and conventions that you should know:
+
+-   Names cannot contain spaces.
+
+-   Names may be a mixture of upper and lower case characters.
+
+-   Names can’t start with a number but may contain numbers after the first character.
+
+-   Variable names and function names should be written in snake_case, which means that all letters are lowercase and words are separated using an underscore. 
+
+-   Descriptive names are better than cryptic abbreviations because they help other programmers (and you) read and interpret your code. For example, student_name is better than sn. It may feel excessive when you write it, but when you return to your code you’ll find it much easier to understand.
+
+Tim Peters, a Python programmer, wrote this now-famous “poem” of guiding principles for coding in Python:
+
+**The Zen of Python**
+
+Beautiful is better than ugly.
+
+Explicit is better than implicit.
+
+Simple is better than complex.
+
+Complex is better than complicated.
+
+Flat is better than nested.
+
+Sparse is better than dense.
+
+Readability counts.
+
+Special cases aren't special enough to break the rules.
+
+Although practicality beats purity.
+
+Errors should never pass silently.
+
+Unless explicitly silenced.
+
+In the face of ambiguity, refuse the temptation to guess.
+
+There should be one—and preferably only one—obvious way to do it.
+
+Although that way may not be obvious at first unless you're Dutch.
+
+Now is better than never.
+
+Although never is often better than \*right\* now.
+
+If the implementation is hard to explain, it's a bad idea.
+
+If the implementation is easy to explain, it may be a good idea.
+
+Namespaces are one honking great idea -- let's do more of those!
+
+Finally, it’s helpful to bookmark the [PEP 8 Style Guide for Python](https://peps.python.org/pep-0008/) so you can reference it as needed. This reading is limited in scope, and PEP 8 is a more exhaustive resource for style-related matters. PEP stands for Python Enhancement Proposals. These are a running catalog of ways to improve or standardize Python as a language. Because Python is open source, PEP offers a framework to guide developers and build consensus around ideas. It’s a useful and trusted resource.
+
+## Key takeaways
+
+Syntax and semantics are what give form and meaning to a language, including Python.  A large part of learning a new language is familiarizing yourself with its syntax and semantics. Much of this comes through exposure and practice, but there are a few guiding principles and resources that can help you along the way. If you learn the rules about naming objects and build a bank of resources that you can reference for guidance, you’ll surely make progress as a Python learner. As you get more familiar with Python, you’ll be able to communicate more efficiently with computers and do more with your data analysis tools!
+
+## Resources for more information
+
+Here are a few useful resources to help you get more familiar with Python:
+
+-   Python [Reference Library](https://docs.python.org/3/library/)
+
+    -   [Built-in Data types](https://docs.python.org/3/library/stdtypes.html)
+
+    -   [Built-in functions](https://docs.python.org/3/library/functions.html#built-in-functions)
+
+-   [Python operators](https://python-reference.readthedocs.io/en/latest/docs/operators/index.html)
+
+# Data Types in Python
+
+-   Strings are sequences of characters enclosed in quotes and are immutable, meaning their values cannot be changed.
+
+-   Integers represent whole numbers, while floats represent numbers with decimals.
+
+Handling Data Types and Errors
+
+-   Mixing different data types in operations can cause errors, such as TypeError when trying to add an integer to a string.
+
+-   Python provides the type() function to identify the data type of a variable or value.
+
+Data Type Conversion
+
+-   Implicit conversion happens automatically, such as converting integers to floats during arithmetic operations.
+
+-   Explicit conversion, or typecasting, requires using functions like int(), float(), and str() to convert data types manually.
+
+Debugging Tips
+
+-   Reading and understanding error messages helps improve programming skills.
+
+-   Searching online and consulting the data community is a common and effective strategy for solving coding errors.
+
+## Boolean Data and Comparators
+
+-   Boolean data has only two values: True or False, originating from mathematician George Boole.
+
+-   Python comparators compare two values and return Boolean results, such as greater than, less than, equal to, and not equal to.
+
+Logical Operators in Python
+
+-   Logical operators like and, or, and not combine multiple Boolean expressions for complex comparisons.
+
+-   The and operator returns True only if both expressions are true; or returns True if at least one expression is true; not inverts the Boolean value.
+
+Examples and Use Cases
+
+-   Comparators can compare numbers and strings (based on alphabetical order).
+
+-   Logical operators help data professionals write complex code to make decisions based on data comparisons.
+
+You’ve encountered many Python operators already. Many of them likely feel very familiar to you. After all, there’s nothing novel about addition and subtraction in Python. But there are many more operators than the ones used for basic arithmetic! Operators are characters that enact specific arithmetic, logical actions, or processes. Data professionals use operators all the time in their work, and they’re a rudimentary part of Python programming, so it’s important to learn them. This reading is a guide to the various operators available to you in Python.
+
+# Reference guide: Python operators
+
+You’ve encountered many Python operators already. Many of them likely feel very familiar to you. After all, there’s nothing novel about addition and subtraction in Python. But there are many more operators than the ones used for basic arithmetic! Operators are characters that enact specific arithmetic, logical actions, or processes. Data professionals use operators all the time in their work, and they’re a rudimentary part of Python programming, so it’s important to learn them. This reading is a guide to the various operators available to you in Python.
+
+## **Comparators**
+
+In Python, you can use comparison operators to compare values. When a comparison is made, Python returns a Boolean result—True or False. Python uses the following comparators:
+
+| Operation                | Operator |
+|:-------------------------|:---------|
+| greater than             | \>       |
+| greater than or equal to | \>=      |
+| less than                | \<       |
+| less than or equal to    | \<=      |
+| not equal to             | !=       |
+| equal to                 | ==       |
+
+**Notes:**
+
+-   The single equals sign (=) is reserved for assignment statements. If you use a single equal sign to make a comparison, the computer will return a **SyntaxError**.\
+-   If you try to compare data types that aren’t compatible, like checking if a string is greater than an integer, Python will throw a **TypeError**.
+
+## **Logical operators**
+
+Python also has three logical operators that can be combined with comparators to create more complex statements. These operators are:
+
+**and**\
+evaluates to `True` only if both statements are true
+
+**or**\
+evaluates to `True` if one or both of the statements are true
+
+**not**\
+reverses the evaluation. If the statement evaluates to `True`, returns `False`; if the statement evaluates to `False`, returns `True`.
+
+Examples:\
+x = 3\
+my_list = \[3, 4, 6, 10\]\
+print(x \< 3 and x != 0)\
+print(x \>= len(my_list) or x == min(my_list))\
+print(x not in my_list)
+
+## **Arithmetic operators**
+
+Python is also capable of performing mathematical operations using a set of built-in operators. These arithmetic operators are:
+
+| Operation | Operator | Example |
+|:-----------------------|:-----------------------|:-----------------------|
+| Addition | `+` | `[IN]  5 + 2 [OUT] 7` |
+| Subtraction | `-` | `[IN] 5 - 2 [OUT] 3` |
+| Multiplication | `*` | `[IN] 5 * 2 [OUT] 10` |
+| Division | `/` | `[IN] 5 / 2 [OUT] 2.5` |
+| Modulo (the remainder of a division) | `%` | `[IN] 5 % 2  [OUT] 1` |
+| Exponentiation | `**` | `[IN] 5 ** 2 [OUT] 25` |
+| Floor division (the number of times the denominator can fully go into the numerator) | `//` | `[IN] 5 // 2 [OUT] 2` |
+
+There are many other mathematical operations that can be performed in Python using functions from special libraries, which you’ll learn about later. Python uses a core set of operators to make comparisons, perform logical operations, and compute arithmetic operations. These operators can be combined in statements to perform an infinite number of tasks and operations.
+
+# Write clean code
+
+## Code Reusability
+
+-   Reusability means defining code once and using it multiple times without rewriting.
+
+-   Using functions helps eliminate code duplication, making scripts cleaner and easier to maintain.
+
+## Modularity in Python
+
+-   Modularity involves writing code in separate components that work together and can be reused.
+
+-   Python’s modular nature supports collaboration and efficient development by allowing reuse of code blocks.
+
+## Writing Clear and Maintainable Code
+
+-   Refactoring restructures code to improve readability while keeping functionality intact.
+
+-   Self-documenting code uses clear variable names, concise expressions, and comments to make the code’s purpose understandable for others.
+
+## Commenting and Algorithmic Thinking
+
+-   Comments in code, marked by hashtags, are not executed but help humans understand the code.
+
+-   Algorithms are step-by-step instructions to solve problems, similar to recipes, and thinking algorithmically means explaining tasks logically to a computer.
+
+# Writing Functions with Comments
+
+-   Functions are algorithms in code; breaking them into small steps with comments helps clarify the problem.
+
+-   Example: A function to calculate grass seed needed for a border around a square fountain uses comments to outline steps before coding.
+
+Implementing the Function
+
+-   The function calculates areas and seed amounts step-by-step, converting units as needed.
+
+-   Comments serve as scaffolding to organize code logically and make it easier to write and understand.
+
+Docstrings for Clarity
+
+-   Docstrings are multi-line comments at the start of a function explaining its purpose, parameters, and return values.
+
+-   They improve code usability and help others understand the function’s behavior.
+
+Benefits of Good Commenting
+
+-   Well-documented code is easier to maintain and share.
+
+-   Writing comments and docstrings is a valuable habit for data professionals to ensure clarity and collaboration.
+
+# Reference guide: Functions
+
+As you’ve been learning, functions are bodies of reusable code for performing specific processes or tasks. They help you do more work with less code. Function examples include: 
+
+-   A specific calculation or measurement, such as converting Fahrenheit to Celsius
+
+-   An inventory utility to iterate quantities and calculate the total cost of goods in stock
+
+-   Building a DataFrame from a series or dictionary data
+
+-   An application utility such as a spell checker
+
+In this reading, you will learn how to define, build, and call functions.
+
+**Reference guide: Functions**
+
+As you’ve been learning, functions are bodies of reusable code for performing specific processes or tasks. They help you do more work with less code. Function examples include:
+
+-   A specific calculation or measurement, such as converting Fahrenheit to Celsius\
+-   An inventory utility to iterate quantities and calculate the total cost of goods in stock\
+-   Building a DataFrame from a series or dictionary data\
+-   An application utility such as a spell checker
+
+In this reading, you will learn how to define, build, and call functions.
+
+## **Function syntax**
+
+Define functions using the following syntax and format:\
+\![\]\[image1\]
+
+1.  Begin with the `def` keyword followed by the function’s name, then put its parameters/arguments in parentheses, ending with a colon.
+    1.  Python convention is to use snake_case (lowercase words separated by underscores) for function names.\
+2.  For important functions or functions whose purposes or operations are not very obvious, include a docstring. Write the docstring between three opening and closing quotation marks.
+    1.  The docstring should be in the form of a command (e.g., “Add two numbers” as opposed to “Adds two numbers”).\
+    2.  The docstring should summarize the function’s behavior and explain its arguments and return values.\
+    3.  The docstring should be indented four spaces from the definition statement.\
+3.  Write the body of the function.
+    1.  All code should be indented at least four spaces from the definition statement, but there can be many levels of indentation depending on the complexity of the code.\
+4.  Finally, use a return statement to return a value or a print statement to print something to the console and complete the function. This line should also be indented four spaces.
+
+## **return vs. print**
+
+Sometimes the difference between return statements and print statements isn’t clear to new learners of Python. It’s important to understand what each action is and when to use it. Return statements give you a result that you can use for something else. It doesn’t have to be something that prints when the function is run. Print statements print something to the console and nothing more. Think of it like this: a return statement is like your brother going to the market and bringing you back a bag of potatoes. A print statement is like your brother going to the market, coming home, and telling you what kind of potatoes were for sale. With the return statement, you have some potatoes to cook. With the print statement, you just know what potatoes are available, but you don’t have any potatoes.
+
+## **Functions vs. methods**
+
+Functions and methods are very similar, but there are a few key differences. Methods are a specific type of function. They are functions that belong to a class. This means that you can use them—or “call” them—by using dot notation.
+
+Method example:\
+`my_string = “The eagles filled the sky.”`\
+`my_string.split()`
+
+The split method is a function that belongs to the `string` class. It splits strings on their whitespaces.
+
+Standalone functions do not belong to a particular class and can often be used on multiple classes.
+
+Function example:\
+`>>> sum([6, 3])`\
+`9`
+
+You can review [Python’s list of built-in functions](https://docs.python.org/3/library/functions.html) and research how other people use them in the [Jupyter forum](https://discourse.jupyter.org/), [StackOverflow](https://stackoverflow.com/), and other online communities.
+
+## Resources for more information
+
+For more information on functions, consider the Python [Reference Library](https://docs.python.org/3/library/), [Data types,](https://docs.python.org/3/library/stdtypes.html) [Functions](https://docs.python.org/3/library/functions.html#built-in-functions), [Symbols](https://wiki.python.org/moin/PythonGlossary?action=AttachFile&do=view&target=PySymbols.html)
+
+-   [Built-in functions](https://docs.python.org/3/library/functions.html#built-in-functions):
+    -   [enumerate](https://docs.python.org/3/library/functions.html#enumerate)()
+    -   [isinstance](https://docs.python.org/3/library/functions.html#isinstance)()
+    -   [dict](https://docs.python.org/3/library/functions.html#func-dict)()
+    -   [type](https://docs.python.org/3/library/functions.html#type)()
+    -   [len](https://docs.python.org/3/library/functions.html#len)()
+    -   [set](https://docs.python.org/3/library/functions.html#func-set)()
+    -   [zip()](https://docs.python.org/3/library/functions.html#zip)
+-   [Docstring conventions](https://peps.python.org/pep-0257/): PEP 257 guide to writing docstrings

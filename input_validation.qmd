@@ -1,0 +1,183 @@
+---
+title: Input Validation
+format: html
+jupyter: python3
+---
+
+
+```{python}
+# include: false
+import _setup
+```
+
+​You should check and recheck your data sets to make sure that they are correct. ​As I mentioned before as a data professional you should ​know your dataset thoroughly.
+
+​One way to make sure you know a data set is validating it, ​which is as you recall, one of the six practices of EDA. ​There are many different ways to validate a set of data, but ​here we'll discuss Input validation.
+
+​Input validation is the practice of thoroughly analyzing and ​double checking to make sure data is complete, error free, and high quality.
+
+​Input validation is intended to be an iterative practice, ​meaning you should perform it again and again in between and ​during the other five practices of EDA, which are discovering, ​structuring, cleaning, joining and presenting.
+
+​Most often as a data professional you will perform input validation when ​starting a new analysis project or getting familiar with a new data source.
+
+​We will discuss more about the how of performing input validation later in ​the program. ​Now we will focus on the why and the what? ​Why should we take the time to validate data? ​What exactly are we looking for? ​When we validate data, we help make more accurate business decisions and ​we improve complex model performance.
+
+​The more careful we are in checking and rechecking our data after each ​manipulation of the data during EDA, the less likely we are to have problems later. ​Clean and validated data can help prevent future system crashes, ​coding issues or wrong predictions. ​So, while we are performing our validation work, what is it that we're searching for? ​No two data sets are alike. ​There will be different things to check for based on the type.
+
+​Here's some questions to consider when validating data.
+
+​Are all the data entries in the same format, for example, ​are people's ages expressed as solitary numbers like 23 and ​47 or within a range like 18 to 35 and 35 to 50,
+
+​are all entries in the same range? ​For instance, in finance are some of the values expressed in thousands of euros and ​others in millions of euros.
+
+​Finally are the applicable data entries expressed in the same data type. ​For example, are all the dated entries expressed in the same ​format of month, day or year?
+
+​While asking these questions or while performing EDA in general, ​you may find that the data you have been given is not sufficient to answer ​the business questions that you have been tasked with.
+
+​As you've learned, joining is different from the structuring technique merging.
+
+​While asking these questions or while performing media in general. ​You may find that the data you have been given is not sufficient to answer ​the business question. **​Joining is the process of augmenting data by adding values from other data sets.**
+
+​The practice of joining will be most useful if we validate the data to ​ensure formatting and data entries aligned and are the same data type.
+
+​You will need to use your own logic, common sense and ​experiences to understand the ways in which you should join or ​validate each particular data set you work on. ​There won't be a rigid process to show you down to the detail how to handle each ​data file.
+
+​Data science takes a lot of analytical thinking and ​shifting of perspectives to be thorough in your EDA and validation. ​Experience and ​effort will be the best way to improve your performance in analytical thinking.
+
+​We'll also be exploring examples in our Python notebooks as well.
+
+​Keeping your validation practices in line with the PACE workflow will also help ​you keep a focus on ethics. ​Validation should be about cleaning and correcting data for ​the sake of quality and correctness.
+
+​You probably won't be surprised to learn that the EDA practice of validating fits ​squarely in the analyze phase of our PACE workflow, but ​is also a practice you should use for all four phases. ​Remember, PACE stands for plan, analyze, construct and execute. ​This means that what and how we join and ​validate data should be in alignment with the plan phase of the workflow. ​For example, if your task is to discover which week within a given month is ​most profitable for a business, it will be important that you check and ​recheck that you've grouped the revenue dates into weeks correctly. ​Your analysis won't be effective, ​if you think you've grouped revenue by week but actually done it by day or month.
+
+​When you look to validate your data to this level of detail, ​it will help you towards meeting your PACE goals, ​specifically for the construct and execute phases. ​Before we end, there's one more thing that can help you with validating and ​joining aspects of EDA.
+
+​Look to your peers and managers to help you. ​A peer reviewed data set is one of the best ways to ensure that you check ​yourself on bias, keep ethics as a focus and ​ensure you are on track with the PACE workflow.
+
+------------------------------------------------------------------------
+
+# Input validation with python
+
+Remember, **input validation is ​the practice of thoroughly analyzing and ​double-checking to make sure data is ​complete, error-free and high-quality**. ​ ​With that knowledge fresh in your mind, ​it's time to discuss how to ​perform input validation in Python. ​We'll focus our validation on the NOAA data ​The goal will be to check for errors and ​prepare this dataset for publication. ​Let's open our Python notebooks and get started. ​First step, as usual, ​we will import the Python libraries and ​packages that we need for input validation. 
+
+```{python}
+# Import statements
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import datetime
+from matplotlib import pyplot as plt
+import plotly.express as px
+```
+
+```{python}
+df = pd.read_csv(r'Datasets\eda_input_validation_joining_dataset1.csv')
+
+df.head()
+```
+
+```{python}
+df.dtypes
+```
+
+We will transform date to a datetime as usual
+
+```{python}
+df.date = pd.to_datetime(df.date)
+df.dtypes
+```
+
+One thing we should include in ​our input validation is a check for missing data. ​You'll recall from earlier that ​we likely will have already done ​this check for missing entries ​during the cleaning part of EDA. The definition of validate assumes ​an action or process has already been completed, ​so if we input isnull.sum into our notebook ​in order to give us missing values for the second time. ​It is a practical and not redundant thing to do. ​After running the code, ​we find that there are indeed no missing values.
+
+```{python}
+df.isnull().sum()
+```
+
+Next, for this dataset, ​let's review the ranges of all the variables. ​In this review, we will check the ​highest and the lowest values of each column, ​and the overall distribution of values. ​To do this, we'll use the describe function, ​which you may recall from previous lessons. ​In the argument field will use the ​parameter includes equal, all. 
+​This will tell the notebook to include ​every parameter covered by the describe function. 
+​Y
+
+```{python}
+df.describe(include='all')
+```
+
+You'll notice NaN values in some of ​the describe fields like unique, last and max. ​Remember that these are not fields in the dataset, ​but rather a summary table of attributes. ​For example, you'll notice that there are ​NaNs in the date column for mean, ​min, 50 percent, and max. ​These are to be expected because dates are not ​datatypes that would be averaged. ​Speaking of dates, let's double-check our date column. ​First, are there any calendar days missing? 
+We know from prior EDA work on this dataset that ​the date column should include every day of each year. ​Let's confirm each day is listed by ​designing a calendar index, ​we'll call it full date range. ​We'll then use the pandas date ​range function with the first and last dates ​of 2018 in the argument field ​under the start and end parameters. ​After that, let's add full_date_range.difference. ​Then in the argument field we'll add df, ​and in the brackets, the column header date, ​which will limit this function to ​checking only the date column. ​
+
+```{python}
+full_date_Range = pd.date_range(start = '2018-01-01', end = '2018-12-31')
+full_date_Range.difference(df['date'])
+```
+
+
+The result is interesting. There are ​four consecutive days missing in June of 2018, ​then two consecutive days in September, ​and two consecutive days in December. 
+
+​This finding would be something to ​investigate or to question the owner of the data, ​to find out the reason why. ​Given that the number of ​missing days is relatively small, ​you can complete your analysis by making ​a note of the missing days in the presentation. ​This will ensure that anyone who ​analyzes your visualization ​or presentation will know that the data ​depicted doesn't include those missing dates
+
+Now that we've done some initial validation, ​let's get a better sense of the range ​of the total numbers of lightening strikes. ​If we use a simple box plot data visualization with ​number of strikes as ​our data parameter in the argument field, ​we'll find that the distribution is a very skewed. ​Most days of the year have ​less than five lightning strikes, ​but some days have more than 2,000. ​As you recall from a previous video, ​we can remove the outliers ​from the boxplot visualization to ​help us understand where ​the majority of our data is distributed. 
+
+```{python}
+sns.boxplot(y = df['number_of_strikes'])
+```
+
+```{python}
+#same graph in plotly
+fig = px.box(df, y = 'number_of_strikes')
+fig.show()
+```
+
+If we use a simple box plot data visualization with ​number of strikes as ​our data parameter in the argument field, ​we'll find that the distribution is a very skewed. ​Most days of the year have ​less than five lightning strikes, ​but some days have more than 2,000. ​As you recall from a previous video, ​we can remove the outliers ​from the boxplot visualization to ​help us understand where ​the majority of our data is distributed. 
+
+```{python}
+sns.boxplot(y = df['number_of_strikes'], showfliers =False)
+```
+
+Note that removing the outliers in plotly is not that easy.
+
+Plotly calculates y-axis boundaries using the entire dataset's minimum and maximum values—even when boxpoints=False hides the outlier dots. As a result, the box appears compressed at the bottom because blank space is left for the invisible points.
+
+To fix this, either filter out the outliers before plotting or adjust the y-axis range to match the whiskers.
+
+ Filter Outliers in pandas (Recommended)
+ 
+ Filtering the dataset using the $1.5 \times \text{IQR}$ rule allows Plotly to recalculate both the box dimensions and the axis scale automatically:
+
+```{python}
+# 1. Calculate IQR boundaries
+q1 = df['number_of_strikes'].quantile(0.25)
+q3 = df['number_of_strikes'].quantile(0.75)
+iqr = q3 - q1
+
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+# 2. Filter out outliers
+df_filtered = df[
+    (df['number_of_strikes'] >= lower_bound)
+    & (df['number_of_strikes'] <= upper_bound)
+]
+
+# 3. Plot filtered dataset
+fig = px.box(df_filtered, y='number_of_strikes')
+fig.show()
+```
+
+From what we know of lightning strikes in ​the North America regions of the United States, ​Mexico, and the Caribbean, ​this distribution is conceivable. ​If the highest distribution of ​strikes were all in the 2000s, ​we might be a little more skeptical. 
+
+​The last bit of input validation we will ​do is to verify that all of ​the latitudes and longitudes included in ​this dataset are in the United States. ​This will ensure we don't have ​any mistakes in our geographic values. 
+
+​To do that, we'll first create ​a new DataFrame that removes all the duplicate values. 
+
+```{python}
+df_points = df[['latitude','longitude']].drop_duplicates()
+df_points.head()
+```
+
+Finally, we will plot these points on a map. ​Here's a tip. When you're working with ​hundreds of thousands of data points plotted on a map, ​it takes a lot of computing power. 
+
+To make it a shorter runtime, ​we'll use the Plotly express package. ​The package is designed to keep ​runtimes as low as possible. ​To plot these latitude and longitude points on a map, ​we use the scatter geo plot from Plotly Express. ​Within the argument field, ​we'll fill in the proper parameters ​for a scatter geo plot. ​​you'll notice the runtime is still ​slow because of the sheer volume of the data. 
+
+```{python}
+px.scatter_geo(df_points, lat = 'latitude', lon ='longitude')
+```
+

@@ -1,0 +1,114 @@
+---
+title: "Raci matrix practice"
+format: html
+---
+
+Review the following scenario. Then complete the step-by-step instructions.
+
+**RACI** is an acronym that comes from four classifications of involvement: **Responsible, Accountable, Consulted, and Informed**. The RACI matrix is one of many ways that companies organize roles and responsibilities. Although you may encounter other structural models, the RACI matrix offers you a lot of information on workplace responsibilities in a simple way. When companies employ the RACI matrix, stakeholders and cross-functional team members have a clearer understanding of involvement throughout the entire project. It is a model that helps to define roles and responsibilities for individuals or teams to ensure work gets done efficiently by listing who is "responsible," "accountable," "consulted," and "informed" for project tasks.
+
+The matrix identifies and assigns project tasks to one of the following levels of engagement:
+
+-   **Responsible**: The cross-functional team members in this role are directly responsible for **performing the work necessary** or make decisions that are directly related to completing a task within a project. There can be several roles or groups responsible for the task, meaning that the responsibilities are held jointly by more than one classification.
+
+-   **Accountable**: Those assigned the accountable role within a task are given the job of a**pproving the work performed by those who are “responsible.”** As a general rule there is usually a single person in this role, often a manager or a project lead.
+
+-   **Consulted**: This role applies to those assigned to **offer input on a task**. There should be a clear and open line of 2-way communication between those assigned to “responsible” and “consulted.” There can be several people in this role. In many situations, they are referred to as **subject matter experts**, or SMEs for short.
+
+-   **Informed**: Those in this role need to be **kept aware of progress and concerns of those working on a project**. These responsibilities tend to be assigned to higher levels of senior leadership. They need to understand the insights from projects rather than the details of how specific tasks are performed.
+
+By labeling someone to one of these four categories, the RACI matrix helps categorize their level of involvement and proximity to each task. When you know who is involved, and at what level, it’s easier to determine who to contact if any concerns arise.
+
+## Step-By-Step Instructions
+
+Follow the instructions and answer the questions to complete the activity. Then, go to the next course item to compare your work to a completed exemplar.
+
+Part 1 - **Explore an example matrix**
+
+Step 1: Review four common data professional roles Consider the four common data professional roles and how they might perform different functions and tasks within the same project:
+
+-   **Data scientist**: Data scientists are professionals who work closely with analytics to provide meaningful insights that help improve current business operations.
+
+-   **Data engineer**: Data engineers are professionals concerned with infrastructure and are responsible for developing and managing databases. They often work alongside data scientists to build custom pipelines to manage the analysis and organization of raw data.
+
+-   **Analytics team Manager:** Analytics team managers are data professionals who build and support a team of data scientists and analysts. Often they will lead a company’s analytics department. In this role, they supervise different projects to develop and implement strategies that convert raw data into business insights.
+
+-   **Business intelligence (BI) engineer**: Business intelligence engineers are data professionals who use their knowledge of business trends and databases to **organize information and make it accessible**. This role is also known as a business intelligence analyst.
+
+One of the tasks essential to any analytics project is providing access to data. This means that when you assume this role, you will help others use the available data. The RACI matrix is a way to communicate the level of accountability for this task by assigning cross-functional team members to one of the four categories: R: Responsible, A: Accountable, C: Consulted, or I: Informed
+
++----------------+-----------------------+----------------+------------------------+---------------+
+| Task           | Business Intelligence | Data Scientist | Analytics Team Manager | Data Engineer |
+|                |                       |                |                        |               |
+|                | Engineer              |                |                        |               |
++================+=======================+================+========================+===============+
+| Access to data | R                     | C              | R                      | R             |
++----------------+-----------------------+----------------+------------------------+---------------+
+| Meaning        | Responsible           | Consulted      | Responsible            | Responsible   |
++----------------+-----------------------+----------------+------------------------+---------------+
+
+On the sample RACI chart, not every letter has been assigned. Not all tasks will include every letter! Three of the data roles have been marked as “responsible” for facilitating data accessibility.
+
+BI engineers organize existing data and provide reports to help understand what type of data is available.
+
+Analytics team managers develop and prioritize work streams based on business questions that can be addressed with the data.
+
+Data engineers build custom pipelines to manage organization of and access to the raw data the team needs.
+
+All three of these roles have been assigned tasks that will provide access to data for other team members.
+
+Notice that data scientists are "consulted" in this example. Although they are instrumental in analyzing data and providing insights, they might not take the lead in initially acquiring the data. However, the data scientists will want to work closely with those leading the process to make sure they have data that is aligned to the business objectives and modeling approach.
+
+Part 2 - Complete your own matrix To use the template for this course item,
+
+Assign the business intelligence engineer, the data scientist, the analytics team manager, and the data engineer one of the RACI categories for three different data project tasks: R: Responsible, A: Accountable, C: Consulted, or I: Informed.
+
+For this matrix, there are three common tasks that need to be assigned: access to data, create models to analyze data, and drive insights and recommendations based on data.
+
+Remember to consider each role’s usual responsibilities as you complete your matrix.
+
+Chief data officer: The chief data officer is in charge of consistency, accuracy, relevancy, interpretability, and reliability of the data a team provides.
+
+There will be some tasks that will require more senior stakeholder engagement. One of those tasks is ensuring that data used in analysis is compliant with industry standards and regulations.
+
+Ensure Data Compliance: Team members responsible for making sure that the organization follows protocols and legal requirements of data stewardship.
+
+Add this new role and task to your RACI matrix.
+
+::: tabla-pequena
++------------------------------------+--------------------------------+----------------+-----------------------+---------------+--------------------+
+| <div>                              | Business Intelligence Engineer | Data Scientist | Analytic Team Manager | Data Engineer | Chief Data Officer |
+|                                    |                                |                |                       |               |                    |
+| Task                               |                                |                |                       |               |                    |
+|                                    |                                |                |                       |               |                    |
+| </div>                             |                                |                |                       |               |                    |
++====================================+================================+================+=======================+===============+====================+
+| Access to data                     | Responsible                    | Consulted      | Responsible           | Responsible   | Accountable        |
++------------------------------------+--------------------------------+----------------+-----------------------+---------------+--------------------+
+| Create models to analyze data      | Consulted                      | Responsible    | Consulted             | Informed      | Accountable        |
++------------------------------------+--------------------------------+----------------+-----------------------+---------------+--------------------+
+| Drive insights and recommendations | Consulted                      | Responsible    | Consulted             | Informed      | Accountable        |
++------------------------------------+--------------------------------+----------------+-----------------------+---------------+--------------------+
+| Ensure Data Compliance             | Consulted                      | Informed       | Consulted             | Responsible   | Accountable        |
++------------------------------------+--------------------------------+----------------+-----------------------+---------------+--------------------+
+:::
+
+What to Include in Your Response
+
+***Note:** The exemplar represents one possible way to complete the RACI matrix. Different groups, organizations, or teams will have their own unique way of assigning roles and responsibilities to team members; these assignments may fluctuate from project to project or depending on other business variables.*
+
+### **RACI matrix:**
+
+-   **Access to data:** Based on their general roles within an organization, the business intelligence engineer, analytics team manager, and data engineer have all been identified as responsible for providing access to the data. The data scientist, who is more responsible for working with the analytics team to draw insights from the data, is just consulted. 
+
+-   **Create models to analyze data**: The data scientist, who is primarily concerned with drawing insights from the data, is responsible for this task. The business intelligence engineer and analytics team manager are consulted. The data engineer, who is concerned with infrastructure, is kept informed. 
+
+-   **Drive insights and recommendations based on data**: Similarly to the previous task, the data scientist is the primary team member responsible for this task. 
+
+-   **Ensure data compliance**: Data compliance is part of developing and managing databases, which is the responsibility of the data engineer. Other team members are consulted or informed, but the data engineer is tasked with the actual responsibility of ensuring compliance.
+
+-   **Chief data officer**: Although all of the tasks in this project are the direct responsibility of other team members, the company’s chief data officer is accountable for them—meaning this role has the ultimate responsibility for ensuring this task is completed. 
+
+## Key Takeaways
+
+In your work as a data professional, you might encounter the RACI matrix. It is a tool that many organizations use to structure their projects. It also helps to outline, communicate, and understand the responsibilities of data analytics professionals and other cross-functional team members. As a data professional, RACI can also help you consider how to structure your communication with other team members about a project. Understanding how data teams are organized will set you up for better collaboration with your future colleagues!

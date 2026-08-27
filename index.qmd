@@ -1,0 +1,16 @@
+---
+title: "Data_Analytics_Study_Guide"
+---
+
+
+
+
+This is a study guide for the [Google Advanced Data Analytics](https://www.coursera.org/professional-certificates/google-advanced-data-analytics) course from coursera. It contains notes, summaries, and examples to help you understand the concepts and techniques covered in the course.
+
+The first part *Introduction to Data Analysis using Python* actually belongs to the previous course [Google Data Analytics ](coursera.org/specializations/google-data-analytics) because the Advanced course used to have a python specific section, but not anymore, so I jumped to this course for a quick intro to python.
+
+
+All of the instructional lessons with onscreen coding demonstrations have a corresponding follow-along guide that is available to you. The follow-along guide is an annotated Jupyter notebook organized to match the content from each module. This guide is provided for your reference;
+
+In addition to content that is identical to what is covered in the lessons, you’ll often find additional information throughout the guide to explain the purpose of each concept covered, why the code is written in a certain way, and tips for running the code. 
+

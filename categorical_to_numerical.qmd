@@ -1,0 +1,525 @@
+---
+title: "Change categorical data to numerical data"
+format: html
+---
+
+```{python}
+#| include: false
+import _setup
+```
+
+Have you ever tried to charge your phone with the wrong type of plug? ​It is a frustrating problem but definitely not an insurmountable one. ​You will probably experience a similar frustration when you work with ​categorical data.
+
+​Categorical data is data that is divided into a limited number of ​qualitative groups. ​For example, demographic information tends to be categorical, ​like occupation, ethnicity and educational attainment.
+
+​Another way to think about categorical data is data that uses words or ​qualities rather than numbers.
+
+​As a data professional, ​you will likely work with datasets that contain categorical data. ​
+
+Categorical data entries can typically be identified quickly because they ​are often represented in words and have a limited number of possible values. ​
+
+Many data models and algorithms don't work as well with ​categorical data as they do with numerical data. ​Assigning numerical representative values to categorical data is often ​the quickest and most effective way to learn about the distribution ​of categorical values in a data set. ​
+
+There are some algorithms that work well with categorical variables in word form, ​like, decision trees, which you'll learn about in another course. ​However, with many data sets, ​the categorical data will need to be turned into numerical data. ​
+
+This conversion is often essential for ​predicting classifying forecasting and more. ​
+
+There are several ways to change categorical data to numerical. ​In this video we will focus on two common methods, ​creating dummy variables and label encoding.
+
+​One way to work with categorical data is to create **dummy variables** ​to represent those categories
+
+​Dummy variables are variables with values of 0 or 1, ​which indicate the presence or absence of something. ​​You can think of it as the one represent a yes, and the zeroes representing no. ​Dummy variables are especially useful in statistical models and ​machine learning algorithms.
+
+​Another way to work with categorical data is called **label encoding.** ​Label encoding is a data transformation technique where each category ​is assigned a unique number instead of a qualitative value. ​For instance, let's imagine you had a data set about mushrooms, in which you wanted ​to understand the distribution among different types of mushrooms. ​Imagine you've been given a data set about mushrooms with a column titled type, ​and the options of black truffle, cremini, king trumpet, ​button, hedgehog, morel, portobello, toadstool or shiitake. ​You could use label encoding to transform each mushroom type into a number. ​Black truffle would be changed to a 0, ​button would become a 1, cremini a 2, hedgehog, ​a 3, king trumpet a 4, morel 5, Portobello 6, ​shiitake 7, and lastly toadstool would be 8. ​
+
+So why do data professionals use label encoding? ​Data is much simpler to clean, join and ​group when it is all numbers, it also takes up less storage space. ​
+
+An algorithm or model typically runs smoother when we take the time to ​transform our categorical data into numerical data. ​For example, let's say you try to run a prediction model using the mushroom ​dataset which will try to anticipate the percent chance a new mushroom ​introduced to the data is a Portobello. ​If we try to create a model without first performing the label encoding, ​the prediction model will not function.
+
+​Of course there will be models and ​algorithms in which you may not want to perform label encoding. ​Let the business need be your guide on whether or ​not you'll need to perform label encoding. ​The type of model or algorithm you choose will determine whether or ​not you encode labels. ​You'll learn more about algorithms and models in an upcoming course. ​Much like making sure you have the right phone charger to plug into your phone, ​as a data professional, ​you need to make sure your data is ready to use with models or algorithms.
+
+------------------------------------------------------------------------
+
+# Label encoding in Python
+
+In a previous lesson, you learned about the importance of label encoding, ​also known as transforming categorical data into numerical data. ​Now it's time to open our python notebooks and learn how to do it. ​
+
+Let's continue with the same NOAA dataset we've been using for ​lightning strike counts. ​For this notebook, we'll look at data from 2016, 2017, and 2018.
+
+ ​Let's start by importing python libraries and packages. ​For this notebook, let's import date time pandas, seaborn and ​pi plot from matt plot lib. 
+
+​
+
+```{python}
+# Import statements
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import datetime
+from matplotlib import pyplot as plt
+import plotly.express as px
+#import de data
+df = pd.read_csv(r'Datasets\eda_label_encoding_dataset.csv')
+df.head()
+```
+
+As you learned previously, start by converting the date ​column into date time, which makes it easier to manipulate. 
+
+​Next, create a column called month. ​Like we did earlier, we will use str.slice ​to cut the month names down to only the first three letters. ​When working with this data, ​it is helpful to make sure the month names stay in chronological order. ​Our next line of code then is months, ​which simply defines the group of months in order. 
+
+```{python}
+df['date']=pd.to_datetime(df['date'])
+df['month'] = df.date.dt.month_name().str.slice(stop=3)
+# Create categorical designations
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+
+```
+
+​You'll find this helpful on the next line of code where we use the pandas function ​categorical to group the number of strikes column by the month column because we ​have three years worth of data. ​Let's also create a column listing the year. ​To do this, we name the column year, using the date time function strf time. 
+
+```{python}
+# Encode `month` column as categoricals 
+df['month'] = pd.Categorical(df['month'], categories=months, ordered=True)
+
+# Create `year` column by extracting the year info from the datetime object
+df['year'] = df['date'].dt.strftime('%Y')
+
+
+
+
+```
+
+​This function will return a string representing only the year ​in the original date column. ​Inside the argument field, we input percent sign y indicating we ​only want the year from the date time string. ​
+
+Finally, let's create a data frame called df by month, ​which groups the number of strikes first by year and then month. ​The last part of the code here is making sure that the number of ​strikes is added together for each month using the sum method. ​We'll tack on the reset index function to tell the notebook to recount ​the rows from zero without using its initial order. ​
+
+```{python}
+# Create a new df of month, year, total strikes
+df_by_month = df.groupby(['year', 'month']).sum(numeric_only=True).reset_index()
+df_by_month.head()
+```
+
+When we look at the top of the data frame, using the head function, ​we get the first five rows of data with columns of year, month, ​and number of strikes. ​Let's create a column for categorical variables called strike level. 
+
+​In this column, we will group or bucket the total number of ​strikes into categories Mild, scattered, Heavy, and Severe. ​This is how we perform label encoding in python. ​To do this will create a new column ​in *df_by_month* data frame called strike level. ​This new column will be coded using the pandas function `qcut` ​
+
+```{python}
+# Create a new column that categorizes number_of_strikes into 1 of 4 categories
+df_by_month['strike_level'] = pd.qcut(
+    df_by_month['number_of_strikes'],
+    4,
+    labels = ['Mild', 'Scattered', 'Heavy', 'Severe'])
+df_by_month.head()
+```
+
+the queue in this function refers to quantiles. ​Meaning that when using this pandas function, ​you can cut the data into four equal quantized. ​First parameters: we first input the desired column we want to cut ​into quantiles, which will be the column called number of strikes. ​Then we input the number of quantiles we want, which is 4 for each classification. ​We type in those classifications under the label parameter, Mild, ​scattered Heavy, and Severe. ​
+
+​It may seem counterintuitive to create categorical data in order to ​then transform it to numerical data. ​But this process will allow us to segment the data into useful chunks, ​which can then be plotted on a graph in interesting ways. ​Not to mention, string categories are easier to understand in ​a data visualization than numbers. 
+
+::: .note
+
+ **Quantile Binning: `pd.qcut()` & The Duplicate Edges **
+
+`pd.qcut()` splits continuous numeric data into equal-sized buckets based on sample quantiles (e.g., `q=2` splits at the median).
+
+---
+
+The Problem: Non-Unique Bin Edges
+
+When duplicate values sit directly on a quantile boundary, pandas cannot determine which bin the repeated value belongs to.
+
+```python
+# Example: 11 values where '5' spans across the 50th percentile (median)
+s = pd.Series([1, 1, 1, 5, 5, 5, 5, 5, 5, 5, 5])
+
+# Fails with ValueError: Bin edges must be unique
+pd.qcut(s, q=2, labels=['low', 'high'])
+```
+
+**Why it happens:** Both Bin 1 (lower 50%) and Bin 2 (upper 50%) share the exact same boundary value (`5.0`). Pandas refuses to arbitrarily put some `5`s in `'low'` and other `5`s in `'high'`.
+
+**Solution A: Drop Duplicates (`duplicates='drop'`)**
+
+Tells pandas to collapse identical bin boundaries together.
+
+```{python}
+s = {'Values':[1, 1, 1, 5, 5, 5, 5, 5, 5, 5, 5]}
+s = pd.DataFrame(s)
+# Drops duplicate bin boundaries automatically
+s['cuts'] = pd.qcut(s['Values'], q=2, duplicates='drop')
+s
+
+```
+
+* **Pros:** Prevents code execution failure.
+* **Cons:** Automatically reduces the number of output bins (e.g., collapses from 2 categories down to 1). Passing a custom `labels` list will throw an error if the label count doesn't match the collapsed bin count.
+
+**Solution B: Force Equal Splits (`.rank(method='first')`)**
+
+If your task requires equal group sizes regardless of duplicate values, rank the data first to assign a unique position to every row.
+
+* **How it works:** `s.rank(method='first')` converts ties into sequential index positions (1, 2, 3...), giving `qcut()` distinct numeric values to split evenly.
+
+```{python}
+s = {'Values':[1, 1, 1, 5, 5, 5, 5, 5, 5, 5, 5]}
+s = pd.DataFrame(s)
+
+s['ranked'] = s['Values'].rank(method='first')
+
+# 2. STEP TWO: Run qcut on the RANKS, not the raw values
+s['cuts'] = pd.qcut(s['ranked'], q=2, labels=['low', 'high'])
+s
+```
+
+
+**Practical Code Demonstration**
+
+Run the following code block to compare how both solutions handle duplicate values at boundaries:
+
+```{python}
+import pandas as pd
+
+# Sample dataset with repeated values crossing the median
+companies = pd.DataFrame({
+    'Company': ['Co A', 'Co B', 'Co C', 'Co D', 'Co E', 'Co F'],
+    'Valuation': [1, 2, 5, 5, 5, 10]
+})
+
+print("=== ORIGINAL DATA ===")
+print(companies[['Company', 'Valuation']])
+print("\n" + "="*40 + "\n")
+
+# ---------------------------------------------------------
+# METHOD 1: Handling Duplicate Edges with duplicates='drop'
+# ---------------------------------------------------------
+print("--- Method 1: duplicates='drop' ---")
+# Collapses overlapping boundaries (omits custom labels to avoid length mismatch)
+companies['Val_Binned_Drop'] = pd.qcut(
+    companies['Valuation'], 
+    q=2, 
+    duplicates='drop'
+)
+print(companies[['Company', 'Valuation', 'Val_Binned_Drop']])
+print("\n" + "="*40 + "\n")
+
+# ---------------------------------------------------------
+# METHOD 2: Exact Split via .rank(method='first')
+# ---------------------------------------------------------
+print("--- Method 2: Rank First (Exact 50/50 Split) ---")
+# 1. Rank values to break ties by index order
+val_ranked = companies['Valuation'].rank(method='first')
+
+# 2. Apply qcut with labels on the ranked Series
+companies['High Valuation'] = pd.qcut(
+    val_ranked, 
+    q=2, 
+    labels=['low', 'high']
+)
+
+print(companies[['Company', 'Valuation', 'High Valuation']])
+```
+
+---
+
+## Quick Reference
+
+* **Equal Row Counts Required:** Rank first (`df['col'].rank(method='first')`) before passing to `qcut()`.
+* **Fixed Range Bins Required:** Use `pd.cut()` instead of `pd.qcut()` to bin by fixed value ranges (e.g., 0–5, 5–10) rather than row-count percentiles.
+
+:::
+
+​One other column which will help us later is to assign numerical values to ​the strike levels. ​We just defined as mild, scattered, heavy, and severe. ​We'll call this new column strike level code. ​We'll define it by taking the column strike level and adding `.cat.codes.` 
+
+```{python}
+# Create new column representing numerical value of strike level
+df_by_month['strike_level_code'] = df_by_month['strike_level'].cat.codes
+df_by_month.head()
+```
+
+`​Cat.codes` is a function that takes categories and ​assigns them a numeric code. ​In this case, when we run the cell we find that mild has been assigned a 0, ​scattered assigned a 1, heavy a 2, and severe a 3. ​And that's how we perform label encoding. ​Having both the categorical terms for different levels of lightning strikes and ​the numeric codes to go with them, we can create data visualizations or ​models that are straightforward to interpret. ​
+
+One other helpful way to work with categorical data is to create ​dummy variables to represent those categories. 
+
+​As you'll recall from a previous video, dummy variables are variables ​with values of 0 or 1, which indicate the presence or absence of something. ​The pandas function will use to achieve this in our python ​notebooks is called `get_dummies`. ​
+
+To clarify, new columns of ones and zeros are also known as dummies. ​The `get_dummies` function converts these categorical variables, ​mild, scattered, heavy, and severe into numerical or ​dummy variables from the column called strike level. 
+
+```{python}
+pd.get_dummies(df_by_month['strike_level'])
+df_by_month.head()
+```
+
+​If we run the cell, you'll find this function creates four new columns and ​puts a one in any row where the number of lightning strikes ​falls into the labeled category, and a zero for anything else. ​
+
+Now that we have our new columns of categorical data, numeric data, and dummy ​variables, let's discover what you can potentially learn from these groupings. ​To do that, let's plot our data. 
+
+​We'll first create a data frame called df_by_month_plot. ​
+
+Let's reshape the data by using the pandas function, `pivot`. ​Pivot allows us to reshape our data frame into any given index or ​set of values we want based on the parameters inside the pivot function. 
+
+​Those parameters are index columns and values in that order. ​To help us with the visualization, let's use year in the index field, ​month in the columns field, and strike level code in the values field. ​If we use our head function, we find all three years in the rows, ​the months in the columns and ​the strike level categories in each month, just like we coded.
+
+```{python}
+# Create new df that pivots the data
+df_by_month_plot = df_by_month.pivot(index='year', columns='month', values='strike_level_code')
+df_by_month_plot.head()
+```
+
+Next, let's visualize our data using what is called a heatmap. 
+
+​So we have a better idea of where most of the lightning strike values are. ​A heatmap is a type of data visualization that depicts the magnitude of ​an instance or set of values based on two colors. ​It is a very valuable chart for ​showing the concentration of values between two different points. 
+
+​Let's create a heatmap using python. ​Using the heatmap plot from seaborn, ​we can place df_by_month_plot in the parameter field for ​the data along with sea map equals blues. ​This sea map definition will give us a preset color gradient from ​dark blue to white. ​Next, we fill in some of the parameters to help with understanding the visualization. 
+
+​In this case, we'll use the standard collection zero from seaborn for ​our color bar. ​This will just give us a preset gradient color bar, ​which saves us a lot of time from having to code our own colors on a color bar. 
+
+​Next, we'll set the color bar ticks to zero through three and ​label those ticks according to our four strike levels, severe, ​heavy, scattered, and mild. ​
+
+Lastly, when we code the show function, we are given a beautiful heatmap. 
+
+```{python}
+ax = sns.heatmap(df_by_month_plot, cmap = 'Blues')
+colorbar = ax.collections[0].colorbar
+colorbar.set_ticks([0, 1, 2, 3])
+colorbar.set_ticklabels(['Mild', 'Scattered', 'Heavy', 'Severe'])
+plt.show()
+```
+
+​Using the heatmap, ​we can find the most severe lightning strike months across all three years. ​
+
+In plotly:
+
+```{python}
+import plotly.express as px
+
+# Create the heatmap
+fig = px.imshow(df_by_month_plot, color_continuous_scale="Blues")
+
+# Custom discrete colorbar ticks & labels
+fig.update_coloraxes(
+    colorbar_tickmode="array",
+    colorbar_tickvals=[0, 1, 2, 3],
+    colorbar_ticktext=["Mild", "Scattered", "Heavy", "Severe"],
+)
+
+fig.show()
+```
+
+Thanks to Pandas and Seaborn transforming data into categories and ​back into numerical data is possible with just a few lines of code as we discussed. ​It's easier to plot a visualization by using strike level code as ​the base values. 
+
+​The categories we created of mild, scattered, ​heavy, and severe became the labels on our heatmap plot. ​Label encoding can be as simple as that, and it is an essential skill for ​data professionals.
+
+------------------------------------------------------------------------
+
+# Other approaches to data transformation
+
+As you know, data comes to us in many different forms. For categorical or qualitative data types, data professionals often need to transform (or encode) this type of data into numeric digits to complete their analysis, design their data visualization, or build their machine learning algorithm. In this reading, you will learn about the two main types of categorical data encoding and when to use each type.
+
+## Label encoding
+
+You’ve already learned about label encoding, which is one type of data transformation technique where each data value is assigned a distinct number instead of a qualitative value.
+
+If you remember from the previous lesson, the example provided was label encoding mushroom types: 
+
+```{python}
+mushrooms = [
+    'Black truffle',
+    'Button',
+    'Cremini',
+    'Hedgehog',
+    'King Trumpet',
+    'Morel',
+    'Portobello',
+    'Shiitake',
+    'Toadstool',
+]
+
+df = pd.DataFrame({'Mushroom_Type': mushrooms})
+
+# Convert to category and generate numeric codes via .cat.codes
+df['Mushroom_Category'] = df['Mushroom_Type'].astype('category')
+df['Cat_Code'] = df['Mushroom_Category'].cat.codes
+```
+
+|     |
+|:----|
+|     |
+
+## Some potential problems with label encoding 
+
+Imagine you’re analyzing a dataset with categories of music genres. You label encode “Blues,” “Electronic Dance Music (EDM),” “Hip Hop,” “Jazz,” “K-Pop,” “Metal,” “ and “Rock,” with the following numeric values, “1, 2, 3, 4, 5, 6, and 7.” 
+
+With this label encoding, the resulting machine learning model **could** derive not only a ranking, but also a closer connection between Blues (1) and EDM (2) because of how close they are numerically than, say, Blues(1) and Jazz(4). In addition to these presumed relationships (which you may or may not want in your analysis) you should also notice that each code is equidistant from the other in the numeric sequence, as in 1 to 2 is the same distance as 5 to 6, etc. The question is, does that equidistant relationship accurately represent the relationships between the music genres in your dataset? To ask another question, after encoding, will the visualization or model you build treat the encoded labels as a ranking? 
+
+The same could be said for the mushroom example above. After label encoding mushroom types, are you satisfied with the fact that the mushrooms are now in a presumed ranked order with button mushrooms ranked first and toadstool ranked eighth? 
+
+In summary, label encoding **may** introduce unintended relationships between the categorical data in your dataset. When ou are making decisions about label encoding, consider the algorithm you’ll apply to the data and how it may or may not impact label encoded categorical data.      
+
+Fortunately, there is another method for categorical encoding that may help with these potential problems.
+
+## One-hot encoding     
+
+You can create dummy variables in Python. If you remember, a dummy variable is a variable with values of 0 or 1, which indicate the presence or absence of something. The idea is to create a new column for each category type, then for each value indicate a 0 or a 1 — 0 meaning, no, and 1 meaning, yes. 
+
+This creation of dummies is called **one-hot encoding.**
+
+```{python}
+# Create dummy variables from the categorical column
+dummies = pd.get_dummies(df['Mushroom_Category'], prefix='mushroom', dtype=int)
+
+# Combine results into one DataFrame
+df_complete = pd.concat([df[['Mushroom_Type', 'Cat_Code']], dummies], axis=1)
+display(df_complete)
+```
+
+With this method, we solve the problem of the unintended and problematic relationships that label encoding presented. But one-hot encoding does present its own set of problems, particularly when it comes to logistic and linear regression. You will learn more about that in a future course. 
+
+## Label encoding or one-hot encoding: How to decide?
+
+There is no simple answer to whether you should use label encoding or one-hot encoding. The decision needs to be made on a case-by-case, or dataset-by-dataset basis. But there are some guidelines to help you.
+
+Use label encoding when:
+
+-   There are a large number of different categorical variables — because label encoding uses far less data than one-hot encoding
+
+-   The categorical values have a particular order to them (for example, age groups can be grouped as youngest to oldest or oldest to youngest)
+
+-   You plan to use a decision tree or random forest machine learning model
+
+Use one-hot encoding when:
+
+-   There is a relatively small amount of categorical variables — because one-hot encoding uses much more data than label encoding.
+
+-   The categorical variables have no particular order
+
+-   You use a machine learning model in combination with dimensionality reduction (like Principal Component Analysis (PCA))
+
+# Key takeaways
+
+Label encoding and one-hot encoding are techniques for transforming categorical data to numeric data. Label encoding is best for large numbers of different categorical variables and for categories that have an inherent order to them. One-hot encoding is best for smaller amounts of categorical variables and for categories that have no order.
+
+------------------------------------------------------------------------
+
+# Reference guide: Label encoding
+
+The following tools are helpful when performing label encoding. 
+
+## [df.astype()](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html "Link to pandas documentation for astype() method")
+
+-   **Description:** A **DataFrame** method that allows you to encode its data as a specified dtype. Note that this method can also be used on **Series** objects.
+
+    ```{python}
+    data = {
+        'planet': [
+            'Mercury',
+            'Venus',
+            'Earth',
+            'Mars',
+            'Jupiter',
+            'Saturn',
+            'Uranus',
+            'Neptune',
+        ],
+        'radius_km': [2440, 6052, 6371, 3390, 69911, 58232, 25362, 24622],
+        'moons': [0, 0, 1, 2, 80, 83, 27, 14],
+        'type': [
+            'Terrestrial',
+            'Terrestrial',
+            'Terrestrial',
+            'Terrestrial',
+            'Gas Giant',
+            'Gas Giant',
+            'Ice Giant',
+            'Ice Giant',
+        ],
+    }
+
+    df = pd.DataFrame(data)
+    print(df.dtypes)
+    # Convert string column to categorical type
+    df['type'] = df['type'].astype('category')
+
+
+    ```
+
+## Series.cat.codes
+
+Description: A Series attribute that returns the numeric category codes of the series.
+
+```{python}
+df['type_code'] = df['type'].cat.codes
+```
+
+## pd.get_dummies()
+
+Description: A function that converts categorical values into new binary columns—one for each different category
+
+```{python}
+type_dummies = pd.get_dummies(df['type'], prefix='type', dtype=int)
+df_complete = pd.concat([df, type_dummies], axis=1)
+
+print(df_complete)
+print("\n--- Data Types ---")
+print(df_complete.dtypes)
+
+```
+
+#### LabelEncoder()
+
+Description: A transformer from scikit-learn.preprocessing that encodes specified categories or labels with numeric codes. Note that when building predictive models it should only be used on target variables (i.e., y data).
+
+```{python}
+from sklearn.preprocessing import LabelEncoder
+
+# Instantiate LabelEncoder() 
+encoder = LabelEncoder()
+
+data = [1, 2, 2, 6]
+
+# Fit to the data
+encoder.fit(data)
+
+# Transform the data
+transformed = encoder.transform(data)
+
+# Reverse the transformation
+inverse = encoder.inverse_transform(transformed)
+
+print('Data =', data)
+print('\n Classes: \n', encoder.classes_)
+print('\n Encoded (normalized) classes: \n', transformed)
+print('\n Reverse from encoded classes to original: \n', inverse)
+
+```
+
+It can be used to convert categorical labels into numeric:
+
+```{python}
+# Instantiate LabelEncoder()
+encoder = LabelEncoder()
+
+data = ['paris', 'paris', 'tokyo', 'amsterdam']
+
+# Fit to the data
+encoder.fit(data)
+
+# Transform the data
+transformed = encoder.transform(data)
+
+# New data
+new_data = [0, 2, 1, 1, 2]
+
+# Get classes of new data
+inverse = encoder.inverse_transform(new_data)
+
+print('Data =', data)
+print('\n Classes: \n', list(encoder.classes_))
+print('\n Encoded classes: \n', transformed)
+print('\n New data =', new_data)
+print('\n Convert new_data to original classes: \n', list(inverse))
+```
+
+## Key takeaways
+
+There are many tools that data professionals can use to perform data cleaning on a wide range of data. The information you learn from missing data, outliers, and transforming categorical to numeric data will help you prepare datasets for further analysis throughout your career.

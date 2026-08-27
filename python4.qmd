@@ -1,0 +1,215 @@
+---
+title: "Loops and strings"
+format: html
+---
+```{python}
+#| include: false
+import _setup
+```
+This document goes alongside the [Annotated_follow-along_guide_Loops_and_strings.html](Annotated_follow-along_guide_Loops_and_strings.html)
+
+# While loops
+
+While loops are useful because they allow you to perform an action or evaluation repeatedly until a given condition or requirement is met, and then they stop. This is an important process in computer programming, not just in Python, but in most other languages too. Data professionals use while loops to process data, so it’s important for you to familiarize yourself with them as you grow your skills. This reading is a review of the fundamental concepts of while loops.
+
+While loop syntax A while loop is a control structure that allows you to repeatedly execute a block of code for as long as a certain condition is true.
+
+Note: The following code block is not interactive.
+
+The basic syntax of a while loop is as follows:
+
+``` python
+while condition:
+   # Code block to execute
+```
+
+The **condition** is a Boolean expression that is evaluated at the beginning of each iteration of the loop. If the condition is true, the code block executes. After the code block executes, the condition is evaluated again. This process continues until the condition is false, at which point the loop terminates and the program continues with the next statement after the loop.
+
+Here is an example of a basic while loop:
+
+``` python
+x = 1
+while x < 100:
+   print(x)
+   x = x*2
+```
+
+In this example, **x** equals one when the loop begins. Because **x** is less than 100, the program prints the value of **x**, then multiplies **x** by two. Then the condition is checked again, and because it is still **True**, the code inside the loop executes again. This process continues until **x** becomes 128, at which point the condition becomes **False** and the loop terminates.
+
+## Infinite loops
+
+Be careful with while loops because if you make a mistake with your logic or syntax, it could result in an infinite loop that never terminates. In the previous example, if x = x\*2 were accidentally not indented to be in the body of the while loop, the loop would reach the print statement and cycle back to check the conditional statement, which of course would still be true because the value of x would never change from one.
+
+It is possible to end a loop even if the conditional statement is still true. To do this, use a **break** statement.
+
+``` python
+x = 1
+i = 0
+while x < 100:
+   if i == 5:
+       break
+   print(i, x)
+   x = x*2
+   i += 1
+```
+
+In this example, there is a variable **i** that acts as a counter. For each iteration of the loop, the program:
+
+1.  Checks if **x** is less than 100.
+
+2.  If it is, then the program checks if **i** equals five.
+
+3.  If it does, the loop terminates because of the break statement. Otherwise, it prints the values of both **i** and **x**, doubles the value of **x**, and increments the value of **i** by one.
+
+4.  Repeats until **x** ≥ 100 or **i** = 5. In this case, the loop breaks when **i** becomes 5.
+
+It’s also possible to skip an iteration of the loop without executing the rest of the code inside the loop for the current iteration. To do this, use a **continue** statement.
+
+Here’s an example:
+
+``` python
+i = 0
+while i < 10:
+    if i % 3 != 0:
+        print(i)
+        i += 1
+        continue
+    i += 1
+```
+
+his example is a loop that prints all the numbers from zero through 9 that are [not]{.underline} divisible by three. For each iteration of the loop, the program:
+
+1.  Checks if **i** is less than 10.
+
+2.  If it is, then the program uses the modulo operator to check if **i** is evenly divisible by three.
+
+3.  If it is not, then the program prints **i**, increments the value of **i** by one, *and then cycles back to the beginning* to check that **i** is less than 10. This happens because of the continue statement. The final **i += 1** does not execute, thus avoiding a double incrementation of **i**.
+
+4.  But if step 2 evaluates **i** as evenly divisible by three, nothing in the if block executes (so there’s no print statement) and **i** is incremented by one.
+
+5.  Repeats until **i** becomes 10. 
+
+**Note**: If you remove the **continue** statement from the above example, the output will be 1, 4, 7. The inclusion of **continue** is to ensure that i is only incremented once per loop iteration, regardless of the if condition. Without **continue**, it gets incremented twice whenever the if condition is true.
+
+# Key takeaways
+
+A **while** loop allows you to repeatedly execute a block of code while a certain condition is true. You can use the **break** statement to exit the loop prematurely, and the **continue** statement to skip to the next iteration of the loop without executing the rest of the code in the current iteration.
+
+# For loops
+
+For loops are like while loops, but instead of looping continuously until a condition is met, for loops iterate over each element of an iterable sequence, allowing you to perform an action or evaluation with each iteration. This is an important process in computer programming, not just in Python, but in most other languages too. Data professionals use for loops to process data, so it’s important for you to familiarize yourself with them as you grow your skills. This reading is a review of the fundamental concepts of for loops.
+
+## For loop syntax 
+
+A for loop is a control structure that allows you to execute a block of code the same number of times as there are elements in an iterable sequence. You’ll learn more about iterable sequences later in this course, but some examples of iterable data types include:
+
+Strings: **‘chimichurri’**
+
+Lists: **\[1, 2, 3, 4, 5, 6\]**
+
+Tuples: **(1, 2, 3, 4, 5)**
+
+Dictionaries: **{‘Name’: ‘Anita’, ‘Age’: 77}** 
+
+Sets: **{1, 4, 14, 33}**
+
+**Note**: The following code block is not interactive.
+
+The basic syntax of a for loop is as follows:
+
+``` python
+for item in iterable_sequence:
+   # Code block to be executed for each value in iterable_sequence
+```
+
+The **iterable_sequence** variable can be any iterable data type, and **item** is a variable whose name is arbitrary —you decide it. However, there are some conventions that you’ll encounter when naming this variable. For example, if you’re iterating over characters in a string, you’ll frequently encounter the variable **char**. If you’re iterating over a list of numbers, you’ll find **n** or **num**. It’s helpful to give this variable a name so readers of your code understand what kind of information is being looped over. So, for a variable called **names** that contains a list of people’s names, you might write: **for name in names:**.
+
+A note about the behavior of this variable — its value is reassigned for each iteration of the loop, and it persists even after the loop terminates.
+
+Here’s an example:
+
+```{python}
+num = 5
+y = [1, 2, 3]
+for num in y:
+   print(num)
+
+print(num)
+```
+
+Notice that **num** exists as a variable before the for loop begins. The for loop’s first iteration reassigns its value with that of the first element in the sequence. This reassignment occurs with each iteration of the loop. When the loop terminates, the variable persists, and it contains the value it had after the final iteration of the loop.
+
+Using the `range` Function
+
+The **for** loop allows you to create a loop that performs exactly the number of iterations needed for the data structure you’re looping over. In other words, whether your iterable sequence contains two, 1,000 or a 1,000,000 elements, you can use the same syntax and don’t have to specify the number of iterations you want. However, sometimes you need to perform a task a set number of times, but you don’t already have an iterable object to loop over. Or, sometimes you need to generate a known, regular sequence of numbers. This is where the **range()** function is useful.
+
+The **range()** function is a function that takes three arguments: start, stop, step. Its output is an object belonging to the range class. If you only include one argument, it will be interpreted as the stop value. The start and step values by default will be zero and one, respectively. If you include two arguments, they will be interpreted as the start and stop values (again, with step being one by default). Note that the stop value is not included in the range that is returned.
+
+-   The range function generates a sequence of numbers starting from zero up to, but not including, a specified number.
+
+-   For loops often use range to repeat actions a fixed number of times, with the loop variable taking each number in the sequence.
+
+-   Using the range function with parameters
+
+    -   The range function can start from a specified value, not just zero, allowing more control over the sequence.
+
+    -   The stop value is exclusive, meaning the sequence ends before this value.
+
+    -   The step value specifies the increment in the sequence
+
+    Examples of range in loops
+
+    -   Calculating the factorial of nine by multiplying numbers from 1 to 9 using a range starting at 1 and stopping before 10.
+
+        ```{python}
+        product =1
+        for n in range(1,10):
+            product = product *n
+        print(product)
+        ```
+
+    -   Creating a temperature conversion table from Fahrenheit to Celsius, stepping by 10 degrees from 0 to 100, demonstrating the use of the step parameter.
+
+        ```{python}
+        def to_celsius(x):
+            return (x-32)*5/9
+
+        for x in range(0,101,10):
+            print (x, to_celsius(x))
+        ```
+
+## Choosing between for loops and while loop
+
+-   For loops are ideal for iterating over a sequence of elements, such as records in a dataset, improving code readability.
+
+-   While loops repeat actions until a boolean condition changes, useful when the number of iterations is not predetermined.
+
+-   Both loops are useful tools in Python, and the choice depends on the specific task or personal preference.
+
+## Practical Applications of For Loops
+
+-   For loops can read files line by line, such as printing each line of a text file.
+
+-   Nested for loops can iterate over multi-dimensional data structures, like a 2D array.
+
+-   For loops are widely used by data professionals to perform repeated operations on data efficiently.
+
+## Nested loops 
+
+Sometimes you’ll need to extract information from nested structures—for example, from a list of lists. One way of doing this is by using nested loops. A nested loop is a loop inside of another loop. You can have an infinite number of nested loops, but it becomes more confusing to read and understand the more nested loops you add.
+
+Here’s an example of one loop nested in another:
+
+```{python}
+students = [['Igor', 'Sokolov'], ['Riko', 'Miyazaki'], ['Tuva', 'Johansen']]
+for student in students:
+   for name in student:
+       print(name)
+   print()
+```
+
+In this example, the students variable contains a list of three lists. Each inner list contains two elements: a given name and a surname. The first for loop iterates over the inner lists. The second (nested) for loop iterates over each name in each inner list and prints the name. After each iteration of the outer loop, the program uses an empty print statement to print a new line.
+
+## Key takeaways 
+
+A **for** loop allows you to execute a block of code the same number of times as there are elements in an iterable sequence. The **range()** function is useful for creating a defined iterable sequence. And nested loops are loops within loops that give you even greater power and control over how your code may execute. These are powerful tools that can be used in many different ways to solve a variety of problems that you’ll encounter as a data professional.

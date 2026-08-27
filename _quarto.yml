@@ -1,0 +1,236 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - "*.pdf" # Automatically copies all PDF files in the project to the build directory
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "*.ipynb"
+    - "!Pruebas.ipynb"
+
+execute:
+  freeze: auto
+  warning: false
+  echo: true
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-title: "En este tema"
+    toc-depth: 4
+    number-sections: true
+    number-depth: 3
+    code-fold: show
+    code-copy: true
+    code-tools: true
+    code-line-numbers: true
+    page-layout: full
+    embed-resources: true
+    crossrefs-hover: true
+    footnotes-hover: true
+    citations-hover: true       
+    grid: 
+      sidebar-width: 250px
+      body-width: 1300px
+      gutter-width: 0.5rem
+      margin-width: 250px
+    anchor-sections: true
+
+jupyter: python3
+
+website:
+  title: "Google Advanced Data Analytics"
+
+  # Barra de navegación superior
+  navbar:
+    background: primary
+    search: true
+    page-navigation: true
+    left:
+      - href: index.html
+        text: Home
+
+  # Barra lateral izquierda (Organizada por bloques del curso)
+  sidebar:
+    style: "floating" # La barra lateral entera se oculta/muestra con un botón flotante
+    search: true
+    collapse-level: 2 # Permite que los submenús se puedan colapsar/desplegar limpiamente
+    contents:
+      - href: index.html
+        text: "Home"
+      - section: "Introduction to Data Analysis using Python"
+        contents:
+          - href: python1.html
+            text: "Introduction to Python"
+          - href: python2.html
+            text: "Object-Oriented Programming in Python"
+          - href: variables_data_types.html
+            text: "Variables and Data Types"
+          - href: Activity_Use_Python_syntax.html
+            text: "Activity: Use python syntax"
+          - href: Exemplar_Functions.html
+            text: "Activity: Functions"
+          - href: python3.html
+            text: "Conditional Statements in Python"
+          - href: Exemplar_Conditional_statements.html
+            text: "Practice: Conditional Statements"
+          - href: python4.html
+            text: "Loops in Python"
+          - href: Exemplar_While_loops.html
+            text: "Practice: While Loops"
+          - href: Exemplar_For_loops.html
+            text: "Practice: For Loops"
+          - href: python5.html
+            text: "Strings in Python"
+          - href: Exemplar_Strings.html
+            text: "Practice: Strings"
+          - href: python6.html
+            text: "Data Structures in Python"
+          - href: Exemplar_Lists_tuples.html
+            text: "Practice: Lists and Tuples"
+          - href: Exemplar_Dictionaries_sets.html
+            text: "Practice: Dictionaries and Sets"
+          - href: python7.html
+            text: "Arrays and Vectors with numPy"
+          - href: Exemplar_Arrays_and_vectors_with_NumPy.html
+            text: "Practice: Arrays and Vectors with numPy"
+          - href: python8.html
+            text: "Dataframes with Pandas"
+          - href: Exemplar_Dataframes_Pandas.html
+            text: "Practice: Dataframes with Pandas"
+          - section: "Reference materials"
+            contents:
+              - href: Annotated_follow-along_guide_Hello,_Python!.html
+                text: "Annotated follow-along guide_Hello, Python!"
+              - href: Annotated_follow-along_guide_Loops_and_strings.html
+                text: "Annotated follow-along guide_Loops and Strings"
+              - href: Annotated_follow-along_guide_Data_Structures_in_Python.html
+                text: "Annotated follow-along guide Data Structures in Python"
+
+      - section: "Course 1: Foundations of Data Science"
+        contents:
+          - href: data_science_analytics.html
+            text: "Data Science vs Data Analytics"
+          - href: good_practice.html
+            text: "Good Practices in Data management"
+          - href: work_in_field.html
+            text: "Working in the Field of Data Science and Analytics"
+          - href: skills.html
+            text: "Skills and Competencies"
+          - href: data_career_skills.html
+            text: "RACI Matrix"
+          - href: workflow.html
+            text: "Data Applications and Workflow"
+          - href: current_future_tools.html
+            text: "Tools"
+          - section: "Course 1 End of Course Project"
+            contents:
+              - href: Exemplar_Course1_Waze_project_lab.html
+                text: "Waze Project Lab"
+              - href: Activity_Exemplar_Waze_Course1_executive_summary.pdf
+                text: "Activity Waze Executive Summary"
+          
+
+      - section: "Course 2: Go Beyond the Numbers: Translate Data into Insights"
+        contents:
+          - href: Find_and_share_stories.html
+            text: "Find and Share Stories using data"
+          - href: pace_in_EDA.html
+            text: "Use PACE to inform EDA and data visualizations"
+          - href: raw_data.html
+            text: "Explore Raw Data"
+          - href: Exemplar_Discover_your_dataset.html
+            text: "Practice: Discover your dataset"
+          - href: data_format.html
+            text: "Understand data format"
+          - href: structure_data.html
+            text: "Create structure from raw data"
+          - href: Exemplar_Structure_data.html
+            text: "Practice: Structure your data"
+          - href: clean_data.html
+            text: "Clean your data"
+          - href: Exemplar_Address_missing_data.html
+            text: "Practice: Address missing data"
+          - href: outliers.html
+            text: "Outliers"
+          - href: categorical_to_numerical.html
+            text: "Categorical to Numerical"
+          - href: input_validation.html
+            text: "Input Validation"
+          - href: Exemplar_Validate_and_clean_your_data.html
+            text: "Practice: Validate and clean your data"
+          - href: visualization.html
+            text: "Visualizations in Tableau"
+          - section: "Reference materials"
+            contents:
+              - href: Annotated_follow-along_guide_Date_string_manipulations.html
+                text: "Annotated follow-along guide: Date string manipulations with Python"
+              - href: Annotated_follow-along_guide_EDA_structuring.html
+                text: "Annotated follow-along guide: EDA Structuring"
+              - href: Annotated_follow-along guide_Dealing_with_missing_data_in_Python.html
+                text: "Annotated follow-along guide: Dealing with missing data in Python"
+          - section: "Course 2 End of Course Project"
+            contents:
+              - href: Exemplar_Course2_Waze_project_lab.html
+                text: "Waze Project Lab"
+              - href: Activity Exemplar_ Waze Course 2 executive summary.pdf
+                text: "Activity Waze Executive Summary"
+          
+      - section: "Course 3: The Power of Statistics"
+        contents:
+          - href: intro_stats_python.html
+            text: "Introduction to Statistics with Python"          
+          - href: stats_python.html
+            text: "Calculate Statistics with Python"
+          - href: Exemplar_Explore_descriptive_statistics.html
+            text: "Practice: explore descriptive statistics"
+
+          - href: probability.html
+            text: "Probability"          
+          - href: discrete_probability.html
+            text: "Discrete Probability Distributions"
+          - href: continuous_probability.html
+            text: "Continuous Probability Distributions"
+          - href: Exemplar_Explore_probability_distributions.html
+            text: "Practice: Explore probability distributions"
+
+          - href: sampling.html
+            text: "Sampling"
+          - href: Exemplar_Explore_sampling.html
+            text: "Practice: Explore Sampling"
+
+          - href: confidence_intervals.html
+            text: "Confidence Intervals"
+          - href: Exemplar_Explore_confidence_intervals.html
+            text: "Practice: Explore Confidence Intervals"
+
+          - href: hypothesis_testing.html
+            text: "Hypothesis Testing"
+          
+          - section: "Reference materials"
+            contents:
+              - href: Annotated_follow-along_guide_Compute_descriptive_statistics_with_Python.html
+                text: "Annotated follow-along guide: Compute descriptive statistics with Python"
+              - href: Annotated_follow-along_guide_Work_with_probability_distributions_in_Python.html
+                text: "Annotated follow-along guide: Work with probability distributions in Python"
+              - href: Annotated_follow-along_guide_Sampling_with_Python.html
+                text: "Annotated follow-along guide_Sampling with Python"
+              - href: Annotated_follow-along_guide_Confidence_intervals_in_Python.html
+                text: "Annotated follow-along guide: Confidence intervals in Python"
+          - section: "Course 3 End of Course Project"
+            contents:
+              - href: Exemplar_Course2_Waze_project_lab.html
+                text: "Waze Project Lab"
+              - href: Activity Exemplar_ Waze Course 2 executive summary.pdf
+                text: "Activity Waze Executive Summary"
+          
+
+      - section: "Anexos"
+        contents:
+          - href: index.html
+            text: "Anexos Index"
+          - href: Advanced_Data_Analytics_Certificate_glossary.html
+            text: Glossary

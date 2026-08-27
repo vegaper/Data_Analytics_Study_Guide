@@ -1,0 +1,104 @@
+---
+title: "Use PACE to inform EDA and data visualizations"
+format: html
+---
+
+Have you ever walked into a room to ​grab a specific item and ​then become distracted and forget why you were there? ​As data professionals, ​our curiosity and excitement for finding ​stories in data might cause us to forget ​the original purpose for our data exploration. ​Obviously, we want to maintain ​our natural curiosity, but most importantly, ​we want to focus that curiosity on what ​questions need to be answered ​or what problems need to be solved. ​We seek a balanced mindset, ​one of targeted curiosity. ​This balance can be achieved by using PACE. ​
+
+As you learned PACE or plan, analyze, construct, ​and execute is the workflow some data professionals ​use to remain focused on ​the end goal of any given data set. ​Imagine you work for a multinational company ​that manufactures office equipment.
+
+​The finance department ask you to use ​the last 10 years of data to ​predict sales for the next six months. ​How might you approach ​your EDA of the data given this task? You'll learn to combine ​PACE and EDA practices. ​
+
+Remember, EDA stands for exploratory data analysis. ​You might think that because analysis is in its name ​that EDA falls only in ​the analyzed part of the PACE workflow, ​the truth is, EDA applies to every part of PACE. ​You'll find the six practices of ​EDA all intersect with the other parts of PACE. ​
+
+Discovering, for example, ​is in line with the planning part of PACE and presenting ​can be a major part of the executing part of PACE. ​As you will learn data professionals ​don't just find and tell any random story from the data. ​Data insights are guided by ​a project's purpose and goals. ​
+
+The plan may come from a stakeholder or manager. ​You can think of it as ​the project plan or the stated goal of the company, ​for example, let's consider ​the sales prediction from ​the office equipment company earlier in the lessons. ​As you recall, your task ​is to predict the next six months ​of sales performance based on 10 years of sales data. ​When you start your EDA, ​you realize the datasets you've been given ​contain a lot more data than you need. ​It would benefit you and your company to ​extract only the columns you need to predict sales, ​which would be, date of sale, item, ​price, and sales rep for a total of four columns.
+
+​While cleaning, joining and ​validating you can exclude data on material cost, ​item ID numbers, database ​cost center numbers, and vendor names. ​Cleaning 10 years of data sets with ​four columns is much more manageable than eight columns. ​
+
+Of course, in a typical workplace, ​it shouldn't surprise you that after you've ​done a lot of the work to complete your EDA ​based on the plan the finance department says ​they actually wanted to predict the profit margin, ​not the sales targets. ​Miscommunication happens in every workplace, ​even in data analysis. ​If stakeholders, engineers and ​data specialists are not clear on the plan, ​the results won't tell a cohesive or effective story. ​Instead, the results will likely lead to; ​confusion, disagreement, and wasted time. ​
+
+One example of good communication would be ​sharing the PACE plan with anyone who might be involved. ​Another example could be sharing the analysis with ​a working group to get feedback ​before sharing the analysis more broadly. ​Finally, it's important to understand ​stakeholders' most important goals ​for the company before presenting them. ​We will address details about ​communication strategies in upcoming videos. ​The point is, when you have a dataset in front of you, ​remind yourself of the reasons for your analysis. ​
+
+Once again, consider the office equipment company, ​you've been given two datasets, ​one with transaction ID number and date, ​the other with transaction ID number and total cost, ​you're asked to forecast ​the next six months' sales numbers. ​If you consider the purpose of this task, ​what is something you might do with the two datasets? ​You might consider the EDA joining practice ​and include all data from the two datasets together, ​transaction ID, date and total cost.
+
+​For another example, let's say you have ​a hospital's data on ​treatments performed over the last year. ​If the goal is to prepare data to make ​a purchase order for the materials ​and supplies for the upcoming year, ​what type of EDA might you consider? ​It would be a good idea to ​start by using the EDA practice of ​structuring to group the data ​by the type of items needed for each treatment. ​Data professionals are set up for ​success when they follow a framework like PACE. ​When a professional applies that framework to ​the way they perform the six practices of EDA, ​they keep priorities in order and they ​focus on achieving the project's purpose.
+
+​Of course, as data professionals, ​our first priority is to ​accurately represent the data itself. ​If your company's project plan does not ​align with what the data is telling you, ​it is your responsibility to ​communicate that to stakeholders. ​
+
+Let me return to the sales forecast ​requests at the office equipment company. ​Imagine you're given data on ​sales revenue specific from two geographic regions, ​but stakeholders are requesting a global forecast. ​As a data professional, ​it is your responsibility to ask for ​globally representative data to complete the task, ​working with data from only two regions ​would be inadequate to make a global projection. ​Timelines, stakeholder pressure or client needs should ​never cause a data professional to ​bypass what is required by the data, ​misrepresentation of data isn't never warranted.
+
+​Let's review, data professionals should ​strive to align their work with the plan part of PACE. ​Keeping the focus on PACE helps ​determine the most effective ways to ​perform EDA practices while ​maintaining ethical representations of data. ​Coming up, we'll explore how PACE can help ​guide the development of ​data visualizations. I'll meet you there.
+
+------------------------------------------------------------------------
+
+## The six practices of EDA are iterativeand non-sequential
+
+Exploratory data analysis (EDA) is not like a cake recipe. It is **not** a step-by-step process you follow. Instead, the six practices of EDA are iterative and non-sequential. 
+
+-   **Iterative**: Relating to or involving repetition of a process
+
+-   **Non-sequential**: Not arranged in or following an order or sequence. 
+
+Because of the varying nature of datasets, the approach to exploring that data will be different each time. That means that you will need to use your logic and experience throughout the EDA process to determine which of the six practices to utilize, how many times to apply them, and when in the process you should apply them. 
+
+**Visual example**
+
+Imagine you are assigned a dataset that has only 200 rows and five columns of data about trees in a coniferous forest in Norway. You know that to complete your full analysis you’ll need more than 1,000 rows and at least two more columns. Even without much more detail than that, your entire EDA process might look something like this: 
+
+1.  **Discovering**: You check out the overall shape, size, and content of the dataset. You find it is short on data. 
+
+2.  **Joining**: You add more data.
+
+3.  **Validating**: You perform a quick check that the new data doesn’t have mistakes or misspellings. 
+
+4.  **Structuring**: You structure the data in different time periods and segments to understand trends. 
+
+5.  **Validating:** You do another quick check to ensure the new columns you’ve made in structuring are correctly designed. 
+
+6.  **Cleaning**: You check for outliers, missing data, and needs for conversions or transformations, 
+
+7.  **Validating**: After cleaning, you double check the changes you made are correct and accurate, 
+
+8.  **Presenting**: You share your dataset with a peer. 
+
+Notice you performed the “validating” practice iteratively, or multiple times, to make sure your changes to the data did not unwittingly introduce errors. Also, because you recognized the need for more data up front, the practice of “joining” was performed immediately following the practice of “discovering.” 
+
+After you present your cleaned dataset to a peer, there is a good chance you will receive notes or ideas for more exploration and/or cleaning. Because of that, you will see even more iterations. 
+
+**Pro tip**: Data scientists expect to perform the practices of EDA multiple times on a dataset before they feel comfortable declaring it “clean” and ready for modeling or machine learning algorithms. 
+
+## The importance of EDA in ethical machine learning
+
+As algorithms and machine learning networks begin to make more and more decisions on behalf of individuals, companies, and even governments, the discussion of ethics and regulation becomes more and more important. According to the [Institute for Ethical AI & Machine Learning](https://ethical.institute/principles.html), there are eight principles for developing machine learning systems in a responsible way. 
+
+**Key principles of the EDA process**
+
+The following two principles are inherently part of the EDA process:
+
+-   **Human augmentation**: This principle ensures humans are inserted throughout the AI or machine learning algorithm systems for oversight. Thorough EDA, performed by data scientists, is perhaps one of the best ways to limit bias, imbalance, and inaccuracies being fed into an algorithm. 
+
+-   **Bias evaluation**: Without human interference, bias is too easily injected and reproduced in machine learning models. Performing methodical EDA processes will lead data scientists to be aware of and act on biases and imbalances in the data. 
+
+**Pro tip**: The importance of assuring adherence to ethical standards cannot be overstated in the data career space. Data professionals need to continuously grow their capacities to recognize bias and discrimination by consistently applying an ethical mindset to their EDA work.  
+
+Beyond machine learning, EDA is applicable to nearly any important data-based decision. Moving forward, you will learn about many applications of EDA and the necessity of an iterative and non-sequential approach.
+
+------------------------------------------------------------------------
+
+### PACE with data visualizations
+
+​Let's review a scenario, shall we? ​You're given a giant table of numbers and a data visualization, ​which would you choose to most quickly communicate data insights? 
+
+​Data visualizations are far more effective at quickly communicating complex ​information than data tables. ​Now, let's consider how this relates to EDA. ​Data visualizations are important tools that data professionals use to tell ​stories with data throughout their workflow particularly the EDA practice of ​presenting. ​Plotting parts or all of your data set on a bar graph, a scatter plot, ​a pie chart, or a histogram will help you and ​others to understand the data no matter where you are in the EDA process. ​As a data professional, you won't be working with simple clean data sets that ​have only a few 100 lines of data. 
+
+​You'll be working with dataframes that have thousands or ​hundreds of thousands of data points spanning months, years or decades even. ​The more data you have, the more visualizations you'll need to create to ​understand how each variable impacts the other. ​When you start looking at new data, a popular and ​valuable tactic is to visualize it. ​Like time series data, on line charts to understand periodicity or ​scatter plots to get a good idea of data distribution. ​Data visualization can also help you explain your data set to stakeholders and ​other data professionals. ​It is your job to discover the important points, trends, ​biases, and stories that need to be shared, ​then design data visualizations in an effective way for different audiences. ​For example, imagine you're a data professional who works for ​an appliance manufacturer. 
+
+​Let's say, you perform an analysis for the manufacturing team. ​During the analysis you discover a delay in the manufacturing process. ​You need to communicate these findings to two different audiences, ​the manufacturing supervisors and the executive leadership team. ​When you share your findings, some stakeholders may not understand the data ​insights without the help of data visualizations. ​The ways data visualizations are designed will communicate different messages ​to stakeholders with vested interests in different parts of the project. ​For example, the manufacturing supervisors might need to review time ​series data plotted out over time to identify the manufacturing delays. ​Meanwhile, the executive leadership team would likely be more interested in ​financial impact analysis. 
+
+​Those two data visualizations would need to be designed differently ​based on the needs of your audience. ​We will go into detail on exactly how to do that in the upcoming videos, but ​in the meantime, understand that the balance of words and data visuals in ​a presentation impacts the business decisions made from data insights. ​A carefully prepared data visualization, can mean the difference between changing ​the mind of a stakeholder and the data being ignored. ​However, visualizations can also cause confusion or even misrepresent the data. ​For instance, imagine a data professional develops a visualization and ​changes the scale of the axis or the ratio of the graph height and ​width to make the line chart look flat or steep. ​This example of skewing is the opposite of what data analysis about. ​Because you will be the person most familiar with the data in its story, ​it is essential that your visualizations not mislead your audiences. 
+
+​Returning again to the manufacturing equipment, example, ​if you provide a data visualization showing a sharp increase in sales over ​the last six months, your audience might assume the company is doing very well. ​But if data from the last two years shows the six month increase comes ​right after a long 18 month decline, the last six months has a different context. ​Showing only the last six months as opposed to the two years, ​is misrepresenting the sales data. ​Your data driven storytelling, is an opportunity to present facts and ​visualizations that are ethical, accessible and representative of the data. ​Being an ethical presenter of the data, you analyze, ​means being honest and very clear about what is and isn't in the data. ​Along with that, remember to design your data visualizations in a way that is ​accessible to everyone. ​For example, avoid pairing red and green and ​data visualizations as it can be difficult for people with color blindness to read. 
+
+​Generally, blue and orange are the better choice to use in data visualizations. ​We'll go into more detail and ethics and accessibility in upcoming videos. ​In other videos, we'll use digital visualization tools like Tableau and ​Python packages like Matplotlib, and Seaborn, and Plotly to understand ​how to use your data and graphs and charts in ethical and accessible ways. ​These tools will be part of your everyday work as a data professional. ​Remember, creating visualizations about your data sets will help you ​throughout the entire EDA process. ​There's often no better tool for ​telling a good data driven story than a well made visualization.

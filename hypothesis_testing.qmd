@@ -1,0 +1,460 @@
+---
+title: "Introduction to hypothesis testing"
+format: html
+---
+
+```{python}
+#|include: false
+import _setup
+```
+
+Hey there future data professional, ​you've come a long way ​since the beginning of your learning journey. ​Where to go? Just think ​of all the new skills you've developed. ​You can calculate descriptive stats like ​the mean and standard deviation to summarize your data. ​You can use probability distributions like the binomial, ​Poisson, and normal distribution ​to model different types of data. ​You can work with sampling distributions to ​estimate population means and proportions, ​and you can construct confidence intervals ​to help describe the uncertainty of an estimate. ​Now, you're going to add a new skill to ​your skill set, hypothesis testing.
+
+**​Hypothesis testing is a statistical procedure that uses ​sample data to evaluate ​an assumption about a population parameter.** ​For example, hypothesis tests are often used in ​clinical trials to determine whether ​a new medicine leads to better outcomes in patients. ​Imagine a pharmaceutical company ​invents a medicine to treat the common cold. ​The company tests a random sample of ​200 people with cold symptoms. ​Without medicine, the typical person experiences ​cold symptoms for 7.5 days. ​The average recovery time for people who take ​the medicine is 6.2 days. ​The company might then ask, ​are the results of the clinical trial ​statistically significant? **Statistical significance ​is the claim that the results of ​a test or experiment are not explainable by chance alone.** ​In other words, did the drug ​actually have a positive impact on recovery time? ​Or are the results due to chance or sampling variability? ​To answer these questions, ​the company may ask a data professional ​to conduct a hypothesis test. ​The test helps quantify ​whether the result is likely due to ​chance or if it's statistically significant. ​This knowledge will help the company ​determine if the drug is ​truly effective and if it ​should be approved for public use.
+
+​Coming up, we'll go over the general procedure for ​hypothesis testing from stating ​the null hypothesis and alternative hypothesis, ​to choosing a significance level, ​finding the $p$-value, ​and rejecting or failing to reject your null hypothesis. ​Then we'll explore ​two different types of hypothesis tests, ​one sample and two sample. ​Finally, you'll learn how to use ​Python stats module to ​conduct a two-sample hypothesis test ​to compare two population means. ​When you're ready to learn more, ​I'll meet you in the next video.
+
+------------------------------------------------------------------------
+
+Recently, you learned that a hypothesis test uses ​sample data to evaluate ​an assumption about a population parameter. ​For example, for a clinical trial of a new medicine, ​a hypothesis test can ​help you determine if the effect of the medicine on ​an average recovery time of your sample group is ​statistically significant or due to chance. 
+
+​In this video, we'll go over the procedure for ​performing a hypothesis test, ​and you'll learn about the main concepts ​involved in hypothesis testing. ​Let's outline the steps for performing a hypothesis test. ​
+
+-   First, state the null hypothesis ​and the alternative hypothesis. 
+
+-   ​Second, choose a significance level. ​
+
+-   Third, find the $p$-value, ​and
+
+-   forth, reject or fail to reject the null hypothesis. 
+
+​Right now these concepts may seem a ​bit abstract, that's okay. ​You'll learn more about each ​one by the end of this video. ​For now, to clarify ​the steps involved in hypothesis testing, ​let's explore an example. ​Afterwards, we will revisit the concepts. ​
+
+Imagine you are given a coin to use in a game. ​You're not sure if the coin is fair or rigged. ​That is, you don't know if ​it's a standard coin or if it's been ​specifically waited to affect the outcome of a toss, ​for example, to always land on tails. 
+
+​Before using it in the game, ​you want to find out that the coin is fair or not. ​You decide to test the coin by tossing it six ​times in a row and recording the outcomes. ​As you may recall from our ​earlier discussion of probability, ​if the coin is fair, ​the chance of landing on heads or tails is ​0.5 or 50 percent for any given toss. ​If the coin is rigged for tails, ​the chance of landing on tails for ​any given toss will be much higher, ​perhaps 90 or even 100 percent. ​Before you test it out, ​you need to have a benchmark to ​evaluate the results of the test. ​For example, let's say the ​first two tosses land on tails, ​is the coin rigged? ​
+
+Recall that we use the multiplication rule to ​calculate the probability of independent events. ​The probability of the coin landing on ​tails two times in a row is ​0.5 times 0.5 which is 0.25 or 25 percent. ​That's not unlikely. At this point, ​you can't reasonably conclude that the coin is rigged. ​Now, imagine the coin lands on ​tails four times in a row. ​The probability of this occurring is 0.5 multiplied ​four times which is 0.0625 or 6.25 percent. ​That's unlikely but not impossible. ​However, you want to feel even more ​confident that the outcome is not due to chance. 
+
+​You decide to use five percent as ​a threshold determine if the outcome is due to chance. ​In other words, if the probability of the outcome is ​less than five percent ​under the assumption that the coin is fair, ​you'll conclude that the coin is actually rigged. ​For example, the probability for ​a fair coin to land on tails six times in a row ​is 0.5 multiplied six times which is ​0.0156 or 1.56 percent. ​This is too unlikely because ​the likelihood is less ​than your threshold of five percent. ​If this occurs, you will conclude the coin is rigged. ​Now, you're ready to proceed with your test. ​You toss the coin six ​times in a row and record the results. 
+
+​The coin lands on tails every time, ​you conclude that the coin is rigged. ​Unfortunately, the coin won't be ​of much use to you unless you're ​performing the magic trick and happened to ​need a coin that always lands on tails. 
+
+​This example is a simplified version ​of a hypothesis test. ​To test out whether or not the coin is fair, ​you went through each step of ​the hypothesis testing procedure. 
+
+​Let's review the steps for conducting a hypothesis test. ​
+
+-   First, state the null hypothesis ​and the alternative hypothesis. ​
+
+-   Second, choose a significance level. 
+
+-   ​Third, find the $p$-value. 
+
+-   ​Forth, reject or fail to reject the null hypothesis. 
+
+​Let's explore each step in more detail. ​First, state your null hypothesis ​and your alternative hypothesis. ​**The null hypothesis is a statement that is assumed to be ​true unless there's convincing evidence to the contrary.** ​The null hypothesis typically ​assumes that your observed data occurs by chance. **​The alternative hypothesis is ​a statement that contradicts the null hypothesis, ​and is accepted as true ​only if there's convincing evidence for it.** 
+
+​The alternative hypothesis typically assumes that ​your observed data does not occur by chance. ​In our example, your null hypothesis states ​that the coin is fair. ​Having a fair coin is ​the standard or typical state of things. ​The null hypothesis states that ​your observations result purely from chance. ​Your alternative hypothesis states the contrary claim, ​the coin is not fair. ​The alternative hypothesis says that the outcome was ​the result of rigging and did not happen by chance. 
+
+​Next, choose your **significance level**. ​**This is the threshold at which you will ​consider results statistically significant. ​**The significance level is also the probability of ​rejecting the null hypothesis when it is true. ​I'll talk more about this later in the video. ​In our example, you use five percent as ​a threshold determine if ​the outcome of the coin toss occurred by chance. ​Typically, data professional set ​the significance level at five percent. ​Note that there's nothing magical about five percent, ​this is a choice based on tradition ​and statistical research in education. ​You can adjust the significance level ​to meet the requirements of your analysis. ​Other common choices are one percent and 10 percent. ​Next, find your $p$-value. ​ $p$**-value refers to the probability of observing results as ​or more extreme than those ​observed when the null hypothesis is true**. ​We already calculated that ​the probability of fair coin landing on tails ​six times in a row is 1.56 percent. ​If you assume the null hypothesis ​is true and the coin is fair, ​then the $p$-value in our example is 1.56 percent. ​Anything lower than that would mean that there is ​stronger evidence for the alternative hypothesis. ​Remember, your alternative hypothesis ​is that the coin is not fair. 
+
+​For instance, the probability of tossing seven tails ​in a row with a fair coin is 0.79 percent, ​which is lower than the $p$-value of 1.56 percent. ​If you toss seven tails in a row, ​you'd have even stronger evidence for ​the alternative hypothesis that the coin is not fair. ​
+
+Finally, you have to decide whether to ​reject or fail to reject the null hypothesis. ​Statisticians always say, ​fail to reject rather than except. ​This is because hypothesis tests ​are based on probability, ​not certainty. ​Acceptance implies certainty. ​In general, as data professionals, ​we try not to claim certainty about ​results based on statistical methods. 
+
+​There are two main rules for drawing ​a conclusion about a hypothesis test. 
+
+-   ​**If your** $p$**-value is less than your significance level, ​you reject the null hypothesis**. **​**
+
+-   **If your** $p$**-value is greater than your significance level, ​you fail to reject the null hypothesis.** ​
+
+The example of the coin toss, ​your $p$-value of 1.56 percent ​is less than your significance level of five percent. ​You reject the null hypothesis ​and conclude that your result of ​six consecutive tails is ​statistically significant and not due to chance. ​Your decision to reject or fail to ​reject also depends on your significance level. ​Let's say, before your test, ​you chose a significance level of ​one percent instead of five percent. ​In that case, you would fail to reject ​the null hypothesis because your $p$-value of ​1.56 percent would be ​greater than your significance level of one percent. 
+
+​A statistically significant result cannot prove ​with 100 percent certainty ​that our hypothesis is correct. ​Because hypothesis testing is based on probability, ​there's always a chance of drawing ​the wrong conclusion about the null hypothesis. ​
+
+In hypothesis testing, ​there are two types of errors you ​can make when drawing a conclusion, ​a Type I error and a Type II error. ​
+
+**A Type I error, ​also known as a false positive, ​occurs when you reject ​a null hypothesis that is actually true.** ​In other words, you conclude that your result is ​statistically significant when in ​fact it occurred by chance. ​In our example, concluding ​that the coin is rigged when it's ​actually fair would be considered a Type I error. ​Even though you've got six tails in a row, ​this outcome could still be due to chance. ​It's highly unlikely, but it's possible. ​
+
+Earlier in the video, ​I mentioned that **your significance level is also ​the probability of rejecting ​the null hypothesis when it is true. ​A significance level of ​five percent means you are willing to accept ​a five percent chance you are ​wrong when you reject the null hypothesis.** ​To reduce your chance of making a Type I error, ​choose a lower significance level. ​Recall that if you choose ​a one percent significance level, ​you fail to reject the null ​and conclude that the coin is fair. ​However, choosing a lower significance level means you're ​more likely to make a Type II error or a false negative. 
+
+​**Type II error or a false negative: This occurs when you fail to reject a null hypothesis, ​which is actually false. ​In other words, you conclude your result occurred by ​chance when it's in fact statistically significant.** ​In our example, you would conclude that ​the coin is fair when it's actually rigged. ​As a data professional, ​it helps to be aware of the potential errors built ​into hypothesis testing and ​how they can affect your results. ​
+
+Depending on the situation and the goal of your analysis, ​you may want to minimize the risk of ​either a Type I or Type II error. ​Imagine you're testing the strength of ​the fabric for a parachute manufacturer. ​You want to be very confident that the material you're ​using is strong enough for a functional parachute. 
+
+​A Type I error or a false positive means ​you falsely identify the material as strong enough. ​Obviously, in this case, ​you want to minimize the risk of a Type I error. ​To do so, choose a significance level of ​one percent instead of the standard five percent. ​This change decreases the chance of a Type I error ​or false positive from 5-1 percent. ​Ultimately, it's your responsibility ​as a data professional to determine ​how much evidence you need to ​decide that a result is statistically significant. ​How risky is a Type I error or a false positive? ​There is no single correct answer ​for all of these situations. 
+
+​It's up to you to decide. That's all for now. ​The coin toss example shows you ​the main concepts involved in ​conducting a hypothesis test. ​As a data professional, ​you'll use these concepts for ​any hypothesis test that you may want to conduct. 
+
+------------------------------------------------------------------------
+
+# Differences between the null and alternative hypotheses
+
+Recently, you learned that **hypothesis testing** uses sample data to evaluate an assumption about a population parameter. Data professionals conduct a hypothesis test to decide whether the evidence from their sample data supports either the null hypothesis or the alternative hypothesis.
+
+In this reading, we’ll go over the main differences between the null hypothesis and the alternative hypothesis, and how to formulate each hypothesis in different scenarios. 
+
+## Statistical hypotheses
+
+Let’s review the steps for conducting a hypothesis test:
+
+1.  State the null hypothesis and the alternative hypothesis.
+
+2.  Choose a significance level.
+
+3.  Find the $p$-value.
+
+4.  Reject or fail to reject the null hypothesis.
+
+The first step for any hypothesis test is to state the null and alternative hypotheses. The null and alternative hypotheses are mutually exclusive, meaning they cannot both be true at the same time. 
+
+The **null hypothesis** is a statement that is assumed to be true unless there is convincing evidence to the contrary. The null hypothesis typically assumes that there is no effect in the population, and that your observed data occurs by chance. 
+
+The **alternative hypothesis** is a statement that contradicts the null hypothesis, and is accepted as true only if there is convincing evidence for it. The alternative hypothesis typically assumes that there is an effect in the population, and that your observed data does *not* occur by chance. 
+
+**Note:** The null and alternative hypotheses are always claims about the population. That’s because the aim of hypothesis testing is to make inferences about a population based on a sample. 
+
+For example, imagine you’re a data professional working for a car dealership. The company implements a new sales training program for their employees. They ask you to evaluate the effectiveness of the program. 
+
+-   Your **null hypothesis (H~0~):** the program had no effect on sales revenue. 
+
+-   Your **alternative hypothesis (H~a~)**: the program increased sales revenue. 
+
+Let’s explore each hypothesis in more detail. 
+
+### **Null hypothesis** 
+
+The null hypothesis has the following characteristics:
+
+-   In statistics, the null hypothesis is often abbreviated as H sub zero (H~0~). 
+
+-   When written in mathematical terms, the null hypothesis always includes an equality symbol (usually =, but sometimes ≤ or ≥). 
+
+-   Null hypotheses often include phrases such as “no effect,” “no difference,” “no relationship,” or “no change.” 
+
+### **Alternative hypothesis** 
+
+The alternative hypothesis has the following characteristics:
+
+-   In statistics, the alternative hypothesis is often abbreviated as H sub a (H~a~). 
+
+-   When written in mathematical terms, the alternative hypothesis always includes an inequality symbol (usually ≠, but sometimes \< or \>). 
+
+-   Alternative hypotheses often include phrases such as “an effect,” “a difference,” “a relationship,” or “a change.”
+
+### **Example scenarios**
+
+Typically, the null hypothesis represents the *status quo*, or the current state of things. The null hypothesis assumes that the status quo hasn’t changed. The alternative hypothesis suggests a new possibility or different explanation. Let’s check out some examples to get a better idea of how to write the null and alternative hypotheses for different scenarios:
+
+#### **Example#1: Mean weight** 
+
+An organic food company is famous for their granola. The company claims each bag they produce contains 300 grams of granola—no more and no less. To test this claim, a quality control expert measures the weight of a random sample of 40 bags.
+
+-   **H~0~**: μ = 300 (the mean weight of all produced granola bags is equal to 300 grams)
+
+-   **H~a~:** μ ≠ 300 (the mean weight of all produced granola bags is not equal to 300 grams)
+
+#### **Example#2: Mean height** 
+
+Suppose it’s assumed that the mean height of a certain species of tree is 30 feet tall. However, one ecologist claims the actual mean height is greater than 30 feet. To test this claim, the ecologist measures the height of a random sample of 50 trees.
+
+-   **H~0~**: μ ≤ 30 (the mean height of this species of tree is equal to or less than 30 feet)
+
+-   **H~a~:** μ \> 30 (the mean height of this species of tree is greater than 30 feet)
+
+#### **Example#3: Proportion of employees**
+
+A corporation claims that at least 80% of all employees are satisfied with their job. However, an independent researcher believes that less than 80% of all employees are satisfied with their job. To test this claim, the researcher surveys a random sample of 100 employees.
+
+-   **H~0~**: p ≥ 0.80 (the proportion of all employees who are satisfied with their job is equal to or greater than 80%)
+
+-   **H~a~:** p \< 0.80 (the proportion of all employees who are satisfied with their job is less than 80%)
+
+### **Summary: Null versus alternative**
+
+The following table summarizes some important differences between the null and alternative hypotheses:
+
++---------------+----------------------------------------+---------------------------------------+
+|               | **Null hypothesis (H~0~)**             | **Alternative hypothesis (H~a~)**     |
++:==============+:=======================================+:======================================+
+| **Claims**    | There is no effect in the population.  | There is an effect in the population. |
++---------------+----------------------------------------+---------------------------------------+
+| **Language**  | -   No effect                          | -   An effect                         |
+|               |                                        |                                       |
+|               | -   No difference                      | -   A difference                      |
+|               |                                        |                                       |
+|               | -   No relationship                    | -   A relationship                    |
+|               |                                        |                                       |
+|               | -   No change                          | -   A change                          |
++---------------+----------------------------------------+---------------------------------------+
+| **Symbols**   | Equality (=, ≤, ≥)                     | Inequality (≠, \<, \>)                |
++---------------+----------------------------------------+---------------------------------------+
+
+## Key takeaways
+
+The null hypothesis and the alternative hypothesis are foundational concepts in hypothesis testing. To conduct an effective hypothesis test, it’s important to understand the differences between the null and alternative hypotheses, and how to properly state each hypothesis. 
+
+## Resources for more information
+
+To learn more about the null hypothesis and the alternative hypothesis, refer to the following resources: 
+
+-   This [article from Statistics How To](https://www.statisticshowto.com/probability-and-statistics/null-hypothesis/) features a detailed discussion of the null hypothesis.
+
+------------------------------------------------------------------------
+
+# Type I and type II errors
+
+Earlier, you learned that you can use a hypothesis test to help determine if your results are statistically significant, or if they occurred by chance. However, because hypothesis testing is based on probability, there’s always a chance of drawing the wrong conclusion about the null hypothesis. In hypothesis testing, there are two types of errors you can make when drawing a conclusion: a Type I error and a Type II error.
+
+In this reading, we’ll discuss the difference between Type I and Type II errors, and the risks involved in making each error.
+
+## Errors in statistical decision-making
+
+Let’s review the steps for conducting a hypothesis test:
+
+1.  State the null hypothesis and the alternative hypothesis.
+
+2.  Choose a significance level.
+
+3.  Find the $p$-value.
+
+4.  Reject or fail to reject the null hypothesis.
+
+When you decide to reject or fail to reject the null hypothesis, there are four possible outcomes–two represent correct choices, and two represent errors. You can: 
+
+-   Reject the null hypothesis when it’s actually true (**Type I error)**
+
+-   Reject the null hypothesis when it’s actually false (Correct)
+
+-   Fail to reject the null hypothesis when it’s actually true (Correct) 
+
+-   Fail to reject the null hypothesis when it’s actually false (**Type II error**)
+
+![](images/paste-66.png)
+
+### **Example: Clinical trial** 
+
+Let’s explore an example to get a better understanding of Type I and Type II errors. Hypothesis tests are often used in clinical trials to determine whether a new medicine leads to better outcomes in patients. Imagine you’re a data professional who works for a pharmaceutical company. The company invents a new medicine to treat the common cold. The company tests a random sample of 200 people with cold symptoms. Without medicine, the typical person experiences cold symptoms for 7.5 days. The average recovery time for people who take the medicine is 6.2 days. 
+
+You conduct a hypothesis test to determine if the effect of the medicine on recovery time is statistically significant, or due to chance. 
+
+In this case:
+
+-   Your **null hypothesis** (H~0~) is that the medicine has no effect.
+
+-   Your **alternative hypothesis** (H~a~) is that the medicine is effective.
+
+### **Type I error** 
+
+A **Type 1 error**, also known as a false positive, occurs when you reject a null hypothesis that is actually true. In other words, you conclude that your result is statistically significant when in fact it occurred by chance. 
+
+For example, in your clinical trial, if the null hypothesis is true, that means the medicine has no effect. If you make a Type I error and reject the null hypothesis, you incorrectly conclude that the medicine relieves cold symptoms when it’s actually ineffective. 
+
+The probability of making a Type I error is called alpha (α). Your significance level, or alpha (α), represents the probability of making a Type I error. Typically, the significance level is set at 0.05, or 5%. A significance level of 5% means you are willing to accept a 5% chance you are wrong when you reject the null hypothesis. 
+
+#### **Reduce your risk**
+
+To reduce your chance of making a Type I error, choose a lower significance level.
+
+For instance, if you want to minimize the risk of a Type I error, you can choose a significance level of 1% instead of the standard 5%. This change reduces the chance of making a Type I error from 5% to 1%.
+
+| **Significance level (α)** | **Chance of making Type I error**  |
+|:---------------------------|:-----------------------------------|
+| 0.05                       | 5%                                 |
+| 0.01                       | 1%                                 |
+
+### **Type II error** 
+
+However, reducing your risk of making a Type I error means you are more likely to make a Type II error, or false negative. A **Type II error** occurs when you fail to reject a null hypothesis which is actually false. In other words, you conclude your result occurred by chance, when in fact it didn’t. 
+
+For example, in your clinical study, if the null hypothesis is false, this means that the medicine is effective. If you make a Type II error and fail to reject the null hypothesis, you incorrectly conclude that the medicine is ineffective when it actually relieves cold symptoms. 
+
+The probability of making a Type II error is called beta (β), and beta is related to the power of a hypothesis test (power = 1- β). Power refers to the likelihood that a test can correctly detect a real effect when there is one. 
+
+#### **Reduce your risk**
+
+You can reduce your risk of making a Type II error by ensuring your test has enough power. In data work, power is usually set at 0.80 or 80%. The higher the statistical power, the lower the probability of making a Type II error. To increase power, you can increase your sample size or your significance level.
+
+**Note**: A detailed discussion of the concept of statistical power is beyond the scope of this course. Power is something you’ll learn more about as you advance in your career as a data professional and grow your knowledge of statistics. 
+
+### **Potential risks of Type I and Type II errors** 
+
+As a data professional, it’s important to be aware of the potential risks involved in making the two types or errors.
+
+A Type I error means rejecting a null hypothesis which is actually true. In general, making a Type I error often leads to implementing changes that are unnecessary and ineffective, and which waste valuable time and resources. 
+
+For example, if you make a Type I error in your clinical trial, the new medicine will be considered effective even though it’s actually ineffective. Based on this incorrect conclusion, an ineffective medication may be prescribed to a large number of people. Plus, other treatment options may be rejected in favor of the new medicine. 
+
+A Type II error means failing to reject a null hypothesis which is actually false. In general, making a Type II error may result in missed opportunities for positive change and innovation. A lack of innovation can be costly for people and organizations. 
+
+For example, if you make a Type II error in your clinical trial, the new medicine will be considered ineffective even though it’s actually effective. This means that a useful medication may not reach a large number of people who could benefit from it.
+
+## Key takeaways 
+
+As a data professional, it helps to be aware of the potential errors built into hypothesis testing and how they can affect your results. Depending on the specific situation, you may choose to minimize the risk of either a Type I or Type II error. Ultimately, it’s your responsibility as a data professional to determine which type of error is riskier based on the goals of your analysis. 
+
+## Resources for more information
+
+To learn more about Type I and Type II errors, refer to the following resources: 
+
+-   This [article from Simply Psychology](https://www.simplypsychology.org/type_I_and_type_II_errors.html) contains a helpful summary of the differences between Type I and Type II errors. 
+
+------------------------------------------------------------------------
+
+# One-sample test for means or proportion
+
+Earlier, I mentioned that there are ​two different types of hypothesis tests: ​one-sample and two-sample. ​
+
+**A one-sample test determines ​whether or not a population parameter, ​like a mean or proportion, ​is equal to a specific value.** ​
+
+**A two-sample test determines ​whether or not two population parameters, ​such as two means or two proportions, ​are equal to each other.** ​We'll explore two-sample tests later on. ​
+
+A data professional might conduct ​a one-sample hypothesis test to ​determine if a company's average sales revenue ​is equal to a target value, ​a medical treatment's average rate of ​success is equal to a set goal, ​or a stock portfolio's average rate of ​return is equal to a market benchmark. ​In this video, you'll conduct ​a one-sample hypothesis test. ​We'll explore an example involving ​data for an online delivery company. 
+
+​There are different types of hypothesis tests you ​can use based on the type of ​sample data you're working with. ​In this course, we focus on $z$-tests and $t$-tests, ​two of the most commonly-used tests in data analytics. ​If these terms seem familiar, ​it's because they're related to $z$-scores and $t$-scores, ​which we've worked with before. 
+:::.important-note
+​The one-sample $z$-test makes the following assumptions: 
+-   ​the data is a random sample of ​a normally-distributed population,
+-   ​the population standard deviation is known. 
+:::
+
+​Imagine you're a data professional ​who works for an online delivery company. ​Typically, the mean delivery time ​for an online food order ​is 40 minutes with a standard deviation of five minutes. ​But recently, company management launched ​a new training program to make ​the delivery process more efficient. 
+
+​After delivery drivers completed the training program, ​management tracked a random sample of ​50 deliveries to understand how long a delivery takes. ​The sample of 50 deliveries had a mean delivery time of ​38 minutes with a standard deviation of five minutes. ​There is an observed difference of ​two minutes between the population mean ​of 40 minutes and the sample mean of 38 minutes. ​The management team asks you to ​determine if the decrease in ​average delivery time is statistically ​significant or if it's due to chance. ​If the decrease is statistically significant, ​the company wants to invest in developing and ​implementing the training program in other regions. ​You decide to conduct a one-sample $z$-test ​to analyze the data. ​Let's review the steps for conducting a hypothesis test. 
+
+-   ​First, state the null hypothesis ​and the alternative hypothesis.
+-   Second, choose a significance level. 
+​-   Third, find the $p$-value. ​
+-   Fourth, reject or fail to reject the null hypothesis. 
+
+​Start by stating ​your null hypothesis and alternative hypothesis. ​Recall that the null hypothesis ​is a statement that is assumed to ​be true unless there's ​convincing evidence to the contrary. **​In a one-sample $z$-test, ​the null hypothesis states that ​the population mean is equal to an observed value. **
+
+​In this case, your null hypothesis says ​that the average delivery time equals 40 minutes, ​40 minutes is the standard average delivery time. ​The alternative hypothesis is ​a statement that contradicts the null hypothesis. 
+
+​In a one-sample test, ​there are three main options for ​the alternative hypothesis: ​the population mean is not equal to, is ​less than, or is greater than an observed value. 
+
+​In this case, you want to test whether the training ​has decreased the average delivery time. ​Your alternative hypothesis says ​the average delivery time is less than 40 minutes. 
+
+​Next, set the significance level or ​the threshold at which you will consider ​our results statistically significant. ​This is also the probability of ​rejecting the null hypothesis when it is true. 
+
+​You choose a significance level of five percent, ​which is the company's standard for data analysis. 
+
+​Now, find the $p$-value. ​Recall that your $p$-value is ​the probability of observing a difference in ​your results as or more extreme ​than the difference observed ​when the null hypothesis is true. ​Typically, the mean delivery time is 40 minutes. ​The mean delivery time of your sample is 38 minutes. ​Your null hypothesis claims ​that this two-minute difference in ​delivery time is due to chance or sampling variability. ​
+Your $p$-value is the probability ​of observing a difference that is ​two minutes or greater if the null hypothesis is true. 
+
+​If the probability of this outcome is ​very unlikely, in particular, ​if your $p$-value is less than ​your significance level of five percent, ​then you'll reject the null hypothesis. 
+
+​As a data professional, ​you'll almost always calculate $p$-value on your computer ​using a programming language like ​Python or other statistical software. ​However, let's briefly explore the concepts involved ​in the calculation to get ​a better understanding of how it works. ​Being able to use code for ​calculations is important for your future career. ​But being familiar with the concepts behind ​the calculations will help you apply ​statistical methods to workplace problems. 
+
+​The $p$-value is calculated from ​what's called a ***test statistic***. ​In hypothesis testing, ​the ***test statistic*** is a value that shows how ​closely your observed data matches ​the distribution expected under the null hypothesis, ​so if you assume the null hypothesis is ​true and the mean delivery time is 40 minutes, ​the data for delivery times ​follows a normal distribution. 
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import norm
+
+# 1. Given Parameters & Formulas
+n = 50                      # Sample size
+pop_mean = 40               # Population mean (\mu)
+pop_std = 5                 # Population standard deviation (\sigma)
+sample_mean = 38            # Sample mean (\bar{x})
+
+# Calculate Standard Error (SE): SE = \sigma / \sqrt{n}
+se = pop_std / np.sqrt(n)   # SE \approx 0.7071
+
+# Calculate Z-score: Z = (\bar{x} - \mu) / SE
+z_score = (sample_mean - pop_mean) / se  # Z \approx -2.8284
+
+# Calculate exact p-value (cumulative area under curve up to sample_mean)
+p_value = norm.cdf(sample_mean, loc=pop_mean, scale=se)  # p \approx 0.0023 (0.23%)
+
+# 2. Setup Plot Data Range
+# We plot 4 Standard Errors above and below the population mean (\mu \pm 4*SE)
+x = np.linspace(pop_mean - 4 * se, pop_mean + 4 * se, 1000)
+y = norm.pdf(x, loc=pop_mean, scale=se)
+
+# 3. Create Figure
+fig, ax = plt.subplots(figsize=(9, 5))
+
+# Plot the sampling distribution curve (dashed line matching course style)
+ax.plot(x, y, color='#555555', linestyle=':', linewidth=2, label=r'Sampling Distribution ($\bar{X}$)')
+
+# 4. Fill the Tail Area representing the p-value
+# Generate X values from the far left boundary up to sample_mean (38)
+x_fill = np.linspace(pop_mean - 4 * se, sample_mean, 500)
+y_fill = norm.pdf(x_fill, loc=pop_mean, scale=se)
+# Fill 
+ax.fill_between(x_fill, y_fill, color='#dc002b', alpha=0.85)
+
+# 5. Add Reference Lines
+# Vertical solid line at population mean (\mu = 40)
+ax.axvline(x=pop_mean, color='#a0a0a0', linestyle='-', linewidth=1.2)
+# Baseline (y = 0)
+ax.axhline(y=0, color='#a0a0a0', linestyle='-', linewidth=1)
+
+# 6. Annotations
+# Point to the red shaded area (p-value)
+ax.annotate(
+    rf'p-value = {p_value:.4f}\n($Z = {z_score:.2f}$)', 
+    xy=(sample_mean - 0.2, norm.pdf(sample_mean, pop_mean, se) + 0.01), 
+    xytext=(36.2, 0.25),
+    fontsize=11, 
+    color='#dc002b', 
+    fontweight='bold',
+    arrowprops=dict(arrowstyle='->', color='#dc002b', lw=1.2)
+)
+
+# Label observed sample mean (\bar{x} = 38)
+ax.annotate(
+    rf'observed sample mean\n$\bar{{x}} = {sample_mean}$', 
+    xy=(sample_mean, 0), 
+    xytext=(36.8, -0.08),
+    fontsize=10, 
+    color='black',
+    ha='center',
+    arrowprops=dict(arrowstyle='->', color='gray', lw=1)
+)
+
+# 7. Axes Customization & Styling
+ax.set_xticks([sample_mean, pop_mean])
+ax.set_xticklabels([rf'38 ($\bar{{x}}$)', rf'40 ($\mu$)'], fontsize=12)
+ax.set_yticks([])  # Hide Y-axis numbers to keep focus on distribution shape
+
+ax.set_title('Sampling Distribution of Delivery Time Means', fontsize=15, pad=20)
+ax.set_xlim(pop_mean - 4 * se, pop_mean + 4 * se)
+ax.set_ylim(-0.1, max(y) * 1.15)
+
+# Hide chart border spines
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+
+```
+
+​The ***test statistic*** shows where your observed data, ​a sample mean delivery time of ​38 minutes, will fall on that distribution. ​Since you're conducting a $z$-test, ​your ***test statistic*** is a $z$-score. ​Recall that a $z$-score is ​a measure of how many standard deviations ​below or above the population mean a data point is. ​$z$-scores tell you where ​your values lie on a normal distribution. ​
+
+The following formula gives you a ***test statistic*** $​$z based on your sample data:
+$$
+Z = \frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}
+$$
+
+​Where X-bar is the sample mean,
+​Mu is the population mean, 
+​Sigma is the population standard deviation, 
+​and n is the sample size. 
+
+​If you enter the numbers in ​the formula and do the calculation,​you get a $z$-score of -2.82. 
+
+$$
+Z = \frac{38-40}{\frac{5}{\sqrt{50}}} =-2,828
+$$
+
+​Let's check out where the $z$-score, ​negative 2.82, lies on the distribution. ​It's far to the left, ​almost three standard deviations below the mean. ​For a normal distribution, ​the probability of getting ​a value less than your $z$-score of ​-2.82 is calculated by taking ​the area under the curve to the left of the $z$-score. ​This is called a left-tailed test because ​your $p$-value is located on ​the left tail of the distribution. ​The area under this part of ​the curve is the same as your $p$-value. ​Again, your $p$-value is the probability of observing ​a ***test statistic*** as or more ​extreme than that observed ​when the null hypothesis is true. ​Your alternative hypothesis states that ​the mean delivery time ​decreased based on your sample data. 
+
+​That's why we're interested in the probability of getting ​any value lower than your $z$-score of -2.82. ​In a different testing scenario, ​your ***test statistic*** might be positive 2.45, ​and you might be interested in values ​higher than the $z$-score 2.45. ​In that case, your $p$-value ​would be located on the right tail of ​the distribution and you'll be ​conducting a right-tailed test. ​If you calculate the $p$-value, ​you'll find that it's 0.0023, ​so your $p$-value is 0.0023 or 0.23 percent. ​This means there's a 0.23 ​percent probability that the difference in ​mean delivery time would be 2 minutes or ​greater if the null hypothesis is true. ​In other words, it's highly ​unlikely that their difference is due to chance. ​To draw a conclusion about your null hypothesis, ​compare your $p$-value with the significance level. 
+
+​If your $p$-value is less than the significance level, ​you conclude that there is ​a statistically significant difference ​in mean delivery time. ​In other words, you reject the null hypothesis. ​If your $p$-value is greater than the significance level, ​you conclude that there is not ​a statistically significant difference ​in mean delivery time. ​In other words, you fail to reject the null hypothesis. ​Your $p$-value of 0.0023, ​or 0.23 percent is less than ​the significance level of 0.05 or five percent, ​so you reject the null hypothesis and conclude that ​there is a statistically significant difference ​in mean delivery time. ​Your results suggest that ​the faster delivery time is likely ​due to the positive effects of the training. ​Your analysis will help company leadership decide ​whether to make a bigger investment ​in the training program going forward. 
+
+​Based on your results, ​they're likely to do so.

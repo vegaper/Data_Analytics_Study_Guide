@@ -1,0 +1,381 @@
+---
+title: "Understand data format"
+format: html
+---
+```{python}
+#| include: false
+import _setup
+```
+# Discover what is missing from your dataset
+
+​I've often found that stepping away from a challenging project and ​taking a break helps me find new perspectives on my work. ​I like to get a can of seltzer from the fridge, take a walk and ​reflect on what I know and what I don't know about the project I'm working on.
+
+​The EDA discovering process requires a similar shift in perspective. ​After I perform an initial discovering of a data set, I've usually learned ​enough about the project to make a hypothesis based on that data.
+
+​A hypothesis is a theory or ​an explanation based on evidence that is not yet proved true. ​Data professionals often use hypotheses as a starting point for ​continued investigation or testing. ​Once I form my hypothesis, I'm in a better position to discover more ​about the data and achieve my ultimate goal: telling a story. ​
+
+So far in this course we've discussed how to begin the discovering practice of EDA. ​You learned how to examine data sources, data formats and data types. ​You've considered column header information and averages and ​you've made some initial visualizations to represent your data. ​Use Python to determine the size and scope of the data set and ​learn when you need to ask the owner of the data, clarifying questions. ​
+
+After you've made sense of the raw data, you're ready for the next step of ​the discovering process, drafting a list of questions and forming hypothesis. ​In this video you'll learn how to ask meaningful questions about the goal you've ​outlined in the pace workflow to better understand what ​is missing from your data set and what you still need to find out. ​
+
+One way I like to do this is by breaking the original problem into smaller chunks. ​Some questions you might ask include how can I break this data into smaller groups ​so I can understand it better? ​How can I prove my hypothesis or, in its current form, ​can this data give me the answers I need?
+
+​Let's consider these questions in context. ​For example, imagine you work as a data analyst for an international airline and ​you need to determine whether lowering the prices of tickets will attract more ​customers in certain days of the week. ​To solve this problem, you might ask which months have the most passenger traffic, ​which weeks, dates or known holidays have the highest number of passengers? ​When are tickets typically purchased? ​Then you form your hypothesis.
+
+​In this case your hypothesis might be: ​I predict that Tuesdays and Wednesdays of a normal business week have the fewest ​number of passengers and flights. ​So if the airline lowers prices for Tuesdays and ​Wednesdays during or on holiday weeks then they will sell more tickets. ​Eventually, you would test your hypothesis by analyzing the data to understand ​whether the airline would attract more customers by lowering the prices on those ​specific flights.
+
+​The purpose of asking questions and ​forming a hypothesis is to better understand what you ​want to learn from the data and what the results of your testing might show. ​
+
+Later when you're performing other practices of EDA, you can refer to these ​questions and your hypothesis to determine whether you've supported or ​refuted your original theory. ​
+
+To answer the questions and test the hypothesis you or ​your team formed you will need a plan. ​For instance, ​you might need to contact the subject matter expert who owns the database or ​is more familiar with the data source or you may need to do your own research. ​In other words leave no stone unturned. ​It's an old saying about an ancient Greek legend and ​it means to search everything you can to think of to find what you're looking for. ​
+
+If you discover that your search for answers only brings more questions, ​that's a good thing! You're eliminating the possibility of misinterpreting or ​misrepresenting the data each time you learn more. ​
+
+At some point you may need to decide you need to organize or ​alter the data to find the answers to your questions. ​For example you may need to regroup entries into months or ​years rather than days or weeks or you might want to group customer ​ages into age ranges to help you understand trends more effectively. ​Sometimes combining or splitting data columns will be necessary for ​creating models to answer questions. ​Other times changing date formats or ​time zones in time bound data may be all that's required. ​
+
+For example in your work with the international airline you were tasked ​with finding days to enact lower ticket prices. ​So the airline could attract new passengers. ​Imagine the data you were given listed ticket prices in US dollars, but ​the original request was to lower ticket prices for ​passengers departing from Europe. ​One change you would need to make immediately is to convert US ​dollars to euros.
+
+​Making small changes to your data, like formatting the time, changing a unit or ​converting the currency is all part of the discovering process. ​However, with every change you make stay focused on the problem you're assigned or ​the plan that you established as part of the pace framework.
+
+​As we discussed, every data set is different. ​Asking questions and forming a hypothesis will take time and ​effort but ultimately answering questions and ​testing your hypotheses will be the way you find the stories hidden in your data. ​If you get stuck, it might help to step away from your initial discovering work ​and think through your questions and hypotheses again. ​
+
+Any visualization rendered, conversion made, questions answered or ​hypothesis tested must be true to that data set story. ​Who knows? ​Maybe you'll find the answer on your walk break and wouldn't that be refreshing.
+
+------------------------------------------------------------------------
+
+# Datetime manipulation
+
+## Manipulating datetime strings in Python
+
+Below, you will find a table with the datetime functions you can use to help you manipulate datetime objects in different ways. 
+
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **Code**      | **Format**                                                       | **Example**                                                                     |
++:==============+:=================================================================+:================================================================================+
+| **%a**        | Abbreviated weekday                                              | Sun                                                                             |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%A**        | Weekday                                                          | Sunday                                                                          |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%b**        | Abbreviated month                                                | Jan                                                                             |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%B**        | Month name                                                       | January                                                                         |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%c**        | Date and time                                                    | Sun Jan 1 00:00:00 2021                                                         |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%d**        | Day (leading zeros)                                              | 01 to 31                                                                        |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%H**        | 24 hours                                                         | 00 to 23                                                                        |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%I**        | 12 hours                                                         | 01 to 12                                                                        |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%j**        | Day of year                                                      | 001 to 366                                                                      |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%m**        | Month                                                            | 01 to 12                                                                        |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%M**        | Minute                                                           | 00 to 59                                                                        |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%p**        | AM or PM                                                         | AM/PM                                                                           |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%S**        | Seconds                                                          | 00 to 61                                                                        |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%U**        | Week number (Sun)                                                | 00 to 53                                                                        |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%W**        | Week number (Mon)                                                | 00 to 53                                                                        |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%w**        | Weekday                                                          | 0 to 6                                                                          |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%x**        | Locale’s appropriate date representation                         | 08/16/88 (None);                                                                |
+|               |                                                                  |                                                                                 |
+|               |                                                                  | 08/16/1988 (en_US);                                                             |
+|               |                                                                  |                                                                                 |
+|               |                                                                  | 16.08.1988 (de_DE)                                                              |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%X**        | A locale’s appropriate time representation                       | 21:30:00 (en_US);                                                               |
+|               |                                                                  |                                                                                 |
+|               |                                                                  | 21:30:00 (de_DE)                                                                |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%y**        | Year without century                                             | 00 to 99                                                                        |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%Y**        | Year                                                             | 2022                                                                            |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%z**        | Offset                                                           | +0900                                                                           |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **%Z**        | Time zone                                                        | EDT/JST/WET etc (GMT)                                                           |
++---------------+------------------------------------------------------------------+---------------------------------------------------------------------------------+
+
+## Datetime functions to remember
+
+All of the following date string manipulations require the datetime package to be imported first.
+
+**(from datetime import datetime)**
+
++----------------------------------------------------------------------+----------------------------------+----------------------------------------------+----------------------------------+-------------------------------------------------------+
+| **Code**                                                             | **Input Type**                   | **Input Example**                            | **Output Type**                  | **Output Example**                                    |
++:=====================================================================+:=================================+:=============================================+:=================================+:======================================================+
+| **datetime.strptime(“25/11/2022”, “%d/%m/%Y”)**                      | string                           | “25/11/2022”                                 | DateTime                         | “2022-11-25  00:00:00”                                |
++----------------------------------------------------------------------+----------------------------------+----------------------------------------------+----------------------------------+-------------------------------------------------------+
+| **datetime.strftime(dt_object, “%d/%m/%Y”)**                         | DateTime                         | “2022-11-25  00:00:00”                       | string                           | “25/11/2022”                                          |
++----------------------------------------------------------------------+----------------------------------+----------------------------------------------+----------------------------------+-------------------------------------------------------+
+| **dt_object = datetime.strptime(“25/11/2022”, “%d/%m/%Y”)**          | string                           | “25/11/2022”                                 | float (UTC timestamp in seconds) | 1617836400.0                                          |
+|                                                                      |                                  |                                              |                                  |                                                       |
+| **datetime.timestamp(dt_object)**                                    |                                  |                                              |                                  |                                                       |
++----------------------------------------------------------------------+----------------------------------+----------------------------------------------+----------------------------------+-------------------------------------------------------+
+| **datetime.strptime(“25/11/2022”, “%d/%m/%Y”).strftime(“%Y-%m-%d”)** | string                           | “25/11/2022”                                 | string                           | “2022-11-25”                                          |
++----------------------------------------------------------------------+----------------------------------+----------------------------------------------+----------------------------------+-------------------------------------------------------+
+| **datetime.fromtimestamp(1617836400.0)**                             | float (UTC timestamp in seconds) | 1617836400.0                                 | DateTime                         | datetime.datetime(2021, 4, 7, 23, 0)                  |
++----------------------------------------------------------------------+----------------------------------+----------------------------------------------+----------------------------------+-------------------------------------------------------+
+| **datetime.fromtimestamp(1617836400.0).strftime(“%d/%m/%Y”)**        | float (UTC timestamp in seconds) | 1617836400.0                                 | string                           | “'07/04/2021'”                                        |
++----------------------------------------------------------------------+----------------------------------+----------------------------------------------+----------------------------------+-------------------------------------------------------+
+| **from pytz import timezone**                                        | string                           | NewYork timezone “25-11-2022  09:34:00-0700” | DateTime                         | Tokyo timezone 2022, 11, 26, 1, 34, JST+9:00:00 STD\> |
+|                                                                      |                                  |                                              |                                  |                                                       |
+| **ny_time = datetime.strptime(“25-11-2022  09:34:00-0700”,**         |                                  |                                              |                                  |                                                       |
+|                                                                      |                                  |                                              |                                  |                                                       |
+| **“%d-%m-%Y  %H:%M:%S%z”)**                                          |                                  |                                              |                                  |                                                       |
+|                                                                      |                                  |                                              |                                  |                                                       |
+| **Tokyo_time = ny_time.astimezone(timezone(‘Asia/Tokyo’))**          |                                  |                                              |                                  |                                                       |
++----------------------------------------------------------------------+----------------------------------+----------------------------------------------+----------------------------------+-------------------------------------------------------+
+| **datetime.strptime(“20:00”, “%H:%M”).strftime(“%I:%M %p”)**         | string                           | “20:00”                                      | string                           | “08:00 PM”                                            |
++----------------------------------------------------------------------+----------------------------------+----------------------------------------------+----------------------------------+-------------------------------------------------------+
+| **datetime.strptime(“08:00 PM”, “%I:%M  %p”).strftime(“%H:%M”)**     | string                           | “08:00 PM”                                   | string                           | “20:00”                                               |
++----------------------------------------------------------------------+----------------------------------+----------------------------------------------+----------------------------------+-------------------------------------------------------+
+
+## Datetime in NumPy and pandas
+
+A preface regarding terminology in the following section:
+
+-   **datetime** refers to the specific module of that name in the Python standard library or to the specific class within that module.
+
+-   Datetime (or uncapitalized, datetime) refers to any date/time-related object from any library or language.  
+
+You’ve learned that the **datetime** [module in Python’s standard library](https://docs.python.org/3/library/datetime.html) contains a number of classes used to work with time data, including **date**, **time**, **datetime**, **timedelta**, **timezone**, and **tzinfo**. Remember, modules are similar to libraries, in that they are groups of related classes and functions, but they are generally subcomponents of libraries. Classes are data types that bundle data and functionality together.
+
+NumPy and pandas have their own datetime classes that offer significant performance boosts when working with large datasets. Pandas datetime classes, like the rest of the pandas library, are built on NumPy. These classes have very similar (and in many cases identical) functionality to Python’s native datetime classes, but they run more efficiently due to NumPy and pandas’ vectorization capabilities. Therefore, although you *can* use **datetime** data in pandas, it’s generally better to use NumPy or pandas datetime objects when working in pandas, if possible.
+
+[NumPy’s datetime classes](https://numpy.org/doc/stable/reference/arrays.datetime.html) include, most notably, **datetime64** and **timedelta64**.
+
+Like **datetime** objects, **datetime64** objects contain date and time information in a single data structure; and, like **timedelta** objects, **timedelta64** objects contain information pertaining to spans of time. 
+
+[Pandas’ datetime classes](https://pandas.pydata.org/docs/user_guide/timeseries.html) include **Timestamp**, **Timedelta**, **Period**, and **DateOffset**.  
+
+Because these classes are efficient and dynamic in their capabilities, you often don’t need to import the **datetime** module when working with datetime data in pandas. Also, pandas will automatically recognize datetime-like data and convert it to the appropriate class when possible. Here’s an example:
+
+```{python}
+import pandas as pd
+data = ['2023-01-20', '2023-04-27', '2023-06-15']
+my_series = pd.Series(data)
+print(my_series)
+
+```
+
+This series contains string data, but it can be converted to **datetime64** data using the **pd.to_datetime()** function:
+
+```{python}
+my_series = pd.to_datetime(my_series)
+my_series
+
+```
+
+Refer to the pandas to_datetime() documentation for more information about this function.
+
+When a Series object contains datetime data, you can use dt to access various properties of the data. For example:
+
+```{python}
+print(my_series.dt.year)
+print(my_series.dt.month)
+print(my_series.dt.day)
+```
+
+Note that it’s not uncommon to import the **datetime** module from Python’s standard library as **dt**. You may have encountered this yourself. In such case, **dt** is being used as an alias. The pandas **dt** **Series** accessor (as demonstrated in the last example) is a different thing entirely. Refer to the [pandas dt accessor documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#dt-accessor) for more information.
+
+## Key takeaways
+
+Use reference guides like the tables above throughout your career to help remind you of the different ways to manipulate datetime objects. Even experts in the field use reference guides, rather than memorizing all this information. Getting familiar with guides like these will be beneficial because you will be using them throughout your career as a data professional.
+
+------------------------------------------------------------------------
+
+# Date string manipulations with Python
+
+As a data professional, you can expect to work with date time objects and ​date strings. ​In this video, we'll continue coding in Python and ​practice converting, manipulating, and grouping data. ​By the end of this video, we'll create a widely used data visualization, ​a bar graph that tells a story with your data. ​Working with date strings will often require breaking them down into smaller ​pieces. ​Breaking date strings into days, months, and years allows you to group and ​order the other data in different ways so that you can analyze it. ​Manipulating date and time strings is a foundational skill in EDA. ​In this video, you will learn to convert date strings in ​the NOAA lightning strike dataset into datetime objects. 
+
+​We will discuss how to combine these data objects into ​different groups by segments of time such as quarters and weeks. ​Let's open a Python notebook, and I'll show you what I mean. ​Let's begin by importing Python libraries and packages. ​
+
+To start, import Matplotlib and Pandas which you've used before. ​To review, Pyplot is a very helpful package for ​creating visualizations like bar, line, and pie charts. ​Pandas is one of the more popular packages in data science because it's specific ​focus is a series of functions and commands that help you work with datasets. ​The last package, Seaborn, may be new to you. 
+
+```{python}
+# Import statements
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+```
+
+​Seaborn is a visualization library that is easier to use and ​produces nicer looking charts. ​
+
+For this video, we'll use the NOAA lightning strike data for the years 2016, ​2017, and 2018 to group lightning strikes by different timeframes. ​This will help us understand total lightning strikes by week and quarter. 
+
+```{python}
+# Read in the data.
+df = pd.read_csv(r'Datasets/eda_manipulate_date_strings_with_python.csv')
+df.head()
+```
+
+​As I mentioned at the beginning of this video, when manipulating date strings, ​the best thing to do is to break down the date information like day, ​month, and year into parts. ​This allows us to group the data into any time series grouping we want. ​Luckily, there's an easy way to do that which is to create a datetime object. ​Now, as you'll recall from a previous video, ​this NOAA dataset has three columns giving us the date, ​number of lightning strikes, and latitude and longitude of the strike. 
+
+​For us to manipulate the date column and its data, ​we'll first need to convert it into a datetime data type. 
+
+```{python}
+# Convert the `date` column to datetime.
+df['date'] = pd.to_datetime(df['date'])
+```
+
+​Doing this conversion gives us the quickest and ​most direct path to manipulating the date string in the date column ​which currently is in the format of a four digit year followed by a dash, ​then the two digit month, a dash, and lastly the two digit day. ​Okay, this is the exciting part. ​Because our dates are converted into Panda's datetime objects, ​we can create any sort of date grouping we want. ​Let's say for example, we want to group the lightning strike data by both week and ​quarter. ​All we would need to do is create some new columns. 
+
+```{python}
+# Create four new columns.
+df['week'] = df['date'].dt.strftime('%Y-W%V')
+df['month'] = df['date'].dt.strftime('%Y-%m')
+df['quarter'] = df['date'].dt.to_period('Q').dt.strftime('%Y-Q%q')
+df['year'] = df['date'].dt.strftime('%Y')
+```
+
+​You'll see here we're creating four new columns, week, month, quarter, and year. ​
+
+With the first line of code, we're creating ​a column week by taking the data in the date ​column and using the function strftime. ​
+
+This function from the daytime package formats ​are datetime data into new strings. ​In this case, we want the year followed by a dash, and the number of weeks out of 52. ​If we want that string, ​we need to code it as %Y-W%V. ​
+
+The percent sign is the command which tells the datetime format to use ​the year data in the string. ​The W implies this is a week, and the V stands for ​value, as in a sequential number running from 1 to 52. 
+
+​The final string output for the column data ​will be in this format, 2016-W27. ​The next line of code gives us the new month column. ​The argument is then written as a %Y-%m. ​This will output the four digit year followed by a dash, ​then the two digit month. ​Essentially, we're removing the last two digit date from the original date string. 
+
+​Next, we will create a column for quarters. ​In this case, a quarter is three months. ​Many corporations divide their financial year into quarters. ​So knowing how to divide data into quarter years is a very useful skill. ​In this case, it only takes one line of code. ​The datetime package has a pre-made code for dividing datetime into quarters. 
+
+​Now that we have formatted some strings, let's quickly review our work by using ​the head function we learned in the previous video. 
+
+```{python}
+df.head()
+```
+
+​When we run this code, our four new columns are there, ​week, month, quarter, and year. ​They are all formatted just as we discussed. ​We can use these new strings to learn more about the data. ​For example, let's say we want to group the number of lightning strikes by weeks. ​An organization whose employees primarily work outdoors might be interested ​in knowing the week to week likelihood of dealing with lightning strikes. ​In order to do that, we'll want to plot a chart. ​We've reviewed a couple of charts coded in Python by now. 
+
+​Next, let's code a chart with a lightning strike data. ​For plotting the number of lightning strikes per week, let's use a bar chart. ​Our graph would be a bit confusing using all three years of data. ​So, let's just use the 2018 data and ​limit our chart to 52 weeks rather than 156 weeks. ​We can do this by creating a column that groups the data by year and ​then orders it by week. ​We will then learn more about the structuring function in another video. ​For now, let's focus on plotting this bar chart. 
+
+```{python}
+# Create a new dataframe view of just 2018 data, summed by week.
+df_by_week_2018 = df[df['year'] == '2018'].groupby(['week']).sum(numeric_only=True).reset_index()
+df_by_week_2018.head()
+
+# NOTE: In pandas v.2.X+ you must set 'numeric_only=True' in the sum() function or else it will throw an error
+```
+
+​We'll use the plt.bar function to plot. ​Within our argument field, we select the x-axis which is our week column, ​then the y-axis or height, which we input as a number of strikes. ​Next, we'll fill in some of the details of our chart. ​Using plt.plot, we will place arguments in the x-label, ​y-label, and title functions. ​The arguments are week number, number of lightning strikes, ​and number of lightning strikes per week (2018), respectively. ​This renders a graph, but the x-axis labels are all joined together. ​So, we have a chart, but the x-axis is difficult to read. 
+
+```{python}
+# Plot a bar graph of weekly strike totals in 2018.
+plt.bar(x = df_by_week_2018['week'], height = df_by_week_2018['number_of_strikes'])
+plt.plot()
+plt.xlabel("Week number")
+plt.ylabel("Number of lightning strikes")
+plt.title("Number of lightning strikes per week (2018)");
+```
+
+​So let's fix that. ​We can do that with the plt.xticks function. ​For the rotation, we can put 45, and for the fontsize, let's scale it down to 8. ​
+
+```{python}
+plt.figure(figsize = (20, 5)) # Increase output size.
+plt.bar(x = df_by_week_2018['week'], height = df_by_week_2018['number_of_strikes'])
+plt.plot()
+plt.xlabel("Week number")
+plt.ylabel("Number of lightning strikes")
+plt.title("Number of lightning strikes per week (2018)")
+plt.xticks(rotation = 45, fontsize = 8) # Rotate x-axis labels and decrease font size.
+
+plt.show()
+```
+
+After we use plt.show, the x-axis labels are much cleaner. ​Given our bar chart illustrating lightning strikes per month in 2018, ​you could conclude that a group planning outdoor activities for ​weeks 32 to 34 might want a backup plan to move indoors. ​Of course, this is a broad generalization to make on behalf ​of every North American location in the dataset. ​But for our purposes and in general, ​it is a good understanding of our dataset to have. 
+
+​For our last visualization, let's plot lightning strikes by quarter. ​For our visualization, it will be far easier to work ​with numbers in millions such as 25.2 million ​rather than 25, 154, 365, for example. ​Let's create a column that divides the total number of strikes by one million. 
+
+​
+
+```{python}
+df_by_quarter = df['number_of_strikes'].div(1000000)
+df_by_quarter.head()
+```
+
+We do this by typing df_by_quarter, and ​entering the relevant column in the arguments field. ​In this case, we want number of strikes. ​Next, we add on .div to get our division function. ​Lastly for the argument field, we enter 1000000. 
+
+​When we run this cell, ​we have a column that provides the number of lightning strikes in millions. ​Next, we'll group the number of strikes by quarter ​using the groupby and reset_index functions. ​
+
+```{python}
+# Group 2016-2018 data by quarter and sum.
+df_by_quarter = df.groupby(['quarter']).sum(numeric_only=True).reset_index()
+
+# Format as text, in millions.
+df_by_quarter['number_of_strikes_formatted'] = df_by_quarter['number_of_strikes'].div(1000000).round(1).astype(str) + 'M'
+
+df_by_quarter.head()
+```
+
+This code divides the number of strikes into quarters for all three years. ​Each number is rounded to the first decimal. ​The letter m represents one million. ​As you'll soon discover, this calculation will help with the visualization. ​You'll learn more about these functions in another video. 
+
+​We will plot our chart using the same format as before. ​We use the plt.bar with our x being from our ​df_by_quarter dataframe, with quarter in the argument field. ​For the height, ​we put the number_of_strikes column in the argument field. ​It would be helpful if each quarter had the total lightning ​strike count at the top of each bar. ​To do that, we need to define our own function, which we will call, addlabels.
+
+```{python}
+def addlabels(x, y, labels):
+    '''
+    Iterates over data and plots text labels above each bar of bar graph.
+    '''
+    for i in range(len(x)):
+        plt.text(i, y[i], labels[i], ha = 'center', va = 'bottom')
+```
+
+ ​Let's type addlabels, then input our two column axes, ​quarter, and number of strikes separated by columns and brackets. ​At the end, we use the format we created earlier, ​number_of_strikes formatted to label the number_of_strikes_by_quarter. 
+
+​To finish the bar chart, we label the x and y-axis and add the title. ​Before we show the data visualization, ​there are a few small things we want to add just to make it more friendly to read. ​Let's set our length and height to 15 by 5. ​Next, let's make the bar labels cleaner by defining ​those numbers and centering the text. ​Our bar chart now gives us the number of strikes by quarter from 2016 to 2018. ​To make the information easier to digest, let's do one more visualization. ​Here is the code for plotting a bar chart that groups ​the total number of strikes year over year by quarter. 
+
+```{python}
+plt.figure(figsize = (15, 5))
+plt.bar(x = df_by_quarter['quarter'], height = df_by_quarter['number_of_strikes'])
+addlabels(df_by_quarter['quarter'], df_by_quarter['number_of_strikes'], df_by_quarter['number_of_strikes_formatted'])
+plt.plot()
+plt.xlabel('Quarter')
+plt.ylabel('Number of lightning strikes')
+plt.title('Number of lightning strikes per quarter (2016-2018)')
+plt.show()
+```
+
+​Review the code carefully and consider what each function an argument ​does in order to create this final polished bar chart. ​Each year has assigned its own color to highlight the differences in quarters. ​And now we have our chart. ​Coming up, you'll learn more about the different methods for structuring data. ​I'll see you there.
+
+Create a grouped bar chart
+
+Now, we will create a grouped bar chart to better compare year-over-year changes each quarter. We can do this by creating two new columns that break out the quarter and year from the `quarter` column. We will use the `quarter` column and take the last two characters to get `quarter_number`, and take the first four characters to get `year`.
+
+```{python}
+# Create two new columns.
+df_by_quarter['quarter_number'] = df_by_quarter['quarter'].str[-2:]
+df_by_quarter['year'] = df_by_quarter['quarter'].str[:4]
+df_by_quarter.head()
+```
+
+Next, fill in the bar chart parameters.
+
+```{python}
+plt.figure(figsize = (15, 5))
+p = sns.barplot(
+    data = df_by_quarter,
+    x = 'quarter_number',
+    y = 'number_of_strikes',
+    hue = 'year')
+for b in p.patches:
+    p.annotate(str(round(b.get_height()/1000000, 1))+'M', 
+                   (b.get_x() + b.get_width() / 2., b.get_height() + 1.2e6), 
+                   ha = 'center', va = 'bottom', 
+                   xytext = (0, -12), 
+                   textcoords = 'offset points')
+plt.xlabel("Quarter")
+plt.ylabel("Number of lightning strikes")
+plt.title("Number of lightning strikes per quarter (2016-2018)")
+plt.show()
+```

@@ -1,0 +1,135 @@
+---
+title: Calculate Statistics with Python
+format: html
+jupyter: python3
+---
+
+
+```{python}
+#| include: false
+import _setup
+```
+
+Recently, you learned how descriptive statistics help you explore and ​summarize key features of your data. ​We talked about three different types of descriptive stats.
+
+-   ​Measures of central tendency like the mean, refer to the center of your dataset. ​
+
+-   Measures of dispersion like the standard deviation, ​described the spread of your data set. ​
+
+-   Measures of position like percentiles and quartile, ​show the relative location of your data values.
+
+​Earlier in the program, ​you learned about the process of exploratory data analysis or EDA. ​From discovering to presenting your data. ​Whenever a data professional works with a new data set, the first step is to ​understand the context of the data during the discovery stage. ​Often, this is done by discussing the data with project stakeholders and ​reading documentation about the data set, and the data collection process. ​After that, a data professional moves on to data cleaning, and ​deals with issues like missing data and incorrect values. ​
+
+Computing descriptive stats is a common step to take after data cleaning. ​Now, you'll learn how to use python to compute descriptive statistics and ​summarize the data set. ​
+
+The great thing about using python for stats is that it does all the difficult ​work for you and takes care of all the complex calculations. ​With a single line of code and the push of a button, you have the mean, median, ​standard deviation and more. ​Using python is like having a friendly math genius working right alongside you, ​a genius who never gets tired or distracted or needs a coffee break. ​
+
+Also, you're well prepared to use python for stats. ​You've already learned how to use python to organize, clean and ​visualize your data. ​In this course, we'll introduce some new functions specific to stats. ​But we'll continue to use the same syntax and coding concepts you're familiar with. ​
+
+Now, let's explore our example. ​Imagine you're a data professional working for the government of a large nation. ​The government's Department of Education is seeking to understand the current ​literacy rates across the country. ​The literacy rate is defined by the percentage of ​the population of a given age group that can read and write. ​You're asked to analyze data about the literacy rate among primary and secondary ​school students, these are students who range in age from 6 -18 years old. ​There's data available for every State and district in the country. ​You'll use descriptive stats to get a basic understanding of the literacy rate ​data for each district. ​
+
+So, let's open a jupyter notebook and get started. ​To start import the python packages you will use, numpy and pandas. ​And the library, you'll use matplotlib.pyplot. ​
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import plotly.express as px
+```
+
+You worked with numpy, pandas and ​matplotlib.pyplot when you learned about EDA. ​They'll also help you compute descriptive stats.
+
+​We've provided a file to download so you can follow along. ​For this example, we'll name our data, education_districtwise. ​This tells us that we're dealing with education data organized by district. ​
+
+As a best practice, choose names that clearly State the main content or ​purpose of the data. ​This way, you can easily access and remember your data in the future. ​
+Start with the head function to get a quick overview of the first ten rows of ​your data set. 
+
+```{python}
+df =pd.read_csv(r'Datasets\education_districtwise.csv')
+df.head()
+```
+
+ ​Before you start computing descriptive stats, ​review the contents of your dataset to understand what the column headers mean. Below is the data dictionary
+ 
+
+This notebook uses a file called education_districtwise.csv. This dataset represents a list of school districts in an anonymous country. The data includes district and state names, total population, and the literacy rate.
+
+The dataset contains:
+
+680 rows – each row is a different school district
+
+7 columns
+
+| Column name | Type | Description |
+2
+|------------|------|-------------|
+3
+| DISTNAME | str | The names of an anonymous country’s school districts. |
+4
+| STATNAME | str | The names of an anonymous country’s states where school districts are located. |
+5
+| BLOCKS | int64 | The number of blocks in the school district. Blocks are the smallest organizational structure in the education system of the anonymous country. |
+6
+| VILLAGES | int64 | Shows how many villages are in each district. |
+7
+| CLUSTERS | int64 | The number of clusters in the school district. Clusters are the second smallest organizational structure in the education system of the anonymous country. |
+8
+| TOTPOPULAT | int64 | Shows the population for each district. |
+9
+| OVERALL_LI | int64 | Shows the literacy rate for each district. |
+
+Note: The data in this project was derived from Kaggle. However, it has been modified for pedagogical purposes. 
+
+​The first five columns refer to different administrative units, ​district name, State name, blocks, villages and clusters. ​In other words, this is the system the nation uses for ​organizing its population into different sized units or sections. 
+​The nation is divided into States, States are further divided into districts. ​A large State may have more than 40 districts, ​a small State may have fewer than four districts. ​Each district is further divided into blocks, clusters and villages. ​The total population column, ​abbreviated TOTPOPULAT, refers to population. ​The overall literacy rate column, ​abbreviated OVERALL_LI, refers to literacy rate. 
+​To interpret this data correctly, it's important to understand that each row or ​observation, refers to a different district. ​And not for example to a State or a village. ​So, the village column shows how many villages are in each district. ​The total population column shows the population for each district. ​The overall literacy column shows the literacy rate for each district. 
+​Now that you have a better understanding of your dataset, ​use python to compute district of stats. 
+​When competing descriptive stats in python, ​the most useful function to know is describe. ​Data professionals use the describe function as a convenient way to ​calculate many key stats all at once. 
+
+​Your main interest is the literacy rate. ​This data is contained in the overall literacy column, ​which shows the literacy rate for each district in the nation. 
+
+```{python}
+df.OVERALL_LI.describe()
+```
+
+​If you use this function for a column with numeric data, you get account of all ​the observations in the column, along with the following stats. ​The **mean** or average value, the **median** or middle value, ​the **standard deviation** or the value that measures the spread of the data, ​the **minimum** and **maximum** values and the 1st and 3rd quartiles. 
+
+​The output lists key stats for all districts, and ​the count category confirms there are 634 districts in your data set. 
+
+​Note that the number of observations for the overall literacy column is 634, ​but the number of rows in the dataset is 680. ​This is because **the describe function does not include missing values**. 
+
+​The summary of stats, ​gives you valuable information about the overall literacy rate. ​For example, the mean helps to clarify the center of your data set, ​you now know the average literacy rate is about 73% for all districts. ​This information is useful in itself, and also as a basis for comparison. ​Knowing the mean literacy rate for all districts, helps you understand which ​individual districts are significantly above or below the mean. ​This will help the department decide how to devote resources to improving literacy. 
+
+​Note that the category 25%, 50% and ​75% refer to Q1, Q2 and Q3 respectively. ​Remember that Q2 is also the median of your data set. 
+
+​You can also use the describe function for column with categorical data, ​like the State name column. ​In this case, you get a count of all the observations in ​the column along with the following information. 
+
+```{python}
+df.STATNAME.describe()
+```
+
+
+​The number of **unique values**, the **most common value or mode** and ​the **frequency of the most common value**. 
+
+​Using the describe function to find out how many States are in your data set and ​which State has the most districts:
+​The unique category, shows you that there are 36 States in your data set. ​The top category shows that you that State 21 is the most common value, ​and contains the most districts. ​The frequency category, tells you that State 21 appears in 75 rows, ​which means it includes 75 different districts, this is the mode. 
+
+​This information may be helpful in determining which States will ​need more educational resources based on their number of districts. 
+
+​The describe function is so ​useful because it shows you a variety of key stats all at once. 
+
+​Python also has separate functions for stats, such as mean, median, ​standard deviation, minimum and maximum. ​And you use the mean and median functions earlier in the program to detect outliers. ​These individual functions are also useful if you want to do further computations ​based on descriptive stats. ​For example, you can use the min and ​max functions together to compute the range of your data. ​The range will show you the difference between the highest and ​lowest literacy rates among all districts. 
+
+​To compute the range, use the max and min functions to subtract the highest literacy ​rate from the lowest literacy rate. 
+
+```{python}
+df_range= df.OVERALL_LI.max() - df.OVERALL_LI.min()
+df_range
+```
+
+​The range in literacy rates for all districts is about 61.5% points, ​this is the maximum value of 98.7% minus the minimum value of 37.2%. 
+
+​The large difference tells you that some districts have much higher literacy rates ​than others. ​
+
+In an upcoming video, You'll continue to analyze this data and ​you can discover which districts have the lowest literacy rates. ​This will help the government better understand literacy rates nationally and ​build on their successful educational programs. 
+
