@@ -117,7 +117,7 @@ the queue in this function refers to quantiles. ​Meaning that when using this
 
 ​It may seem counterintuitive to create categorical data in order to ​then transform it to numerical data. ​But this process will allow us to segment the data into useful chunks, ​which can then be plotted on a graph in interesting ways. ​Not to mention, string categories are easier to understand in ​a data visualization than numbers. 
 
-::: .note
+::: {.note}
 
  **Quantile Binning: `pd.qcut()` & The Duplicate Edges **
 

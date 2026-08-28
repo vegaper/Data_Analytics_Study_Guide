@@ -312,7 +312,7 @@ Earlier, I mentioned that there are ​two different types of hypothesis tests:
 A data professional might conduct ​a one-sample hypothesis test to ​determine if a company's average sales revenue ​is equal to a target value, ​a medical treatment's average rate of ​success is equal to a set goal, ​or a stock portfolio's average rate of ​return is equal to a market benchmark. ​In this video, you'll conduct ​a one-sample hypothesis test. ​We'll explore an example involving ​data for an online delivery company. 
 
 ​There are different types of hypothesis tests you ​can use based on the type of ​sample data you're working with. ​In this course, we focus on $z$-tests and $t$-tests, ​two of the most commonly-used tests in data analytics. ​If these terms seem familiar, ​it's because they're related to $z$-scores and $t$-scores, ​which we've worked with before. 
-:::.important-note
+::: {.important-note}
 ​The one-sample $z$-test makes the following assumptions: 
 -   ​the data is a random sample of ​a normally-distributed population,
 -   ​the population standard deviation is known. 
@@ -438,7 +438,7 @@ plt.show()
 
 ​The ***test statistic*** shows where your observed data, ​a sample mean delivery time of ​38 minutes, will fall on that distribution.
 
-:::.extra
+::: {.extra}
 Understanding the $p$-value: Individual Values vs. Sampling Distributions
 
 **Why Visualizing P-Values Can Be Confusing**
@@ -588,6 +588,7 @@ Calculating the $p$-value in python:
 
 
 ```{python}
+from scipy import stats
 n = 50              # Sample size
 pop_mean = 40       # Population mean under H0 (mu)
 pop_std = 5         # Population standard deviation (sigma)
