@@ -346,7 +346,10 @@ Your $p$-value is the probability ​of observing a difference that is ​two 
 
 ​As a data professional, ​you'll almost always calculate $p$-value on your computer ​using a programming language like ​Python or other statistical software. ​However, let's briefly explore the concepts involved ​in the calculation to get ​a better understanding of how it works. ​Being able to use code for ​calculations is important for your future career. ​But being familiar with the concepts behind ​the calculations will help you apply ​statistical methods to workplace problems. 
 
-​The $p$-value is calculated from ​what's called a ***test statistic***. ​In hypothesis testing, ​the ***test statistic*** is a value that shows how ​closely your observed data matches ​the distribution expected under the null hypothesis, ​so if you assume the null hypothesis is ​true and the mean delivery time is 40 minutes, ​the data for delivery times ​follows a normal distribution. 
+​The $p$-value is calculated from ​what's called a ***test statistic***. 
+​In hypothesis testing, ​the ***test statistic (Z)*** is a value that shows how ​closely your observed sample mean matches ​the **sampling distribution of sample means** expected under the null hypothesis. 
+
+So if you assume the null hypothesis is ​true and the mean delivery time is 40 minutes, ​the data for delivery times ​follows a normal distribution. 
 
 ```{python}
 import matplotlib.pyplot as plt
@@ -433,17 +436,132 @@ plt.show()
 
 ```
 
-​The ***test statistic*** shows where your observed data, ​a sample mean delivery time of ​38 minutes, will fall on that distribution. ​Since you're conducting a $z$-test, ​your ***test statistic*** is a $z$-score. ​Recall that a $z$-score is ​a measure of how many standard deviations ​below or above the population mean a data point is. ​$z$-scores tell you where ​your values lie on a normal distribution. ​
+​The ***test statistic*** shows where your observed data, ​a sample mean delivery time of ​38 minutes, will fall on that distribution.
 
-The following formula gives you a ***test statistic*** $​$z based on your sample data:
+:::.extra
+Understanding the $p$-value: Individual Values vs. Sampling Distributions
+
+**Why Visualizing P-Values Can Be Confusing**
+
+When introducing $p$-values, course graphics often draw a single normal curve with an observed value (e.g., $38$) placed far into the left tail. However, if we simply plot the **population distribution** of individual observations, a value of $38$ does not lie far in the tail at all. 
+
+Understanding why requires distinguishing between two distinct distributions:
+
+1. **The Population Distribution** ($X \sim N(\mu, \sigma)$): Describes the spread of *individual observations*.
+2. **The Sampling Distribution** ($\bar{X} \sim N(\mu, SE)$): Describes the spread of *sample means* of size $n$.
+
+**Comparing the Distributions**
+
+Suppose the population of delivery times has a mean $\mu = 40$ minutes and a standard deviation $\sigma = 5$ minutes. We observe a value of $38$.
+
+ 1. Single Observation ($X = 38$)
+A single delivery taking 38 minutes is only 2 minutes faster than average. 
+
+$$
+\sigma = 5 \implies Z = \frac{38 - 40}{5} = -0.40
+$$
+
+* **Result:** $38$ is only $0.40$ standard deviations below the mean. 
+* **Area in Tail:** $P(X \le 38) \approx 34.46\%$ (a large portion of the curve).
+
+2. Sample Mean of 50 Deliveries ($\bar{x} = 38, n = 50$)
+An *average* of 38 minutes across 50 independent deliveries is much rarer because individual variations cancel each other out. The spread of sample means collapses down to the **Standard Error** ($SE$):
+
+$$
+SE = \frac{\sigma}{\sqrt{n}} = \frac{5}{\sqrt{50}} \approx 0.7071
+$$
+
+$$
+Z = \frac{\bar{x} - \mu}{SE} = \frac{38 - 40}{0.7071} = -2.83
+$$
+
+* Result: $\bar{x} = 38$ is $2.83$ standard errors below the mean.
+* Area in Tail ($p$-value): $P(\bar{X} \le 38) \approx 0.23\%$ (an extremely small sliver).
+
+> **Key Takeaway:** Test statistics and $p$-values are computed against the **sampling distribution**, not the population distribution. Exaggerated course graphics often draw the tight sampling distribution shape ($Z = -2.83$) but label the axis with raw units ($38$ and $40$) for visual clarity.
+
+Side-by-Side Python Comparison
+
+```{python}
+#| label: fig-distribution-comparison
+#| fig-cap: "Comparison between the Population Distribution of Individual Data and the Sampling Distribution of the Mean."
+#| fig-width: 12
+#| fig-height: 5
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import norm
+
+# Parameters
+pop_mean = 40
+pop_std = 5
+n = 50
+sample_mean = 38
+
+# Standard Error & Z-score
+se = pop_std / np.sqrt(n)
+z_sample = (sample_mean - pop_mean) / se
+p_val = norm.cdf(sample_mean, loc=pop_mean, scale=se)
+
+# Initialize side-by-side plot
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+
+# -------------------------------------------------------------------
+# Left Plot: Population Distribution (Individual Data Scale)
+# -------------------------------------------------------------------
+x1 = np.linspace(pop_mean - 3.5 * pop_std, pop_mean + 3.5 * pop_std, 1000)
+y1 = norm.pdf(x1, loc=pop_mean, scale=pop_std)
+
+ax1.plot(x1, y1, 'k:', linewidth=1.5, label=rf'Individual $X \sim N(40, 5^2)$')
+x1_fill = np.linspace(pop_mean - 3.5 * pop_std, sample_mean, 500)
+ax1.fill_between(x1_fill, norm.pdf(x1_fill, pop_mean, pop_std), color='#dc002b', alpha=0.7)
+
+ax1.axvline(pop_mean, color='gray', linestyle='--', alpha=0.7)
+ax1.set_title("1. Individual Deliveries (Population Scale)\n"
+              rf"Spread ($\sigma$) = {pop_std} | $Z = -0.40$ | Tail Area = 34.46%", fontsize=11)
+ax1.set_xticks([sample_mean, pop_mean])
+ax1.set_xticklabels(['38', '40 (μ)'])
+
+# -------------------------------------------------------------------
+# Right Plot: Sampling Distribution of the Mean (n = 50)
+# -------------------------------------------------------------------
+x2 = np.linspace(pop_mean - 4 * se, pop_mean + 4 * se, 1000)
+y2 = norm.pdf(x2, loc=pop_mean, scale=se)
+
+ax2.plot(x2, y2, color='#333333', linestyle=':', linewidth=2, label=rf'Sample Mean $\bar{{X}} \sim N(40, SE^2)$')
+x2_fill = np.linspace(pop_mean - 4 * se, sample_mean, 500)
+ax2.fill_between(x2_fill, norm.pdf(x2_fill, pop_mean, se), color='#dc002b', alpha=0.85)
+
+ax2.axvline(pop_mean, color='gray', linestyle='--', alpha=0.7)
+ax2.set_title("2. Sampling Distribution of Mean (n = 50)\n"
+              rf"Spread ($SE$) = {se:.4f} | $Z = {z_sample:.2f}$ | p-value = {p_val:.4f}", fontsize=11)
+ax2.set_xticks([sample_mean, pop_mean])
+ax2.set_xticklabels([rf'38 ($\bar{{x}}$)', '40 (μ)'])
+
+# Styling cleanup for both axes
+for ax in (ax1, ax2):
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.set_yticks([])
+
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+​Since you're conducting a $z$-test, ​your ***test statistic*** is a $z$-score. ​Recall that a $z$-score is ​a measure of how many standard deviations ​below or above the population mean a data point is. ​$z$-scores tell you where ​your values lie on a normal distribution. ​
+
+The following formula gives you a ***test statistic*** $z​$ based on your sample data:
 $$
 Z = \frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}
 $$
 
-​Where X-bar is the sample mean,
-​Mu is the population mean, 
-​Sigma is the population standard deviation, 
-​and n is the sample size. 
+​Where $\bar{x}$ is the sample mean,
+$\mu$​ is the population mean, 
+$\sigma$ is the population standard deviation, 
+​and $n$ is the sample size. 
 
 ​If you enter the numbers in ​the formula and do the calculation,​you get a $z$-score of -2.82. 
 
@@ -451,10 +569,327 @@ $$
 Z = \frac{38-40}{\frac{5}{\sqrt{50}}} =-2,828
 $$
 
-​Let's check out where the $z$-score, ​negative 2.82, lies on the distribution. ​It's far to the left, ​almost three standard deviations below the mean. ​For a normal distribution, ​the probability of getting ​a value less than your $z$-score of ​-2.82 is calculated by taking ​the area under the curve to the left of the $z$-score. ​This is called a left-tailed test because ​your $p$-value is located on ​the left tail of the distribution. ​The area under this part of ​the curve is the same as your $p$-value. ​Again, your $p$-value is the probability of observing ​a ***test statistic*** as or more ​extreme than that observed ​when the null hypothesis is true. ​Your alternative hypothesis states that ​the mean delivery time ​decreased based on your sample data. 
+​Let's check out where the $z$-score, - 2.82, lies on the distribution. ​It's far to the left, ​almost three standard deviations below the mean.
 
-​That's why we're interested in the probability of getting ​any value lower than your $z$-score of -2.82. ​In a different testing scenario, ​your ***test statistic*** might be positive 2.45, ​and you might be interested in values ​higher than the $z$-score 2.45. ​In that case, your $p$-value ​would be located on the right tail of ​the distribution and you'll be ​conducting a right-tailed test. ​If you calculate the $p$-value, ​you'll find that it's 0.0023, ​so your $p$-value is 0.0023 or 0.23 percent. ​This means there's a 0.23 ​percent probability that the difference in ​mean delivery time would be 2 minutes or ​greater if the null hypothesis is true. ​In other words, it's highly ​unlikely that their difference is due to chance. ​To draw a conclusion about your null hypothesis, ​compare your $p$-value with the significance level. 
+​For a normal distribution, ​the probability of getting ​a value less than your $z$-score of ​-2.82 is calculated by taking ​the area under the curve to the left of the $z$-score. ​This is called a **left-tailed test** because ​your $p$-value is located on ​the left tail of the distribution. ​The area under this part of ​the curve is the same as your $p$-value. ​Again, your $p$-value is the probability of observing ​a ***test statistic*** as or more ​extreme than that observed ​when the null hypothesis is true.
 
-​If your $p$-value is less than the significance level, ​you conclude that there is ​a statistically significant difference ​in mean delivery time. ​In other words, you reject the null hypothesis. ​If your $p$-value is greater than the significance level, ​you conclude that there is not ​a statistically significant difference ​in mean delivery time. ​In other words, you fail to reject the null hypothesis. ​Your $p$-value of 0.0023, ​or 0.23 percent is less than ​the significance level of 0.05 or five percent, ​so you reject the null hypothesis and conclude that ​there is a statistically significant difference ​in mean delivery time. ​Your results suggest that ​the faster delivery time is likely ​due to the positive effects of the training. ​Your analysis will help company leadership decide ​whether to make a bigger investment ​in the training program going forward. 
+​Your alternative hypothesis states that ​the mean delivery time ​decreased based on your sample data. ​That's why we're interested in the probability of getting ​any value lower than your $z$-score of -2.82. ​In a different testing scenario, ​your ***test statistic*** might be positive 2.45, ​and you might be interested in values ​higher than the $z$-score 2.45. ​In that case, your $p$-value ​would be located on the right tail of ​the distribution and you'll be ​conducting a right-tailed test. 
 
+​If you calculate the $p$-value, ​you'll find that it's 0.0023, ​so your $p$-value is 0.0023 or 0.23 percent. ​This means there's a 0.23 ​percent probability that the difference in ​mean delivery time would be 2 minutes or ​greater if the null hypothesis is true. ​In other words, it's highly ​unlikely that their difference is due to chance. 
+
+
+​To draw a conclusion about your null hypothesis, ​compare your $p$-value with the significance level. 
+
+​If your $p$-value is less than the significance level, ​you conclude that there is ​a statistically significant difference ​in mean delivery time. ​In other words, you reject the null hypothesis. ​If your $p$-value is greater than the significance level, ​you conclude that there is not ​a statistically significant difference ​in mean delivery time. ​In other words, you fail to reject the null hypothesis. ​Your $p$-value of 0.0023, ​or 0.23 percent is less than ​the significance level of 0.05 or five percent, ​so you reject the null hypothesis and conclude that ​there is a statistically significant difference ​in mean delivery time. 
+​Your results suggest that ​the faster delivery time is likely ​due to the positive effects of the training. ​Your analysis will help company leadership decide ​whether to make a bigger investment ​in the training program going forward. 
 ​Based on your results, ​they're likely to do so.
+
+Calculating the $p$-value in python:
+
+
+```{python}
+n = 50              # Sample size
+pop_mean = 40       # Population mean under H0 (mu)
+pop_std = 5         # Population standard deviation (sigma)
+sample_mean = 38    # Observed sample mean (x_bar)
+
+# Calculate Standard Error (SE)
+se = pop_std / np.sqrt(n)  # 
+# ---------------------------------------------------------
+# Method 1: Directly using stats.norm.cdf with scale=SE
+# ---------------------------------------------------------
+# Calculate the p value
+p_value_direct = stats.norm.cdf(sample_mean, loc=pop_mean, scale=se)
+
+print(f"p-value (Direct): {p_value_direct:.4f}")
+
+# ---------------------------------------------------------
+# Method 2: Standardizing to Z-score first
+# ---------------------------------------------------------
+z_score = (sample_mean - pop_mean) / se  # (38 - 40) / 0.7071 = -2.8284
+
+# Using standard normal distribution (mean=0, std=1)
+p_value_z = stats.norm.cdf(z_score)
+
+print(f"Z-score: {z_score:.4f}")
+print(f"p-value (from Z): {p_value_z:.4f}")
+```
+(Note: This is a one-tailed test looking for values $\le 38$. If your course specifies a two-tailed test, you would multiply this result by 2 to get $0.0047$ or $0.47\%$.)
+
+---------------------------------------------------------------
+# Determine if data has statistical significance
+
+Recently, you learned that statistical significance is the claim that the results of a test or experiment are not explainable by chance alone. A hypothesis test can help you determine whether your observed data is statistically significant, or likely due to chance. For example, in a clinical trial of a new medication, a hypothesis test can help determine if the medication’s positive effect on a sample group is statistically significant, or due to chance. 
+
+In this reading, you’ll learn more about the concept of statistical significance and its role in hypothesis testing. 
+
+Statistical significance in hypothesis testing   
+Data professionals use hypothesis testing to determine whether a relationship between variables or a difference between groups is statistically significant. 
+
+Let’s explore an example to get a better understanding of the role of statistical significance in hypothesis testing. 
+
+Example: Mean battery life 
+Let’s review the steps for conducting a hypothesis test:
+
+State the null hypothesis and the alternative hypothesis.
+
+Choose a significance level.
+
+Find the $p$-value.
+
+Reject or fail to reject the null hypothesis.
+
+Imagine you’re a data professional working for a computer company. The company claims the mean battery life for their best selling laptop is 8.5 hours with a standard deviation of 0.5 hours. Recently, the engineering team redesigned the laptop to increase the battery life. The team takes a random sample of 40 redesigned laptops. The sample mean is 8.7 hours. 
+
+The team asks you to determine if the increase in mean battery life is statistically significant, or if it’s due to random chance. You decide to conduct a z-test to find out. 
+
+Step 1: State the null hypothesis and alternative hypothesis
+The null hypothesis typically assumes that your observed data occurs by chance, and it is not statistically significant. In this case, your null hypothesis says that there is no actual effect on mean battery life in the population of laptops.
+
+The alternative hypothesis typically assumes that your observed data does not occur by chance, and is statistically significant. In this case, your alternative hypothesis says that there is an effect on mean battery life in the population of laptops. 
+
+In this example, you formulate the following hypotheses: 
+
+H0: μ = 8.5 (the mean battery life of all redesigned laptops is equal to 8.5 hours)
+
+Ha: μ > 8.5 (the mean battery life of all redesigned laptops is greater than 8.5 hours)
+
+Step 2: Choose a significance level 
+The significance level, or alpha (α), is the threshold at which you will consider a result statistically significant. The significance level is also the probability of rejecting the null hypothesis when it is true.
+
+Typically, data professionals set the significance level at 0.05, or 5%. That means results at least as extreme as yours only have a 5% chance (or less) of occurring when the null hypothesis is true. 
+
+Note: 5% is a conventional choice, and not a magical number. It’s based on tradition in statistical research and education. Other common choices are 1% and 10%. You can adjust the significance level to meet the specific requirements of your analysis. A lower significance level means an effect has to be larger to be considered statistically significant.
+
+Pro tip: As a best practice, you should set a significance level before you begin your test. Otherwise, you might end up in a situation where you are manipulating the results to suit your convenience.
+
+In this example, you choose a significance level of 5%, which is the company’s standard for research.  
+
+Step 3: Find the $p$-value
+$p$-value refers to the probability of observing results as or more extreme than those observed when the null hypothesis is true. 
+
+Your $p$-value helps you determine whether a result is statistically significant. A low $p$-value indicates high statistical significance, while a high $p$-value indicates low or no statistical significance.
+
+Every hypothesis test features:
+
+A test statistic that indicates how closely your data match the null hypothesis. For a z-test, your test statistic is a z-score; for a t-test, it’s a t-score. 
+
+A corresponding $p$-value that tells you the probability of obtaining a result at least as extreme as the observed result if the null hypothesis is true.
+
+As a data professional, you’ll almost always calculate $p$-value on your computer, using a programming language like Python or other statistical software. In this example, you’re conducting a z-test, so your test statistic is a z-score of 2.53. Based on this test statistic, you calculate a $p$-value of 0.0057, or 0.57%. 
+
+Step 4: Reject or fail to reject the null hypothesis
+In a hypothesis test, you compare your $p$-value to your significance level to decide whether your results are statistically significant. 
+
+There are two main rules for drawing a conclusion about a hypothesis test: 
+
+If your $p$-value is less than your significance level, you reject the null hypothesis.
+
+If your $p$-value is greater than your significance level, you fail to reject the null hypothesis.  
+
+Note: Data professionals and statisticians always say “fail to reject” rather than “accept.” This is because hypothesis tests are based on probability, not certainty—acceptance implies certainty. In general, data professionals avoid claiming certainty about results based on statistical methods. 
+
+In this example, your $p$-value of 0.57% is less than your significance level of 5%. Your test provides sufficient evidence to conclude that the mean battery life of all redesigned laptops has increased from 8.5 hours. You reject the null hypothesis. You determine that your results are statistically significant. 
+
+Key takeaways 
+As a data professional, it’s important to understand the concept of statistical significance to effectively conduct a hypothesis test and interpret the results. Insights based on statistically significant results can help stakeholders make more informed business decisions. 
+
+Resources for more information
+To learn more about statistical significance, refer to the following resources: 
+
+This 
+article from Scribbr https://www.scribbr.com/statistics/statistical-significance/
+ provides a helpful overview of statistical significance and discusses some critiques of the concept in contemporary research.
+
+
+# Two-Sample tests: Means
+Earlier you conducted a one-sample hypothesis test to analyze data ​on the mean delivery time for an online food delivery service. ​Coming up, we'll explore a two-sample test for means. 
+
+​While a one-sample test determines whether a population mean is ​equal to a specific value, ​a two-sample test determines whether two population means are equal to each other. 
+
+​In data analytics, two-sample tests are frequently used for A/B testing. ​In my career as a data professional, I've conducted a number of A/B tests to help ​companies improve their online business. ​Typically I use a two-sample $t$-test to analyze the data. ​For example, let's say an online retail store is considering changing the landing ​page for its reward called members who are the most loyal customers. 
+​The metric that matters most to the company, ​is the average time users spend on the landing page per session. 
+
+​First I'd set up an experiment for two groups of users group A uses the default ​landing page and group B uses a redesigned version of the landing page. 
+
+​Then I'd use a $t$-test to compare the average time spent on each landing page, ​and determine if the difference between the two sample means is ​statistically significant. ​In other words, if group B spends more time on the landing page than group A, ​the $t$-test will help determine if that's due to chance, or ​to the new design of the landing page. 
+
+​In this video, you'll conduct a two-sample $t$-test to compare two population means. ​We'll work through an example based on the scenario I just shared with you. 
+
+​In data analytics, the two-sample $t$-test is the standard approach for ​comparing two means. 
+
+​The two-sample $t$-test for means makes the following assumptions.
+
+-   ​The two samples are independent of each other. ​For each sample, ​the data is drawn randomly from a normally distributed population.
+
+-  ​The population standard deviation is unknown. **​Typically, data professionals use a $z$-test when the population standard deviation is ​known, and use a $t$-test when the population standard deviation is unknown ​and needs to be estimated from the data.** 
+​In practice, the population standard deviation is usually unknown because it's ​difficult to get complete data on large populations. ​So data professionals use the $t$-test for practical applications.
+
+​While the test statistic for a $z$-test is a $z$-score, the test statistic for ​a $t$-test is a $t$-score. ​And while $z$-scores are based on the standard normal distribution, ​$t$-scores are based on the $t$-distribution. 
+
+​The graph of the $t$-distribution has a bell shape that is similar to the standard ​normal distribution, but ​the $t$-distribution has bigger tails than the standard normal distribution does. ​The bigger tails indicate the higher frequency of outliers that come with ​small dataset. ​As the sample size increases, ​the $t$-distribution approaches the normal distribution. 
+
+​For a $t$-test, the test statistic follows a $t$-distribution under the null hypothesis. ​Let's explore how to conduct a two-sample $t$-test.
+
+​Imagine you're a data professional who works for a cosmetics company. ​The company is researching the amount of time customers spent on its website. ​Your team leader asks you to conduct an A/B test to determine if changing ​the background color of the landing page from gray to green has any effect on ​the average time spent on the page. ​
+
+You randomly select two groups of users. ​The first group visits the gray landing page named version A. ​The second group visits the green landing page named version B. ​You collect the following data from the A/B test.
+​40 users visit version A. ​They spend a mean time of 300 seconds with a standard deviation of 18.5 seconds. 
+​38 users visit version B. ​They spend a mean time of 305 seconds, with a standard deviation of 16.7 seconds. 
+
+​There is an observed difference of five seconds or ​305 minus 300 between the mean time spent on version B and version A. ​You decide to conduct a two-sample $t$-test to analyze the data. ​
+
+Let's review the steps for conducting a hypothesis test. 
+
+-   ​First state the null hypothesis and the alternative hypothesis. 
+-   ​Second, choose a significance level. 
+-   ​Third, find the $p$-value. 
+-   ​Fourth, reject or fail to reject the null hypothesis. 
+
+​First, state your null hypothesis and alternative hypothesis. ​
+
+In a two-sample $t$-test the null hypothesis states that there is no difference ​between the two population means. ​This is assumed to be true unless there is convincing evidence to the contrary. ​So for your null hypothesis, ​you say there is no difference in the mean time spent on version A and version B. ​Your alternative hypothesis will state the contrary claim, ​there is a difference in the mean time spent on version A and version B. 
+
+​Next, set the significant level or ​the threshold at which you will consider a result statistically significant. ​This is the probability of rejecting the null hypothesis when it is true, ​you choose a significant level of 5% which is the company's standard for A/B testing. 
+
+​Now find the $p$-value, in this case your $p$-value is the probability ​of observing a difference in your sample means as or ​more extreme than the difference observed when the null hypothesis is true. ​
+
+Based on your sample data, the difference between the mean time spent on version ​A and version B is five seconds. ​Your null hypothesis claims that this difference is due to chance. ​Your $p$-value is the probability of observing an absolute difference in sample ​means that is five seconds or greater, if the null hypothesis is true. ​If the probability of this outcome is very unlikely. 
+
+​In particular, if your $p$-value is less than your significance level of 5%, ​then you will reject the null hypothesis. 
+
+​As a data professional, you'll almost always calculate $p$-value on your computer ​using a programming language like python or other statistical software. ​Later on you'll use python for a two-sample $t$-test. 
+
+​To find your $p$-value, first calculate your ***test statistic***. ​Since you're conducting a $t$-test, you're working with a $t$-score. 
+​Use the following formula to calculate the ***test statistic ***$t$, ​based on your sample data. 
+$$
+t = \frac{(\bar{x_1}- \bar{x_2})}{SE_{diff}} 
+$$
+
+Variances Always Add: When combining two independent sample estimates, their uncertainties (variances) add up— they never subtract, even when you are taking the difference between two sample means.
+
+$$
+SE_{diff}= \sqrt{SE^2_1 + SE^2_2}
+$$
+
+You Cannot Add Standard Errors Directly: You cannot simply add $SE_1 + SE_2$ (or $se_1 - se_2$). Standard errors are standard deviations, and standard deviations do not add linearly—their squares (variances) add
+
+so $SE = \frac{s}{\sqrt{n}}$, its square is: $SE^2= \frac{s^2}{n}$
+
+The $t$ formula is then:
+
+$$
+t = \frac{(\bar{x_1}- \bar{x_2})}{SE_{diff}} \to \frac{(\bar{x_1}- \bar{x_2})}{\sqrt{(\frac{s_1^2}{n_1}+\frac{s^2_2}{n_2}})}
+$$
+
+​​Where $\bar{x_1}$ and $\bar{x_2}$ are the sample means of your two groups, $n_1$  and $n_2$  are the sample sizes of your two groups, 
+$se_1$ and $se_2$ are the standard error of the two samples, and $s_1$ and $s_2$ are the sample standard deviations of your two groups. 
+
+​If you enter the numbers in the formula, and do the calculation, ​you get a test statistic $t$ of -1.2508. 
+
+​For a $t$-test, the test statistic follows a $t$-distribution under the null hypothesis. ​Recall that your alternative hypothesis states that there is a difference ​in the mean time spent on version A and version B. ​The observed difference is five seconds. ​So if you find a statistically significant difference between the means, ​either less than or greater than the observed difference of five seconds, ​you will reject the null hypothesis. 
+
+​Because you're interested in values in both directions, ​either less than or greater than your test statistic, ​your $p$-value is the probability of getting a value less than the $t$-score ​-1.2508 or greater than the $t$-score positive 1.2508.
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import stats
+
+# 1. Given Data from A/B Test
+n_A, mean_A, std_A = 40, 300.0, 18.5
+n_B, mean_B, std_B = 38, 305.0, 16.7
+
+# 2. Compute Two-Sample t-Test Parameters (Course Method)
+# NOTE: This is a simplified pooled variance approach commonly used in introductory courses.
+df = n_A + n_B - 2  # Standard degrees of freedom (40 + 38 - 2 = 76)
+
+# Pooled variance (s_p^2)
+s_pooled_sq = (((n_A - 1) * std_A**2) + ((n_B - 1) * std_B**2)) / df
+
+# Pooled standard error of the difference
+se_diff = np.sqrt(s_pooled_sq * (1/n_A + 1/n_B))  # ~3.9976
+
+# Calculated t-statistic
+t_stat = (mean_B - mean_A) / se_diff  # 5 / 3.9976 = 1.25075...
+
+# Rounded t matching the exact value displayed on course slides
+abs_t = round(abs(t_stat), 4)  # 1.2508
+
+# Calculate two-tailed p-value using rounded t (matches course p-value = 0.2148)
+p_value = 2 * stats.t.sf(abs_t, df=df)  # 0.2148 (21.48%)
+
+# 3. Setup Plotting Data
+x = np.linspace(-4, 4, 1000)
+y = stats.t.pdf(x, df=df)
+
+fig, ax = plt.subplots(figsize=(8, 5))
+
+# Dotted t-distribution curve
+ax.plot(x, y, color='#555555', linestyle=':', linewidth=1.8)
+
+# Shading Left Tail (<= -t)
+x_left = np.linspace(-4, -abs_t, 300)
+ax.fill_between(x_left, stats.t.pdf(x_left, df=df), color='#dc002b', alpha=0.9)
+
+# Shading Right Tail (>= t)
+x_right = np.linspace(abs_t, 4, 300)
+ax.fill_between(x_right, stats.t.pdf(x_right, df=df), color='#dc002b', alpha=0.9)
+
+# Center Vertical Line (Mean difference = 0 under H0)
+ax.axvline(x=0, color='#b0b0b0', linestyle='-', linewidth=1, ymax=0.95)
+ax.axhline(y=0, color='#b0b0b0', linestyle='-', linewidth=1)
+
+# Annotations (p-value branching pointer)
+ax.annotate(
+    f'p-value = {p_value:.4f}', 
+    xy=(-2.5, 0.04), xytext=(0, 0.35),
+    ha='center', fontsize=13, color='#dc002b', fontweight='bold',
+    arrowprops=dict(arrowstyle='-', color='#d3d3d3', lw=1)
+)
+ax.annotate(
+    '', 
+    xy=(2.5, 0.04), xytext=(0, 0.35),
+    arrowprops=dict(arrowstyle='-', color='#d3d3d3', lw=1)
+)
+
+# Customizing X-Ticks & Labels to match course graphic
+ax.set_xticks([-abs_t, 0, abs_t])
+ax.set_xticklabels([f'-t\n-|{abs_t:.4f}|', '0', f't\n|{abs_t:.4f}|'], fontsize=12)
+ax.set_yticks([])
+
+# Title and Layout
+ax.set_title('Two-tailed test', fontsize=18, pad=20)
+ax.set_xlim(-4, 4)
+ax.set_ylim(-0.05, max(y) * 1.15)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+
+```
+
+
+Your $p$-value corresponds to the area under the curve on both the left tail and ​the right tail of the distribution. 
+
+​This is called a **two tailed test**. ​If you calculate the $p$-value you'll find that it's 0.2148 or 21.48%. 
+
+```{python}
+# Manual calculation of the p-value given the t value.
+# Degrees of Freedom
+df = n_A + n_B - 2  # 40 + 38 - 2 = 76
+p_val_manual = 2 * stats.t.sf(np.abs(round(t_stat,4)), df=df)
+print(f"Manual p-value: {p_val_manual:.4f} ({p_val_manual * 100:.2f}%)")
+```
+
+​This means that there is a 21.48% probability that the absolute ​difference between this mean time spent on version A and ​Version B would be five seconds or greater, if the null hypothesis is true. 
+
+​To draw a conclusion, compare your $p$-value with the significance level. ​If your $p$-value is less than the significance level, ​you conclude that there is a statistically significant difference in ​the means between the two versions. ​In other words, you reject the null hypothesis that there is no difference in ​the mean time spent on version A and version B. ​
+
+If your $p$-value is greater than the significance level, you conclude that ​there is not a statistically significant difference between the two versions. ​In other words, you fail to reject the null hypothesis that there is ​no difference in the mean time spent on version A and version B. 
+
+​Your $p$-value of 0.2148 or 21.48%, ​is greater than the significance level of 0.05 or 5%. ​So, you failed to reject the null hypothesis and ​conclude that there is not a statistically significant difference between ​the mean time spent on version A and version B. ​In other words, the observed difference in mean time spent is likely due to chance. 
+
+​Your analysis will help the company decide how to redesign their website. ​Since there is not a statistically significant difference in mean time spent ​based on the background colors of gray and green, ​you can recommend the company either test for a different color, such as blue or ​yellow or test for a different design feature such as text size or button shape. ​Perhaps a different design change will have an impact on the mean time spent by ​customers on landing page. 
+

@@ -380,18 +380,28 @@ $$
 
 This table shows the $z$-scores that ​correspond to popular confidence levels. ​1.645 for 90 percent, ​1.96 for 95 percent, ​and 2.58 for 99 percent. ​If you choose a 95 percent confidence level, ​use a $z$-score of 1.96 to calculate the margin of error. 
 
-To calculate the in python:
+To calculate the critical $z$-scores in python for a two tailed confidence level (we will see later what a two tail means): 
 ```{python}
 import numpy as np
+import pandas as pd
 from scipy import stats
 
-data = [10, 15, 20, 25, 30]
+# Define confidence levels
+confidence_levels = [0.90, 0.95, 0.99]
 
-# Calculate Z-scores
-z_scores = stats.zscore(data)
-print(z_scores)
-# Output: [-1.41421356 -0.70710678  0.          0.70710678  1.41421356]
+# Calculate z-scores: (1 + confidence_level) / 2 gives the cumulative area
+z_scores = [stats.norm.ppf((1 + cl) / 2) for cl in confidence_levels]
 
+# Create summary DataFrame
+df_z = pd.DataFrame(
+    {
+        "Confidence Level": [f"{cl*100:.0f}%" for cl in confidence_levels],
+        "z-score (Exact)": z_scores,
+        "z-score (Rounded)": np.round(z_scores, 3),
+    }
+)
+
+print(df_z)
 ```
 
 ​Now, you need to calculate your **standard error.** ​You may recall that the standard error measures ​the variability of your sample statistic. ​It shows how much your sample proportion is likely ​to differ from the actual population proportion. ​The larger the standard error, ​the more variability in your sample. ​
