@@ -4657,6 +4657,12 @@ text-transform: uppercase;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./sampling_distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampling Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Exemplar_Explore_sampling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practice: Explore Sampling</span></a>
   </div>
@@ -4677,6 +4683,18 @@ text-transform: uppercase;
   <div class="sidebar-item-container"> 
   <a href="./hypothesis_testing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hypothesis Testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hypothesis_testing_python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Use Python to conduct a hypothesis test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Exemplar_Explore_hypothesis_testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice: Explore hypothesis testing</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -4712,6 +4730,12 @@ text-transform: uppercase;
  <span class="menu-text">Annotated follow-along guide: Confidence intervals in Python</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Annotated_follow-along_guide_Use_Python_to conduct_a_hypothesis_test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Annotated follow-along guide: Use Python to conduct a hypothesis test</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -4725,13 +4749,13 @@ text-transform: uppercase;
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Exemplar_Course2_Waze_project_lab.html" class="sidebar-item-text sidebar-link">
+  <a href="./Exemplar_Course_4_Waze_project_lab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Waze Project Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Activity Exemplar_ Waze Course 2 executive summary.pdf" class="sidebar-item-text sidebar-link">
+  <a href="./Activity_Exemplar_Waze_Course_3_executive_summary.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Activity Waze Executive Summary</span></a>
   </div>
 </li>
@@ -5071,43 +5095,46 @@ text-transform: uppercase;
 </section>
 <section id="standardize-data-using-z-scores" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Standardize data using z-scores</h1>
-<p>Recently, you learned about the normal distribution and ​how it applies to many different kinds of data sets. ​In this video, you’ll learn about z-scores and how they can help you compare values ​from different types of normally distributed data sets. ​</p>
-<p><strong>A z-score is a measure of how many standard deviations below or ​above the population mean a data point is. ​A z-score gives you an idea of how far from the mean a data point is.</strong> ​For example, the z-score is 0, if the value is equal to the mean. ​The z-score is positive if the value is greater than the mean. ​The z-score is negative if the value is less than the mean. </p>
-<p>​Z-scores help you standardize your data. ​In statistics, <strong>​standardization is the process of putting different variables on the same scale.</strong> ​There is a formula for this which will check out a little later. ​</p>
-<p>Z-scores are also called standard scores because they’re based on ​what’s called the standard normal distribution. ​<strong>A standard normal distribution is just a normal distribution with a mean of 0 and ​a standard deviation of 1.</strong> ​</p>
-<p>Z-scores typically range from -3 to +3. ​Standardization is useful because it lets you compare scores from different ​data sets that may have different units, mean values and standard deviations. </p>
-<p>​Data professionals use z-scores to better understand the relationship between data ​values within a single dataset and between different data sets. ​For example, <strong>data professionals often use z-scores for anomaly detection</strong>, ​which finds outliers in datasets. ​Applications of anomaly detection include finding fraud in financial transactions, ​flaws in manufacturing products, intrusions in computer networks and more. ​</p>
-<p>For example, ​different customer satisfaction surveys may have different rating scales. ​One survey could rate a product or service from 1 to 20, ​another from 500 to 1,500, and a third from 130 to 180. ​Let’s say the same product got a score of 9 on the first survey, ​850 on the second and 142 on the third. ​These numbers don’t mean much by themselves, but if you know, ​they all have a z-score of 1, or one standard deviation above the mean, ​you can meaningfully compare ratings across surveys. </p>
-<p>​A z-score for an individual value can be interpreted as follows. ​A z-score of 1 is one standard deviation above the mean. ​A z-score of 1.5 is 1.5 standard deviations above the mean. ​A z-score of -2.3 is 2.3 standard deviations below the mean. ​</p>
-<p>You can use the following formula to calculate a z-score, </p>
+<p>Recently, you learned about the normal distribution and ​how it applies to many different kinds of data sets. ​In this video, you’ll learn about <span class="math inline">\(z\)</span>-scores and how they can help you compare values ​from different types of normally distributed data sets. ​</p>
+<p><strong>A <span class="math inline">\(z\)</span>-score is a measure of how many standard deviations below or ​above the population mean a data point is. ​A <span class="math inline">\(z\)</span>-score gives you an idea of how far from the mean a data point is.</strong> ​For example, the <span class="math inline">\(z\)</span>-score is 0, if the value is equal to the mean. ​The <span class="math inline">\(z\)</span>-score is positive if the value is greater than the mean. ​The <span class="math inline">\(z\)</span>-score is negative if the value is less than the mean. </p>
+<p>​<span class="math inline">\(z\)</span>-scores help you standardize your data. ​In statistics, <strong>​standardization is the process of putting different variables on the same scale.</strong> ​There is a formula for this which will check out a little later. ​</p>
+<p><span class="math inline">\(z\)</span>-scores are also called standard scores because they’re based on ​what’s called the standard normal distribution. ​<strong>A standard normal distribution is just a normal distribution with a mean of 0 and ​a standard deviation of 1.</strong> ​</p>
+<p><span class="math inline">\(z\)</span>-scores typically range from -3 to +3. ​Standardization is useful because it lets you compare scores from different ​data sets that may have different units, mean values and standard deviations. </p>
+<p>​Data professionals use <span class="math inline">\(z\)</span>-scores to better understand the relationship between data ​values within a single dataset and between different data sets. ​For example, <strong>data professionals often use <span class="math inline">\(z\)</span>-scores for anomaly detection</strong>, ​which finds outliers in datasets. ​Applications of anomaly detection include finding fraud in financial transactions, ​flaws in manufacturing products, intrusions in computer networks and more. ​</p>
+<p>For example, ​different customer satisfaction surveys may have different rating scales. ​One survey could rate a product or service from 1 to 20, ​another from 500 to 1,500, and a third from 130 to 180. ​Let’s say the same product got a score of 9 on the first survey, ​850 on the second and 142 on the third. ​These numbers don’t mean much by themselves, but if you know, ​they all have a <span class="math inline">\(z\)</span>-score of 1, or one standard deviation above the mean, ​you can meaningfully compare ratings across surveys. </p>
+<p>​A <span class="math inline">\(z\)</span>-score for an individual value can be interpreted as follows. ​A <span class="math inline">\(z\)</span>-score of 1 is one standard deviation above the mean. ​A <span class="math inline">\(z\)</span>-score of 1.5 is 1.5 standard deviations above the mean. ​A <span class="math inline">\(z\)</span>-score of -2.3 is 2.3 standard deviations below the mean. ​</p>
+<p>Every <span class="math inline">\(Z\)</span>-score is built on the exact same ratio: (<span class="math inline">\(Z = \frac{\text{Signal}}{\text{Noise}}\)</span>)</p>
 <p><span class="math display">\[
+Z = \frac{\text{Observed} - \text{Expected} }{\text{Standard Deviation}}
+\]</span></p>
+<p>You can use the following formula to calculate a <span class="math inline">\(z\)</span>-score,  <span class="math display">\[
 Z = \frac{X-\mu}{\sigma}
 \]</span></p>
 <ul>
-<li><p>​In this formula, x refers to a single data value or raw score. ​</p></li>
+<li><p>​In this formula, x refers to a single data value or raw score. ​</p></li>
 <li><p>The Greek letter mu <span class="math inline">\(\mu\)</span> refers to population mean. ​</p></li>
 <li><p>The Greek letter sigma <span class="math inline">\(\sigma\)</span> refers to the population standard deviation. </p></li>
 </ul>
 <p>So we can also say that Z equals the raw score or ​data value minus the mean divided by the standard deviation. </p>
-<p>​For example, let’s say you take a standardized test, ​you have a test score of 133. ​The test has a mean score of 100 and a standard deviation of 15. ​Assuming a normal distribution, you can use the formula to calculate your z-score. ​</p>
+<p>​For example, let’s say you take a standardized test, ​you have a test score of 133. ​The test has a mean score of 100 and a standard deviation of 15. ​Assuming a normal distribution, you can use the formula to calculate your <span class="math inline">\(z\)</span>-score. ​</p>
 <p><span class="math display">\[
 Z = \frac{133-100}{15} =2.2
 \]</span></p>
-<p>Your z-score is your raw score, 133 minus the mean score, ​100 divided by the standard deviation 15. ​This is 133 minus 100 divided by 15 equals 33 divided by 15 equals 2.2. </p>
-<p>​Your Z-score of 2.2 tells you that your test score is 2.2 standard deviations ​above the mean or average score. ​That’s a really good score. ​Recall that the empirical rule tells you that 95% of values fall within two ​standard deviations of the mean. ​Your score of 2.2 is more than two standard deviations above the mean. ​Z-scores are useful because they give us an idea ​of how an individual value compares to the rest of the distribution. ​</p>
+<p>Your <span class="math inline">\(z\)</span>-score is your raw score, 133 minus the mean score, ​100 divided by the standard deviation 15. ​This is 133 minus 100 divided by 15 equals 33 divided by 15 equals 2.2. </p>
+<p>​Your <span class="math inline">\(z\)</span>-score of 2.2 tells you that your test score is 2.2 standard deviations ​above the mean or average score. ​That’s a really good score. ​Recall that the empirical rule tells you that 95% of values fall within two ​standard deviations of the mean. ​Your score of 2.2 is more than two standard deviations above the mean. ​<span class="math inline">\(z\)</span>-scores are useful because they give us an idea ​of how an individual value compares to the rest of the distribution. ​</p>
 <p>Let’s take a different exam with a different grading scale. ​Say you score in 85, ​you want to find out if that’s a good score relative to the rest of the class. </p>
-<p>​Whether or not it’s a good score depends on the mean and ​standard deviation of all exam scores. ​Suppose the exam scores are normally distributed with a mean score of 90 and ​a standard deviation of 4, ​you can use the formula to calculate the z-score of a raw score of 85. ​</p>
+<p>​Whether or not it’s a good score depends on the mean and ​standard deviation of all exam scores. ​Suppose the exam scores are normally distributed with a mean score of 90 and ​a standard deviation of 4, ​you can use the formula to calculate the <span class="math inline">\(z\)</span>-score of a raw score of 85. ​</p>
 <p><span class="math display">\[
 Z = \frac{85-90}{4} =-1.25
 \]</span></p>
-<p>Your z-score is yours raw score, 85 minus the mean score 90, ​divided by the standard deviation 4. ​This is 85 minus 90 divided by 4 equals -5, divided by 4 equals -1.25. ​Your z-score of -1.25 tells you that your exam score of 85 is ​1.25 standard deviations below the mean or average exam score. </p>
-<p>​Z-scores give you an idea of how individual values compared to the mean. ​As a data professional, you’ll use z-scores to help you better understand ​the relationship between specific values in your data set. </p>
-<p>​You’ll most likely use a programming language like Python to calculate z-scores ​on your computer as you’’ll learn in an upcoming video.</p>
+<p>Your <span class="math inline">\(z\)</span>-score is yours raw score, 85 minus the mean score 90, ​divided by the standard deviation 4. ​This is 85 minus 90 divided by 4 equals -5, divided by 4 equals -1.25. ​Your <span class="math inline">\(z\)</span>-score of -1.25 tells you that your exam score of 85 is ​1.25 standard deviations below the mean or average exam score. </p>
+<p>​<span class="math inline">\(z\)</span>-scores give you an idea of how individual values compared to the mean. ​As a data professional, you’ll use <span class="math inline">\(z\)</span>-scores to help you better understand ​the relationship between specific values in your data set. </p>
+<p>​You’ll most likely use a programming language like Python to calculate <span class="math inline">\(z\)</span>-scores ​on your computer as you’’ll learn in an upcoming video.</p>
 <hr>
 <p>When I deal with a new dataset, ​I first go through the process of EDA and compute ​descriptive stats to get ​a basic understanding of my data. ​After that, I try to determine if my data ​fits a certain type of probability distribution, ​like the binomial, Poisson, ​and normal distributions you recently learned about.</p>
 <p>Knowing the distribution of my data helps me decide what ​statistical test or machine learning model ​will work best for my analysis.</p>
 <p>​Python has a great selection of ​function libraries for data analysis. ​Using Python to work with distributions ​saves time and improves ​the overall efficiency of my analysis.</p>
-<p>​In this video, you’ll use Python to ​model your data with the normal distribution. ​Then you’ll compute Z-scores ​to find any outliers in your data.</p>
+<p>​In this video, you’ll use Python to ​model your data with the normal distribution. ​Then you’ll compute <span class="math inline">\(z\)</span>-scores ​to find any outliers in your data.</p>
 <p>​We’ll continue with ​our previous scenario in which you’re a data ​professional working for the Department of Education ​of a large nation. ​Recall that you’re analyzing data on ​the literacy rate for each district, ​and you’ve already computed ​descriptive statistics to summarize your data. ​You’ll continue to use the dataset you worked with before. ​If you need to access the data, do so now. ​Along with pandas, NumPy, and matplotlib.pyplot, ​you’ll use two Python packages that may be new to you: ​SciPy stats and statsmodels. ​SciPy is an open source software ​you can use for solving mathematical, ​scientific, engineering, and technical problems. ​It allows you to manipulate and visualize ​data with a wide range of Python commands. ​SciPy stats is a module ​designed specifically for statistics. ​Statsmodels is a Python package ​that lets you explore data, ​work with statistical models, ​and perform statistical tests. ​It includes an extensive list of ​stats functions for different types of data.</p>
 <p>​Now that you know more about ​the packages you’ll be working with, ​let’s open up a Jupyter Notebook and load them up. ​To start, import the Python packages you will use: ​NumPy, pandas, and statsmodels.api ​and the library you will use matplotlib.pyplot. ​To save time, rename ​each package and library within abbreviation: ​NP, PD, PLT, and SM. ​To load the SciPy stats module right, ​from SciPy import stats.</p>
 <div id="cell-8" class="cell">
@@ -5232,16 +5259,16 @@ Z = \frac{85-90}{4} =-1.25
 </div>
 </div>
 <p>​About 0.954 or 95.4 ​percent of your values fall ​within two standard deviations of the mean, ​and about 0.996 or 99.6 percent of your values ​fall within three standard deviations of the mean.</p>
-<p>​Here, values of 66.4, 95.4, ​and 99.6 percent are ​very close to what the empirical rule suggests, ​roughly 68, 95, and 99.7 percent. ​At this point, it’s safe to say ​your data follows a normal distribution. ​Knowing that your data is normally ​distributed is useful for analysis because ​many statistical tests and ​machine learning models assume a normal distribution. ​Plus, when your data follows a normal distribution, ​you can use Z-scores to measure ​the relative position of your values ​and find outliers in your data.</p>
-<p>​Let’s explore how to calculate Z-scores in Python now. ​Recall that a Z-score is a measure of ​how many standard deviations below or ​above the population mean a data point is. ​A Z-score is useful because it tells you ​where a value lies in a distribution. ​For example, if I tell you ​a literacy rate is 80 percent, ​this doesn’t give you much information about ​where the value lies in the distribution. ​However, if I tell you ​the literacy rate has a Z-score of two, ​then you know that the value is ​two standard deviations above the mean. ​Data professionals often use ​Z-scores for outlier detection. ​Typically, they consider observations ​with the Z-score smaller than a ​negative 3 or larger than positive 3 as outliers. ​These are values that lie ​more than three standard deviations ​below or above the mean.</p>
-<p>​To find outliers in your data, ​first create a new column called Z_SCORE ​that includes the Z-scores for ​each district literacy rate in your dataset. ​Then compute the Z-scores with the function stats.zscore. ​Python takes care of all the calculations.</p>
+<p>​Here, values of 66.4, 95.4, ​and 99.6 percent are ​very close to what the empirical rule suggests, ​roughly 68, 95, and 99.7 percent. ​At this point, it’s safe to say ​your data follows a normal distribution. ​Knowing that your data is normally ​distributed is useful for analysis because ​many statistical tests and ​machine learning models assume a normal distribution. ​Plus, when your data follows a normal distribution, ​you can use <span class="math inline">\(z\)</span>-scores to measure ​the relative position of your values ​and find outliers in your data.</p>
+<p>​Let’s explore how to calculate <span class="math inline">\(z\)</span>-scores in Python now. ​Recall that a <span class="math inline">\(z\)</span>-score is a measure of ​how many standard deviations below or ​above the population mean a data point is. ​A <span class="math inline">\(z\)</span>-score is useful because it tells you ​where a value lies in a distribution. ​For example, if I tell you ​a literacy rate is 80 percent, ​this doesn’t give you much information about ​where the value lies in the distribution. ​However, if I tell you ​the literacy rate has a <span class="math inline">\(z\)</span>-score of two, ​then you know that the value is ​two standard deviations above the mean. ​Data professionals often use ​<span class="math inline">\(z\)</span>-scores for outlier detection. ​Typically, they consider observations ​with the <span class="math inline">\(z\)</span>-score smaller than a ​negative 3 or larger than positive 3 as outliers. ​These are values that lie ​more than three standard deviations ​below or above the mean.</p>
+<p>​To find outliers in your data, ​first create a new column called Z_SCORE ​that includes the <span class="math inline">\(z\)</span>-scores for ​each district literacy rate in your dataset. ​Then compute the <span class="math inline">\(z\)</span>-scores with the function stats.zscore. ​Python takes care of all the calculations.</p>
 <div id="cell-23" class="cell">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>education_districtwise[<span class="st">&#39;Z_SCORE&#39;</span>] <span class="op">=</span> stats.zscore(education_districtwise[<span class="st">&#39;OVERALL_LI&#39;</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>​Now, write some code to identify ​outliers or districts with Z-scores ​that are greater than or ​less than three standard deviations from the mean. ​Use the relational operators greater than and less than ​and the bitwise operator OR.</p>
+<p>​Now, write some code to identify ​outliers or districts with <span class="math inline">\(z\)</span>-scores ​that are greater than or ​less than three standard deviations from the mean. ​Use the relational operators greater than and less than ​and the bitwise operator OR.</p>
 <div id="cell-25" class="cell" data-execution_count="35">
 <details open class="code-fold">
 <summary>Code</summary>
@@ -5297,7 +5324,7 @@ Z = \frac{85-90}{4} =-1.25
 </div>
 </div>
 </div>
-<p>​Using Z-scores, you identify two outlying districts: ​District 461 and District 429. ​The literacy rates in these two districts are ​more than three standard deviations ​below the overall mean, ​which means they have unusually low rates. ​Your analysis gives you important information to share. ​The government may want to ​provide more funding and resources to ​these two districts in the hopes ​of significantly improving literacy. ​Probability distributions are useful ​for modeling your data and ​help you determine which statistical test ​to use for an analysis. ​In addition to the normal distribution, ​Python can help you work with ​a wide range of probability distributions.</p>
+<p>​Using <span class="math inline">\(z\)</span>-scores, you identify two outlying districts: ​District 461 and District 429. ​The literacy rates in these two districts are ​more than three standard deviations ​below the overall mean, ​which means they have unusually low rates. ​Your analysis gives you important information to share. ​The government may want to ​provide more funding and resources to ​these two districts in the hopes ​of significantly improving literacy. ​Probability distributions are useful ​for modeling your data and ​help you determine which statistical test ​to use for an analysis. ​In addition to the normal distribution, ​Python can help you work with ​a wide range of probability distributions.</p>
 
 
 </section>

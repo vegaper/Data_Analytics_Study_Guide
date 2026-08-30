@@ -199,6 +199,8 @@ website:
 
           - href: sampling.html
             text: "Sampling"
+          - href: sampling_distributions.html
+            text: "Sampling Distributions"
           - href: Exemplar_Explore_sampling.html
             text: "Practice: Explore Sampling"
 
@@ -209,6 +211,10 @@ website:
 
           - href: hypothesis_testing.html
             text: "Hypothesis Testing"
+          - href: hypothesis_testing_python.html
+            text: "Use Python to conduct a hypothesis test"
+          - href: Exemplar_Explore_hypothesis_testing.html
+            text: "Practice: Explore hypothesis testing"
           
           - section: "Reference materials"
             contents:
@@ -220,11 +226,13 @@ website:
                 text: "Annotated follow-along guide_Sampling with Python"
               - href: Annotated_follow-along_guide_Confidence_intervals_in_Python.html
                 text: "Annotated follow-along guide: Confidence intervals in Python"
+              - href: Annotated_follow-along_guide_Use_Python_to conduct_a_hypothesis_test.html
+                text: "Annotated follow-along guide: Use Python to conduct a hypothesis test"
           - section: "Course 3 End of Course Project"
             contents:
-              - href: Exemplar_Course2_Waze_project_lab.html
+              - href: Exemplar_Course_4_Waze_project_lab.html
                 text: "Waze Project Lab"
-              - href: Activity Exemplar_ Waze Course 2 executive summary.pdf
+              - href: Activity_Exemplar_Waze_Course_3_executive_summary.pdf
                 text: "Activity Waze Executive Summary"
           
 

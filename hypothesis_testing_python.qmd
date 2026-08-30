@@ -1,0 +1,325 @@
+---
+title: Use Python to conduct a hypothesis test
+format: html
+jupyter: python3
+---
+
+Recently, we talked about how did professionals ​use two-sample hypothesis test to determine ​whether the difference between two sample means is ​statistically significant or due to chance.
+
+​Two-sample tests are especially useful for AB tests, ​which often sample two groups ​of users to compare how they ​respond to different versions of a product or website. ​
+
+For instance, an AB tests can ​help you decide if an observed difference in ​the average click rates is due to ​a specific change in website design or due to chance.
+
+​In this video, you will use Python to conduct ​a two-sample $t$-test based on sample data. ​Python is helpful for conducting ​hypothesis tests with speed and accuracy. ​
+
+We'll continue with our scenario ​from an earlier part of the course in ​which you're a data professional working for ​the Department of Education of a large nation. ​Recall that you're analyzing data on ​the literacy rate for each district. ​You'll continue to use ​the data set you worked with before. ​If you need to access the data, do so now.
+
+```{python}
+import pandas as pd
+from scipy import stats
+
+education_districtwise = pd.read_csv(r"Datasets/education_districtwise.csv")
+education_districtwise = education_districtwise.dropna()
+```
+
+​For this video, we'll make a new change to our story. ​Imagine that the Department of Education ​asks you to collect data on ​mean district literacy rates for ​two of the nation's largest states, ​state 21 and state 28.
+
+​State 28 has almost 40 districts, ​and state 21 has more than 70.
+
+​Due to limited time and resources, ​you are only able to survey ​20 randomly chosen districts in each state.
+
+​The department however asks you ​to determine if the difference between ​the two mean district literature rates is ​statistically significant or due to chance.
+
+​This will help the department decide how to ​distribute government funding to improve literacy. ​If there is a statistically significant difference, ​the state with a lower literacy rate ​may receive more funding.
+
+​You can use Python to simulate ​taking a random sample of 20 districts in ​each state and conduct ​a two-sample $t$-test based on the sample data.
+
+​To start filter your data frame for ​the district literacy rate data from the states, ​state 28 and state 21.
+
+```{python}
+state21 = education_districtwise[education_districtwise['STATNAME'] == "STATE21"]
+state28 = education_districtwise[education_districtwise['STATNAME'] == "STATE28"]
+```
+
+​Now that you've organized your data, ​use Python to simulate random sampling. ​Use the sample function to take ​a random sample of 20 districts from each state.
+
+​First, name a variable ​called sampled underscore state 21, ​then enter the arguments of the sample function, ​n, the sample size equals 20, ​replace equals true because you're sampling with ​replacement for random underscore state, ​choose an arbitrary number for ​the random seed to start ​the computer's random number generator. ​How about 13,490? ​Recall that using the same random seed ​lets you generate the same set of ​random numbers in case you want to ​return to this sample data in the future. ​Now, name another variable sampled, underscore state 28, ​follow the same procedure, ​but this time choose ​a different number for the random seed. ​How about 39,103? ​You now have two random samples of 20 districts, ​one sample for each state.
+
+::: extra
+if you are physically surveying 20 actual school districts in a state, you would never visit the exact same district twice and survey it again.However, in this Python code, setting replace=True is done for two specific reasons:
+
+1.  Statistical Independence (The Assumptions of the $t$-Test) A standard two-sample $t$-test assumes that every observation in your sample is independent of every other observation.
+
+Sampling With Replacement (replace=True): The probability of selecting any given district remains identical on every single draw. This mathematically guarantees strict independence, matching the exact theoretical assumptions of standard hypothesis tests and the Central Limit Theorem.
+
+Sampling Without Replacement (replace=False): Every time you pick a district, the pool of remaining districts gets smaller. The remaining districts now have a slightly higher probability of being picked on the next draw, which introduces a small mathematical dependency between draws.
+
+2.  The Finite Population Correction Factor
+
+When you sample without replacement from a relatively small population (like sampling 20 districts out of a state with \~40 total districts), your sample represents a massive chunk (50%) of the total population! When you sample $\ge 5\%$ of a finite population without replacement, the variance of your sample mean actually shrinks because you are getting close to measuring the full population.To do a mathematically rigorous $t$-test without replacement on a small total population, you would have to apply an advanced formula adjustment called the Finite Population Correction (FPC) factor to shrink your standard error.By simulating the sampling with replacement (replace=True), your 20 draws behave as if they come from an infinite population, allowing you to use standard $t$-test formulas without needing the extra FPC correction.
+
+In real life, when you sample without replacement from a finite population (like 20 unique districts out of 40), you actually still use the exact same two-sample $t$-test!You don't need a different test—you just need a slight mathematical adjustment to the Standard Error ($SE$) formula if your sample size is a large fraction of the total population.
+
+In applied statistics, whether you need to adjust your test depends on how much of the total population you surveyed: - If your sample is LESS than 10% of the total population ($n < 0.1 N$): Ignore the fact that it's without replacement! The population is so large that sampling without replacement makes virtually zero difference. Use the standard $t$-test formula directly. [Finite Population Correction](sampling_theory.qmd#fpc-note)
+
+The $t$-test in python's library stats do not cather for this nuance, so in this case you will have to compute your p value manually. Here is an example (note that this is not executable because it is not part of the course.)
+
+import numpy as np from scipy import stats
+
+# 1. Given Data & Population Sizes
+
+# State 21: sampled n1=20 out of N1=70 total
+
+s1 = sampled_state21\['OVERALL_LI'\] n1, N1 = len(s1), 70
+
+# State 28: sampled n2=20 out of N2=40 total
+
+s2 = sampled_state28\['OVERALL_LI'\] n2, N2 = len(s2), 40
+
+# 2. Sample Means and Sample Variances (ddof=1 for sample variance s\^2)
+
+m1, v1 = np.mean(s1), np.var(s1, ddof=1) m2, v2 = np.mean(s2), np.var(s2, ddof=1)
+
+# 3. Compute FPC Factors
+
+fpc1 = (N1 - n1) / (N1 - 1) fpc2 = (N2 - n2) / (N2 - 1)
+
+# 4. FPC-Adjusted Standard Error
+
+se_fpc = np.sqrt(fpc1 \* (v1 / n1) + fpc2 \* (v2 / n2))
+
+# 5. Adjusted t-statistic
+
+t_stat = (m1 - m2) / se_fpc
+
+# 6. Degrees of Freedom (Welch-Satterthwaite with FPC-scaled variance terms)
+
+v1_adj = fpc1 \* (v1 / n1) v2_adj = fpc2 \* (v2 / n2) df_fpc = ((v1_adj + v2_adj)**2) / ( (v1_adj**2 / (n1 - 1)) + (v2_adj\*\*2 / (n2 - 1)) )
+
+# 7. Two-Tailed p-value from Student's t-distribution
+
+p_value = 2 \* stats.t.sf(abs(t_stat), df=df_fpc)
+
+print(f"Adjusted SE: {se_fpc:.4f}") print(f"Adjusted t-stat: {t_stat:.4f}") print(f"Degrees of Freedom: {df_fpc:.2f}") print(f"Two-Tailed p-value: {p_value:.4f}")
+:::
+
+```{python}
+sampled_state21 = state21.sample(n=20, replace = True, random_state=13490)
+sampled_state28 = state28.sample(n=20, replace = True, random_state=39103)
+```
+
+​Next, use the mean function to compute ​the mean district literacy rate for ​both state 21 and state 28.
+
+```{python}
+mean_state21 = sampled_state21['OVERALL_LI'].mean()
+print(mean_state21)
+mean_state28 = sampled_state28['OVERALL_LI'].mean()
+print(mean_state28)
+```
+
+​State 21 has a mean district literacy rate ​of about 70.8 percent, ​while state 28 has ​a mean district literacy rate of about 64.6 percent.
+
+​Based on your sample data, ​the observed difference between ​the mean district literacy rates of ​state 21 and state 28 is ​6.2 percentage points or 70.8 minus 64.6.
+
+​At this point, you might want to conclude that state ​21 has a higher overall literacy rate than state 28. ​However, you don't want to ​assume the results of your hypothesis test ahead of time. ​The observed difference in your sample might be ​due to chance or sampling variability. ​In other words, the difference might not be due to ​an actual difference in ​the corresponding population means. ​Is the observed difference ​statistically significant or due to chance?
+
+​Your hypothesis test will help you determine the answer. ​Now that you've organized your data ​and simulated random sampling, ​you're ready to conduct your hypothesis test.
+
+​Recall that the two-sample $t$-test is ​the standard approach for comparing ​the means of two independent samples. ​Let's review the steps for conducting a hypothesis test.
+
+First, state the null and alternative hypothesis. ​Second, choose a significance level. ​Third, find the $p$-value. ​Forth, reject or fail to reject the null hypothesis. ​
+
+First, state your null hypothesis ​and alternative hypothesis. ​ In a two-sample $t$-test, ​the null hypothesis states that there is ​no difference between the means, of two groups. ​This is assumed to be true unless ​there's convincing evidence to the contrary.
+
+​For your null hypothesis, you say, ​"There's no difference in ​the mean district literacy rates ​between State 21 and State 28."
+
+​Your alternative hypothesis will ​State the contrary claim. ​There is a difference in ​the mean district literacy rates between ​State 21 and State 28.
+
+​Next, set the significance level, ​or the threshold at which you will ​consider a result statistically significant. ​This is the probability of rejecting ​the null hypothesis when it is true.
+
+​The education department asks you to use ​their standard level of 5 percent or 0.05. ​
+
+Now, compute the $p$-value. ​In this case, your $p$-value is ​the probability of observing a difference in ​your sample means as or more ​extreme than the difference observed, ​when the null hypothesis is true. ​Based on your sample data, ​the difference between the mean ​district literacy rates of State ​21 and State 28 is 6.2 percentage points. ​Your null hypothesis claims ​that this difference is due to chance.
+
+​Your $p$-value is the probability of ​observing an absolute difference in sample means that ​is 6.2 or greater if the null hypothesis is true.
+
+​If the probability of this outcome is ​very unlikely in particular, ​if your $p$-value is less ​than your significance level of five percent, ​then you will reject the null hypothesis.
+
+​For a two-sample $t$-test uses ​a scipy function (`stats.$t$-test_ind`) ​to compute your $p$-value.
+
+​This function includes the following arguments; - a, ​refers to observations from your first sample, - b, ​refers to observations from your second sample, ​- equal_var is a Boolean or true-false statement, ​which indicates whether the population variance of ​the two samples is assumed to be equal. ​In our example, you don't have ​access to data for the entire population, ​so you don't want to assume anything about the variance. ​To avoid making a wrong assumption, ​set equal_var to false.
+
+​Now, you're ready to write this all out in code.
+
+```{python}
+stats.ttest_ind(a=sampled_state21['OVERALL_LI'], b=sampled_state28['OVERALL_LI'], equal_var=False)
+```
+
+​The output confirms your $p$-value is about ​0.0064 or a 0.64 percent.
+
+​This means there's only a 0.64 percent ​probability that the absolute difference ​between the two mean district literacy rates, ​would be 6.2 percentage points ​or greater if the null hypothesis is true. ​In other words, it's highly unlikely that ​the difference in the two means is due to chance.
+
+​To draw conclusion, compare ​your $p$-value with the significance level. ​Remember, if your $p$-value ​is less than the significance level, ​you conclude that there is ​a statistically significant difference in ​the mean district literacy rates between ​State 21, and State 28. ​In other words, you reject the null hypothesis. ​
+
+If your $p$-value is greater than the significance level, ​you conclude that there is not ​a statistically significant difference ​in the mean district literacy rates, ​between State 21 and State 28. ​In other words, you fail to reject the null hypothesis.
+
+​Your $p$-value of 0.0064 or 0.64 ​percent is less than the significance level ​of 0.05 or five percent. ​You reject the null hypothesis and conclude that there is ​a statistically significant difference between ​the mean district literacy rates of the two states, ​State 21 and State 28.
+
+​You analysis will help the department ​decide how to distribute government resources. ​Since there is a statistically significant difference ​in mean district literacy rates, ​the State with the lower literacy rate State 28, ​will likely receive more resources to improve literacy.
+
+​The two-sample $t$-test, ​is a powerful tool for ​investigating the differences between two sample means. ​Data professionals often use $t$-tests to ​help stake holders make data-driven decisions.
+
+------------------------------------------------------------------------
+
+::: Extra
+Some of the following examples are used in the next practice, but were not explained in the lectures, so I included here a brief description, also included some more that were not used in the course at all
+
+# **Hypothesis Testing in Python: Beyond the Two-Sample Unpaired T-Test**
+
+While standard two-sample independent t-tests (such as scipy.stats.ttest_ind) are frequently introduced first, real-world data analysis requires selecting the right statistical test based on your variable types (continuous vs. categorical), group counts, target thresholds, and proportion comparisons.
+
+## **Summary of Key Hypothesis Tests**
+
+| **Test Type** | **Python Function** | **Data Requirements** | **Primary Use Case** |
+|---------------|---------------|---------------|---------------------------|
+| **Two-Sample Independent t-Test** | scipy.stats.ttest_ind | 1 continuous outcome, 2 independent groups | Comparing means between two separate populations or groups (e.g., LA vs. Rest of CA). |
+| **One-Sample t-Test** | scipy.stats.ttest_1samp | 1 continuous variable, 1 pop. target value | Comparing a single group's mean to a specific threshold or benchmark (e.g., Is AQI \> 10?). |
+| **Two-Sample Paired t-Test** | scipy.stats.ttest_rel | 1 continuous outcome, 2 dependent measurements | Comparing repeated measurements on the exact same subjects (e.g., Before/After intervention). |
+| **One-Proportion Z-Test** | statsmodels.stats.proportion.proportions_ztest | 1 categorical binary outcome, 1 target proportion | Comparing a sample proportion to a fixed population benchmark (e.g., Is success rate \> 50%?). |
+| **Two-Proportion Z-Test** | statsmodels.stats.proportion.proportions_ztest | 1 categorical binary outcome, 2 independent groups | Comparing proportions of success between two distinct groups (e.g., A/B testing conversion rates). |
+
+## **1. Two-Sample Independent t-Test (Unpaired)**
+
+**Use Case:** You want to compare the mean of a continuous numerical variable between two separate, non-overlapping groups.
+
+### **Example: Comparing LA County AQI vs. Rest of California**
+
+As seen in the lab exercise:
+
+```{python}
+from scipy import stats
+import pandas as pd
+
+# Load sample data
+aqi = pd.read_csv(r'Datasets\c4_epa_air_quality.csv')
+
+# Subset independent groups
+ca_la = aqi[aqi['county_name'] == 'Los Angeles']['aqi']
+ca_other = aqi[(aqi['state_name'] == 'California') & (aqi['county_name'] != 'Los Angeles')]['aqi']
+
+# Perform Two-Sample Welch's t-test (equal_var=False handles unequal variances)
+tstat, pval = stats.ttest_ind(a=ca_la, b=ca_other, equal_var=False)
+
+print(f"t-statistic: {tstat:.4f}, p-value: {pval:.4f}")
+
+```
+
+## **2. Two-Sample Independent t-Test (One-Tailed)**
+
+**Use Case:** You have a specific directional hypothesis (e.g., Group A has a lower or higher mean than Group B) rather than just testing for any difference.
+
+### **Example: Testing if New York has a lower AQI than Ohio**
+
+As seen in the lab exercise:
+
+```{python}
+# Subset independent groups
+ny = aqi[aqi['state_name'] == 'New York']['aqi']
+ohio = aqi[aqi['state_name'] == 'Ohio']['aqi']
+
+# Directional test: H_A is that NY mean < Ohio mean
+tstat, pval = stats.ttest_ind(a=ny, b=ohio, alternative='less', equal_var=False)
+
+print(f"t-statistic: {tstat:.4f}, p-value: {pval:.4f}")
+
+```
+
+## **3. One-Sample t-Test**
+
+**Use Case:** You want to evaluate whether a single sample's mean significantly differs from a known population mean or specific policy benchmark.
+
+### **Example: Testing if Michigan's AQI exceeds a threshold of 10**
+
+As seen in the lab exercise:
+
+```{python}
+# Example measurements from 10 monitoring sites before and after a clean air initiative
+aqi_before = [18.2, 14.5, 22.1, 19.8, 12.4, 25.0, 16.3, 11.9, 21.4, 17.6]
+aqi_after  = [14.1, 13.0, 18.5, 15.2, 11.0, 19.8, 14.0, 10.5, 17.2, 15.0]
+
+# Perform Paired t-test
+tstat, pval = stats.ttest_rel(aqi_before, aqi_after, alternative='greater')
+
+print(f"t-statistic: {tstat:.4f}, p-value: {pval:.4f}")
+
+```
+
+## **4. Paired Samples t-Test (Dependent Samples)**
+
+**Use Case:** You measure the same continuous variable twice on the same subjects (e.g., before and after a treatment or policy change).
+
+### **Example: AQI at identical monitoring stations before and after policy implementation**
+
+```{python}
+from statsmodels.stats.proportion import proportions_ztest
+
+# 35 out of 120 sampled days were classified as "Unhealthy"
+count = 35
+nobs = 120
+value = 0.20  # Baseline hypothesis threshold (20%)
+
+# H0: p <= 0.20 vs HA: p > 0.20
+zstat, pval = proportions_ztest(count=count, nobs=nobs, value=value, alternative='larger')
+
+print(f"Z-statistic: {zstat:.4f}, p-value: {pval:.4f}")
+
+
+```
+
+## **5. One-Proportion Z-Test**
+
+**Use Case:** You have a single categorical (binary) variable and want to test if the proportion of successes differs from a baseline proportion \$p_0\$.
+
+### **Example: Testing if the proportion of "Unhealthy Air Days" in a city exceeds 20%**
+
+```{python}
+from statsmodels.stats.proportion import proportions_ztest
+
+# 35 out of 120 sampled days were classified as "Unhealthy"
+count = 35
+nobs = 120
+value = 0.20  # Baseline hypothesis threshold (20%)
+
+# H0: p <= 0.20 vs HA: p > 0.20
+zstat, pval = proportions_ztest(count=count, nobs=nobs, value=value, alternative='larger')
+
+print(f"Z-statistic: {zstat:.4f}, p-value: {pval:.4f}")
+
+
+```
+
+## **6. Two-Proportion Z-Test**
+
+**Use Case:** You want to compare the proportion of a binary outcome between two independent groups (e.g., comparing compliance or success rates between two states or test variants).
+
+### **Example: Comparing high-pollution day rates between State A and State B**
+
+```{python}
+import numpy as np
+from statsmodels.stats.proportion import proportions_ztest
+
+# State A: 45 high-pollution days out of 200 total samples
+# State B: 25 high-pollution days out of 180 total samples
+counts = np.array([45, 25])
+nobs = np.array([200, 180])
+
+# Two-tailed test comparing proportions
+zstat, pval = proportions_ztest(count=counts, nobs=nobs, alternative='two-sided')
+
+print(f"Z-statistic: {zstat:.4f}, p-value: {pval:.4f}")
+
+
+
+
+```
+:::
