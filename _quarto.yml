@@ -176,7 +176,7 @@ website:
             contents:
               - href: Exemplar_Course2_Waze_project_lab.html
                 text: "Waze Project Lab"
-              - href: Activity Exemplar_ Waze Course 2 executive summary.pdf
+              - href: Activity Exemplar_Waze_Course_2_executive summary.pdf
                 text: "Activity Waze Executive Summary"
           
       - section: "Course 3: The Power of Statistics"
@@ -230,9 +230,9 @@ website:
                 text: "Annotated follow-along guide: Use Python to conduct a hypothesis test"
           - section: "Course 3 End of Course Project"
             contents:
-              - href: Exemplar_Course_4_Waze_project_lab.html
+              - href: Exemplar_Course_3_Waze_project_lab.html
                 text: "Waze Project Lab"
-              - href: Activity_Exemplar_Waze_Course_3_executive_summary.pdf
+              - href: Activity_Exemplar_ Waze_Course_3_executive_summary.pdf
                 text: "Activity Waze Executive Summary"
           
 
