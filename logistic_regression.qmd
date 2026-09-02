@@ -1,0 +1,125 @@
+---
+title: "Logistic Regression"
+format: html
+---
+
+I still remember being on ​a sports team needing to determine ​which team first played ​offense or defense using a coin toss. ​What's the chance the coin will come up heads? ​What's the chance the coin will come up tails? ​The probability of either event occurring ​is 0.5 or 50 percent. ​This is a classic probability problem. ​But in the field of data analytics, ​we get to use a technique called logistic regression to ​model much more complex probability problems. ​For example, what factors lead to someone ​subscribing or not subscribing to a newsletter. ​Under what circumstances does someone comment ​on an online video or social media post? ​Given certain factors, how likely is it that ​someone renews their membership to an organization? ​
+
+All of these questions are tackling ​discrete events or *categorical data*. ​There are a specific set of possible outcomes. ​Subscribe or don't subscribe, comment, ​or don't comment, renew, or don't renew. ​To answer these questions, ​data professionals use a model ​called logistic regression. ​
+
+::: nota
+Logistic regression is a technique that models ​a categorical variable based on ​one or more independent variables. 
+:::
+
+**​The dependent variable can have ​two or more possible discrete values**. ​Let's say that your company has ​a newsletter and is interested in increasing readership. ​On the company website users have ​the opportunity to subscribe to the newsletter. ​One factor related to ​the newsletter subscription could be ​how many minutes the user ​spends on the web-page before leaving? 
+​Our dependent variable $y$ has two possibilities:
+-   ​Users don't subscribe, which we'll represent with a zero. 
+-   ​Or users do subscribe, ​which we'll represent with a one. 
+
+​Our independent variable $x$ is continuous and measures ​how many minutes the users ​spend on the web-page before leaving. 
+
+​Let's graph the hypothetical data ​on a scatter plot like we ​would when doing EDA or exploratory data analysis. 
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Set figure size and resolution
+fig, ax = plt.subplots(figsize=(8, 5), dpi=100)
+
+# Sample data points corresponding to the binary response layout
+# y = 1.00 data points (Subscribed)
+x_ones = [1.2, 2.0, 3.5, 5.0, 9.5, 13.5, 20.0, 23.0, 24.3, 25.8, 27.6, 29.6]
+y_ones = [1.00] * len(x_ones)
+
+# y = 0.00 data points (Did not subscribe)
+x_zeros = [0.2, 1.8, 2.3, 3.0, 4.3, 7.5, 10.0, 13.6, 16.5, 18.8, 23.1, 24.3, 25.3, 26.1, 27.5, 29.1]
+y_zeros = [0.00] * len(x_zeros)
+
+# Plot scatter points (bright blue, matching slide styling)
+ax.scatter(x_ones, y_ones, color='#4285f4', s=70, zorder=3)
+ax.scatter(x_zeros, y_zeros, color='#4285f4', s=70, zorder=3)
+
+# Set Title and Labels
+ax.set_title("Probability of Subscription versus Minutes on Web Page", fontsize=15, pad=15, color='#000000')
+ax.set_xlabel("Minutes on Web Page", fontsize=12, labelpad=10, color='#222222')
+ax.set_ylabel("Probability of Subscription", fontsize=12, labelpad=10, color='#222222')
+
+# Set Axis Limits and Ticks
+ax.set_xlim(0, 32)
+ax.set_ylim(-0.08, 1.10)
+
+ax.set_xticks([5, 10, 15, 20, 25, 30])
+ax.set_yticks([0.00, 0.25, 0.50, 0.75, 1.00])
+
+# Format y-axis labels to match double-decimal format (0.00, 0.25, etc.)
+ax.yaxis.set_major_formatter('{x:.2f}')
+
+# Lightweight grid and spine formatting
+ax.grid(True, linestyle='-', linewidth=0.5, color='#e0e0e0', zorder=1)
+
+# Hide frame spines except bottom and left for a clean look
+for spine in ['top', 'right', 'left', 'bottom']:
+    ax.spines[spine].set_visible(False)
+
+# Remove tick marks for minimal aesthetic
+ax.tick_params(axis='both', which='both', length=0, labelsize=11, labelcolor='#333333')
+
+plt.tight_layout()
+plt.show()
+
+```
+
+
+​We can observe that the data points are ​roughly and two horizontal lines.​The higher one indicates the user subscribed, ​this is when $y$ equals one. ​The lower one indicates that the user did not subscribe. ​This is when $y$ equals zero, ​the $x$-axis indicates how ​long the user was on the site in minutes. 
+
+​Since the relationship between $x$ and ​y is not just a straight line, ​we need a new mathematical way of ​expressing the relationship between $x$ and $​y$. Logistic regression will allow us to ​model the probability a user ​will subscribe to the newsletter. 
+
+​The key concept is that the mean of $y$ given $x$ ​is equal to the probability of $y$ equals one given $x$. 
+$$
+\mu{Y|X} = Prob(Y=1|X) =p
+$$
+
+
+​Let's explore this idea. ​At this point, our observed $y$ values ​are just a bunch of zeros and ones. ​To find the mean, ​we would sum all of our observations and ​then divide the total by the number of observations. 
+Because some of the observed data are ​zeros when summing the observations, ​the zeros all add up to zero. ​Therefore, the sum of ​all the observations is equal ​to the total number of ones. ​Then we divide by the total number of observations. 
+​This is equal to the probability of $y$ equaling ​one or someone becoming a subscriber. 
+
+​In this case, we know that the mean of $y$ given $x$ is equal ​to the probability of $y$ ​equaling a certain outcome given $x$. ​Sometimes the probability of $y$ given $x$ is ​written as $p$ to reinforce the idea of probability. ​To help you remember, ​you can think $p$ is for probability. ​Now we want to understand what ​variables help explain those probabilities.
+
+​Mathematically, we need a way to relate ​the $x$ variables to the probability that $y$ equals one. ​Imagine we only have one independent variable. 
+
+​So then we need to relate the probability of $y$ equals ​one to Beta 0 plus Beta 1 times $x$. 
+$$
+{\beta_0} + {\beta_1} X \to \text{???} \to Prob(Y=1|X)
+$$
+
+​In logistic regression, we use ​a link function to express the relationship ​between the $x$'s and ​the probability that $y$ equals some outcome. 
+$$
+{\beta_0} + {\beta_1} X \to \text{???} \to Prob(Y=1|X)
+$$
+$$
+\text{link function} \to g(p) = {\beta_0} + {\beta_1} X 
+$$
+
+​A link function is a non-linear function that connects or ​links the dependent variable ​to the independent variables mathematically. ​We will discuss how logistic regression and ​link functions work in more detail later on. ​But for now, just know that this is an example of ​the differences between linear ​and logistic regression models. 
+
+​Let's review a few more similarities ​and differences between modeling approaches. ​First, linear regression involves ​a $y$ that is continuous, like book sales. 
+
+​While logistic regression involves a $y$ that is ​categorical, like newsletter subscription. 
+
+​Choosing one model over the ​other is about the kind of data you have.
+
+​You can answer similar questions about what ​factors impact an outcome of interests. 
+
+​Secondly, ​since linear regression model is a continuous variable, ​we're estimating the mean of $y$. ​But logistic regression models a categorical variable. ​We're modeling the probability of an outcome, ​For example, if $y$ equals one or if $y$ equals zero. 
+
+​Lastly, for linear regression, ​we can express $y$ directly as a function of $x$. ​But for logistic regression, ​we need a link function to connect ​the probability of $y$ with $x$. 
+
+​We'll continue focusing on ​logistic regression with just two categories, ​like the subscription problem. ​But there are more complex versions of ​logistic regression that can model ​multiple outcomes or categories, ​such as types of skincare products people buy, ​or types of services that people receive. 
+
+​In this video, we covered ​the basics of logistic regression. ​We also compared and ​contrasted linear and logistic regression models. 
+
+​Later in this course we'll ​cover an estimation technique for ​logistic regression called ***maximum likelihood estimation*** and ​we'll uncover a bit more of the math. ​For now, know that computers are ​incredibly powerful and enable ​us as data practitioners to focus ​less on the math and more on the storytelling. 
+
+​The rest of the course will provide ​you with a solid understanding so ​you know what's going on ​in that powerful machine of yours.

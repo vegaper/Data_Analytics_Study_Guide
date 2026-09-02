@@ -1,0 +1,110 @@
+---
+title: "Sample Size Calculation"
+format: html
+---
+
+All this page is extra, as this was not addressed in the course.
+
+To determine the sample size for an experiment like an A/B test (or any hypothesis test), you conduct a **Power Analysis**. This process ensures your test has enough statistical power to detect a real effect without wasting resources on an unnecessarily large sample.
+
+### Key Ingredients for Sample Size Calculation
+
+To calculate sample size, you need to define four core parameters:
+
+-   **Significance Level (**$\alpha$): The probability of a Type I error (false positive). Standard practice sets $\alpha = 0.05$ (5% risk of finding a difference when none exists).
+
+-   **Statistical Power (**$1 - \beta$): The probability of correctly detecting a real effect (avoiding a Type II error / false negative). Standard practice sets power to $0.80$ (80% chance of detecting the effect).
+
+-   **Minimum Detectable Effect (MDE /** $\delta$): The smallest meaningful difference between groups that you care about detecting (e.g., a 2% increase in conversion rate). Smaller MDEs require significantly larger sample sizes.
+
+-   **Baseline Variance / Rate:**
+
+    -   *For continuous metrics (means):* The estimated standard deviation ($\sigma$) of the metric.
+
+    -   *For proportions/rates:* The baseline conversion rate ($p_0$).
+
+### Python Implementation for Common Scenarios
+
+#### A/B Testing Proportions (e.g., Conversion Rates, Click-Through Rates)
+
+Use `statsmodels.stats.power.normal_ind_solve_power` or `zt_ind_solve_power` to compare two independent proportions.
+
+```{python}
+import numpy as np
+import statsmodels.stats.api as sms
+
+# Define parameters
+p1 = 0.10  # Baseline conversion rate (10%)
+p2 = 0.12  # Target conversion rate (12% -> MDE of +2%)
+
+# Calculate Effect Size (Cohen's h for proportions)
+effect_size = sms.proportion_effectsize(p1, p2)
+
+# Solve for sample size per group using z-test solver
+sample_size_per_group = sms.zt_ind_solve_power(
+    effect_size=effect_size,
+    alpha=0.05,
+    power=0.80,
+    ratio=1.0,  # 1:1 allocation ratio between Control and Variant
+    alternative="two-sided",
+)
+
+print(f"Required sample size per group: {int(np.ceil(sample_size_per_group))}")
+```
+
+#### A/B Testing Continuous Means (e.g., Average Order Value, Time on Site)
+
+Use `statsmodels.stats.power.TTestIndPower` to determine sample sizes when comparing two independent continuous means using a t-test.
+
+```{python}
+from statsmodels.stats.power import TTestIndPower
+
+# Define parameters
+mean_control = 50.0   # Baseline mean
+mean_variant = 53.0   # Expected target mean (MDE = 3.0)
+std_dev = 15.0        # Estimated standard deviation of the metric
+
+# Calculate Cohen's d (Effect size for continuous means)
+effect_size = (mean_variant - mean_control) / std_dev
+
+# Calculate sample size per group
+power_analysis = TTestIndPower()
+sample_size_per_group = power_analysis.solve_power(
+    effect_size=effect_size,
+    alpha=0.05,
+    power=0.80,
+    ratio=1.0,
+    alternative='two-sided'
+)
+
+print(f"Required sample size per group: {int(np.ceil(sample_size_per_group))}")
+```
+
+#### One-Sample Mean Test vs. Benchmark
+
+Use `TTestPower` when comparing a single sample to a target population benchmark.
+
+```{python}
+import numpy as np
+from statsmodels.stats.power import TTestPower
+
+# Effect size (Cohen's d): (Sample Mean - Baseline Value) / Standard Deviation
+effect_size = (10.5 - 10.0) / 2.0  
+
+sample_size = TTestPower().solve_power(
+    effect_size=effect_size,
+    alpha=0.05,
+    power=0.80,
+    alternative='larger'  # 'larger' is used instead of 'greater'
+)
+
+print(f"Required sample size: {int(np.ceil(sample_size))}")
+```
+
+### Key Rules of Thumb for Experiment Design
+
+-   **Inverse Square Relationship:** Decreasing the MDE by half requires roughly **4x the sample size**.
+
+-   **Sequential Testing Warning:** Never stop an A/B test early just because the $p$-value crosses $0.05$ before reaching your calculated sample size. Early stopping inflates your false-positive rate.
+
+-   **Unequal Sample Sizes (`ratio` parameter):** If allocating traffic 80/20 instead of 50/50, the overall sample size requirement increases to achieve the same statistical power.

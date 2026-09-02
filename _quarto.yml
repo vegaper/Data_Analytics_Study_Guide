@@ -215,6 +215,9 @@ website:
             text: "Use Python to conduct a hypothesis test"
           - href: Exemplar_Explore_hypothesis_testing.html
             text: "Practice: Explore hypothesis testing"
+
+          - href: sample_size.html
+            text: "Calculating Sample Size"
           
           - section: "Reference materials"
             contents:
@@ -234,11 +237,22 @@ website:
                 text: "Waze Project Lab"
               - href: Activity_Exemplar_ Waze_Course_3_executive_summary.pdf
                 text: "Activity Waze Executive Summary"
-          
+      - section: "Course 4: Regression Analysis"    
+        contents:
+              - href: intro_to_regression.html
+              - text: "Introduction to Regression"
+              - href: linear_regression.html
+              - text: "Linear Regression"
+
+              - href: logistic_regression.html
+              - text: "Logistic Regression"
+
+              - href: simple_linear_regression.html
+              - text: "Simple Linear Regression"
 
       - section: "Anexos"
         contents:
           - href: index.html
             text: "Anexos Index"
           - href: Advanced_Data_Analytics_Certificate_glossary.html
-            text: Glossary
+            Infddffs555text: Glossary

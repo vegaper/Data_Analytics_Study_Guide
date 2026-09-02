@@ -1,0 +1,127 @@
+---
+title: "Introduction to Regression"
+format: html
+---
+
+I can't wait to explore regression analysis with you. ​Together, we'll learn how data professionals go from ​a problem to actionable insights ​using regression analysis techniques. ​We'll begin by introducing regression analysis. ​The focus for regression analysis is about ​understanding relationships between variables. ​We'll use the pace framework; ​plan, analyze, construct, ​and execute, to guide us through the rest of the course. ​Next, you'll have the chance to ​apply pace to simple linear regression, ​which will be our first model we explore comprehensively. ​We'll go over the entire process from beginning to end, ​using different scenarios and data. ​Then we'll examine multiple linear regression closely. ​Multiple linear regression expands upon ​a lot of the concepts from simple linear regression, ​but will allow us to ​problem-solve a larger variety of questions. ​We will focus on some more nuanced topics ​like variable selection and model interpretation. ​We'll also consider a few hypothesis tests, ​such as chi-squared test and ANOVA. ​These tests will help us ​explore different groups in the data, ​allowing us to glean interesting insights. ​Finally, we will review ​the fundamentals of logistic regression. ​This is the last and most complex model, ​which will set you up well to approach ​the rest of the program on machine-learning. ​Whenever you're ready, I'm ​excited to get started on the next video.
+
+# PACE in regression analysis
+
+You may be familiar with terms like ​machine-learning models or regression analysis. ​If not, you're in the right program. ​Next up, we'll get started on our learning journey. ​To begin, we're going to discuss ​a few key terms and definitions. ​
+
+Regression models are based on a statistical foundation. ​Models used in the data career space ​are a family of techniques that rely on ​existing information or data points to ​inform what we might ​think other data points will look like. ​The goal is always to tell a story ​about the relationships between ​the variables in the data. ​The story will help stakeholders ​adjust their business strategy and decisions.
+
+​Modeling follows an iterative process. ​You may be familiar with other frameworks, ​such as the data life cycle or ​the six steps of exploratory data analysis. ​In this course, we will cover ​each step of the modeling process using PACE. ​Outlined earlier in this program, ​PACE, plan, analyze, construct, ​and execute, provides us with ​the foundation for conducting regression analysis. ​Let's take some time to preview how PACE ​works in the context of regression analysis.
+
+​In regression modeling, ​the **plan** stage is about ​understanding your data in the problem context. ​Knowledge you bring, whether from industry or others, ​can be instrumental in the plan stage. ​By considering what data you have access to, ​how the data was collected, ​and what the business needs are, ​you'll be able to strategically analyze, ​construct, and execute the rest of your work. ​The plan stage will guide the other three stages of PACE.
+
+​After you plan, you have to **analyze**. ​In this stage, you examine your data more closely so you ​can choose a model or a couple of ​models you think might be appropriate. ​When working with regression analysis, ​this is where you use Python to perform ​EDA and check the model assumptions as needed. **​Model assumptions are statements about the data that must ​be true to justify the use of particular data techniques.** ​As a data professional, ​you will use statistics to check ​whether model assumptions are met. ​A good understanding of statistics gives data ​professionals the power to construct meaningful models.
+
+​After you analyze, you must **construct**. ​For regression analysis, this is where you actually build ​the model in Python or your coding language of choice. ​This step involves selecting variables, ​transforming the data as needed, and writing code. ​Even though you checked model assumptions ​before you built the model, ​many model assumptions need to be ​rechecked after the model is built. ​You'll do that in the construct phase as needed. ​The last part of construct phase ​is evaluating the model results. ​At this point, you are answering the questions, ​how good is my model? ​You'll choose metrics, compare models, ​and get preliminary results. ​Then based on your evaluation, ​you can use EDA to refine your model accordingly.
+
+​Of course, as a data professional, ​you must first and foremost be an honest storyteller. ​Studying the results produced by ​the regression will uncover relationships ​within your data and help you ​discover insights to tell the full story. ​This leads to the last part of PACE, **execute**.
+
+​You'll interpret everything you learned from ​analyzing and constructing to share the story. ​You'll prepare formal results and ​visualizations and share them with stakeholders. ​To do this, you'll convert model statistics into ​statements describing the relationship ​between the variables in the data. ​These descriptions must consider ​the context and initial questions from the plan phase. ​At the center of everything is data. ​The PACE framework helps ​data professional stay organized. ​The insights data professionals ​produced must be data-driven and ​accurate and they have to make ​sense given the business or community contexts.
+
+​We'll go over these steps using ​examples later in the course, ​but PACE is iterative. ​As you grow as a data professional, ​your experience will help you decide ​when to pivot between stages of PACE. ​You might switch the order or ​repeat steps depending on the situation.
+
+​Now that we've laid out the pieces ​of the modeling puzzle, ​we can talk about how correlation ​and regression are related. ​Then we will explore two foundational regression models, ​linear and logistic regression. ​These models will be covered in ​more depth in later videos. ​This overview will provide you ​with a solid basis of understanding. ​Time to start putting together our puzzle. ​Don't forget your statistical ​grammar tools, you'll need them.
+
+# Introduction to linear regression
+
+Previously we learned that ​regression analysis is about estimating relationships ​between a single dependent variable ​and one or more independent variables. ​In this video, we will discuss ​our first modeling technique, linear regression.
+
+​Many patterns that you've observed in daily life ​can be expressed using linear regression models, ​which is pretty cool. ​For example, as a version ​of computer software gets older, ​online searches for that software version may decrease. ​As a social media personality gains followers, ​their book sales increase. ​These relationships can be modeled ​using a linear regression.
+
+​The linear in linear regression indicates ​the relationship we can visualize on a graph, a line. ​A line is a collection of an infinite number ​of points extending in two opposite directions. ​In a graph, the individual points show up as a line, ​and we only see a portion of the line.
+
+::: nota
+​Linear regression is a technique that ​estimates the linear relationship between ​a continuous dependent variable $y$ ​and one or more independent variables $x$.
+:::
+
+​For example we could model the relationship ​between the prices of a product and the number of sales. ​Our $y$ variable would be the number of ​sales and our $x$ variable would be the prices.
+
+In an earlier course, ​you learned the difference between ​continuous and categorical variables. ​As a reminder, continuous variables ​are variables that can take ​on any real value between its minimum and maximum value. ​For example product sales, vehicle speed, ​and time spent on a webpage are all continuous variables. ​Whereas types of products and educational level are not. ​These are categorical. ​Categorical variables have ​a finite number of possible values. ​While linear regression allows us, ​as data analytics professionals to ​estimate continuous dependent variables. ​There are other regression models that ​let us estimate categorical variables. ​We'll learn more about those in a later course.
+
+​Throughout this course, we'll talk about ​dependent and independent variables. ​
+
+**The dependent variable is ​the variable a given model estimates.** ​Sometimes the dependent variable ​is also called a response ​or outcome variable and ​is commonly represented with the letter $y$. ​We assume that the dependent variable tends to ​vary based on the values of independent variables, ​typically represented by an $x$. ​
+
+**Independent variables are also referred to as ​explanatory variables or predictor variables**. ​For example, let's say you're working at a cake shop ​and you're trying to understand ​the factors that contribute to cake sales. ​The dependent or $y$ variable would be ​the number of cakes slices sold on any given day. ​An independent or $x$ variable ​could be how many cups of coffee are sold that day. ​Maybe as more coffee is purchased, ​more cake is also purchased.
+
+​In linear regression, you might encounter ​two more terms, slope and intercept.
+
+​The **slope** refers to the amount we ​expect $y$, the dependent variable, ​to increase or decrease per ​one unit increase of $x$, the independent variable. ​
+
+The **intercept** is the value of $y$, ​the dependent variable when $x$, ​the independent variable equals 0.
+
+​Going back to cake and coffee, ​the slope would be how many slices of cake ​are purchased per cup of coffee purchase. ​The intercept would be the number of cakes slices ​that are sold when zero cups of coffee are sold.
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Set figure size and resolution
+plt.figure(figsize=(8, 5), dpi=100)
+
+# Line parameters estimated from the image:
+# At x = 4, y ≈ 1.5; at x = 31, y ≈ 13
+x = np.array([4, 31])
+y = 0.426 * x - 0.204  # Linear fit equation y = mx + b
+
+# Plot regression line
+plt.plot(x, y, color='#4a86e8', linewidth=3)
+
+# Axis limits to match the slide
+plt.xlim(3.5, 31.5)
+plt.ylim(0, 32)
+
+# Axis ticks and labels
+plt.xticks(np.arange(5, 31, 5), fontsize=12, color='#333333')
+plt.yticks(np.arange(5, 31, 5), fontsize=12, color='#333333')
+
+plt.xlabel('Cups of coffee purchased', fontsize=13, labelpad=10, color='#222222')
+plt.ylabel('Slices of cake purchased', fontsize=13, labelpad=10, color='#222222')
+
+# Style adjustments to mirror the clean slide layout (remove top & right spines)
+ax = plt.gca()
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_color('#cccccc')
+ax.spines['bottom'].set_color('#cccccc')
+ax.spines['left'].set_linewidth(1.5)
+ax.spines['bottom'].set_linewidth(1.5)
+
+# Remove grid and tick marks for minimal aesthetic
+plt.tick_params(axis='both', which='both', length=0)
+
+plt.tight_layout()
+plt.show()
+```
+
+**​When two variables,** $x$ and $y$, ​are related in a linear way, ​we say they are correlated.
+
+​Using statistics, we can actually calculate how strong ​the linear relationship between $x$ and $y$ is. Pretty cool.
+
+​There are two kinds of correlation, ​positive and negative. ​Positive correlation is a relationship between ​two variables that tend to increase or decrease together. ​For example as more cups of coffee or purchased, ​more cakes slices are purchased.
+
+​Negative correlation, on the other hand, ​is an inverse relationship between two variables. ​When one variable increases, ​the other variable tends to decrease. ​The reverse is true too.
+
+​For example, let's say you're ​still working at the cake shop and ​you're estimating how often to ​refill the iced coffee dispenser. ​You can model the relationship between ​iced coffee and hot coffee sales. ​As hot coffee sales increase, ​you might notice iced coffee sales tend to decrease, ​or perhaps you're working at ​a media company and you're analyzing readership. ​As the length of news articles increases, ​the number of people that finish ​reading the article might decrease. ​This is also an example of negative correlation.
+
+​Identifying these kinds of relationships can be ​incredibly useful in the workplace and in everyday life. ​Determining linear relationships helps ​us answer questions such as, ​which factors are associated with ​an increase or decrease in product sales? ​Which factors make a ​social service providers increase ​resources in a given region? ​Which factors lead to ​more or less demand for public transportation? ​In the cases mentioned, ​how big the slope of the regression is, ​tells us how much sales, ​resource allocation, and ​public transportation increase or decrease. ​Using linear regression, you can help ​answer similar questions in any industry.
+
+​However, it is important to note ​that correlation is not causation. ​For example in your cake shop, ​people buying coffee does not ​cause cake sales to increase. ​When modeling variable relationships, ​a data scientist must be ​mindful of the extent of their claims.
+
+**​Causation describes a cause and effect relationship ​where one variable directly ​causes the other to change in a particular way. ​Proving causation statistically requires ​much more rigorous methods ​and data collection than correlation.** ​For a data professional, ​the distinction between correlation and causation is ​especially important when presenting results. ​For example although we ​can say that as someone gets older, ​the number of places they have visited tends to rise. ​We cannot necessarily say that someone's age ​causes the number of places they had visited to increase. ​There could be other factors causing you to travel ​more that coincide with your aging, ​such as visiting family or traveling more for work. ​Any of these factors could be correlated to aging, ​but it's hard to say whether age or ​other factors are causing the traveling.
+
+​Articulating that correlation is not causation is ​part of a data professionals ​best practices and ethical toolbox. ​Both correlational and causal relationships ​provide useful insights. ​Regression analysis helps ​data analytics professionals tell ​nuanced stories without needing to prove causation.
+
+​That concludes a high-level overview ​of your first modeling technique. ​To recap, linear regression ​is a way to model linear relationships.
+
+-   ​Dependent variables vary ​according to independent variables.
+-   ​The slope identifies ​how much the dependent variable changes ​per one unit change in the independent variable.
+-   Positive and negative correlation ​describe linear relationships between variables. ​
+-   Always be mindful when interpreting regression results. ​Correlation is not causation.
+
+​There are lots of ​linear relationships in the world and in industry. ​In this video, we've provided just a few examples, ​but there are plenty more. ​That's all for now. ​Next we'll address the math behind linear regression. ​Your ever-growing statistical foundations will help you ​explain regression results in the clearest way possible.
