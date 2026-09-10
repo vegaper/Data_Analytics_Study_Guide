@@ -73,7 +73,7 @@ You’ve learned the definitions for each of the six practices of exploratory da
 
 [Deloitte](https://www2.deloitte.com/us/en.html) is an audit, consulting, tax, and advisory service. The company has over 100,000 employees and partners around the globe, and they work with many of the world’s biggest companies. Their services range from tax and accounting solutions to artificial intelligence and cyber security risk programs. 
 
-The multinational corporation’s business to business (B2B) model keeps their focus on working with their customers on a number of strategic and financial fronts, according to their individual needs.[ Deloitte provides a range of services for client projects](https://youtu.be/8Gg5BsFexOU?list=PLl4by_vVwv0zjE2FRD7BMwI2lpaMCAgHh), such as auditing, consulting, financial advisory, risk advisory, taxes, data analysis, and regulation. Since 2008, Deloitte has made it their vision to be the standard of excellence in professional business services. Because of this focus, Deloitte has remained at the forefront of technology advancements, including the deployment of real-time metrics for their clients. 
+The multinational corporation’s business to business (B2B) model keeps their focus on working with their customers on a number of strategic and financial fronts, according to their individual needs.[Deloitte provides a range of services for client projects](https://youtu.be/8Gg5BsFexOU?list=PLl4by_vVwv0zjE2FRD7BMwI2lpaMCAgHh), such as auditing, consulting, financial advisory, risk advisory, taxes, data analysis, and regulation. Since 2008, Deloitte has made it their vision to be the standard of excellence in professional business services. Because of this focus, Deloitte has remained at the forefront of technology advancements, including the deployment of real-time metrics for their clients. 
 
 In just one of their many success stories,  Deloitte recently helped a billion-dollar cloud-based analytics and software company streamline the tracking and organization of their marketing leads and strategic analysis of their performance data. In this reading, you will see how Deloitte used EDA to analyze the client’s data in order to propose and apply a comprehensive solution they still use today.    
 
@@ -87,15 +87,15 @@ One of Deloitte’s most important cloud-based software solution clients was fac
 
 -   A lack of personalized data dashboards displaying strategic company metrics
 
-### **Following up on marketing leads** 
+### **Following up on marketing leads**
 
 Deloitte’s client offers a range of cloud-based analysis services and software products to businesses around the globe, making it a monumental task to follow up on each of the thousands of inquiries and potential sales leads they receive on a monthly basis. As a result, Deloitte’s client was seeking a solution to help them more adequately track and act on these leads.   
 
-### **Tracking marketing campaign performance** 
+### **Tracking marketing campaign performance**
 
 Relying on just four data analysts for analysis of marketing campaign performance for a \$1B multinational corporation was quickly becoming unsustainable. Before Deloitte stepped in to help, the client’s performance tracking system was a series of data tables updated manually and kept in a spreadsheet tab. Each region kept their own performance data, creating issues of consistency and hours of wasted energy for the analysts who had to compile and merge the data to get a corporation-wide performance picture.  
 
-### **Personalizing data dashboards** 
+### **Personalizing data dashboards**
 
 Because of differing needs for each level of management and varying marketing regions across the globe, the client needed to be able to easily parse and group data specific to their employees' needs across the corporation. Because they were working off of multiple spreadsheets across several different departments and locales, the client found they could not easily filter the data according to their needs, and therefore were not able to adequately shift strategy to improve performance. 
 

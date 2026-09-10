@@ -4,53 +4,53 @@ format: html
 jupyter: python3
 ---
 
-Hey. Welcome back to modeling variable relationships. ​We've covered a lot of material about regression so far. ​We worked through the assumptions, ​construction, evaluation, ​and interpretation of simple linear regression model, ​and then build a more complex model ​using multiple regression. ​These tools gave us powerful ways to ask and ​explore questions about continuous variables. ​For example, if we were ​interested in understanding product sales, ​multiple regression would allow ​us to consider the impact of ​both digital video and print advertising on sales. ​Now, we'll start focusing more on categorical variables. 
+Hey. Welcome back to modeling variable relationships. ​We've covered a lot of material about regression so far. ​We worked through the assumptions, ​construction, evaluation, ​and interpretation of simple linear regression model, ​and then build a more complex model ​using multiple regression. ​These tools gave us powerful ways to ask and ​explore questions about continuous variables. ​For example, if we were ​interested in understanding product sales, ​multiple regression would allow ​us to consider the impact of ​both digital video and print advertising on sales. ​Now, we'll start focusing more on categorical variables.
 
-​By expanding our toolkit to ​include more hypothesis testing, ​we can start asking and ​answering a different range of questions, ​for example, is the difference among ​three or more groups statistically significant? ​Is the distribution of ​observed data different from what we expected? ​Perhaps we're conducting user research and you ​want to make a change to the website you're analyzing. ​You can use hypothesis testing to ​determine if user engagement is different ​between a couple groups where ​each group is using distinct website layout. ​we call that hypothesis testing is ​a statistical procedure that uses ​sample data to evaluate ​an assumption about a population parameter. ​You are testing hypothesis about ​a population to see if there ​are any significant differences. ​For example, in the case of user research on a website, ​you could test the hypothesis that ​changing the color of the subscribe button ​or the placement of images might ​change how much time users spend on the website. ​You can utilize different models and test from ​your data toolbox to answer various questions. 
+​By expanding our toolkit to ​include more hypothesis testing, ​we can start asking and ​answering a different range of questions, ​for example, is the difference among ​three or more groups statistically significant? ​Is the distribution of ​observed data different from what we expected? ​Perhaps we're conducting user research and you ​want to make a change to the website you're analyzing. ​You can use hypothesis testing to ​determine if user engagement is different ​between a couple groups where ​each group is using distinct website layout. ​we call that hypothesis testing is ​a statistical procedure that uses ​sample data to evaluate ​an assumption about a population parameter. ​You are testing hypothesis about ​a population to see if there ​are any significant differences. ​For example, in the case of user research on a website, ​you could test the hypothesis that ​changing the color of the subscribe button ​or the placement of images might ​change how much time users spend on the website. ​You can utilize different models and test from ​your data toolbox to answer various questions.
 
-​You can also use some techniques together. ​For example, sometimes you might want to combine ​a regression model with ​hypothesis test or a series of hypothesis tests. ​The core principles of ​data analysis continue to apply to each technique. ​We want to explore and better understand ​the relationships between different variables. ​We can use what we have learned to ​tell compelling stories about the data. ​Based on the kind of data we have available, ​we can determine which test ​or model will be most appropriate. ​But sometimes we have to use several test and models ​before we can determine ​the best approach to answer our questions. 
+​You can also use some techniques together. ​For example, sometimes you might want to combine ​a regression model with ​hypothesis test or a series of hypothesis tests. ​The core principles of ​data analysis continue to apply to each technique. ​We want to explore and better understand ​the relationships between different variables. ​We can use what we have learned to ​tell compelling stories about the data. ​Based on the kind of data we have available, ​we can determine which test ​or model will be most appropriate. ​But sometimes we have to use several test and models ​before we can determine ​the best approach to answer our questions.
 
-​In this video, we'll start with ​Chi-squared distribution and chi-squared test. ​Chi is the 22nd letter of the Greek alphabet, ​and looks a lot like a fancy capital X in English $\chi$. ​Our discussion will expand on prior learnings ​about $t$-tests and hypothesis testing. ​Chi-squared test will help us determine if ​two categorical variables are ​associated with one another, ​and whether a categorical variable ​follows unexpected distribution. ​For example, if we flip a two-sided coin many times, ​we would expect about half of the time, ​one particular side comes up. ​About the other half of the time, ​the other side comes up. 
+​In this video, we'll start with ​Chi-squared distribution and chi-squared test. ​Chi is the 22nd letter of the Greek alphabet, ​and looks a lot like a fancy capital X in English $\chi$. ​Our discussion will expand on prior learnings ​about $t$-tests and hypothesis testing. ​Chi-squared test will help us determine if ​two categorical variables are ​associated with one another, ​and whether a categorical variable ​follows unexpected distribution. ​For example, if we flip a two-sided coin many times, ​we would expect about half of the time, ​one particular side comes up. ​About the other half of the time, ​the other side comes up.
 
-​Next, we will examine analysis of variance ​or ANOVA and its variance, ​analysis of covariance, ​ANCOVA, and multivariate analysis of variance ​and covariant MANOVA and MANCOVA, respectively. 
+​Next, we will examine analysis of variance ​or ANOVA and its variance, ​analysis of covariance, ​ANCOVA, and multivariate analysis of variance ​and covariant MANOVA and MANCOVA, respectively.
 
-​By unpacking variable relationships ​with a focus on categorical data, ​we'll be able to expand the types of data we can ​effectively use to draw ​conclusions about various decisions, ​strategies, and practices in industry. 
+​By unpacking variable relationships ​with a focus on categorical data, ​we'll be able to expand the types of data we can ​effectively use to draw ​conclusions about various decisions, ​strategies, and practices in industry.
 
 ------------------------------------------------------------------------
 
 # Hypothesis testing with chi-squared
 
-Previously we encountered hypothesis testing in ​the form of one-tail and two-tailed $t$-tests. $​t$-tests help us answer questions about whether ​the mean of two different groups ​is significantly different. 
+Previously we encountered hypothesis testing in ​the form of one-tail and two-tailed $t$-tests. $​t$-tests help us answer questions about whether ​the mean of two different groups ​is significantly different.
 
-​In this lesson, we'll explore if ​our data is what we expected it to be. ​We'll introduce two hypothesis tests, ​the *chi-squared goodness of ​fit* test and the *chi-squared test of independence*. ​These tests will help us compare ​our expected and observed data. ​We'll revisit null and alternative hypotheses ​when we define chi-squared test, ​just like you might have done with $t$-tests. ​When using linear regression, ​we were primarily focused on continuous variables, ​but what if our variables aren't continuous? 
+​In this lesson, we'll explore if ​our data is what we expected it to be. ​We'll introduce two hypothesis tests, ​the *chi-squared goodness of ​fit* test and the *chi-squared test of independence*. ​These tests will help us compare ​our expected and observed data. ​We'll revisit null and alternative hypotheses ​when we define chi-squared test, ​just like you might have done with $t$-tests. ​When using linear regression, ​we were primarily focused on continuous variables, ​but what if our variables aren't continuous?
 
-**​Chi-squared tests can address ​questions involving categorical variables**. ​For example, let's say you're working at ​a movie theater which sells small, ​medium, large, and extra-large portions of popcorn. ​You have projections or ​some expected counts of how each size will sell. ​In a bar chart, ​it can be difficult to determine if the expected counts ​are statistically the same as what you observed, ​but you can run a chi-squared goodness ​of fit test to answer the question. ​
+**​Chi-squared tests can address ​questions involving categorical variables**. ​For example, let's say you're working at ​a movie theater which sells small, ​medium, large, and extra-large portions of popcorn. ​You have projections or ​some expected counts of how each size will sell. ​In a bar chart, ​it can be difficult to determine if the expected counts ​are statistically the same as what you observed, ​but you can run a chi-squared goodness ​of fit test to answer the question. ​
 
 ::: nota
-The chi-squared goodness of fit test determines whether ​an observed categorical variable ​follows an expected distribution. ​
+The chi-squared goodness of fit test determines whether ​an observed categorical variable ​follows an expected distribution. ​
 :::
 
-As a data practitioner for the movie theater, ​we mentioned, you're ​working on the popcorn sale problem. ​An employee claims that 25 percent of ​people order each size on any given day. 
+As a data practitioner for the movie theater, ​we mentioned, you're ​working on the popcorn sale problem. ​An employee claims that 25 percent of ​people order each size on any given day.
 
-​Now you can create a table of counts based on ​the number of popcorn buyers on a given day. ​Let's say 100 people bought popcorn yesterday, ​then you can multiply ​the percentage by the total to figure ​out the expected counts for each cell in the table. ​25 percent of 100 is 25. ​You expect that 25 people buy each size of popcorn. ​For the chi-squared goodness of fit test, ​the null hypothesis states that 25 people ​buy each size of popcorn on any given day. ​Basically, the null hypothesis states that ​the variable follows the expected distribution. ​If we accept the null hypothesis, ​then we can say that the observed distribution of ​popcorn sales is the same as what the employee claims. ​The alternative hypothesis states that ​the variable doesn't follow the expected distribution. 
+​Now you can create a table of counts based on ​the number of popcorn buyers on a given day. ​Let's say 100 people bought popcorn yesterday, ​then you can multiply ​the percentage by the total to figure ​out the expected counts for each cell in the table. ​25 percent of 100 is 25. ​You expect that 25 people buy each size of popcorn. ​For the chi-squared goodness of fit test, ​the null hypothesis states that 25 people ​buy each size of popcorn on any given day. ​Basically, the null hypothesis states that ​the variable follows the expected distribution. ​If we accept the null hypothesis, ​then we can say that the observed distribution of ​popcorn sales is the same as what the employee claims. ​The alternative hypothesis states that ​the variable doesn't follow the expected distribution.
 
-​Basically, the distribution of the observed data ​is significantly different from ​what we expected it to be. ​This means that different number of people ​buy each size of popcorn on any given day. ​In this case, the chi-squared statistic equals the sum of ​the observed number minus ​the expected number squared ​divided by the expected number. 
+​Basically, the distribution of the observed data ​is significantly different from ​what we expected it to be. ​This means that different number of people ​buy each size of popcorn on any given day. ​In this case, the chi-squared statistic equals the sum of ​the observed number minus ​the expected number squared ​divided by the expected number.
 
 $$
 \chi^2 = \sum \frac{(\text{Observed - Extpected})^2}{Expected}
 $$
 
-​Once you've gathered the observations ​about popcorn sales, ​you can then use the chi-squared statistic to calculate ​the $p$-value and determine if you can reject ​the null hypothesis at the given confidence level. 
+​Once you've gathered the observations ​about popcorn sales, ​you can then use the chi-squared statistic to calculate ​the $p$-value and determine if you can reject ​the null hypothesis at the given confidence level.
 
-​The next test is called ​the **chi-squared test for independence**, ​sometimes called a test of homogeneity. ​
+​The next test is called ​the **chi-squared test for independence**, ​sometimes called a test of homogeneity. ​
 
 ::: nota
-The chi-squared test for ​independence determines whether or ​not two categorical variables ​are associated with each other. ​For example, let's say you are wondering ​if weather is associated with popcorn sales. 
+The chi-squared test for ​independence determines whether or ​not two categorical variables ​are associated with each other. ​For example, let's say you are wondering ​if weather is associated with popcorn sales.
 :::
 
-​Maybe when it rains, ​people are more likely to buy hot buttery popcorn. ​To state the hypothesis, ​you first need to determine your variables. ​In the popcorn case, ​the first variable could be whether there's rain or not. ​The second variable could be if ​more than 100 people buy popcorn, ​or if 100 people or fewer buy popcorn. ​Now we're ready to state our hypotheses. ​**The null hypothesis in the test for independence is that ​the variables are independent ​and are not associated with each other.** ​The alternative hypothesis states that the variables are ​not independent and are associated with each other. 
+​Maybe when it rains, ​people are more likely to buy hot buttery popcorn. ​To state the hypothesis, ​you first need to determine your variables. ​In the popcorn case, ​the first variable could be whether there's rain or not. ​The second variable could be if ​more than 100 people buy popcorn, ​or if 100 people or fewer buy popcorn. ​Now we're ready to state our hypotheses. ​**The null hypothesis in the test for independence is that ​the variables are independent ​and are not associated with each other.** ​The alternative hypothesis states that the variables are ​not independent and are associated with each other.
 
-​For the chi-squared test, ​it's important to construct ​a two-by-two table of counts to ​see how many observations fall under each category. 
+​For the chi-squared test, ​it's important to construct ​a two-by-two table of counts to ​see how many observations fall under each category.
 
 +---------------------------+-------------+-------------+----------------------------+
 |                           | **Rain**    | **No Rain** | **Row Totals (**$R_i$**)** |
@@ -62,7 +62,7 @@ The chi-squared test for ​independence determines whether or ​not two cate
 | **Column Totals (**$C_j$) | **83**      | **192**     | **Grand Total = 275**      |
 +---------------------------+-------------+-------------+----------------------------+
 
-​Let's say we have data from the spring, ​summer, and fall popcorn sales. ​There were 275 days of data collected, ​including 83 days where it ​rained and 192 days where it did not. ​On 135 days, ​more than 100 people bought popcorn and on 140 days, ​fewer than 100 people bought popcorn. ​You can then fill in each cell ​with the count of days for each category. ​You can then calculate the expected value for ​each cell in the two-by-two table ​using the following formula. ​
+​Let's say we have data from the spring, ​summer, and fall popcorn sales. ​There were 275 days of data collected, ​including 83 days where it ​rained and 192 days where it did not. ​On 135 days, ​more than 100 people bought popcorn and on 140 days, ​fewer than 100 people bought popcorn. ​You can then fill in each cell ​with the count of days for each category. ​You can then calculate the expected value for ​each cell in the two-by-two table ​using the following formula. ​
 
 $$
 E_{ji}=\frac{R_i C_j}{\text{Grand Total}}
@@ -70,7 +70,7 @@ $$
 
 Where $R_i$= Row total and $C_j$ = Column total
 
-​The formula comes from ​the definition of independence where ​two events are independent if ​the probability of both occurring, ​probability of A and B is ​equal to the probability of A times the probability of B. ​The observed value is just the count for ​the cell in the ith row and jth column. 
+​The formula comes from ​the definition of independence where ​two events are independent if ​the probability of both occurring, ​probability of A and B is ​equal to the probability of A times the probability of B. ​The observed value is just the count for ​the cell in the ith row and jth column.
 
 If two events are independent, the probability of both happening together is $P(A \text{ and } B) = P(A) \times P(B)$.
 
@@ -100,7 +100,7 @@ $$
 | **No Rain &** $\le 100$ | $(140 \times 192) / 275$ | **97.75**              | 115                    |
 +-------------------------+--------------------------+------------------------+------------------------+
 
-​You can then use the same formula as the goodness of ​fit test to calculate the chi-squared statistic. 
+​You can then use the same formula as the goodness of ​fit test to calculate the chi-squared statistic.
 
 To measure how much observed counts ($O$) deviate from expected counts ($E$), use the standard test statistic formula:
 
@@ -120,7 +120,7 @@ $$
 \chi^2 \approx 7.30 + 3.16 + 7.04 + 3.04 = \mathbf{20.54}
 $$
 
-​As with the goodness of fit test, ​you can use the chi-squared statistic ​to calculate the $p$-value ​and determine if the two categorical variables ​are independent or not. 
+​As with the goodness of fit test, ​you can use the chi-squared statistic ​to calculate the $p$-value ​and determine if the two categorical variables ​are independent or not.
 
 ​**Degrees of Freedom (**$df$): $(r - 1)(c - 1) = (2 - 1)(2 - 1) = 1$
 
@@ -128,17 +128,17 @@ $$
 
 -   **Decision:** Because our calculated test statistic ($\chi^2 = 20.54$) is much larger than $3.841$ (resulting in $p < 0.0001$), we **reject the null hypothesis**.
 
-Great work, we'll cover a couple of the assumptions of ​chi-squared tests and how to perform ​chi-square test in more depth in upcoming readings. ​The key here is connecting ​concepts you have learned about ​hypothesis testing to these chi-squared test as well. ​You'll answer more questions ​about categorical variables soon.
+Great work, we'll cover a couple of the assumptions of ​chi-squared tests and how to perform ​chi-square test in more depth in upcoming readings. ​The key here is connecting ​concepts you have learned about ​hypothesis testing to these chi-squared test as well. ​You'll answer more questions ​about categorical variables soon.
 
 ------------------------------------------------------------------------
 
 # Chi-squared tests: Goodness of fit versus independence
 
-In the previous course, you learned how hypothesis tests are used to see significant differences among groups. Chi-squared tests are used to determine whether one or more observed categorical variables follow expected distribution(s). For example, you may expect that 50% more movie goers attend movies on weekends in comparison to weekdays. After observing movie goers attendance for a month, you then can perform a chi-squared test to see if your initial hypothesis was correct. 
+In the previous course, you learned how hypothesis tests are used to see significant differences among groups. Chi-squared tests are used to determine whether one or more observed categorical variables follow expected distribution(s). For example, you may expect that 50% more movie goers attend movies on weekends in comparison to weekdays. After observing movie goers attendance for a month, you then can perform a chi-squared test to see if your initial hypothesis was correct.
 
 This reading will cover the two main chi-squared tests—goodness of fit and test for independence—which can be used to test your expected hypothesis against what actually occurred. Data professionals perform these hypothesis tests to offer organizations actionable insights that drive decision making.
 
-## The Chi-squared goodness of fit test 
+## The Chi-squared goodness of fit test 
 
 **Chi-squared (χ²) goodness of fit test** is a hypothesis test that determines whether an observed categorical variable with more than two possible levels follows an expected distribution.
 
@@ -146,7 +146,7 @@ This reading will cover the two main chi-squared tests—goodness of fit and tes
 
 -   The alternative hypothesis (H~a~) is that the categorical variable does not follow the expected distribution.
 
-Consider the scenario in this reading that will define the null and alternative hypotheses based on the scenario, set up a Goodness of Fit test, evaluate the test results, and draw a conclusion. 
+Consider the scenario in this reading that will define the null and alternative hypotheses based on the scenario, set up a Goodness of Fit test, evaluate the test results, and draw a conclusion.
 
 ### Chi-squared goodness of fit scenario
 
@@ -159,23 +159,23 @@ Imagine that you work as a data professional for an online clothing company. You
 | Tuesday             | 420                 |
 | Wednesday           | 480                 |
 | Thursday            | 510                 |
-| Friday              | 380                 |
+| Friday              | 380                 |
 | Saturday            | 490                 |
 | Total               | 3,500               |
 
 Here are the main steps you will take:
 
-1.  Identify the Null and Alternative Hypotheses 
+1.  Identify the Null and Alternative Hypotheses
 
 2.  Calculate the chi-square test statistic (**𝛘**^2^)
 
-3.  Calculate the $p$-value 
+3.  Calculate the $p$-value
 
-4.  Make a conclusion 
+4.  Make a conclusion
 
 ### **Step 1: Identify the null and alternative hypotheses**
 
-The first step in performing a chi-squared goodness of fit test is to determine your null and alternative hypothesis. Since you are testing if the number of website visitors follows your boss’s expectations, the below are your null and alternative hypotheses : 
+The first step in performing a chi-squared goodness of fit test is to determine your null and alternative hypothesis. Since you are testing if the number of website visitors follows your boss’s expectations, the below are your null and alternative hypotheses :
 
 H~0~: The week you observed follows your boss’s expectations that the number of website visitors is equal on any given day
 
@@ -183,7 +183,7 @@ H~a~: The week you observed does not follow your boss’s expectations; therefor
 
 ### **Step 2: Calculate the chi-squared test statistic (𝛘**^2^**)**
 
-Next, calculate a test statistic to determine if you should reject or fail to reject your null hypothesis. This test statistic is known as the chi-squared statistic and is calculated based on the following formula: 
+Next, calculate a test statistic to determine if you should reject or fail to reject your null hypothesis. This test statistic is known as the chi-squared statistic and is calculated based on the following formula:
 
 $$
 \sum \frac{(observed - expected)^2}{expected}
@@ -211,7 +211,7 @@ Returning to the example, since there were a total of 3,500 website visitors you
 | Saturday            | 490                 | $$\frac{(490-500)^2}{500}=0.2$$  |
 +---------------------+---------------------+----------------------------------+
 
-The $\chi^2$ statistic would be the sum of the third column above: 
+The $\chi^2$ statistic would be the sum of the third column above:
 
 $\chi^2 = 45 + 9.8 + 12.8 + 0.8 + 0.2 + 28.8 + 0.2$
 
@@ -223,13 +223,13 @@ Note that the $\chi^2$ goodness of fit test does not produce reliable results wh
 
 ### **Step 3: Find the p-value**
 
-Now that you have calculated the $\chi^2$ statistic, consider the following question: What is the probability of obtaining a $\chi^2$ statistic of 97.6 or greater when examining 3,500 website visits if they null hypothesis is true? This is the question that the $p$-value —or “observed significance level"— will answer. 
+Now that you have calculated the $\chi^2$ statistic, consider the following question: What is the probability of obtaining a $\chi^2$ statistic of 97.6 or greater when examining 3,500 website visits if they null hypothesis is true? This is the question that the $p$-value —or “observed significance level"— will answer.
 
 A long time ago, Pearson realized that $p$-values for $\chi^2$ statistics very closely corresponded with areas under certain curves, known as $\chi^2$ curves. $\chi^2$ curves represent probability density functions, and their shapes vary based on how many degrees of freedom are present in the experiment. **Degrees of freedom are determined by the model, not by the data.** This means that, in the website traffic example, the degrees of freedom are determined by how many different days a given visit can occur on,not by how many visits are sampled nor by the daily frequencies of the samples themselves. When the model is fully specified (i.e., you know all the possible categorical levels), then:
 
 **degrees of freedom = number of categorical levels – 1**.
 
-In this example, there are seven categorical levels (one for each day of the week). Therefore, there are six degrees of freedom. This is because the counts of each level (day) are free to fluctuate, but once you know the counts for six days, the seventh day cannot vary. It must result in a total of 3,500 when summed with the other six days. 
+In this example, there are seven categorical levels (one for each day of the week). Therefore, there are six degrees of freedom. This is because the counts of each level (day) are free to fluctuate, but once you know the counts for six days, the seventh day cannot vary. It must result in a total of 3,500 when summed with the other six days.
 
 The following figure depicts the $\chi^2$ curves for three different degrees of freedom: five, 10, and 20.
 
@@ -247,7 +247,7 @@ In the case of the website visits, there are six degrees of freedom, but the $\c
 
 Since the $p$-value is far less than 0.05, there is sufficient evidence to suggest that the number of visitors is not equal per day.
 
-### Coding 
+### Coding 
 
 Thankfully, you don’t need to manually calculate your $\chi^2$ test statistic or determine P by hand. You can use the [chisquare() function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chisquare.html) from Python’s **scipy.stats** package to do this. The following code uses your observed and expected values to calculate the chi-squared test statistic and the p-value. Note that the degrees of freedom are set to the number of observed frequencies minus one. This can be adjusted using the **ddof** parameter, but note that this parameter represents **k - 1 - ddof** degrees of freedom, where **k** is the number of observed frequencies. So, by default, **ddof=0** when you call the function, and setting **ddof=1** means that your degrees of freedom are reduced by two.
 
@@ -263,7 +263,7 @@ The output confirms your calculation of the chi-square test statistic in Step 2 
 
 ## The Chi-squared test for independence
 
-**Chi-squared (χ²) Test for Independence** **is a hypothesis test that determines whether or not two categorical variables are associated with each other.** It is valid when your data comes from a random sample and you want to make an inference about the general population.  - The null hypothesis $H_0$ of the test is that two categorical variables are independent. - The alternative hypothesis $H_a$ is that two categorical variables are not independent.
+**Chi-squared (χ²) Test for Independence** **is a hypothesis test that determines whether or not two categorical variables are associated with each other.** It is valid when your data comes from a random sample and you want to make an inference about the general population.  - The null hypothesis $H_0$ of the test is that two categorical variables are independent. - The alternative hypothesis $H_a$ is that two categorical variables are not independent.
 
 ### Chi-squared test for independence scenario
 
@@ -271,7 +271,7 @@ Now suppose that you have been asked to expand your analysis to look at the rela
 
 ### **Step 1: Identify the null and alternative hypotheses**
 
-Just like the goodness of fit scenario, the first step is to determine your null and alternative hypotheses. You are comparing if the device used to visit your clothing store (Mac or PC) is independent from the visitor’s membership status (member or guest). From that information you can determine that your null and alternative hypotheses are as follows: 
+Just like the goodness of fit scenario, the first step is to determine your null and alternative hypotheses. You are comparing if the device used to visit your clothing store (Mac or PC) is independent from the visitor’s membership status (member or guest). From that information you can determine that your null and alternative hypotheses are as follows:
 
 -   $H_0$: The type of device a website visitor uses to visit the website is independent of the visitor’s membership status.
 
@@ -295,13 +295,13 @@ $$
 \text{expected value} = \frac{\text{column total} * \text{row total}}{\text{overall total}}
 $$
 
-For example, the expected value for a Mac member would be:  $$
+For example, the expected value for a Mac member would be: $$
 \text{expected value} = \frac{2,150 * 1,300}{3,500} = 799
 $$
 
 The logic of this calculation is as follows: if device and membership status are truly independent, then the rate of Mac users who are members should be the same as the rate of Mac users who are guests. The percentage of users who use Macs out of *all* the users is 1,300 / 3,500 = 0.371 \* 100 = 37.1%. Accordingly, 37.1% of members and 37.1% of guests would be expected to use Macs. So, 0.371 \* 2,150 members ≈ 799.
 
-The following table contains all the expected values: 
+The following table contains all the expected values:
 
 | **Expected Values** | **Member** | **Guest** |
 |:--------------------|:-----------|:----------|
@@ -342,21 +342,21 @@ The output above is in the following order: the $chi^2$ statistic, $p$-value, de
 
 # Introduction to the analysis of variance
 
-Knowing our data well helps us determine what we can do with the data. ​It helps us understand which tests we can run, which tests we can't run and ​which tests we might be able to run if we transform the data a bit more. ​In prior videos, we showed the difference between continuous and ​categorical variables. 
+Knowing our data well helps us determine what we can do with the data. ​It helps us understand which tests we can run, which tests we can't run and ​which tests we might be able to run if we transform the data a bit more. ​In prior videos, we showed the difference between continuous and ​categorical variables.
 
-​We've spent most of this course so far talking about linear regression, ​which can estimate continuous variables of interest. ​But there is so much categorical data out there. So far we've learned ​about the *chi squared goodness of fit* test and *test of independence*. ​Both of these tests examine the relationship between categorical ​variables. 
+​We've spent most of this course so far talking about linear regression, ​which can estimate continuous variables of interest. ​But there is so much categorical data out there. So far we've learned ​about the *chi squared goodness of fit* test and *test of independence*. ​Both of these tests examine the relationship between categorical ​variables.
 
-​Now we'll focus on **Analysis of Variance or ANOVA**, which helps **examine ​the relationship between categorical variables and continuous variables**. 
+​Now we'll focus on **Analysis of Variance or ANOVA**, which helps **examine ​the relationship between categorical variables and continuous variables**.
 
 ::: nota
-​Analysis of Variance commonly called ANOVA is a group of statistical ​techniques that test the difference of means between three or more groups
+​Analysis of Variance commonly called ANOVA is a group of statistical ​techniques that test the difference of means between three or more groups
 :::
 
-​If this sounds familiar, you might recall $t$-​tests which are a common statistical test. ​ANOVA is an extension of $t$-​tests. ​
+​If this sounds familiar, you might recall $t$-​tests which are a common statistical test. ​ANOVA is an extension of $t$-​tests. ​
 
-While $t$-tests examine the difference of means between two groups. ​**ANOVA can test means between several groups**. ​
+While $t$-tests examine the difference of means between two groups. ​**ANOVA can test means between several groups**. ​
 
-Let's say you work at a botanical garden and ​you're wondering if different species of butterflies have different lifespans. ​ANOVA testing can help in this situation. 
+Let's say you work at a botanical garden and ​you're wondering if different species of butterflies have different lifespans. ​ANOVA testing can help in this situation.
 
 ::: extra
 Under the hood, **ANOVA and Linear Regression are mathematically the exact same thing.**
@@ -389,7 +389,7 @@ When you run an ANOVA on a categorical variable (e.g., Diamond Color: D, E, F, H
 
 2.  **Fitting the Line:** It fits the linear equation:
 
-    $$\text{log\\_price} = \beta_0 + \beta_1(\text{Color E}) + \beta_2(\text{Color F}) + \dots$$
+    $$\text{log\_price} = \beta_0 + \beta_1(\text{Color E}) + \beta_2(\text{Color F}) + \dots$$
 
 3.  **Partitioning Variance:** It breaks the total variation into explained variance (model) and unexplained variance (residuals).
 
@@ -404,59 +404,59 @@ When you run an ANOVA on a categorical variable (e.g., Diamond Color: D, E, F, H
 What ANOVA **doesn't** tell you on its own is *which* specific value in the category has an effect. That's why you then look at individual regression coefficients or run pairwise tests to find out
 :::
 
-​There are two main types of ANOVA tests: ​One-way and two-way.
+​There are two main types of ANOVA tests: ​One-way and two-way.
 
 ::: nota
-One-way ANOVA testing compares the means of one **continuous** ​dependent variable in three or more groups of **one** categorical variable.\
+One-way ANOVA testing compares the means of one **continuous** ​dependent variable in three or more groups of **one** categorical variable.\
 :::
 
-We'll use ​a categorical variable to represent the groupings. When using ANOVA, ​we have a null hypothesis and an alternative hypothesis. ​Let's say you're measuring the lifespans of three different butterfly species: ​Monarch, Mourning Cloak, and Swallowtail butterflies. Your colleagues suggest ​that the lifespans maybe the same regardless of butterfly species. 
+We'll use ​a categorical variable to represent the groupings. When using ANOVA, ​we have a null hypothesis and an alternative hypothesis. ​Let's say you're measuring the lifespans of three different butterfly species: ​Monarch, Mourning Cloak, and Swallowtail butterflies. Your colleagues suggest ​that the lifespans maybe the same regardless of butterfly species.
 
-​Since the null hypothesis is that the lifespans are equal, a one-way ANOVA test ​is appropriate. ​This means that the lifespan of monarch butterflies is equal to the lifespan of ​mourning cloak butterflies, ​which is also equal to the lifespan of swallowtail butterflies. ​We can write
+​Since the null hypothesis is that the lifespans are equal, a one-way ANOVA test ​is appropriate. ​This means that the lifespan of monarch butterflies is equal to the lifespan of ​mourning cloak butterflies, ​which is also equal to the lifespan of swallowtail butterflies. ​We can write
 
 $$
 H_0 = \mu_{monarch} = \mu_{\text{mourning cloak}} = \mu_{swallowtail}
 $$
 
-**To generalize, wWe can use one-way in ANOVA when the null hypothesis states that the means ​of each group are equal.** ​The alternative hypothesis would then be: the lifespan of these three ​butterfly species are not all the same. ​This is a little difficult to express using math symbols. 
+**To generalize, wWe can use one-way in ANOVA when the null hypothesis states that the means ​of each group are equal.** ​The alternative hypothesis would then be: the lifespan of these three ​butterfly species are not all the same. ​This is a little difficult to express using math symbols.
 
-​So you can just write not before the null hypothesis, 
+​So you can just write not before the null hypothesis,
 
 $$
 H_1 = \text{NOT } \mu_{monarch} = \mu_{\text{mourning cloak}} = \mu_{swallowtail}
-$$​​Only one of the mean lifespan has to be different to reject the null hypothesis. ​We represent the alternative hypothesis as $H_1$ ​because you may run more complex tests in the future where you are testing more ​than two hypotheses at once. ​
+$$​​Only one of the mean lifespan has to be different to reject the null hypothesis. ​We represent the alternative hypothesis as $H_1$ ​because you may run more complex tests in the future where you are testing more ​than two hypotheses at once. ​
 
-One-way ANOVA is a great tool, but sometimes you might encounter situations ​in which there are two factors that are associated with the continuous dependent ​variable. At the botanical garden, let's say you want to study if butterfly ​lifespan is related to the species of the butterfly and the size of the butterfly. ​Imagine that butterflies can be small, medium, or large. ​Now the data is varying according to two factors, species and size.
+One-way ANOVA is a great tool, but sometimes you might encounter situations ​in which there are two factors that are associated with the continuous dependent ​variable. At the botanical garden, let's say you want to study if butterfly ​lifespan is related to the species of the butterfly and the size of the butterfly. ​Imagine that butterflies can be small, medium, or large. ​Now the data is varying according to two factors, species and size.
 
 ::: nota
-Two-way ANOVA ​testing compares the means of one **continuous** dependent variable based based on three or more groups of **two** categorical variables 
+Two-way ANOVA ​testing compares the means of one **continuous** dependent variable based based on three or more groups of **two** categorical variables
 :::
 
-​You are now testing three null hypothesis and ​alternative hypothesis statements at once: ​
+​You are now testing three null hypothesis and ​alternative hypothesis statements at once: ​
 
-The first null and alternative hypothesis pair is the same as before. ​They focus on the relationship between species and lifespan. 
+The first null and alternative hypothesis pair is the same as before. ​They focus on the relationship between species and lifespan.
 
--   ​The null hypothesis states that there is no difference in lifespans between ​the three butterfly species. 
+-   ​The null hypothesis states that there is no difference in lifespans between ​the three butterfly species.
 
--   ​The alternative hypothesis states that there is a difference in life spans ​between the three butterfly species. ​
+-   ​The alternative hypothesis states that there is a difference in life spans ​between the three butterfly species. ​
 
-The next pair of hypotheses focuses on our second new categorical variable: size. ​
+The next pair of hypotheses focuses on our second new categorical variable: size. ​
 
--   The null hypothesis is that there is no difference in lifespans based on ​butterfly size. 
+-   The null hypothesis is that there is no difference in lifespans based on ​butterfly size.
 
--   ​The alternative hypothesis is that there is a difference in lifespans based on ​butterfly size. ​
+-   ​The alternative hypothesis is that there is a difference in lifespans based on ​butterfly size. ​
 
-The last pair of hypotheses test the interaction between the two variables. This concept of interaction may be familiar from our work on multiple ​regression. ​
+The last pair of hypotheses test the interaction between the two variables. This concept of interaction may be familiar from our work on multiple ​regression. ​
 
--   The null hypothesis states that the effect of species on lifespan is ​independent of the effect of butterfly size and vice versa. ​
+-   The null hypothesis states that the effect of species on lifespan is ​independent of the effect of butterfly size and vice versa. ​
 
--   The alternative hypothesis states that there is interaction effect between ​butterfly size and species on lifespan. ​
+-   The alternative hypothesis states that there is interaction effect between ​butterfly size and species on lifespan. ​
 
 ![](images/paste-98.png)
 
-Regression lets you understand ​how independent variables impact dependent variables. ​ANOVA allows you to zoom in on some of those relationships to tell ​a complete story by unpacking relationships in a pair wise fashion. ​
+Regression lets you understand ​how independent variables impact dependent variables. ​ANOVA allows you to zoom in on some of those relationships to tell ​a complete story by unpacking relationships in a pair wise fashion. ​
 
-Wonderful job! In this video, we reviewed the difference between one-way and ​two-way ANOVA, and were able to state the null and ​alternative hypotheses for each test in our butterfly scenario. 
+Wonderful job! In this video, we reviewed the difference between one-way and ​two-way ANOVA, and were able to state the null and ​alternative hypotheses for each test in our butterfly scenario.
 
 ​Next, we'll learn how our computers and python can help us run ANOVA test
 
@@ -464,7 +464,7 @@ Wonderful job! In this video, we reviewed the difference between one-way and �
 
 # More about ANOVA
 
-You’ve learned that analysis of variance—ANOVA—is a group of statistical techniques that test the difference of means between groups. **ANOVA testing is useful when you want to test a hypothesis about group differences based on categorical independent variables**.  For example, if you wanted to determine whether changes in people’s weight when following different diets are statistically significant or due to chance, you could use ANOVA to analyze the results. Data professionals routinely must ascertain if there are meaningful differences between groups in their data. This reading will examine more closely the intuition behind ANOVA using a worked example. Later in the program, you will learn how to implement ANOVA in Python.
+You’ve learned that analysis of variance—ANOVA—is a group of statistical techniques that test the difference of means between groups. **ANOVA testing is useful when you want to test a hypothesis about group differences based on categorical independent variables**. For example, if you wanted to determine whether changes in people’s weight when following different diets are statistically significant or due to chance, you could use ANOVA to analyze the results. Data professionals routinely must ascertain if there are meaningful differences between groups in their data. This reading will examine more closely the intuition behind ANOVA using a worked example. Later in the program, you will learn how to implement ANOVA in Python.
 
 ## **An overview of ANOVA**
 
@@ -478,7 +478,7 @@ Previously, you learned about one-way and two-way ANOVA. To review:
 
 -   **Two-way ANOVA:** Compares the means of one continuous dependent variable based on three or more groups of **two** categorical variables
 
-To help you understand the intuition behind ANOVA, this reading will break down a worked example of a simple one-way ANOVA test. 
+To help you understand the intuition behind ANOVA, this reading will break down a worked example of a simple one-way ANOVA test.
 
 ## **One-way ANOVA**
 
@@ -517,13 +517,13 @@ Return to the example of students studying for an exam. Suppose that in this cas
 
 #### First, state your hypotheses:
 
-H~0~: 𝜇~A~ =  𝜇~B~ = 𝜇~C~ 
+H~0~: 𝜇~A~ = 𝜇~B~ = 𝜇~C~
 
 The mean score of group A = the mean score of group B = the mean score of group C.
 
-H~1~: NOT (𝜇~A~ =  𝜇~B~ = 𝜇~C~)
+H~1~: NOT (𝜇~A~ = 𝜇~B~ = 𝜇~C~)
 
-The means of each group are not all equal. Remember, even if only one mean differs, that is sufficient evidence to reject the null hypothesis. 
+The means of each group are not all equal. Remember, even if only one mean differs, that is sufficient evidence to reject the null hypothesis.
 
 Next, determine your confidence level—the threshold above which you will reject the null hypothesis. This value is dependent on your situation and usually requires some domain knowledge. A common threshold is 95%.
 
@@ -579,7 +579,7 @@ $M_g$ = mean of the $g^{th}$ group
 
 The double summation acts like a nested loop. The outer loop is for each group and the inner loop is for all the samples in that group. So, for each sample in group 1, subtract from it the group's mean and square the result. Then, do the same thing with the samples in group 2, using the group 2 mean. Continue this way for all the groups and sum all the results.
 
-The following table shows the squared difference between each observation and its group mean. It also contains the sums of these squared differences for each of the three study groups, A, B, and C. 
+The following table shows the squared difference between each observation and its group mean. It also contains the sums of these squared differences for each of the three study groups, A, B, and C.
 
 +---------------+-------------+------------+------------------+------------------+------------------+
 | Program A     | Program B   | Program C  | $(x_{Ai}−M_A)^2$ | $(x_{Bi}−M_B)^2$ | $(x_{Ci}−M_C)^2$ |
@@ -595,7 +595,7 @@ The following table shows the squared difference between each observation and it
 | $M_A$ = 85.75 | $M_B$= 88.5 | $M_C$ = 80 | **Sum: 68.75**   | **Sum: 53**      | **Sum: 46**      |
 +---------------+-------------+------------+------------------+------------------+------------------+
 
-→ **SSW** = 68.75 + 53 + 46 **= 167.75**
+→ **SSW** = 68.75 + 53 + 46 **= 167.75**
 
 #### **Step 3**
 
@@ -643,13 +643,13 @@ $$
 
 $\to \text{F-statistic} = \frac{75.25}{18.64}=4.04$
 
-A higher F-statistic indicates a greater variability between group means relative to the variability within groups, suggesting that at least one group mean is significantly different from the others. 
+A higher F-statistic indicates a greater variability between group means relative to the variability within groups, suggesting that at least one group mean is significantly different from the others.
 
 #### **Step 5**
 
 **Use the F-distribution and the F-statistic to get a** $p$**-value, which you use to decide whether to reject the null hypothesis.**
 
-Similar to $t$-tests and 𝛸^2^ tests, ANOVA testing finds the area under a particular probability distribution curve—the F-distribution—of the null hypothesis to determine a $p$-value. The larger the F-statistic, the lesser the area beneath the curve and the more evidence against the null hypothesis, thus resulting in a lower $p$-value. 
+Similar to $t$-tests and 𝛸^2^ tests, ANOVA testing finds the area under a particular probability distribution curve—the F-distribution—of the null hypothesis to determine a $p$-value. The larger the F-statistic, the lesser the area beneath the curve and the more evidence against the null hypothesis, thus resulting in a lower $p$-value.
 
 The shape of the F-distribution curve is determined by the degrees of freedom between and within groups. Here is a graph depicting F-distributions for three, five, and 10 groups—each group containing 50 samples. Note that “dfn” represents the degrees of freedom in the numerator (between groups) and “dfd” represents the degrees of freedom in the denominator (within groups). Notice how the degrees of freedom affect the shape of the curve.
 
@@ -667,7 +667,7 @@ ANOVA will only work if the following assumptions are true:
 
 1.  **The dependent values for each group come from normal distributions**
 
-    -   Note that this assumption does NOT mean that *all* of the dependent values, taken together, must be normally distributed. Instead, it means that *within each group*, the dependent values should be normally distributed. 
+    -   Note that this assumption does NOT mean that *all* of the dependent values, taken together, must be normally distributed. Instead, it means that *within each group*, the dependent values should be normally distributed.
 
     -   ANOVA is generally robust to violations of normality, especially when sample sizes are large or similar across groups, due to the central limit theorem. However, significant violations can lead to incorrect conclusions.
 
@@ -681,9 +681,9 @@ ANOVA will only work if the following assumptions are true:
 
 ## **Key takeaways**
 
--   ANOVA tests are statistical tests that examine whether or not the means of a continuous dependent variable are significantly different from one another based on the different levels of one or more independent categorical variables. 
+-   ANOVA tests are statistical tests that examine whether or not the means of a continuous dependent variable are significantly different from one another based on the different levels of one or more independent categorical variables.
 
--   It is sufficient for one group’s mean to be significantly different from the others to reject the null hypothesis; however, ANOVA testing is limited in that it doesn’t tell you *which* group is different. To make such a determination, other tests are necessary. 
+-   It is sufficient for one group’s mean to be significantly different from the others to reject the null hypothesis; however, ANOVA testing is limited in that it doesn’t tell you *which* group is different. To make such a determination, other tests are necessary.
 
 -   ANOVA works by comparing the variance between each group to the variance within each group. The greater the ratio of variance between groups to variance within groups, the greater the likelihood of rejecting the null hypothesis.
 
@@ -693,7 +693,7 @@ ANOVA will only work if the following assumptions are true:
 
 # Explore one-way vs. two-way ANOVA tests with Python
 
-At the core of all of ​our regression analysis and statistics is storytelling. ​We want to understand how ​the different variables are related, ​although regression and ANOVA ​can help answer similar questions, ​one or the other might be more useful in specific cases. ​Our regression analysis will help ​provide a holistic picture of if ​and by how much a number of ​different variables impact an outcome variable. ​On the other hand ANOVA helps unpack ​pairwise comparisons among subsets of those variables to better understand the nuances among ​the elements that fueled the regression analysis. 
+At the core of all of ​our regression analysis and statistics is storytelling. ​We want to understand how ​the different variables are related, ​although regression and ANOVA ​can help answer similar questions, ​one or the other might be more useful in specific cases. ​Our regression analysis will help ​provide a holistic picture of if ​and by how much a number of ​different variables impact an outcome variable. ​On the other hand ANOVA helps unpack ​pairwise comparisons among subsets of those variables to better understand the nuances among ​the elements that fueled the regression analysis.
 
 +---------------------------------------------------------+-------------------------------------------------------------------+
 | Regression Analysis                                     | ANOVA                                                             |
@@ -703,9 +703,9 @@ At the core of all of ​our regression analysis and statistics is storytelling
 |                                                         | Understand nuance among elements that fueled regression analysis. |
 +---------------------------------------------------------+-------------------------------------------------------------------+
 
-​ANOVA can work like a magnifying glass ​zooming in on specific parts of the regression story. ​Now, let's use a subset of a dataset ​about diamonds to explore ANOVA in Python. ​You can load in ​the original dataset through the seaborne library. 
+​ANOVA can work like a magnifying glass ​zooming in on specific parts of the regression story. ​Now, let's use a subset of a dataset ​about diamonds to explore ANOVA in Python. ​You can load in ​the original dataset through the seaborne library.
 
-​We've already cleaned the data ​and transform some variables, ​we have two variables, ​logarithm of the price ​and the color grade of each diamond. ​
+​We've already cleaned the data ​and transform some variables, ​we have two variables, ​logarithm of the price ​and the color grade of each diamond. ​
 
 ```{python}
 import pandas as pd
@@ -740,7 +740,7 @@ colorless.color = colorless.color.cat.remove_categories(["G","J"])
 colorless["color"].values.categories
 ```
 
-Now that the dataset is loaded and cleaned, ​if you haven't already, import the Seaborn package as SNS, ​use a box plot to determine how ​the price varies based on the color grade. 
+Now that the dataset is loaded and cleaned, ​if you haven't already, import the Seaborn package as SNS, ​use a box plot to determine how ​the price varies based on the color grade.
 
 ```{python}
 sns.boxplot(x="color", y="price", data=colorless)
@@ -776,11 +776,11 @@ colorless.reset_index(inplace=True, drop=True)
 sns.boxplot(x="color", y="log_price", hue="color", data=colorless)
 ```
 
-​There are a few different color grades represented, ​D, E, F, G, H, and I. ​There seems to be some variation in the log of the price, ​but it's not clear if there is ​a difference based on color grade. ​Let's test it out using a one way ANOVA, ​you will be using the stats models module. 
+​There are a few different color grades represented, ​D, E, F, G, H, and I. ​There seems to be some variation in the log of the price, ​but it's not clear if there is ​a difference based on color grade. ​Let's test it out using a one way ANOVA, ​you will be using the stats models module.
 
-**​Start by creating a regression model ​using the OLS function,** ​and then fitting the model to ​the data using the fit method. 
+**​Start by creating a regression model ​using the OLS function,** ​and then fitting the model to ​the data using the fit method.
 
-​This will allow you later to use ​the ANOVA function to see if there is ​a statistically significant difference ​in price between the groups. ​Remember that you have to add the capital C in ​parentheses around color in the OLS formula, ​to indicate color is a categorical variable. ​
+​This will allow you later to use ​the ANOVA function to see if there is ​a statistically significant difference ​in price between the groups. ​Remember that you have to add the capital C in ​parentheses around color in the OLS formula, ​to indicate color is a categorical variable. ​
 
 ```{python}
 # Import statsmodels and ols function
@@ -792,24 +792,24 @@ model = ols(formula = "log_price ~ C(color)", data = diamonds).fit()
 model.summary()
 ```
 
-Based on the results from the model, ​you can observe that there is ​a statistically significant relationship ​between diamond color and price, ​but it's unclear if ​the price differs between the various colors. ​To learn more you can run a one way ANOVA test. 
+Based on the results from the model, ​you can observe that there is ​a statistically significant relationship ​between diamond color and price, ​but it's unclear if ​the price differs between the various colors. ​To learn more you can run a one way ANOVA test.
 
-​You can create an ANOVA table using ​the stats models anova_lm function. ​The table will provide you with ​statistics about the color variable. ​Recall that a one way ANOVA test compares ​three or more groups of ​one categorical independent variable, ​based on one continuous dependent variable. 
+​You can create an ANOVA table using ​the stats models anova_lm function. ​The table will provide you with ​statistics about the color variable. ​Recall that a one way ANOVA test compares ​three or more groups of ​one categorical independent variable, ​based on one continuous dependent variable.
 
-​Let's state the null and alternative hypotheses.  - ​The null hypothesis is that there is ​no difference in price of diamond based on color grade,  - ​the alternative hypothesis is that there is ​a difference in price of diamond based on color grade. 
+​Let's state the null and alternative hypotheses.  - ​The null hypothesis is that there is ​no difference in price of diamond based on color grade,  - ​the alternative hypothesis is that there is ​a difference in price of diamond based on color grade.
 
-​Note, there are different ANOVA types 1, ​2, and 3 which you can read about in the documentation. ​The ANOVA table gives you the sum of squares and ​degrees of freedom for ​the color variables and it's residuals, ​as well as the F statistic ​and $p$-value for the color variable. ​
+​Note, there are different ANOVA types 1, ​2, and 3 which you can read about in the documentation. ​The ANOVA table gives you the sum of squares and ​degrees of freedom for ​the color variables and it's residuals, ​as well as the F statistic ​and $p$-value for the color variable. ​
 
 ```{python}
 # Run one-way ANOVA
 sm.stats.anova_lm(model, typ = 2)
 ```
 
-From the results, the $p$-value is very small, ​which means that you can reject ​the null hypothesis that the mean ​of the price is the same for all diamond color grades. 
+From the results, the $p$-value is very small, ​which means that you can reject ​the null hypothesis that the mean ​of the price is the same for all diamond color grades.
 
-​Now, let's add another ​categorical variable into the mix, ​let's add in the cut of the diamond. ​There are three kinds of cuts to include ideal, ​premium, and very good. 
+​Now, let's add another ​categorical variable into the mix, ​let's add in the cut of the diamond. ​There are three kinds of cuts to include ideal, ​premium, and very good.
 
-​You can load in the dataset and clean it, ​you'll do the same as before and ​first fit a regression model, ​but the equation will address ​the possible interaction effects between cut and color. 
+​You can load in the dataset and clean it, ​you'll do the same as before and ​first fit a regression model, ​but the equation will address ​the possible interaction effects between cut and color.
 
 ```{python}
 # Import diamonds data set from seaborn package
@@ -845,44 +845,68 @@ model2 = ols(formula = "log_price ~ C(color) + C(cut) + C(color):C(cut)", data =
 model2.summary()
 ```
 
-​The colon indicates interaction between ​the color and cut categorical variables. 
+​The colon indicates interaction between ​the color and cut categorical variables.
 
-​Before you run the two way ANOVA test, ​let's review the three ​hypothesis pairs you'll be testing.  ​First up are the null and alternative hypotheses ​about diamond price based on color,  ​next are the hypotheses about ​diamond price based on cut,  ​lastly are the hypotheses about ​the interaction between color and cut on diamond price. 
+​Before you run the two way ANOVA test, ​let's review the three ​hypothesis pairs you'll be testing. ​First up are the null and alternative hypotheses ​about diamond price based on color, ​next are the hypotheses about ​diamond price based on cut, ​lastly are the hypotheses about ​the interaction between color and cut on diamond price.
 
-​Now get the results of a two way ANOVA test using ​this same anova_lm function. 
+​Now get the results of a two way ANOVA test using ​this same anova_lm function.
 
 ```{python}
 sm.stats.anova_lm(model2, typ = 2)
 ```
 
-​The table includes a row for each ​of the two categorical variables, ​and a row for the interaction between cut and color. ​Since the $p$-value is very small for all three, ​you can reject all three null hypotheses. 
+​The table includes a row for each ​of the two categorical variables, ​and a row for the interaction between cut and color. ​Since the $p$-value is very small for all three, ​you can reject all three null hypotheses.
 
-​In conclusion, the logarithm of ​the price is not the same for different colors, ​additionally, the logarithm of ​the price is not the same for different diamond cuts. ​Finally, there is an interaction effect between ​the color and cut that impacts the price of the diamond. 
+​In conclusion, the logarithm of ​the price is not the same for different colors, ​additionally, the logarithm of ​the price is not the same for different diamond cuts. ​Finally, there is an interaction effect between ​the color and cut that impacts the price of the diamond.
 
-​Wonderful job. ​In this video, we reviewed the difference ​between one way and two way ANOVA, ​the null and alternative hypotheses, ​as well as how to code and ​interpret the results from Python. ​We've covered a lot so far, ​and in the following videos and readings will ​continue exploring the power of ANOVA testing. 
+​Wonderful job. ​In this video, we reviewed the difference ​between one way and two way ANOVA, ​the null and alternative hypotheses, ​as well as how to code and ​interpret the results from Python. ​We've covered a lot so far, ​and in the following videos and readings will ​continue exploring the power of ANOVA testing.
 
 ------------------------------------------------------------------------
 
 # ANOVA post hoc tests with Python
 
-Previously, we talked about ​the effectiveness of ANOVA testing to understand ​continuous variables a bit more in ​relation to categorical variable of interests. ​To recap, ANOVA testing can be applied ​to the results we get from a linear regression. ​If we have a categorical ​independent variable such as diamond color, ​and we're trying to estimate the price of a diamond, ​we can use an ANOVA test to determine if there is ​a statistically significant difference ​in price based on diamond color. ​But as we stated before, ​the null hypothesis just ​states that the means are different. ​If we have three or more groups, ​we don't know which one is different or ​how many are different from each other. ​There might be cases where it's really important to ​know if one category in particular is different. 
+Previously, we talked about ​the effectiveness of ANOVA testing to understand ​continuous variables a bit more in ​relation to categorical variable of interests. ​To recap, ANOVA testing can be applied ​to the results we get from a linear regression. ​If we have a categorical ​independent variable such as diamond color, ​and we're trying to estimate the price of a diamond, ​we can use an ANOVA test to determine if there is ​a statistically significant difference ​in price based on diamond color. ​But as we stated before, ​the null hypothesis just ​states that the means are different. ​If we have three or more groups, ​we don't know which one is different or ​how many are different from each other. ​There might be cases where it's really important to ​know if one category in particular is different.
 
-​For example, if you're building a roller coaster, ​you will be choosing among a couple of ​different material types based on their strengths. ​You really want to know if and ​how much the materials differ in strength. ​In this case, an ANOVA post-hoc tests can be helpful. ​
+​For example, if you're building a roller coaster, ​you will be choosing among a couple of ​different material types based on their strengths. ​You really want to know if and ​how much the materials differ in strength. ​In this case, an ANOVA post-hoc tests can be helpful. ​
 
 ::: nota
-An ANOVA post-hoc test performs a pairwise comparison ​between all available groups ​while controlling for the error rate.
+An ANOVA post-hoc test performs a pairwise comparison ​between all available groups ​while controlling for the error rate.
 :::
 
- ​If you recall from learning about statistics, ​we have confidence intervals and ​p-values to quantify our uncertainty. ​There's always a small chance that we falsely reject ​the null hypothesis purely based on probability. ​Falsely rejecting the null hypothesis is ​sometimes referred to as Type 1 error. ​Typically, there's a 5% chance we've ​rejected the null hypothesis when it was actually true. 
+​If you recall from learning about statistics, ​we have confidence intervals and $p$-values to quantify our uncertainty. ​There's always a small chance that we falsely reject ​the null hypothesis purely based on probability.
 
-​But if we run a bunch of tests all with ​a 5% chance that we're ​incorrectly rejecting the null hypothesis, ​the chance that we've made a mistake multiplies. ​The odds that we've made at least one mistake ​increases very rapidly the more tests we perform. ​Post-hoc ANOVA test control ​for that increasing probability. ​One of the most common ANOVA post-hoc test ​is the Tukey's HSD, ​honestly significantly different. After performing ​ANOVA test, where you get ​statistically significant results, ​all you know is that ​at least one of the groups means are different. ​Tukey's HSD test will then compare ​all the pairs of groups and determine which pairs ​are different from one another while controlling for ​the fact that you're running ​multiple hypothesis tests all at once. ​Now let's return to the one-way ANOVA diamond example. 
+​Falsely rejecting the null hypothesis is ​sometimes referred to as Type 1 error. ​Typically, there's a 5% chance we've ​rejected the null hypothesis when it was actually true. ​But if we run a bunch of tests all with ​a 5% chance that we're ​incorrectly rejecting the null hypothesis, ​the chance that we've made a mistake multiplies. ​**The odds that we've made at least one mistake ​increases very rapidly the more tests we perform.** ​
 
-​Let's say you already have your packages imported from ​last time and you've saved ​the dataset as a DataFrame called diamonds, ​create the linear model again. ​You already know that there is ​a statistically significant relationship ​between color and price. ​Now, run the one-way ANOVA, just like before. ​Here, you can observe that ​the p-values are much smaller than ​0.05 so the results ​are statistically significant and therefore, ​you can reject the null hypothesis that ​the mean price is the same across all diamond colors. ​Now that you have significant results from an ANOVA test, ​you can run the Tukey's HSD post-hoc tests. ​First, import the Python function ​pairwise_tukey's HSD from SM. ​Next run the test. 
+Post-hoc ANOVA test control ​for that increasing probability. ​One of the most common ANOVA post-hoc test ​is the Tukey's HSD (honestly significantly different).
 
-​The endog variable indicates which ​variable is being compared across groups. ​The groups variable tells the function which ​variable holds the groups you're interested in. ​In this case, color. ​The Alpha variable tells the function ​the significance or confidence level you are testing for. ​You set alpha to 0.05 as ​you are aiming for a 95% confidence level. ​You can access the results of Tukey's test in two ways. ​One way is to use the summary function. 
+After performing ​ANOVA test, where you get ​statistically significant results, ​all you know is that ​at least one of the groups means are different. ​**Tukey's HSD test will then compare ​all the pairs of groups and determine which pairs ​are different from one another while controlling for ​the fact that you're running ​multiple hypothesis tests all at once**.
 
-​You can also use the print function. ​In both cases, you can observe all of ​the pairwise comparisons between ​each pair of diamond color grades. ​There is an adjusted p-value column, ​a column with the lower and upper bound ​of the confidence intervals, ​as well as the column letting you know whether or ​not you can reject the null hypothesis. ​If the reject column reads false, ​then you cannot reject the null hypothesis. ​If the reject column reads true, ​then you can reject the null hypothesis. ​The null hypothesis is that ​the diamond prices between ​the two color grades are the same. ​But the Tukey's HSD test informs us that you can reject ​the null hypothesis with a p-value of 0.001. 
+::: extra
+When you perform a single hypothesis test with $\alpha = 0.05$, you accept a 5% chance of making a **Type I error** (a "false alarm" where you claim a difference exists when it doesn't).
 
-​For example, the diamond price is not ​the same for H and I grade diamonds. ​Awesome job today. ​To recap, combining tests may seem like a complex task, ​but it's so powerful to have ​a wide set of tools to run analysis. ​We'll continue unpacking ANOVA and post-hoc tests ​in the course materials. ​As always, revisit any prior videos ​and readings as needed. ​You can do this. ​Good luck, and I look forward ​to joining you again next time. 
+However, if your ANOVA tells you that `Color` is significant across 5 categories, you might want to test every possible pair to see *where* the differences are. With 5 categories, there are **10 possible pairwise combinations** ($\binom{5}{2} = 10$).
 
-Previously, we talked about ​the effectiveness of ANOVA testing to understand ​continuous variables a bit more in ​relation to categorical variable of interests. ​To recap, ANOVA testing can be applied ​to the results we get from a linear regression. ​If we have a categorical ​independent variable such as diamond color, ​and we're trying to estimate the price of a diamond, ​we can use an ANOVA test to determine if there is ​a statistically significant difference ​in price based on diamond color. ​But as we stated before, ​the null hypothesis just ​states that the means are different. ​If we have three or more groups, ​we don't know which one is different or ​how many are different from each other. ​There might be cases where it's really important to ​know if one category in particular is different. ​For example, if you're building a roller coaster, ​you will be choosing among a couple of ​different material types based on their strengths. ​You really want to know if and ​how much the materials differ in strength. ​In this case, an ANOVA post-hoc tests can be helpful. ​An ANOVA post-hoc test performs a pairwise comparison ​between all available groups ​while controlling for the error rate. ​If you recall from learning about statistics, ​we have confidence intervals and ​p-values to quantify our uncertainty. ​There's always a small chance that we falsely reject ​the null hypothesis purely based on probability. ​Falsely rejecting the null hypothesis is ​sometimes referred to as Type 1 error. ​Typically, there's a 5% chance we've ​rejected the null hypothesis when it was actually true. ​But if we run a bunch of tests all with ​a 5% chance that we're ​incorrectly rejecting the null hypothesis, ​the chance that we've made a mistake multiplies. ​The odds that we've made at least one mistake ​increases very rapidly the more tests we perform. ​Post-hoc ANOVA test control ​for that increasing probability. ​One of the most common ANOVA post-hoc test ​is the Tukey's HSD, ​honestly significantly different. After performing ​ANOVA test, where you get ​statistically significant results, ​all you know is that ​at least one of the groups means are different. ​Tukey's HSD test will then compare ​all the pairs of groups and determine which pairs ​are different from one another while controlling for ​the fact that you're running ​multiple hypothesis tests all at once. ​Now let's return to the one-way ANOVA diamond example. ​Let's say you already have your packages imported from ​last time and you've saved ​the dataset as a DataFrame called diamonds, ​create the linear model again. ​You already know that there is ​a statistically significant relationship ​between color and price. ​Now, run the one-way ANOVA, just like before. ​Here, you can observe that ​the p-values are much smaller than ​0.05 so the results ​are statistically significant and therefore, ​you can reject the null hypothesis that ​the mean price is the same across all diamond colors. ​Now that you have significant results from an ANOVA test, ​you can run the Tukey's HSD post-hoc tests. ​First, import the Python function ​pairwise_tukey's HSD from SM. ​Next run the test. ​The endog variable indicates which ​variable is being compared across groups. ​The groups variable tells the function which ​variable holds the groups you're interested in. ​In this case, color. ​The Alpha variable tells the function ​the significance or confidence level you are testing for. ​You set alpha to 0.05 as ​you are aiming for a 95% confidence level. ​You can access the results of Tukey's test in two ways. ​One way is to use the summary function. ​You can also use the print function. ​In both cases, you can observe all of ​the pairwise comparisons between ​each pair of diamond color grades. ​There is an adjusted p-value column, ​a column with the lower and upper bound ​of the confidence intervals, ​as well as the column letting you know whether or ​not you can reject the null hypothesis. ​If the reject column reads false, ​then you cannot reject the null hypothesis. ​If the reject column reads true, ​then you can reject the null hypothesis. ​The null hypothesis is that ​the diamond prices between ​the two color grades are the same. ​But the Tukey's HSD test informs us that you can reject ​the null hypothesis with a p-value of 0.001. ​For example, the diamond price is not ​the same for H and I grade diamonds. ​Awesome job today. ​To recap, combining tests may seem like a complex task, ​but it's so powerful to have ​a wide set of tools to run analysis. ​We'll continue unpacking ANOVA and post-hoc tests ​in the course materials. ​As always, revisit any prior videos ​and readings as needed. ​You can do this. ​Good luck, and I look forward ​to joining you again next time.  Previously, we talked about ​the effectiveness of ANOVA testing to understand ​continuous variables a bit more in ​relation to categorical variable of interests. ​To recap, ANOVA testing can be applied ​to the results we get from a linear regression. ​If we have a categorical ​independent variable such as diamond color, ​and we're trying to estimate the price of a diamond, ​we can use an ANOVA test to determine if there is ​a statistically significant difference ​in price based on diamond color. ​But as we stated before, ​the null hypothesis just ​states that the means are different. ​If we have three or more groups, ​we don't know which one is different or ​how many are different from each other. ​There might be cases where it's really important to ​know if one category in particular is different. ​For example, if you're building a roller coaster, ​you will be choosing among a couple of ​different material types based on their strengths. ​You really want to know if and ​how much the materials differ in strength. ​In this case, an ANOVA post-hoc tests can be helpful. ​An ANOVA post-hoc test performs a pairwise comparison ​between all available groups ​while controlling for the error rate. ​If you recall from learning about statistics, ​we have confidence intervals and ​p-values to quantify our uncertainty. ​There's always a small chance that we falsely reject ​the null hypothesis purely based on probability. ​Falsely rejecting the null hypothesis is ​sometimes referred to as Type 1 error. ​Typically, there's a 5% chance we've ​rejected the null hypothesis when it was actually true. ​But if we run a bunch of tests all with ​a 5% chance that we're ​incorrectly rejecting the null hypothesis, ​the chance that we've made a mistake multiplies. ​The odds that we've made at least one mistake ​increases very rapidly the more tests we perform. ​Post-hoc ANOVA test control ​for that increasing probability. ​One of the most common ANOVA post-hoc test ​is the Tukey's HSD, ​honestly significantly different. After performing ​ANOVA test, where you get ​statistically significant results, ​all you know is that ​at least one of the groups means are different. ​Tukey's HSD test will then compare ​all the pairs of groups and determine which pairs ​are different from one another while controlling for ​the fact that you're running ​multiple hypothesis tests all at once. ​Now let's return to the one-way ANOVA diamond example. ​Let's say you already have your packages imported from ​last time and you've saved ​the dataset as a DataFrame called diamonds, ​create the linear model again. ​You already know that there is ​a statistically significant relationship ​between color and price. ​Now, run the one-way ANOVA, just like before. ​Here, you can observe that ​the p-values are much smaller than ​0.05 so the results ​are statistically significant and therefore, ​you can reject the null hypothesis that ​the mean price is the same across all diamond colors. ​Now that you have significant results from an ANOVA test, ​you can run the Tukey's HSD post-hoc tests. ​First, import the Python function ​pairwise_tukey's HSD from SM. ​Next run the test. ​The endog variable indicates which ​variable is being compared across groups. ​The groups variable tells the function which ​variable holds the groups you're interested in. ​In this case, color. ​The Alpha variable tells the function ​the significance or confidence level you are testing for. ​You set alpha to 0.05 as ​you are aiming for a 95% confidence level. ​You can access the results of Tukey's test in two ways. ​One way is to use the summary function. ​You can also use the print function. ​In both cases, you can observe all of ​the pairwise comparisons between ​each pair of diamond color grades. ​There is an adjusted p-value column, ​a column with the lower and upper bound ​of the confidence intervals, ​as well as the column letting you know whether or ​not you can reject the null hypothesis. ​If the reject column reads false, ​then you cannot reject the null hypothesis. ​If the reject column reads true, ​then you can reject the null hypothesis. ​The null hypothesis is that ​the diamond prices between ​the two color grades are the same. ​But the Tukey's HSD test informs us that you can reject ​the null hypothesis with a p-value of 0.001. ​For example, the diamond price is not ​the same for H and I grade diamonds. ​Awesome job today. ​To recap, combining tests may seem like a complex task, ​but it's so powerful to have ​a wide set of tools to run analysis. ​We'll continue unpacking ANOVA and post-hoc tests ​in the course materials. ​As always, revisit any prior videos ​and readings as needed. ​You can do this. ​Good luck, and I look forward ​to joining you again next time.  Previously, we talked about ​the effectiveness of ANOVA testing to understand ​continuous variables a bit more in ​relation to categorical variable of interests. ​To recap, ANOVA testing can be applied ​to the results we get from a linear regression. ​If we have a categorical ​independent variable such as diamond color, ​and we're trying to estimate the price of a diamond, ​we can use an ANOVA test to determine if there is ​a statistically significant difference ​in price based on diamond color. ​But as we stated before, ​the null hypothesis just ​states that the means are different. ​If we have three or more groups, ​we don't know which one is different or ​how many are different from each other. ​There might be cases where it's really important to ​know if one category in particular is different. ​For example, if you're building a roller coaster, ​you will be choosing among a couple of ​different material types based on their strengths. ​You really want to know if and ​how much the materials differ in strength. ​In this case, an ANOVA post-hoc tests can be helpful. ​An ANOVA post-hoc test performs a pairwise comparison ​between all available groups ​while controlling for the error rate. ​If you recall from learning about statistics, ​we have confidence intervals and ​p-values to quantify our uncertainty. ​There's always a small chance that we falsely reject ​the null hypothesis purely based on probability. ​Falsely rejecting the null hypothesis is ​sometimes referred to as Type 1 error. ​Typically, there's a 5% chance we've ​rejected the null hypothesis when it was actually true. ​But if we run a bunch of tests all with ​a 5% chance that we're ​incorrectly rejecting the null hypothesis, ​the chance that we've made a mistake multiplies. ​The odds that we've made at least one mistake ​increases very rapidly the more tests we perform. ​Post-hoc ANOVA test control ​for that increasing probability. ​One of the most common ANOVA post-hoc test ​is the Tukey's HSD, ​honestly significantly different. After performing ​ANOVA test, where you get ​statistically significant results, ​all you know is that ​at least one of the groups means are different. ​Tukey's HSD test will then compare ​all the pairs of groups and determine which pairs ​are different from one another while controlling for ​the fact that you're running ​multiple hypothesis tests all at once. ​Now let's return to the one-way ANOVA diamond example. ​Let's say you already have your packages imported from ​last time and you've saved ​the dataset as a DataFrame called diamonds, ​create the linear model again. ​You already know that there is ​a statistically significant relationship ​between color and price. ​Now, run the one-way ANOVA, just like before. ​Here, you can observe that ​the p-values are much smaller than ​0.05 so the results ​are statistically significant and therefore, ​you can reject the null hypothesis that ​the mean price is the same across all diamond colors. ​Now that you have significant results from an ANOVA test, ​you can run the Tukey's HSD post-hoc tests. ​First, import the Python function ​pairwise_tukey's HSD from SM. ​Next run the test. ​The endog variable indicates which ​variable is being compared across groups. ​The groups variable tells the function which ​variable holds the groups you're interested in. ​In this case, color. ​The Alpha variable tells the function ​the significance or confidence level you are testing for. ​You set alpha to 0.05 as ​you are aiming for a 95% confidence level. ​You can access the results of Tukey's test in two ways. ​One way is to use the summary function. ​You can also use the print function. ​In both cases, you can observe all of ​the pairwise comparisons between ​each pair of diamond color grades. ​There is an adjusted p-value column, ​a column with the lower and upper bound ​of the confidence intervals, ​as well as the column letting you know whether or ​not you can reject the null hypothesis. ​If the reject column reads false, ​then you cannot reject the null hypothesis. ​If the reject column reads true, ​then you can reject the null hypothesis. ​The null hypothesis is that ​the diamond prices between ​the two color grades are the same. ​But the Tukey's HSD test informs us that you can reject ​the null hypothesis with a p-value of 0.001. ​For example, the diamond price is not ​the same for H and I grade diamonds. ​Awesome job today. ​To recap, combining tests may seem like a complex task, ​but it's so powerful to have ​a wide set of tools to run analysis. ​We'll continue unpacking ANOVA and post-hoc tests ​in the course materials. ​As always, revisit any prior videos ​and readings as needed. ​You can do this. ​Good luck, and I look forward ​to joining you again next time. : Added to Selection. Press \[CTRL + S\] to save as a note : Added to Selection. Press \[CTRL + S\] to save as a note : Added to Selection. Press \[CTRL + S\] to save as a note
+If you run 10 separate $t$-tests, each at $\alpha = 0.05$, your **Family-Wise Error Rate (FWER)**—the overall probability of getting *at least one* false positive across all 10 tests—blows up:
+
+$$\text{FWER} = 1 - (1 - \alpha)\^k = 1 - (0.95)\^{10} \approx 40\%$$
+
+There is nearly a **40% chance** of declaring a fake difference just by random luck!
+
+### What Tukey's HSD Does
+
+**Tukey’s HSD (Honestly Significant Difference)** test fixes this by automatically adjusting the critical threshold based on the total number of comparisons. It holds the **overall family-wise error rate strictly at 5%**, no matter how many pairs you test.
+:::
+
+​
+
+Now let's return to the one-way ANOVA diamond example.
+
+​Let's say you already have your packages imported from ​last time and you've saved ​the dataset as a DataFrame called diamonds, ​create the linear model again. ​You already know that there is ​a statistically significant relationship ​between color and price. ​Now, run the one-way ANOVA, just like before. ​Here, you can observe that ​the p-values are much smaller than ​0.05 so the results ​are statistically significant and therefore, ​you can reject the null hypothesis that ​the mean price is the same across all diamond colors. ​Now that you have significant results from an ANOVA test, ​you can run the Tukey's HSD post-hoc tests. ​First, import the Python function ​pairwise_tukey's HSD from SM. ​Next run the test.
+
+​The endog variable indicates which ​variable is being compared across groups. ​The groups variable tells the function which ​variable holds the groups you're interested in. ​In this case, color. ​The Alpha variable tells the function ​the significance or confidence level you are testing for. ​You set alpha to 0.05 as ​you are aiming for a 95% confidence level. ​You can access the results of Tukey's test in two ways. ​One way is to use the summary function.
+
+​You can also use the print function. ​In both cases, you can observe all of ​the pairwise comparisons between ​each pair of diamond color grades. ​There is an adjusted p-value column, ​a column with the lower and upper bound ​of the confidence intervals, ​as well as the column letting you know whether or ​not you can reject the null hypothesis. ​If the reject column reads false, ​then you cannot reject the null hypothesis. ​If the reject column reads true, ​then you can reject the null hypothesis. ​The null hypothesis is that ​the diamond prices between ​the two color grades are the same. ​But the Tukey's HSD test informs us that you can reject ​the null hypothesis with a p-value of 0.001.
+
+​For example, the diamond price is not ​the same for H and I grade diamonds. ​Awesome job today. ​To recap, combining tests may seem like a complex task, ​but it's so powerful to have ​a wide set of tools to run analysis. ​We'll continue unpacking ANOVA and post-hoc tests ​in the course materials. ​As always, revisit any prior videos ​and readings as needed. ​You can do this. ​Good luck, and I look forward ​to joining you again next time.
+
+Previously, we talked about ​the effectiveness of ANOVA testing to understand ​continuous variables a bit more in ​relation to categorical variable of interests. ​To recap, ANOVA testing can be applied ​to the results we get from a linear regression. ​If we have a categorical ​independent variable such as diamond color, ​and we're trying to estimate the price of a diamond, ​we can use an ANOVA test to determine if there is ​a statistically significant difference ​in price based on diamond color. ​But as we stated before, ​the null hypothesis just ​states that the means are different. ​If we have three or more groups, ​we don't know which one is different or ​how many are different from each other. ​There might be cases where it's really important to ​know if one category in particular is different. ​For example, if you're building a roller coaster, ​you will be choosing among a couple of ​different material types based on their strengths. ​You really want to know if and ​how much the materials differ in strength. ​In this case, an ANOVA post-hoc tests can be helpful. ​An ANOVA post-hoc test performs a pairwise comparison ​between all available groups ​while controlling for the error rate. ​If you recall from learning about statistics, ​we have confidence intervals and ​p-values to quantify our uncertainty. ​There's always a small chance that we falsely reject ​the null hypothesis purely based on probability. ​Falsely rejecting the null hypothesis is ​sometimes referred to as Type 1 error. ​Typically, there's a 5% chance we've ​rejected the null hypothesis when it was actually true. ​But if we run a bunch of tests all with ​a 5% chance that we're ​incorrectly rejecting the null hypothesis, ​the chance that we've made a mistake multiplies. ​The odds that we've made at least one mistake ​increases very rapidly the more tests we perform. ​Post-hoc ANOVA test control ​for that increasing probability. ​One of the most common ANOVA post-hoc test ​is the Tukey's HSD, ​honestly significantly different. After performing ​ANOVA test, where you get ​statistically significant results, ​all you know is that ​at least one of the groups means are different. ​Tukey's HSD test will then compare ​all the pairs of groups and determine which pairs ​are different from one another while controlling for ​the fact that you're running ​multiple hypothesis tests all at once. ​Now let's return to the one-way ANOVA diamond example. ​Let's say you already have your packages imported from ​last time and you've saved ​the dataset as a DataFrame called diamonds, ​create the linear model again. ​You already know that there is ​a statistically significant relationship ​between color and price. ​Now, run the one-way ANOVA, just like before. ​Here, you can observe that ​the p-values are much smaller than ​0.05 so the results ​are statistically significant and therefore, ​you can reject the null hypothesis that ​the mean price is the same across all diamond colors. ​Now that you have significant results from an ANOVA test, ​you can run the Tukey's HSD post-hoc tests. ​First, import the Python function ​pairwise_tukey's HSD from SM. ​Next run the test. ​The endog variable indicates which ​variable is being compared across groups. ​The groups variable tells the function which ​variable holds the groups you're interested in. ​In this case, color. ​The Alpha variable tells the function ​the significance or confidence level you are testing for. ​You set alpha to 0.05 as ​you are aiming for a 95% confidence level. ​You can access the results of Tukey's test in two ways. ​One way is to use the summary function. ​You can also use the print function. ​In both cases, you can observe all of ​the pairwise comparisons between ​each pair of diamond color grades. ​There is an adjusted p-value column, ​a column with the lower and upper bound ​of the confidence intervals, ​as well as the column letting you know whether or ​not you can reject the null hypothesis. ​If the reject column reads false, ​then you cannot reject the null hypothesis. ​If the reject column reads true, ​then you can reject the null hypothesis. ​The null hypothesis is that ​the diamond prices between ​the two color grades are the same. ​But the Tukey's HSD test informs us that you can reject ​the null hypothesis with a p-value of 0.001. ​For example, the diamond price is not ​the same for H and I grade diamonds. ​Awesome job today. ​To recap, combining tests may seem like a complex task, ​but it's so powerful to have ​a wide set of tools to run analysis. ​We'll continue unpacking ANOVA and post-hoc tests ​in the course materials. ​As always, revisit any prior videos ​and readings as needed. ​You can do this. ​Good luck, and I look forward ​to joining you again next time. Previously, we talked about ​the effectiveness of ANOVA testing to understand ​continuous variables a bit more in ​relation to categorical variable of interests. ​To recap, ANOVA testing can be applied ​to the results we get from a linear regression. ​If we have a categorical ​independent variable such as diamond color, ​and we're trying to estimate the price of a diamond, ​we can use an ANOVA test to determine if there is ​a statistically significant difference ​in price based on diamond color. ​But as we stated before, ​the null hypothesis just ​states that the means are different. ​If we have three or more groups, ​we don't know which one is different or ​how many are different from each other. ​There might be cases where it's really important to ​know if one category in particular is different. ​For example, if you're building a roller coaster, ​you will be choosing among a couple of ​different material types based on their strengths. ​You really want to know if and ​how much the materials differ in strength. ​In this case, an ANOVA post-hoc tests can be helpful. ​An ANOVA post-hoc test performs a pairwise comparison ​between all available groups ​while controlling for the error rate. ​If you recall from learning about statistics, ​we have confidence intervals and ​p-values to quantify our uncertainty. ​There's always a small chance that we falsely reject ​the null hypothesis purely based on probability. ​Falsely rejecting the null hypothesis is ​sometimes referred to as Type 1 error. ​Typically, there's a 5% chance we've ​rejected the null hypothesis when it was actually true. ​But if we run a bunch of tests all with ​a 5% chance that we're ​incorrectly rejecting the null hypothesis, ​the chance that we've made a mistake multiplies. ​The odds that we've made at least one mistake ​increases very rapidly the more tests we perform. ​Post-hoc ANOVA test control ​for that increasing probability. ​One of the most common ANOVA post-hoc test ​is the Tukey's HSD, ​honestly significantly different. After performing ​ANOVA test, where you get ​statistically significant results, ​all you know is that ​at least one of the groups means are different. ​Tukey's HSD test will then compare ​all the pairs of groups and determine which pairs ​are different from one another while controlling for ​the fact that you're running ​multiple hypothesis tests all at once. ​Now let's return to the one-way ANOVA diamond example. ​Let's say you already have your packages imported from ​last time and you've saved ​the dataset as a DataFrame called diamonds, ​create the linear model again. ​You already know that there is ​a statistically significant relationship ​between color and price. ​Now, run the one-way ANOVA, just like before. ​Here, you can observe that ​the p-values are much smaller than ​0.05 so the results ​are statistically significant and therefore, ​you can reject the null hypothesis that ​the mean price is the same across all diamond colors. ​Now that you have significant results from an ANOVA test, ​you can run the Tukey's HSD post-hoc tests. ​First, import the Python function ​pairwise_tukey's HSD from SM. ​Next run the test. ​The endog variable indicates which ​variable is being compared across groups. ​The groups variable tells the function which ​variable holds the groups you're interested in. ​In this case, color. ​The Alpha variable tells the function ​the significance or confidence level you are testing for. ​You set alpha to 0.05 as ​you are aiming for a 95% confidence level. ​You can access the results of Tukey's test in two ways. ​One way is to use the summary function. ​You can also use the print function. ​In both cases, you can observe all of ​the pairwise comparisons between ​each pair of diamond color grades. ​There is an adjusted p-value column, ​a column with the lower and upper bound ​of the confidence intervals, ​as well as the column letting you know whether or ​not you can reject the null hypothesis. ​If the reject column reads false, ​then you cannot reject the null hypothesis. ​If the reject column reads true, ​then you can reject the null hypothesis. ​The null hypothesis is that ​the diamond prices between ​the two color grades are the same. ​But the Tukey's HSD test informs us that you can reject ​the null hypothesis with a p-value of 0.001. ​For example, the diamond price is not ​the same for H and I grade diamonds. ​Awesome job today. ​To recap, combining tests may seem like a complex task, ​but it's so powerful to have ​a wide set of tools to run analysis. ​We'll continue unpacking ANOVA and post-hoc tests ​in the course materials. ​As always, revisit any prior videos ​and readings as needed. ​You can do this. ​Good luck, and I look forward ​to joining you again next time. Previously, we talked about ​the effectiveness of ANOVA testing to understand ​continuous variables a bit more in ​relation to categorical variable of interests. ​To recap, ANOVA testing can be applied ​to the results we get from a linear regression. ​If we have a categorical ​independent variable such as diamond color, ​and we're trying to estimate the price of a diamond, ​we can use an ANOVA test to determine if there is ​a statistically significant difference ​in price based on diamond color. ​But as we stated before, ​the null hypothesis just ​states that the means are different. ​If we have three or more groups, ​we don't know which one is different or ​how many are different from each other. ​There might be cases where it's really important to ​know if one category in particular is different. ​For example, if you're building a roller coaster, ​you will be choosing among a couple of ​different material types based on their strengths. ​You really want to know if and ​how much the materials differ in strength. ​In this case, an ANOVA post-hoc tests can be helpful. ​An ANOVA post-hoc test performs a pairwise comparison ​between all available groups ​while controlling for the error rate. ​If you recall from learning about statistics, ​we have confidence intervals and ​p-values to quantify our uncertainty. ​There's always a small chance that we falsely reject ​the null hypothesis purely based on probability. ​Falsely rejecting the null hypothesis is ​sometimes referred to as Type 1 error. ​Typically, there's a 5% chance we've ​rejected the null hypothesis when it was actually true. ​But if we run a bunch of tests all with ​a 5% chance that we're ​incorrectly rejecting the null hypothesis, ​the chance that we've made a mistake multiplies. ​The odds that we've made at least one mistake ​increases very rapidly the more tests we perform. ​Post-hoc ANOVA test control ​for that increasing probability. ​One of the most common ANOVA post-hoc test ​is the Tukey's HSD, ​honestly significantly different. After performing ​ANOVA test, where you get ​statistically significant results, ​all you know is that ​at least one of the groups means are different. ​Tukey's HSD test will then compare ​all the pairs of groups and determine which pairs ​are different from one another while controlling for ​the fact that you're running ​multiple hypothesis tests all at once. ​Now let's return to the one-way ANOVA diamond example. ​Let's say you already have your packages imported from ​last time and you've saved ​the dataset as a DataFrame called diamonds, ​create the linear model again. ​You already know that there is ​a statistically significant relationship ​between color and price. ​Now, run the one-way ANOVA, just like before. ​Here, you can observe that ​the p-values are much smaller than ​0.05 so the results ​are statistically significant and therefore, ​you can reject the null hypothesis that ​the mean price is the same across all diamond colors. ​Now that you have significant results from an ANOVA test, ​you can run the Tukey's HSD post-hoc tests. ​First, import the Python function ​pairwise_tukey's HSD from SM. ​Next run the test. ​The endog variable indicates which ​variable is being compared across groups. ​The groups variable tells the function which ​variable holds the groups you're interested in. ​In this case, color. ​The Alpha variable tells the function ​the significance or confidence level you are testing for. ​You set alpha to 0.05 as ​you are aiming for a 95% confidence level. ​You can access the results of Tukey's test in two ways. ​One way is to use the summary function. ​You can also use the print function. ​In both cases, you can observe all of ​the pairwise comparisons between ​each pair of diamond color grades. ​There is an adjusted p-value column, ​a column with the lower and upper bound ​of the confidence intervals, ​as well as the column letting you know whether or ​not you can reject the null hypothesis. ​If the reject column reads false, ​then you cannot reject the null hypothesis. ​If the reject column reads true, ​then you can reject the null hypothesis. ​The null hypothesis is that ​the diamond prices between ​the two color grades are the same. ​But the Tukey's HSD test informs us that you can reject ​the null hypothesis with a p-value of 0.001. ​For example, the diamond price is not ​the same for H and I grade diamonds. ​Awesome job today. ​To recap, combining tests may seem like a complex task, ​but it's so powerful to have ​a wide set of tools to run analysis. ​We'll continue unpacking ANOVA and post-hoc tests ​in the course materials. ​As always, revisit any prior videos ​and readings as needed. ​You can do this. ​Good luck, and I look forward ​to joining you again next time. : Added to Selection. Press \[CTRL + S\] to save as a note : Added to Selection. Press \[CTRL + S\] to save as a note : Added to Selection. Press \[CTRL + S\] to save as a note

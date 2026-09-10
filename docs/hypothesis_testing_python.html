@@ -4774,29 +4774,53 @@ text-transform: uppercase;
       </div>
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Introduction to Regression</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./intro_to_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Regression</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Linear Regression</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Regression</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Logistic Regression</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./logistic_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Logistic Regression</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Simple Linear Regression</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./simple_linear_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simple Linear Regression</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Linear Regression with Python</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./linear_regression_with_python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Regression with Python</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Practice: Run simple linear regression</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./Exemplar_Run_simple_linear_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice: Run simple linear regression</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Practice: Perform multiple linear regression</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./Exemplar_Perform_multiple_linear_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practice: Perform multiple linear regression</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Advanced Hypothesis Testing</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./advanced_hypothesis_testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced Hypothesis Testing</span></a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
@@ -4814,13 +4838,13 @@ text-transform: uppercase;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Annotated_follow-along guide_Interpret_multiple_regression_results_with_Python.html" class="sidebar-item-text sidebar-link">
+  <a href="./Annotated_follow-along_guide_Interpret_multiple_regression_results_with_Python.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Annotated follow-along guide: Interpret multiple regression results with Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Annotated_follow-along_guide_ Explore_one-way_versus_two-way_ANOVA_tests_with_Python.html" class="sidebar-item-text sidebar-link">
+  <a href="./Annotated_follow-along_guide_Explore_one-way_versus_two-way_ANOVA_tests_with_Python.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Annotated follow-along guide: Explore one-way versus two-way ANOVA tests with Python</span></a>
   </div>
 </li>
@@ -4841,6 +4865,12 @@ text-transform: uppercase;
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Anexos Index</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Advanced_Data_Analytics_Certificate_glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
   </div>
 </li>
       </ul>
@@ -4880,7 +4910,7 @@ text-transform: uppercase;
 <p>For instance, an AB tests can ​help you decide if an observed difference in ​the average click rates is due to ​a specific change in website design or due to chance.</p>
 <p>​In this video, you will use Python to conduct ​a two-sample <span class="math inline">\(t\)</span>-test based on sample data. ​Python is helpful for conducting ​hypothesis tests with speed and accuracy. ​</p>
 <p>We’ll continue with our scenario ​from an earlier part of the course in ​which you’re a data professional working for ​the Department of Education of a large nation. ​Recall that you’re analyzing data on ​the literacy rate for each district. ​You’ll continue to use ​the data set you worked with before. ​If you need to access the data, do so now.</p>
-<div id="b2793957" class="cell" data-execution_count="1">
+<div id="37630aa1" class="cell" data-execution_count="1">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -4897,7 +4927,7 @@ text-transform: uppercase;
 <p>​This will help the department decide how to ​distribute government funding to improve literacy. ​If there is a statistically significant difference, ​the state with a lower literacy rate ​may receive more funding.</p>
 <p>​You can use Python to simulate ​taking a random sample of 20 districts in ​each state and conduct ​a two-sample <span class="math inline">\(t\)</span>-test based on the sample data.</p>
 <p>​To start filter your data frame for ​the district literacy rate data from the states, ​state 28 and state 21.</p>
-<div id="9541241c" class="cell" data-execution_count="2">
+<div id="c392b4ae" class="cell" data-execution_count="2">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>state21 <span class="op">=</span> education_districtwise[education_districtwise[<span class="st">&#39;STATNAME&#39;</span>] <span class="op">==</span> <span class="st">&quot;STATE21&quot;</span>]</span>
@@ -4918,61 +4948,64 @@ text-transform: uppercase;
 </ol>
 <p>When you sample without replacement from a relatively small population (like sampling 20 districts out of a state with ~40 total districts), your sample represents a massive chunk (50%) of the total population! When you sample <span class="math inline">\(\ge 5\%\)</span> of a finite population without replacement, the variance of your sample mean actually shrinks because you are getting close to measuring the full population.To do a mathematically rigorous <span class="math inline">\(t\)</span>-test without replacement on a small total population, you would have to apply an advanced formula adjustment called the Finite Population Correction (FPC) factor to shrink your standard error.By simulating the sampling with replacement (replace=True), your 20 draws behave as if they come from an infinite population, allowing you to use standard <span class="math inline">\(t\)</span>-test formulas without needing the extra FPC correction.</p>
 <p>In real life, when you sample without replacement from a finite population (like 20 unique districts out of 40), you actually still use the exact same two-sample <span class="math inline">\(t\)</span>-test!You don’t need a different test—you just need a slight mathematical adjustment to the Standard Error (<span class="math inline">\(SE\)</span>) formula if your sample size is a large fraction of the total population.</p>
-<p>In applied statistics, whether you need to adjust your test depends on how much of the total population you surveyed: - If your sample is LESS than 10% of the total population (<span class="math inline">\(n &lt; 0.1 N\)</span>): Ignore the fact that it’s without replacement! The population is so large that sampling without replacement makes virtually zero difference. Use the standard <span class="math inline">\(t\)</span>-test formula directly. <a href="sampling_theory.qmd#fpc-note">Finite Population Correction</a></p>
+<p>In applied statistics, whether you need to adjust your test depends on how much of the total population you surveyed: - If your sample is LESS than 10% of the total population (<span class="math inline">\(n &lt; 0.1 N\)</span>): Ignore the fact that it’s without replacement! The population is so large that sampling without replacement makes virtually zero difference. Use the standard <span class="math inline">\(t\)</span>-test formula directly. <a href="./sampling_distributions.html#fpc-note">Finite Population Correction</a></p>
 <p>The <span class="math inline">\(t\)</span>-test in python’s library stats do not cather for this nuance, so in this case you will have to compute your p value manually. Here is an example (note that this is not executable because it is not part of the course.)</p>
-<p>import numpy as np from scipy import stats</p>
-<section id="given-data-population-sizes" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Given Data &amp; Population Sizes</h1>
-</section>
-<section id="state-21-sampled-n120-out-of-n170-total" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> State 21: sampled n1=20 out of N1=70 total</h1>
-<p>s1 = sampled_state21[‘OVERALL_LI’] n1, N1 = len(s1), 70</p>
-</section>
-<section id="state-28-sampled-n220-out-of-n240-total" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> State 28: sampled n2=20 out of N2=40 total</h1>
-<p>s2 = sampled_state28[‘OVERALL_LI’] n2, N2 = len(s2), 40</p>
-</section>
-<section id="sample-means-and-sample-variances-ddof1-for-sample-variance-s2" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> 2. Sample Means and Sample Variances (ddof=1 for sample variance s^2)</h1>
-<p>m1, v1 = np.mean(s1), np.var(s1, ddof=1) m2, v2 = np.mean(s2), np.var(s2, ddof=1)</p>
-</section>
-<section id="compute-fpc-factors" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> 3. Compute FPC Factors</h1>
-<p>fpc1 = (N1 - n1) / (N1 - 1) fpc2 = (N2 - n2) / (N2 - 1)</p>
-</section>
-<section id="fpc-adjusted-standard-error" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> 4. FPC-Adjusted Standard Error</h1>
-<p>se_fpc = np.sqrt(fpc1 * (v1 / n1) + fpc2 * (v2 / n2))</p>
-</section>
-<section id="adjusted-t-statistic" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> 5. Adjusted t-statistic</h1>
-<p>t_stat = (m1 - m2) / se_fpc</p>
-</section>
-<section id="degrees-of-freedom-welch-satterthwaite-with-fpc-scaled-variance-terms" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> 6. Degrees of Freedom (Welch-Satterthwaite with FPC-scaled variance terms)</h1>
-<p>v1_adj = fpc1 * (v1 / n1) v2_adj = fpc2 * (v2 / n2) df_fpc = ((v1_adj + v2_adj)<strong>2) / ( (v1_adj</strong>2 / (n1 - 1)) + (v2_adj**2 / (n2 - 1)) )</p>
-</section>
-<section id="two-tailed-p-value-from-students-t-distribution" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> 7. Two-Tailed p-value from Student’s t-distribution</h1>
-<p>p_value = 2 * stats.t.sf(abs(t_stat), df=df_fpc)</p>
-<p>print(f”Adjusted SE: {se_fpc:.4f}“) print(f”Adjusted t-stat: {t_stat:.4f}“) print(f”Degrees of Freedom: {df_fpc:.2f}“) print(f”Two-Tailed p-value: {p_value:.4f}“)</p>
-</section>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {import numpy as np} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>from scipy import stats</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a># Given Data &amp; Population Sizes</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a># State 21: sampled n1=20 out of N1=70 total</span>
+<span id="cb3-6"><a href="#cb3-6"></a>s1 = sampled_state21[&quot;OVERALL_LI&quot;]</span>
+<span id="cb3-7"><a href="#cb3-7"></a>n1, N1 = len(s1), 70</span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a># State 28: sampled n2=20 out of N2=40 total</span>
+<span id="cb3-10"><a href="#cb3-10"></a>s2 = sampled_state28[&quot;OVERALL_LI&quot;]</span>
+<span id="cb3-11"><a href="#cb3-11"></a>n2, N2 = len(s2), 40</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a># 2. Sample Means and Sample Variances (ddof=1 for sample variance s^2)</span>
+<span id="cb3-14"><a href="#cb3-14"></a>m1, v1 = np.mean(s1), np.var(s1, ddof=1)</span>
+<span id="cb3-15"><a href="#cb3-15"></a>m2, v2 = np.mean(s2), np.var(s2, ddof=1)</span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a># 3. Compute FPC Factors</span>
+<span id="cb3-18"><a href="#cb3-18"></a>fpc1 = (N1 - n1) / (N1 - 1)</span>
+<span id="cb3-19"><a href="#cb3-19"></a>fpc2 = (N2 - n2) / (N2 - 1)</span>
+<span id="cb3-20"><a href="#cb3-20"></a></span>
+<span id="cb3-21"><a href="#cb3-21"></a># 4. FPC-Adjusted Standard Error</span>
+<span id="cb3-22"><a href="#cb3-22"></a>se_fpc = np.sqrt(fpc1 * (v1 / n1) + fpc2 * (v2 / n2))</span>
+<span id="cb3-23"><a href="#cb3-23"></a></span>
+<span id="cb3-24"><a href="#cb3-24"></a># 5. Adjusted t-statistic</span>
+<span id="cb3-25"><a href="#cb3-25"></a>t_stat = (m1 - m2) / se_fpc</span>
+<span id="cb3-26"><a href="#cb3-26"></a></span>
+<span id="cb3-27"><a href="#cb3-27"></a># 6. Degrees of Freedom (Welch-Satterthwaite with FPC-scaled variance terms)</span>
+<span id="cb3-28"><a href="#cb3-28"></a>v1_adj = fpc1 * (v1 / n1)</span>
+<span id="cb3-29"><a href="#cb3-29"></a>v2_adj = fpc2 * (v2 / n2)</span>
+<span id="cb3-30"><a href="#cb3-30"></a>df_fpc = ((v1_adj + v2_adj) ** 2) / (</span>
+<span id="cb3-31"><a href="#cb3-31"></a>    (v1_adj**2 / (n1 - 1)) + (v2_adj**2 / (n2 - 1))</span>
+<span id="cb3-32"><a href="#cb3-32"></a>)</span>
+<span id="cb3-33"><a href="#cb3-33"></a></span>
+<span id="cb3-34"><a href="#cb3-34"></a># 7. Two-Tailed p-value from Student&#39;s t-distribution</span>
+<span id="cb3-35"><a href="#cb3-35"></a>p_value = 2 * stats.t.sf(abs(t_stat), df=df_fpc)</span>
+<span id="cb3-36"><a href="#cb3-36"></a></span>
+<span id="cb3-37"><a href="#cb3-37"></a>print(f&quot;Adjusted SE: {se_fpc:.4f}&quot;)</span>
+<span id="cb3-38"><a href="#cb3-38"></a>print(f&quot;Adjusted t-stat: {t_stat:.4f}&quot;)</span>
+<span id="cb3-39"><a href="#cb3-39"></a>print(f&quot;Degrees of Freedom: {df_fpc:.2f}&quot;)</span>
+<span id="cb3-40"><a href="#cb3-40"></a>print(f&quot;Two-Tailed p-value: {p_value:.4f}&quot;)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f4b223d7" class="cell" data-execution_count="3">
+<div id="c448dea3" class="cell" data-execution_count="3">
 <details open class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>sampled_state21 <span class="op">=</span> state21.sample(n<span class="op">=</span><span class="dv">20</span>, replace <span class="op">=</span> <span class="va">True</span>, random_state<span class="op">=</span><span class="dv">13490</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>sampled_state28 <span class="op">=</span> state28.sample(n<span class="op">=</span><span class="dv">20</span>, replace <span class="op">=</span> <span class="va">True</span>, random_state<span class="op">=</span><span class="dv">39103</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>sampled_state21 <span class="op">=</span> state21.sample(n<span class="op">=</span><span class="dv">20</span>, replace <span class="op">=</span> <span class="va">True</span>, random_state<span class="op">=</span><span class="dv">13490</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>sampled_state28 <span class="op">=</span> state28.sample(n<span class="op">=</span><span class="dv">20</span>, replace <span class="op">=</span> <span class="va">True</span>, random_state<span class="op">=</span><span class="dv">39103</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>​Next, use the mean function to compute ​the mean district literacy rate for ​both state 21 and state 28.</p>
-<div id="6def10bb" class="cell" data-execution_count="4">
+<div id="11c2b85a" class="cell" data-execution_count="4">
 <details open class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>mean_state21 <span class="op">=</span> sampled_state21[<span class="st">&#39;OVERALL_LI&#39;</span>].mean()</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(mean_state21)</span>
-<span id="cb4-3"><a href="#cb4-3"></a>mean_state28 <span class="op">=</span> sampled_state28[<span class="st">&#39;OVERALL_LI&#39;</span>].mean()</span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="bu">print</span>(mean_state28)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>mean_state21 <span class="op">=</span> sampled_state21[<span class="st">&#39;OVERALL_LI&#39;</span>].mean()</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(mean_state21)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>mean_state28 <span class="op">=</span> sampled_state28[<span class="st">&#39;OVERALL_LI&#39;</span>].mean()</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="bu">print</span>(mean_state28)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>70.82900000000001
@@ -4996,12 +5029,12 @@ text-transform: uppercase;
 <p>​For a two-sample <span class="math inline">\(t\)</span>-test uses ​a scipy function (<code>stats.$t$-test_ind</code>) ​to compute your <span class="math inline">\(p\)</span>-value.</p>
 <p>​This function includes the following arguments; - a, ​refers to observations from your first sample, - b, ​refers to observations from your second sample, ​- equal_var is a Boolean or true-false statement, ​which indicates whether the population variance of ​the two samples is assumed to be equal. ​In our example, you don’t have ​access to data for the entire population, ​so you don’t want to assume anything about the variance. ​To avoid making a wrong assumption, ​set equal_var to false.</p>
 <p>​Now, you’re ready to write this all out in code.</p>
-<div id="af182ff9" class="cell" data-execution_count="5">
+<div id="609c0bac" class="cell" data-execution_count="5">
 <details open class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>stats.ttest_ind(a<span class="op">=</span>sampled_state21[<span class="st">&#39;OVERALL_LI&#39;</span>], b<span class="op">=</span>sampled_state28[<span class="st">&#39;OVERALL_LI&#39;</span>], equal_var<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>stats.ttest_ind(a<span class="op">=</span>sampled_state21[<span class="st">&#39;OVERALL_LI&#39;</span>], b<span class="op">=</span>sampled_state28[<span class="st">&#39;OVERALL_LI&#39;</span>], equal_var<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>TtestResult(statistic=np.float64(2.8980444277268735), pvalue=np.float64(0.006421719142765242), df=np.float64(35.20796133045557))</code></pre>
 </div>
 </div>
@@ -5015,17 +5048,17 @@ text-transform: uppercase;
 <hr>
 <div class="Extra">
 <p>Some of the following examples are used in the next practice, but were not explained in the lectures, so I included here a brief description, also included some more that were not used in the course at all</p>
-<section id="hypothesis-testing-in-python-beyond-the-two-sample-unpaired-t-test" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> <strong>Hypothesis Testing in Python: Beyond the Two-Sample Unpaired T-Test</strong></h1>
+<section id="hypothesis-testing-in-python-beyond-the-two-sample-unpaired-t-test" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> <strong>Hypothesis Testing in Python: Beyond the Two-Sample Unpaired T-Test</strong></h1>
 <p>While standard two-sample independent t-tests (such as scipy.stats.ttest_ind) are frequently introduced first, real-world data analysis requires selecting the right statistical test based on your variable types (continuous vs. categorical), group counts, target thresholds, and proportion comparisons.</p>
-<section id="summary-of-key-hypothesis-tests" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="summary-of-key-hypothesis-tests"><span class="header-section-number">10.1</span> <strong>Summary of Key Hypothesis Tests</strong></h2>
+<section id="summary-of-key-hypothesis-tests" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="summary-of-key-hypothesis-tests"><span class="header-section-number">1.1</span> <strong>Summary of Key Hypothesis Tests</strong></h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 37%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 29%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -5069,29 +5102,29 @@ text-transform: uppercase;
 </tbody>
 </table>
 </section>
-<section id="two-sample-independent-t-test-unpaired" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="two-sample-independent-t-test-unpaired"><span class="header-section-number">10.2</span> <strong>1. Two-Sample Independent t-Test (Unpaired)</strong></h2>
+<section id="two-sample-independent-t-test-unpaired" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="two-sample-independent-t-test-unpaired"><span class="header-section-number">1.2</span> Two-Sample Independent t-Test (Unpaired)</h2>
 <p><strong>Use Case:</strong> You want to compare the mean of a continuous numerical variable between two separate, non-overlapping groups.</p>
-<section id="example-comparing-la-county-aqi-vs.-rest-of-california" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="example-comparing-la-county-aqi-vs.-rest-of-california"><span class="header-section-number">10.2.1</span> <strong>Example: Comparing LA County AQI vs. Rest of California</strong></h3>
+<section id="example-comparing-la-county-aqi-vs.-rest-of-california" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="example-comparing-la-county-aqi-vs.-rest-of-california"><span class="header-section-number">1.2.1</span> <strong>Example: Comparing LA County AQI vs. Rest of California</strong></h3>
 <p>As seen in the lab exercise:</p>
-<div id="dc1166a9" class="cell" data-execution_count="6">
+<div id="98a2a7d4" class="cell" data-execution_count="6">
 <details open class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># Load sample data</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>aqi <span class="op">=</span> pd.read_csv(<span class="vs">r&#39;Datasets</span><span class="er">\</span><span class="vs">c4_epa_air_quality</span><span class="dv">.</span><span class="vs">csv&#39;</span>)</span>
-<span id="cb8-6"><a href="#cb8-6"></a></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># Subset independent groups</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a>ca_la <span class="op">=</span> aqi[aqi[<span class="st">&#39;county_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;Los Angeles&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
-<span id="cb8-9"><a href="#cb8-9"></a>ca_other <span class="op">=</span> aqi[(aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;California&#39;</span>) <span class="op">&amp;</span> (aqi[<span class="st">&#39;county_name&#39;</span>] <span class="op">!=</span> <span class="st">&#39;Los Angeles&#39;</span>)][<span class="st">&#39;aqi&#39;</span>]</span>
-<span id="cb8-10"><a href="#cb8-10"></a></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="co"># Perform Two-Sample Welch&#39;s t-test (equal_var=False handles unequal variances)</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a>tstat, pval <span class="op">=</span> stats.ttest_ind(a<span class="op">=</span>ca_la, b<span class="op">=</span>ca_other, equal_var<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb8-13"><a href="#cb8-13"></a></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># Load sample data</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>aqi <span class="op">=</span> pd.read_csv(<span class="vs">r&#39;Datasets</span><span class="er">\</span><span class="vs">c4_epa_air_quality</span><span class="dv">.</span><span class="vs">csv&#39;</span>)</span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co"># Subset independent groups</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>ca_la <span class="op">=</span> aqi[aqi[<span class="st">&#39;county_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;Los Angeles&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
+<span id="cb9-9"><a href="#cb9-9"></a>ca_other <span class="op">=</span> aqi[(aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;California&#39;</span>) <span class="op">&amp;</span> (aqi[<span class="st">&#39;county_name&#39;</span>] <span class="op">!=</span> <span class="st">&#39;Los Angeles&#39;</span>)][<span class="st">&#39;aqi&#39;</span>]</span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co"># Perform Two-Sample Welch&#39;s t-test (equal_var=False handles unequal variances)</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a>tstat, pval <span class="op">=</span> stats.ttest_ind(a<span class="op">=</span>ca_la, b<span class="op">=</span>ca_other, equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb9-13"><a href="#cb9-13"></a></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>t-statistic: 2.1107, p-value: 0.0498</code></pre>
@@ -5099,23 +5132,23 @@ text-transform: uppercase;
 </div>
 </section>
 </section>
-<section id="two-sample-independent-t-test-one-tailed" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="two-sample-independent-t-test-one-tailed"><span class="header-section-number">10.3</span> <strong>2. Two-Sample Independent t-Test (One-Tailed)</strong></h2>
+<section id="two-sample-independent-t-test-one-tailed" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="two-sample-independent-t-test-one-tailed"><span class="header-section-number">1.3</span> Two-Sample Independent t-Test (One-Tailed)</h2>
 <p><strong>Use Case:</strong> You have a specific directional hypothesis (e.g., Group A has a lower or higher mean than Group B) rather than just testing for any difference.</p>
-<section id="example-testing-if-new-york-has-a-lower-aqi-than-ohio" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="example-testing-if-new-york-has-a-lower-aqi-than-ohio"><span class="header-section-number">10.3.1</span> <strong>Example: Testing if New York has a lower AQI than Ohio</strong></h3>
+<section id="example-testing-if-new-york-has-a-lower-aqi-than-ohio" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="example-testing-if-new-york-has-a-lower-aqi-than-ohio"><span class="header-section-number">1.3.1</span> <strong>Example: Testing if New York has a lower AQI than Ohio</strong></h3>
 <p>As seen in the lab exercise:</p>
-<div id="862029e0" class="cell" data-execution_count="7">
+<div id="dc4b4007" class="cell" data-execution_count="7">
 <details open class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Subset independent groups</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>ny <span class="op">=</span> aqi[aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;New York&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
-<span id="cb10-3"><a href="#cb10-3"></a>ohio <span class="op">=</span> aqi[aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;Ohio&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
-<span id="cb10-4"><a href="#cb10-4"></a></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># Directional test: H_A is that NY mean &lt; Ohio mean</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>tstat, pval <span class="op">=</span> stats.ttest_ind(a<span class="op">=</span>ny, b<span class="op">=</span>ohio, alternative<span class="op">=</span><span class="st">&#39;less&#39;</span>, equal_var<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb10-7"><a href="#cb10-7"></a></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Subset independent groups</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>ny <span class="op">=</span> aqi[aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;New York&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
+<span id="cb11-3"><a href="#cb11-3"></a>ohio <span class="op">=</span> aqi[aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;Ohio&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co"># Directional test: H_A is that NY mean &lt; Ohio mean</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>tstat, pval <span class="op">=</span> stats.ttest_ind(a<span class="op">=</span>ny, b<span class="op">=</span>ohio, alternative<span class="op">=</span><span class="st">&#39;less&#39;</span>, equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-7"><a href="#cb11-7"></a></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>t-statistic: -2.0260, p-value: 0.0304</code></pre>
@@ -5123,23 +5156,23 @@ text-transform: uppercase;
 </div>
 </section>
 </section>
-<section id="one-sample-t-test" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="one-sample-t-test"><span class="header-section-number">10.4</span> <strong>3. One-Sample t-Test</strong></h2>
+<section id="one-sample-t-test" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="one-sample-t-test"><span class="header-section-number">1.4</span> One-Sample t-Test</h2>
 <p><strong>Use Case:</strong> You want to evaluate whether a single sample’s mean significantly differs from a known population mean or specific policy benchmark.</p>
-<section id="example-testing-if-michigans-aqi-exceeds-a-threshold-of-10" class="level3" data-number="10.4.1">
-<h3 data-number="10.4.1" class="anchored" data-anchor-id="example-testing-if-michigans-aqi-exceeds-a-threshold-of-10"><span class="header-section-number">10.4.1</span> <strong>Example: Testing if Michigan’s AQI exceeds a threshold of 10</strong></h3>
+<section id="example-testing-if-michigans-aqi-exceeds-a-threshold-of-10" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="example-testing-if-michigans-aqi-exceeds-a-threshold-of-10"><span class="header-section-number">1.4.1</span> <strong>Example: Testing if Michigan’s AQI exceeds a threshold of 10</strong></h3>
 <p>As seen in the lab exercise:</p>
-<div id="d048928e" class="cell" data-execution_count="8">
+<div id="98522f76" class="cell" data-execution_count="8">
 <details open class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Example measurements from 10 monitoring sites before and after a clean air initiative</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>aqi_before <span class="op">=</span> [<span class="fl">18.2</span>, <span class="fl">14.5</span>, <span class="fl">22.1</span>, <span class="fl">19.8</span>, <span class="fl">12.4</span>, <span class="fl">25.0</span>, <span class="fl">16.3</span>, <span class="fl">11.9</span>, <span class="fl">21.4</span>, <span class="fl">17.6</span>]</span>
-<span id="cb12-3"><a href="#cb12-3"></a>aqi_after  <span class="op">=</span> [<span class="fl">14.1</span>, <span class="fl">13.0</span>, <span class="fl">18.5</span>, <span class="fl">15.2</span>, <span class="fl">11.0</span>, <span class="fl">19.8</span>, <span class="fl">14.0</span>, <span class="fl">10.5</span>, <span class="fl">17.2</span>, <span class="fl">15.0</span>]</span>
-<span id="cb12-4"><a href="#cb12-4"></a></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="co"># Perform Paired t-test</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>tstat, pval <span class="op">=</span> stats.ttest_rel(aqi_before, aqi_after, alternative<span class="op">=</span><span class="st">&#39;greater&#39;</span>)</span>
-<span id="cb12-7"><a href="#cb12-7"></a></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Example measurements from 10 monitoring sites before and after a clean air initiative</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>aqi_before <span class="op">=</span> [<span class="fl">18.2</span>, <span class="fl">14.5</span>, <span class="fl">22.1</span>, <span class="fl">19.8</span>, <span class="fl">12.4</span>, <span class="fl">25.0</span>, <span class="fl">16.3</span>, <span class="fl">11.9</span>, <span class="fl">21.4</span>, <span class="fl">17.6</span>]</span>
+<span id="cb13-3"><a href="#cb13-3"></a>aqi_after  <span class="op">=</span> [<span class="fl">14.1</span>, <span class="fl">13.0</span>, <span class="fl">18.5</span>, <span class="fl">15.2</span>, <span class="fl">11.0</span>, <span class="fl">19.8</span>, <span class="fl">14.0</span>, <span class="fl">10.5</span>, <span class="fl">17.2</span>, <span class="fl">15.0</span>]</span>
+<span id="cb13-4"><a href="#cb13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co"># Perform Paired t-test</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>tstat, pval <span class="op">=</span> stats.ttest_rel(aqi_before, aqi_after, alternative<span class="op">=</span><span class="st">&#39;greater&#39;</span>)</span>
+<span id="cb13-7"><a href="#cb13-7"></a></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>t-statistic: 6.8434, p-value: 0.0000</code></pre>
@@ -5147,25 +5180,25 @@ text-transform: uppercase;
 </div>
 </section>
 </section>
-<section id="paired-samples-t-test-dependent-samples" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="paired-samples-t-test-dependent-samples"><span class="header-section-number">10.5</span> <strong>4. Paired Samples t-Test (Dependent Samples)</strong></h2>
+<section id="paired-samples-t-test-dependent-samples" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="paired-samples-t-test-dependent-samples"><span class="header-section-number">1.5</span> Paired Samples t-Test (Dependent Samples)</h2>
 <p><strong>Use Case:</strong> You measure the same continuous variable twice on the same subjects (e.g., before and after a treatment or policy change).</p>
-<section id="example-aqi-at-identical-monitoring-stations-before-and-after-policy-implementation" class="level3" data-number="10.5.1">
-<h3 data-number="10.5.1" class="anchored" data-anchor-id="example-aqi-at-identical-monitoring-stations-before-and-after-policy-implementation"><span class="header-section-number">10.5.1</span> <strong>Example: AQI at identical monitoring stations before and after policy implementation</strong></h3>
-<div id="40cd01e4" class="cell" data-execution_count="9">
+<section id="example-aqi-at-identical-monitoring-stations-before-and-after-policy-implementation" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="example-aqi-at-identical-monitoring-stations-before-and-after-policy-implementation"><span class="header-section-number">1.5.1</span> Example: AQI at identical monitoring stations before and after policy implementation</h3>
+<div id="1820f023" class="cell" data-execution_count="9">
 <details open class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
-<span id="cb14-2"><a href="#cb14-2"></a></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="co"># 35 out of 120 sampled days were classified as &quot;Unhealthy&quot;</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a>count <span class="op">=</span> <span class="dv">35</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a>nobs <span class="op">=</span> <span class="dv">120</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a>value <span class="op">=</span> <span class="fl">0.20</span>  <span class="co"># Baseline hypothesis threshold (20%)</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="co"># H0: p &lt;= 0.20 vs HA: p &gt; 0.20</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>count, nobs<span class="op">=</span>nobs, value<span class="op">=</span>value, alternative<span class="op">=</span><span class="st">&#39;larger&#39;</span>)</span>
-<span id="cb14-10"><a href="#cb14-10"></a></span>
-<span id="cb14-11"><a href="#cb14-11"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="co"># 35 out of 120 sampled days were classified as &quot;Unhealthy&quot;</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>count <span class="op">=</span> <span class="dv">35</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>nobs <span class="op">=</span> <span class="dv">120</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>value <span class="op">=</span> <span class="fl">0.20</span>  <span class="co"># Baseline hypothesis threshold (20%)</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a></span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="co"># H0: p &lt;= 0.20 vs HA: p &gt; 0.20</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>count, nobs<span class="op">=</span>nobs, value<span class="op">=</span>value, alternative<span class="op">=</span><span class="st">&#39;larger&#39;</span>)</span>
+<span id="cb15-10"><a href="#cb15-10"></a></span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Z-statistic: 2.2092, p-value: 0.0136</code></pre>
@@ -5173,25 +5206,25 @@ text-transform: uppercase;
 </div>
 </section>
 </section>
-<section id="one-proportion-z-test" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="one-proportion-z-test"><span class="header-section-number">10.6</span> <strong>5. One-Proportion Z-Test</strong></h2>
+<section id="one-proportion-z-test" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="one-proportion-z-test"><span class="header-section-number">1.6</span> One-Proportion Z-Test</h2>
 <p><strong>Use Case:</strong> You have a single categorical (binary) variable and want to test if the proportion of successes differs from a baseline proportion $p_0$.</p>
-<section id="example-testing-if-the-proportion-of-unhealthy-air-days-in-a-city-exceeds-20" class="level3" data-number="10.6.1">
-<h3 data-number="10.6.1" class="anchored" data-anchor-id="example-testing-if-the-proportion-of-unhealthy-air-days-in-a-city-exceeds-20"><span class="header-section-number">10.6.1</span> <strong>Example: Testing if the proportion of “Unhealthy Air Days” in a city exceeds 20%</strong></h3>
-<div id="f8919d89" class="cell" data-execution_count="10">
+<section id="example-testing-if-the-proportion-of-unhealthy-air-days-in-a-city-exceeds-20" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="example-testing-if-the-proportion-of-unhealthy-air-days-in-a-city-exceeds-20"><span class="header-section-number">1.6.1</span> <strong>Example: Testing if the proportion of “Unhealthy Air Days” in a city exceeds 20%</strong></h3>
+<div id="e996f217" class="cell" data-execution_count="10">
 <details open class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
-<span id="cb16-2"><a href="#cb16-2"></a></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="co"># 35 out of 120 sampled days were classified as &quot;Unhealthy&quot;</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a>count <span class="op">=</span> <span class="dv">35</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a>nobs <span class="op">=</span> <span class="dv">120</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a>value <span class="op">=</span> <span class="fl">0.20</span>  <span class="co"># Baseline hypothesis threshold (20%)</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a></span>
-<span id="cb16-8"><a href="#cb16-8"></a><span class="co"># H0: p &lt;= 0.20 vs HA: p &gt; 0.20</span></span>
-<span id="cb16-9"><a href="#cb16-9"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>count, nobs<span class="op">=</span>nobs, value<span class="op">=</span>value, alternative<span class="op">=</span><span class="st">&#39;larger&#39;</span>)</span>
-<span id="cb16-10"><a href="#cb16-10"></a></span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
+<span id="cb17-2"><a href="#cb17-2"></a></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="co"># 35 out of 120 sampled days were classified as &quot;Unhealthy&quot;</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>count <span class="op">=</span> <span class="dv">35</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>nobs <span class="op">=</span> <span class="dv">120</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>value <span class="op">=</span> <span class="fl">0.20</span>  <span class="co"># Baseline hypothesis threshold (20%)</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="co"># H0: p &lt;= 0.20 vs HA: p &gt; 0.20</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>count, nobs<span class="op">=</span>nobs, value<span class="op">=</span>value, alternative<span class="op">=</span><span class="st">&#39;larger&#39;</span>)</span>
+<span id="cb17-10"><a href="#cb17-10"></a></span>
+<span id="cb17-11"><a href="#cb17-11"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Z-statistic: 2.2092, p-value: 0.0136</code></pre>
@@ -5199,26 +5232,26 @@ text-transform: uppercase;
 </div>
 </section>
 </section>
-<section id="two-proportion-z-test" class="level2" data-number="10.7">
-<h2 data-number="10.7" class="anchored" data-anchor-id="two-proportion-z-test"><span class="header-section-number">10.7</span> <strong>6. Two-Proportion Z-Test</strong></h2>
+<section id="two-proportion-z-test" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="two-proportion-z-test"><span class="header-section-number">1.7</span> Two-Proportion Z-Test</h2>
 <p><strong>Use Case:</strong> You want to compare the proportion of a binary outcome between two independent groups (e.g., comparing compliance or success rates between two states or test variants).</p>
-<section id="example-comparing-high-pollution-day-rates-between-state-a-and-state-b" class="level3" data-number="10.7.1">
-<h3 data-number="10.7.1" class="anchored" data-anchor-id="example-comparing-high-pollution-day-rates-between-state-a-and-state-b"><span class="header-section-number">10.7.1</span> <strong>Example: Comparing high-pollution day rates between State A and State B</strong></h3>
-<div id="30ce9a24" class="cell" data-execution_count="11">
+<section id="example-comparing-high-pollution-day-rates-between-state-a-and-state-b" class="level3" data-number="1.7.1">
+<h3 data-number="1.7.1" class="anchored" data-anchor-id="example-comparing-high-pollution-day-rates-between-state-a-and-state-b"><span class="header-section-number">1.7.1</span> Example: Comparing high-pollution day rates between State A and State B</h3>
+<div id="6561d650" class="cell" data-execution_count="11">
 <details open class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
-<span id="cb18-3"><a href="#cb18-3"></a></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># State A: 45 high-pollution days out of 200 total samples</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="co"># State B: 25 high-pollution days out of 180 total samples</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a>counts <span class="op">=</span> np.array([<span class="dv">45</span>, <span class="dv">25</span>])</span>
-<span id="cb18-7"><a href="#cb18-7"></a>nobs <span class="op">=</span> np.array([<span class="dv">200</span>, <span class="dv">180</span>])</span>
-<span id="cb18-8"><a href="#cb18-8"></a></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="co"># Two-tailed test comparing proportions</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>counts, nobs<span class="op">=</span>nobs, alternative<span class="op">=</span><span class="st">&#39;two-sided&#39;</span>)</span>
-<span id="cb18-11"><a href="#cb18-11"></a></span>
-<span id="cb18-12"><a href="#cb18-12"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># State A: 45 high-pollution days out of 200 total samples</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="co"># State B: 25 high-pollution days out of 180 total samples</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>counts <span class="op">=</span> np.array([<span class="dv">45</span>, <span class="dv">25</span>])</span>
+<span id="cb19-7"><a href="#cb19-7"></a>nobs <span class="op">=</span> np.array([<span class="dv">200</span>, <span class="dv">180</span>])</span>
+<span id="cb19-8"><a href="#cb19-8"></a></span>
+<span id="cb19-9"><a href="#cb19-9"></a><span class="co"># Two-tailed test comparing proportions</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>counts, nobs<span class="op">=</span>nobs, alternative<span class="op">=</span><span class="st">&#39;two-sided&#39;</span>)</span>
+<span id="cb19-11"><a href="#cb19-11"></a></span>
+<span id="cb19-12"><a href="#cb19-12"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Z-statistic: 2.1621, p-value: 0.0306</code></pre>
@@ -5684,331 +5717,332 @@ text-transform: uppercase;
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb20" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">---</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="an">title:</span><span class="co"> Use Python to conduct a hypothesis test</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="co">---</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a></span>
-<span id="cb20-7"><a href="#cb20-7"></a>Recently, we talked about how did professionals ​use two-sample hypothesis test to determine ​whether the difference between two sample means is ​statistically significant or due to chance.</span>
-<span id="cb20-8"><a href="#cb20-8"></a></span>
-<span id="cb20-9"><a href="#cb20-9"></a>​Two-sample tests are especially useful for AB tests, ​which often sample two groups ​of users to compare how they ​respond to different versions of a product or website. ​</span>
-<span id="cb20-10"><a href="#cb20-10"></a></span>
-<span id="cb20-11"><a href="#cb20-11"></a>For instance, an AB tests can ​help you decide if an observed difference in ​the average click rates is due to ​a specific change in website design or due to chance.</span>
-<span id="cb20-12"><a href="#cb20-12"></a></span>
-<span id="cb20-13"><a href="#cb20-13"></a>​In this video, you will use Python to conduct ​a two-sample $t$-test based on sample data. ​Python is helpful for conducting ​hypothesis tests with speed and accuracy. ​</span>
-<span id="cb20-14"><a href="#cb20-14"></a></span>
-<span id="cb20-15"><a href="#cb20-15"></a>We&#39;ll continue with our scenario ​from an earlier part of the course in ​which you&#39;re a data professional working for ​the Department of Education of a large nation. ​Recall that you&#39;re analyzing data on ​the literacy rate for each district. ​You&#39;ll continue to use ​the data set you worked with before. ​If you need to access the data, do so now.</span>
-<span id="cb20-16"><a href="#cb20-16"></a></span>
-<span id="cb20-19"><a href="#cb20-19"></a><span class="in">```{python}</span></span>
-<span id="cb20-20"><a href="#cb20-20"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb20-21"><a href="#cb20-21"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
-<span id="cb20-22"><a href="#cb20-22"></a></span>
-<span id="cb20-23"><a href="#cb20-23"></a>education_districtwise <span class="op">=</span> pd.read_csv(<span class="vs">r&quot;Datasets/education_districtwise</span><span class="dv">.</span><span class="vs">csv&quot;</span>)</span>
-<span id="cb20-24"><a href="#cb20-24"></a>education_districtwise <span class="op">=</span> education_districtwise.dropna()</span>
-<span id="cb20-25"><a href="#cb20-25"></a><span class="in">```</span></span>
-<span id="cb20-26"><a href="#cb20-26"></a></span>
-<span id="cb20-27"><a href="#cb20-27"></a>​For this video, we&#39;ll make a new change to our story. ​Imagine that the Department of Education ​asks you to collect data on ​mean district literacy rates for ​two of the nation&#39;s largest states, ​state 21 and state 28.</span>
-<span id="cb20-28"><a href="#cb20-28"></a></span>
-<span id="cb20-29"><a href="#cb20-29"></a>​State 28 has almost 40 districts, ​and state 21 has more than 70.</span>
-<span id="cb20-30"><a href="#cb20-30"></a></span>
-<span id="cb20-31"><a href="#cb20-31"></a>​Due to limited time and resources, ​you are only able to survey ​20 randomly chosen districts in each state.</span>
-<span id="cb20-32"><a href="#cb20-32"></a></span>
-<span id="cb20-33"><a href="#cb20-33"></a>​The department however asks you ​to determine if the difference between ​the two mean district literature rates is ​statistically significant or due to chance.</span>
-<span id="cb20-34"><a href="#cb20-34"></a></span>
-<span id="cb20-35"><a href="#cb20-35"></a>​This will help the department decide how to ​distribute government funding to improve literacy. ​If there is a statistically significant difference, ​the state with a lower literacy rate ​may receive more funding.</span>
-<span id="cb20-36"><a href="#cb20-36"></a></span>
-<span id="cb20-37"><a href="#cb20-37"></a>​You can use Python to simulate ​taking a random sample of 20 districts in ​each state and conduct ​a two-sample $t$-test based on the sample data.</span>
-<span id="cb20-38"><a href="#cb20-38"></a></span>
-<span id="cb20-39"><a href="#cb20-39"></a>​To start filter your data frame for ​the district literacy rate data from the states, ​state 28 and state 21.</span>
-<span id="cb20-40"><a href="#cb20-40"></a></span>
-<span id="cb20-43"><a href="#cb20-43"></a><span class="in">```{python}</span></span>
-<span id="cb20-44"><a href="#cb20-44"></a>state21 <span class="op">=</span> education_districtwise[education_districtwise[<span class="st">&#39;STATNAME&#39;</span>] <span class="op">==</span> <span class="st">&quot;STATE21&quot;</span>]</span>
-<span id="cb20-45"><a href="#cb20-45"></a>state28 <span class="op">=</span> education_districtwise[education_districtwise[<span class="st">&#39;STATNAME&#39;</span>] <span class="op">==</span> <span class="st">&quot;STATE28&quot;</span>]</span>
-<span id="cb20-46"><a href="#cb20-46"></a><span class="in">```</span></span>
-<span id="cb20-47"><a href="#cb20-47"></a></span>
-<span id="cb20-48"><a href="#cb20-48"></a>​Now that you&#39;ve organized your data, ​use Python to simulate random sampling. ​Use the sample function to take ​a random sample of 20 districts from each state.</span>
-<span id="cb20-49"><a href="#cb20-49"></a></span>
-<span id="cb20-50"><a href="#cb20-50"></a>​First, name a variable ​called sampled underscore state 21, ​then enter the arguments of the sample function, ​n, the sample size equals 20, ​replace equals true because you&#39;re sampling with ​replacement for random underscore state, ​choose an arbitrary number for ​the random seed to start ​the computer&#39;s random number generator. ​How about 13,490? ​Recall that using the same random seed ​lets you generate the same set of ​random numbers in case you want to ​return to this sample data in the future. ​Now, name another variable sampled, underscore state 28, ​follow the same procedure, ​but this time choose ​a different number for the random seed. ​How about 39,103? ​You now have two random samples of 20 districts, ​one sample for each state.</span>
-<span id="cb20-51"><a href="#cb20-51"></a></span>
-<span id="cb20-52"><a href="#cb20-52"></a>::: extra</span>
-<span id="cb20-53"><a href="#cb20-53"></a>if you are physically surveying 20 actual school districts in a state, you would never visit the exact same district twice and survey it again.However, in this Python code, setting replace=True is done for two specific reasons:</span>
-<span id="cb20-54"><a href="#cb20-54"></a></span>
-<span id="cb20-55"><a href="#cb20-55"></a><span class="ss">1.  </span>Statistical Independence (The Assumptions of the $t$-Test) A standard two-sample $t$-test assumes that every observation in your sample is independent of every other observation.</span>
-<span id="cb20-56"><a href="#cb20-56"></a></span>
-<span id="cb20-57"><a href="#cb20-57"></a>Sampling With Replacement (replace=True): The probability of selecting any given district remains identical on every single draw. This mathematically guarantees strict independence, matching the exact theoretical assumptions of standard hypothesis tests and the Central Limit Theorem.</span>
-<span id="cb20-58"><a href="#cb20-58"></a></span>
-<span id="cb20-59"><a href="#cb20-59"></a>Sampling Without Replacement (replace=False): Every time you pick a district, the pool of remaining districts gets smaller. The remaining districts now have a slightly higher probability of being picked on the next draw, which introduces a small mathematical dependency between draws.</span>
-<span id="cb20-60"><a href="#cb20-60"></a></span>
-<span id="cb20-61"><a href="#cb20-61"></a><span class="ss">2.  </span>The Finite Population Correction Factor</span>
-<span id="cb20-62"><a href="#cb20-62"></a></span>
-<span id="cb20-63"><a href="#cb20-63"></a>When you sample without replacement from a relatively small population (like sampling 20 districts out of a state with \~40 total districts), your sample represents a massive chunk (50%) of the total population! When you sample $\ge 5\%$ of a finite population without replacement, the variance of your sample mean actually shrinks because you are getting close to measuring the full population.To do a mathematically rigorous $t$-test without replacement on a small total population, you would have to apply an advanced formula adjustment called the Finite Population Correction (FPC) factor to shrink your standard error.By simulating the sampling with replacement (replace=True), your 20 draws behave as if they come from an infinite population, allowing you to use standard $t$-test formulas without needing the extra FPC correction.</span>
-<span id="cb20-64"><a href="#cb20-64"></a></span>
-<span id="cb20-65"><a href="#cb20-65"></a>In real life, when you sample without replacement from a finite population (like 20 unique districts out of 40), you actually still use the exact same two-sample $t$-test!You don&#39;t need a different test—you just need a slight mathematical adjustment to the Standard Error ($SE$) formula if your sample size is a large fraction of the total population.</span>
-<span id="cb20-66"><a href="#cb20-66"></a></span>
-<span id="cb20-67"><a href="#cb20-67"></a>In applied statistics, whether you need to adjust your test depends on how much of the total population you surveyed: - If your sample is LESS than 10% of the total population ($n &lt; 0.1 N$): Ignore the fact that it&#39;s without replacement! The population is so large that sampling without replacement makes virtually zero difference. Use the standard $t$-test formula directly. <span class="co">[</span><span class="ot">Finite Population Correction</span><span class="co">](sampling_theory.qmd#fpc-note)</span></span>
-<span id="cb20-68"><a href="#cb20-68"></a></span>
-<span id="cb20-69"><a href="#cb20-69"></a>The $t$-test in python&#39;s library stats do not cather for this nuance, so in this case you will have to compute your p value manually. Here is an example (note that this is not executable because it is not part of the course.)</span>
-<span id="cb20-70"><a href="#cb20-70"></a></span>
-<span id="cb20-71"><a href="#cb20-71"></a>import numpy as np from scipy import stats</span>
-<span id="cb20-72"><a href="#cb20-72"></a></span>
-<span id="cb20-73"><a href="#cb20-73"></a><span class="fu"># 1. Given Data &amp; Population Sizes</span></span>
-<span id="cb20-74"><a href="#cb20-74"></a></span>
-<span id="cb20-75"><a href="#cb20-75"></a><span class="fu"># State 21: sampled n1=20 out of N1=70 total</span></span>
-<span id="cb20-76"><a href="#cb20-76"></a></span>
-<span id="cb20-77"><a href="#cb20-77"></a>s1 = sampled_state21<span class="sc">\[</span>&#39;OVERALL_LI&#39;<span class="sc">\]</span> n1, N1 = len(s1), 70</span>
-<span id="cb20-78"><a href="#cb20-78"></a></span>
-<span id="cb20-79"><a href="#cb20-79"></a><span class="fu"># State 28: sampled n2=20 out of N2=40 total</span></span>
-<span id="cb20-80"><a href="#cb20-80"></a></span>
-<span id="cb20-81"><a href="#cb20-81"></a>s2 = sampled_state28<span class="sc">\[</span>&#39;OVERALL_LI&#39;<span class="sc">\]</span> n2, N2 = len(s2), 40</span>
-<span id="cb20-82"><a href="#cb20-82"></a></span>
-<span id="cb20-83"><a href="#cb20-83"></a><span class="fu"># 2. Sample Means and Sample Variances (ddof=1 for sample variance s\^2)</span></span>
-<span id="cb20-84"><a href="#cb20-84"></a></span>
-<span id="cb20-85"><a href="#cb20-85"></a>m1, v1 = np.mean(s1), np.var(s1, ddof=1) m2, v2 = np.mean(s2), np.var(s2, ddof=1)</span>
-<span id="cb20-86"><a href="#cb20-86"></a></span>
-<span id="cb20-87"><a href="#cb20-87"></a><span class="fu"># 3. Compute FPC Factors</span></span>
-<span id="cb20-88"><a href="#cb20-88"></a></span>
-<span id="cb20-89"><a href="#cb20-89"></a>fpc1 = (N1 - n1) / (N1 - 1) fpc2 = (N2 - n2) / (N2 - 1)</span>
-<span id="cb20-90"><a href="#cb20-90"></a></span>
-<span id="cb20-91"><a href="#cb20-91"></a><span class="fu"># 4. FPC-Adjusted Standard Error</span></span>
-<span id="cb20-92"><a href="#cb20-92"></a></span>
-<span id="cb20-93"><a href="#cb20-93"></a>se_fpc = np.sqrt(fpc1 <span class="sc">\*</span> (v1 / n1) + fpc2 <span class="sc">\*</span> (v2 / n2))</span>
-<span id="cb20-94"><a href="#cb20-94"></a></span>
-<span id="cb20-95"><a href="#cb20-95"></a><span class="fu"># 5. Adjusted t-statistic</span></span>
-<span id="cb20-96"><a href="#cb20-96"></a></span>
-<span id="cb20-97"><a href="#cb20-97"></a>t_stat = (m1 - m2) / se_fpc</span>
-<span id="cb20-98"><a href="#cb20-98"></a></span>
-<span id="cb20-99"><a href="#cb20-99"></a><span class="fu"># 6. Degrees of Freedom (Welch-Satterthwaite with FPC-scaled variance terms)</span></span>
-<span id="cb20-100"><a href="#cb20-100"></a></span>
-<span id="cb20-101"><a href="#cb20-101"></a>v1_adj = fpc1 <span class="sc">\*</span> (v1 / n1) v2_adj = fpc2 <span class="sc">\*</span> (v2 / n2) df_fpc = ((v1_adj + v2_adj)**2) / ( (v1_adj**2 / (n1 - 1)) + (v2_adj<span class="sc">\*\*</span>2 / (n2 - 1)) )</span>
-<span id="cb20-102"><a href="#cb20-102"></a></span>
-<span id="cb20-103"><a href="#cb20-103"></a><span class="fu"># 7. Two-Tailed p-value from Student&#39;s t-distribution</span></span>
-<span id="cb20-104"><a href="#cb20-104"></a></span>
-<span id="cb20-105"><a href="#cb20-105"></a>p_value = 2 <span class="sc">\*</span> stats.t.sf(abs(t_stat), df=df_fpc)</span>
-<span id="cb20-106"><a href="#cb20-106"></a></span>
-<span id="cb20-107"><a href="#cb20-107"></a>print(f&quot;Adjusted SE: {se_fpc:.4f}&quot;) print(f&quot;Adjusted t-stat: {t_stat:.4f}&quot;) print(f&quot;Degrees of Freedom: {df_fpc:.2f}&quot;) print(f&quot;Two-Tailed p-value: {p_value:.4f}&quot;)</span>
-<span id="cb20-108"><a href="#cb20-108"></a>:::</span>
-<span id="cb20-109"><a href="#cb20-109"></a></span>
-<span id="cb20-112"><a href="#cb20-112"></a><span class="in">```{python}</span></span>
-<span id="cb20-113"><a href="#cb20-113"></a>sampled_state21 <span class="op">=</span> state21.sample(n<span class="op">=</span><span class="dv">20</span>, replace <span class="op">=</span> <span class="va">True</span>, random_state<span class="op">=</span><span class="dv">13490</span>)</span>
-<span id="cb20-114"><a href="#cb20-114"></a>sampled_state28 <span class="op">=</span> state28.sample(n<span class="op">=</span><span class="dv">20</span>, replace <span class="op">=</span> <span class="va">True</span>, random_state<span class="op">=</span><span class="dv">39103</span>)</span>
-<span id="cb20-115"><a href="#cb20-115"></a><span class="in">```</span></span>
-<span id="cb20-116"><a href="#cb20-116"></a></span>
-<span id="cb20-117"><a href="#cb20-117"></a>​Next, use the mean function to compute ​the mean district literacy rate for ​both state 21 and state 28.</span>
-<span id="cb20-118"><a href="#cb20-118"></a></span>
-<span id="cb20-121"><a href="#cb20-121"></a><span class="in">```{python}</span></span>
-<span id="cb20-122"><a href="#cb20-122"></a>mean_state21 <span class="op">=</span> sampled_state21[<span class="st">&#39;OVERALL_LI&#39;</span>].mean()</span>
-<span id="cb20-123"><a href="#cb20-123"></a><span class="bu">print</span>(mean_state21)</span>
-<span id="cb20-124"><a href="#cb20-124"></a>mean_state28 <span class="op">=</span> sampled_state28[<span class="st">&#39;OVERALL_LI&#39;</span>].mean()</span>
-<span id="cb20-125"><a href="#cb20-125"></a><span class="bu">print</span>(mean_state28)</span>
-<span id="cb20-126"><a href="#cb20-126"></a><span class="in">```</span></span>
-<span id="cb20-127"><a href="#cb20-127"></a></span>
-<span id="cb20-128"><a href="#cb20-128"></a>​State 21 has a mean district literacy rate ​of about 70.8 percent, ​while state 28 has ​a mean district literacy rate of about 64.6 percent.</span>
-<span id="cb20-129"><a href="#cb20-129"></a></span>
-<span id="cb20-130"><a href="#cb20-130"></a>​Based on your sample data, ​the observed difference between ​the mean district literacy rates of ​state 21 and state 28 is ​6.2 percentage points or 70.8 minus 64.6.</span>
-<span id="cb20-131"><a href="#cb20-131"></a></span>
-<span id="cb20-132"><a href="#cb20-132"></a>​At this point, you might want to conclude that state ​21 has a higher overall literacy rate than state 28. ​However, you don&#39;t want to ​assume the results of your hypothesis test ahead of time. ​The observed difference in your sample might be ​due to chance or sampling variability. ​In other words, the difference might not be due to ​an actual difference in ​the corresponding population means. ​Is the observed difference ​statistically significant or due to chance?</span>
-<span id="cb20-133"><a href="#cb20-133"></a></span>
-<span id="cb20-134"><a href="#cb20-134"></a>​Your hypothesis test will help you determine the answer. ​Now that you&#39;ve organized your data ​and simulated random sampling, ​you&#39;re ready to conduct your hypothesis test.</span>
-<span id="cb20-135"><a href="#cb20-135"></a></span>
-<span id="cb20-136"><a href="#cb20-136"></a>​Recall that the two-sample $t$-test is ​the standard approach for comparing ​the means of two independent samples. ​Let&#39;s review the steps for conducting a hypothesis test.</span>
-<span id="cb20-137"><a href="#cb20-137"></a></span>
-<span id="cb20-138"><a href="#cb20-138"></a>First, state the null and alternative hypothesis. ​Second, choose a significance level. ​Third, find the $p$-value. ​Forth, reject or fail to reject the null hypothesis. ​</span>
-<span id="cb20-139"><a href="#cb20-139"></a></span>
-<span id="cb20-140"><a href="#cb20-140"></a>First, state your null hypothesis ​and alternative hypothesis. ​ In a two-sample $t$-test, ​the null hypothesis states that there is ​no difference between the means, of two groups. ​This is assumed to be true unless ​there&#39;s convincing evidence to the contrary.</span>
-<span id="cb20-141"><a href="#cb20-141"></a></span>
-<span id="cb20-142"><a href="#cb20-142"></a>​For your null hypothesis, you say, ​&quot;There&#39;s no difference in ​the mean district literacy rates ​between State 21 and State 28.&quot;</span>
-<span id="cb20-143"><a href="#cb20-143"></a></span>
-<span id="cb20-144"><a href="#cb20-144"></a>​Your alternative hypothesis will ​State the contrary claim. ​There is a difference in ​the mean district literacy rates between ​State 21 and State 28.</span>
-<span id="cb20-145"><a href="#cb20-145"></a></span>
-<span id="cb20-146"><a href="#cb20-146"></a>​Next, set the significance level, ​or the threshold at which you will ​consider a result statistically significant. ​This is the probability of rejecting ​the null hypothesis when it is true.</span>
-<span id="cb20-147"><a href="#cb20-147"></a></span>
-<span id="cb20-148"><a href="#cb20-148"></a>​The education department asks you to use ​their standard level of 5 percent or 0.05. ​</span>
-<span id="cb20-149"><a href="#cb20-149"></a></span>
-<span id="cb20-150"><a href="#cb20-150"></a>Now, compute the $p$-value. ​In this case, your $p$-value is ​the probability of observing a difference in ​your sample means as or more ​extreme than the difference observed, ​when the null hypothesis is true. ​Based on your sample data, ​the difference between the mean ​district literacy rates of State ​21 and State 28 is 6.2 percentage points. ​Your null hypothesis claims ​that this difference is due to chance.</span>
-<span id="cb20-151"><a href="#cb20-151"></a></span>
-<span id="cb20-152"><a href="#cb20-152"></a>​Your $p$-value is the probability of ​observing an absolute difference in sample means that ​is 6.2 or greater if the null hypothesis is true.</span>
-<span id="cb20-153"><a href="#cb20-153"></a></span>
-<span id="cb20-154"><a href="#cb20-154"></a>​If the probability of this outcome is ​very unlikely in particular, ​if your $p$-value is less ​than your significance level of five percent, ​then you will reject the null hypothesis.</span>
-<span id="cb20-155"><a href="#cb20-155"></a></span>
-<span id="cb20-156"><a href="#cb20-156"></a>​For a two-sample $t$-test uses ​a scipy function (<span class="in">`stats.$t$-test_ind`</span>) ​to compute your $p$-value.</span>
-<span id="cb20-157"><a href="#cb20-157"></a></span>
-<span id="cb20-158"><a href="#cb20-158"></a>​This function includes the following arguments; - a, ​refers to observations from your first sample, - b, ​refers to observations from your second sample, ​- equal_var is a Boolean or true-false statement, ​which indicates whether the population variance of ​the two samples is assumed to be equal. ​In our example, you don&#39;t have ​access to data for the entire population, ​so you don&#39;t want to assume anything about the variance. ​To avoid making a wrong assumption, ​set equal_var to false.</span>
-<span id="cb20-159"><a href="#cb20-159"></a></span>
-<span id="cb20-160"><a href="#cb20-160"></a>​Now, you&#39;re ready to write this all out in code.</span>
-<span id="cb20-161"><a href="#cb20-161"></a></span>
-<span id="cb20-164"><a href="#cb20-164"></a><span class="in">```{python}</span></span>
-<span id="cb20-165"><a href="#cb20-165"></a>stats.ttest_ind(a<span class="op">=</span>sampled_state21[<span class="st">&#39;OVERALL_LI&#39;</span>], b<span class="op">=</span>sampled_state28[<span class="st">&#39;OVERALL_LI&#39;</span>], equal_var<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb20-166"><a href="#cb20-166"></a><span class="in">```</span></span>
-<span id="cb20-167"><a href="#cb20-167"></a></span>
-<span id="cb20-168"><a href="#cb20-168"></a>​The output confirms your $p$-value is about ​0.0064 or a 0.64 percent.</span>
-<span id="cb20-169"><a href="#cb20-169"></a></span>
-<span id="cb20-170"><a href="#cb20-170"></a>​This means there&#39;s only a 0.64 percent ​probability that the absolute difference ​between the two mean district literacy rates, ​would be 6.2 percentage points ​or greater if the null hypothesis is true. ​In other words, it&#39;s highly unlikely that ​the difference in the two means is due to chance.</span>
-<span id="cb20-171"><a href="#cb20-171"></a></span>
-<span id="cb20-172"><a href="#cb20-172"></a>​To draw conclusion, compare ​your $p$-value with the significance level. ​Remember, if your $p$-value ​is less than the significance level, ​you conclude that there is ​a statistically significant difference in ​the mean district literacy rates between ​State 21, and State 28. ​In other words, you reject the null hypothesis. ​</span>
-<span id="cb20-173"><a href="#cb20-173"></a></span>
-<span id="cb20-174"><a href="#cb20-174"></a>If your $p$-value is greater than the significance level, ​you conclude that there is not ​a statistically significant difference ​in the mean district literacy rates, ​between State 21 and State 28. ​In other words, you fail to reject the null hypothesis.</span>
-<span id="cb20-175"><a href="#cb20-175"></a></span>
-<span id="cb20-176"><a href="#cb20-176"></a>​Your $p$-value of 0.0064 or 0.64 ​percent is less than the significance level ​of 0.05 or five percent. ​You reject the null hypothesis and conclude that there is ​a statistically significant difference between ​the mean district literacy rates of the two states, ​State 21 and State 28.</span>
-<span id="cb20-177"><a href="#cb20-177"></a></span>
-<span id="cb20-178"><a href="#cb20-178"></a>​You analysis will help the department ​decide how to distribute government resources. ​Since there is a statistically significant difference ​in mean district literacy rates, ​the State with the lower literacy rate State 28, ​will likely receive more resources to improve literacy.</span>
-<span id="cb20-179"><a href="#cb20-179"></a></span>
-<span id="cb20-180"><a href="#cb20-180"></a>​The two-sample $t$-test, ​is a powerful tool for ​investigating the differences between two sample means. ​Data professionals often use $t$-tests to ​help stake holders make data-driven decisions.</span>
-<span id="cb20-181"><a href="#cb20-181"></a></span>
-<span id="cb20-182"><a href="#cb20-182"></a>------------------------------------------------------------------------</span>
-<span id="cb20-183"><a href="#cb20-183"></a></span>
-<span id="cb20-184"><a href="#cb20-184"></a>::: Extra</span>
-<span id="cb20-185"><a href="#cb20-185"></a>Some of the following examples are used in the next practice, but were not explained in the lectures, so I included here a brief description, also included some more that were not used in the course at all</span>
-<span id="cb20-186"><a href="#cb20-186"></a></span>
-<span id="cb20-187"><a href="#cb20-187"></a><span class="fu"># **Hypothesis Testing in Python: Beyond the Two-Sample Unpaired T-Test**</span></span>
-<span id="cb20-188"><a href="#cb20-188"></a></span>
-<span id="cb20-189"><a href="#cb20-189"></a>While standard two-sample independent t-tests (such as scipy.stats.ttest_ind) are frequently introduced first, real-world data analysis requires selecting the right statistical test based on your variable types (continuous vs. categorical), group counts, target thresholds, and proportion comparisons.</span>
-<span id="cb20-190"><a href="#cb20-190"></a></span>
-<span id="cb20-191"><a href="#cb20-191"></a><span class="fu">## **Summary of Key Hypothesis Tests**</span></span>
-<span id="cb20-192"><a href="#cb20-192"></a></span>
-<span id="cb20-193"><a href="#cb20-193"></a><span class="pp">|</span> **Test Type** | **Python Function** | **Data Requirements** | **Primary Use Case** <span class="pp">|</span></span>
-<span id="cb20-194"><a href="#cb20-194"></a><span class="pp">|---------------|---------------|---------------|---------------------------|</span></span>
-<span id="cb20-195"><a href="#cb20-195"></a><span class="pp">|</span> **Two-Sample Independent t-Test** <span class="pp">|</span> scipy.stats.ttest_ind <span class="pp">|</span> 1 continuous outcome, 2 independent groups <span class="pp">|</span> Comparing means between two separate populations or groups (e.g., LA vs. Rest of CA). <span class="pp">|</span></span>
-<span id="cb20-196"><a href="#cb20-196"></a><span class="pp">|</span> **One-Sample t-Test** <span class="pp">|</span> scipy.stats.ttest_1samp <span class="pp">|</span> 1 continuous variable, 1 pop. target value <span class="pp">|</span> Comparing a single group&#39;s mean to a specific threshold or benchmark (e.g., Is AQI <span class="sc">\&gt;</span> 10?). <span class="pp">|</span></span>
-<span id="cb20-197"><a href="#cb20-197"></a><span class="pp">|</span> **Two-Sample Paired t-Test** <span class="pp">|</span> scipy.stats.ttest_rel <span class="pp">|</span> 1 continuous outcome, 2 dependent measurements <span class="pp">|</span> Comparing repeated measurements on the exact same subjects (e.g., Before/After intervention). <span class="pp">|</span></span>
-<span id="cb20-198"><a href="#cb20-198"></a><span class="pp">|</span> **One-Proportion Z-Test** <span class="pp">|</span> statsmodels.stats.proportion.proportions_ztest <span class="pp">|</span> 1 categorical binary outcome, 1 target proportion <span class="pp">|</span> Comparing a sample proportion to a fixed population benchmark (e.g., Is success rate <span class="sc">\&gt;</span> 50%?). <span class="pp">|</span></span>
-<span id="cb20-199"><a href="#cb20-199"></a><span class="pp">|</span> **Two-Proportion Z-Test** <span class="pp">|</span> statsmodels.stats.proportion.proportions_ztest <span class="pp">|</span> 1 categorical binary outcome, 2 independent groups <span class="pp">|</span> Comparing proportions of success between two distinct groups (e.g., A/B testing conversion rates). <span class="pp">|</span></span>
-<span id="cb20-200"><a href="#cb20-200"></a></span>
-<span id="cb20-201"><a href="#cb20-201"></a><span class="fu">## **1. Two-Sample Independent t-Test (Unpaired)**</span></span>
-<span id="cb20-202"><a href="#cb20-202"></a></span>
-<span id="cb20-203"><a href="#cb20-203"></a>**Use Case:** You want to compare the mean of a continuous numerical variable between two separate, non-overlapping groups.</span>
-<span id="cb20-204"><a href="#cb20-204"></a></span>
-<span id="cb20-205"><a href="#cb20-205"></a><span class="fu">### **Example: Comparing LA County AQI vs. Rest of California**</span></span>
-<span id="cb20-206"><a href="#cb20-206"></a></span>
-<span id="cb20-207"><a href="#cb20-207"></a>As seen in the lab exercise:</span>
-<span id="cb20-208"><a href="#cb20-208"></a></span>
-<span id="cb20-211"><a href="#cb20-211"></a><span class="in">```{python}</span></span>
-<span id="cb20-212"><a href="#cb20-212"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
-<span id="cb20-213"><a href="#cb20-213"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb20-214"><a href="#cb20-214"></a></span>
-<span id="cb20-215"><a href="#cb20-215"></a><span class="co"># Load sample data</span></span>
-<span id="cb20-216"><a href="#cb20-216"></a>aqi <span class="op">=</span> pd.read_csv(<span class="vs">r&#39;Datasets</span><span class="er">\</span><span class="vs">c4_epa_air_quality</span><span class="dv">.</span><span class="vs">csv&#39;</span>)</span>
-<span id="cb20-217"><a href="#cb20-217"></a></span>
-<span id="cb20-218"><a href="#cb20-218"></a><span class="co"># Subset independent groups</span></span>
-<span id="cb20-219"><a href="#cb20-219"></a>ca_la <span class="op">=</span> aqi[aqi[<span class="st">&#39;county_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;Los Angeles&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
-<span id="cb20-220"><a href="#cb20-220"></a>ca_other <span class="op">=</span> aqi[(aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;California&#39;</span>) <span class="op">&amp;</span> (aqi[<span class="st">&#39;county_name&#39;</span>] <span class="op">!=</span> <span class="st">&#39;Los Angeles&#39;</span>)][<span class="st">&#39;aqi&#39;</span>]</span>
-<span id="cb20-221"><a href="#cb20-221"></a></span>
-<span id="cb20-222"><a href="#cb20-222"></a><span class="co"># Perform Two-Sample Welch&#39;s t-test (equal_var=False handles unequal variances)</span></span>
-<span id="cb20-223"><a href="#cb20-223"></a>tstat, pval <span class="op">=</span> stats.ttest_ind(a<span class="op">=</span>ca_la, b<span class="op">=</span>ca_other, equal_var<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb20-224"><a href="#cb20-224"></a></span>
-<span id="cb20-225"><a href="#cb20-225"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
-<span id="cb20-226"><a href="#cb20-226"></a></span>
-<span id="cb20-227"><a href="#cb20-227"></a><span class="in">```</span></span>
-<span id="cb20-228"><a href="#cb20-228"></a></span>
-<span id="cb20-229"><a href="#cb20-229"></a><span class="fu">## **2. Two-Sample Independent t-Test (One-Tailed)**</span></span>
-<span id="cb20-230"><a href="#cb20-230"></a></span>
-<span id="cb20-231"><a href="#cb20-231"></a>**Use Case:** You have a specific directional hypothesis (e.g., Group A has a lower or higher mean than Group B) rather than just testing for any difference.</span>
-<span id="cb20-232"><a href="#cb20-232"></a></span>
-<span id="cb20-233"><a href="#cb20-233"></a><span class="fu">### **Example: Testing if New York has a lower AQI than Ohio**</span></span>
-<span id="cb20-234"><a href="#cb20-234"></a></span>
-<span id="cb20-235"><a href="#cb20-235"></a>As seen in the lab exercise:</span>
-<span id="cb20-236"><a href="#cb20-236"></a></span>
-<span id="cb20-239"><a href="#cb20-239"></a><span class="in">```{python}</span></span>
-<span id="cb20-240"><a href="#cb20-240"></a><span class="co"># Subset independent groups</span></span>
-<span id="cb20-241"><a href="#cb20-241"></a>ny <span class="op">=</span> aqi[aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;New York&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
-<span id="cb20-242"><a href="#cb20-242"></a>ohio <span class="op">=</span> aqi[aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;Ohio&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
-<span id="cb20-243"><a href="#cb20-243"></a></span>
-<span id="cb20-244"><a href="#cb20-244"></a><span class="co"># Directional test: H_A is that NY mean &lt; Ohio mean</span></span>
-<span id="cb20-245"><a href="#cb20-245"></a>tstat, pval <span class="op">=</span> stats.ttest_ind(a<span class="op">=</span>ny, b<span class="op">=</span>ohio, alternative<span class="op">=</span><span class="st">&#39;less&#39;</span>, equal_var<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb20-246"><a href="#cb20-246"></a></span>
-<span id="cb20-247"><a href="#cb20-247"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
-<span id="cb20-248"><a href="#cb20-248"></a></span>
-<span id="cb20-249"><a href="#cb20-249"></a><span class="in">```</span></span>
-<span id="cb20-250"><a href="#cb20-250"></a></span>
-<span id="cb20-251"><a href="#cb20-251"></a><span class="fu">## **3. One-Sample t-Test**</span></span>
-<span id="cb20-252"><a href="#cb20-252"></a></span>
-<span id="cb20-253"><a href="#cb20-253"></a>**Use Case:** You want to evaluate whether a single sample&#39;s mean significantly differs from a known population mean or specific policy benchmark.</span>
-<span id="cb20-254"><a href="#cb20-254"></a></span>
-<span id="cb20-255"><a href="#cb20-255"></a><span class="fu">### **Example: Testing if Michigan&#39;s AQI exceeds a threshold of 10**</span></span>
-<span id="cb20-256"><a href="#cb20-256"></a></span>
-<span id="cb20-257"><a href="#cb20-257"></a>As seen in the lab exercise:</span>
-<span id="cb20-258"><a href="#cb20-258"></a></span>
-<span id="cb20-261"><a href="#cb20-261"></a><span class="in">```{python}</span></span>
-<span id="cb20-262"><a href="#cb20-262"></a><span class="co"># Example measurements from 10 monitoring sites before and after a clean air initiative</span></span>
-<span id="cb20-263"><a href="#cb20-263"></a>aqi_before <span class="op">=</span> [<span class="fl">18.2</span>, <span class="fl">14.5</span>, <span class="fl">22.1</span>, <span class="fl">19.8</span>, <span class="fl">12.4</span>, <span class="fl">25.0</span>, <span class="fl">16.3</span>, <span class="fl">11.9</span>, <span class="fl">21.4</span>, <span class="fl">17.6</span>]</span>
-<span id="cb20-264"><a href="#cb20-264"></a>aqi_after  <span class="op">=</span> [<span class="fl">14.1</span>, <span class="fl">13.0</span>, <span class="fl">18.5</span>, <span class="fl">15.2</span>, <span class="fl">11.0</span>, <span class="fl">19.8</span>, <span class="fl">14.0</span>, <span class="fl">10.5</span>, <span class="fl">17.2</span>, <span class="fl">15.0</span>]</span>
-<span id="cb20-265"><a href="#cb20-265"></a></span>
-<span id="cb20-266"><a href="#cb20-266"></a><span class="co"># Perform Paired t-test</span></span>
-<span id="cb20-267"><a href="#cb20-267"></a>tstat, pval <span class="op">=</span> stats.ttest_rel(aqi_before, aqi_after, alternative<span class="op">=</span><span class="st">&#39;greater&#39;</span>)</span>
-<span id="cb20-268"><a href="#cb20-268"></a></span>
-<span id="cb20-269"><a href="#cb20-269"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
-<span id="cb20-270"><a href="#cb20-270"></a></span>
-<span id="cb20-271"><a href="#cb20-271"></a><span class="in">```</span></span>
-<span id="cb20-272"><a href="#cb20-272"></a></span>
-<span id="cb20-273"><a href="#cb20-273"></a><span class="fu">## **4. Paired Samples t-Test (Dependent Samples)**</span></span>
-<span id="cb20-274"><a href="#cb20-274"></a></span>
-<span id="cb20-275"><a href="#cb20-275"></a>**Use Case:** You measure the same continuous variable twice on the same subjects (e.g., before and after a treatment or policy change).</span>
-<span id="cb20-276"><a href="#cb20-276"></a></span>
-<span id="cb20-277"><a href="#cb20-277"></a><span class="fu">### **Example: AQI at identical monitoring stations before and after policy implementation**</span></span>
-<span id="cb20-278"><a href="#cb20-278"></a></span>
-<span id="cb20-281"><a href="#cb20-281"></a><span class="in">```{python}</span></span>
-<span id="cb20-282"><a href="#cb20-282"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
-<span id="cb20-283"><a href="#cb20-283"></a></span>
-<span id="cb20-284"><a href="#cb20-284"></a><span class="co"># 35 out of 120 sampled days were classified as &quot;Unhealthy&quot;</span></span>
-<span id="cb20-285"><a href="#cb20-285"></a>count <span class="op">=</span> <span class="dv">35</span></span>
-<span id="cb20-286"><a href="#cb20-286"></a>nobs <span class="op">=</span> <span class="dv">120</span></span>
-<span id="cb20-287"><a href="#cb20-287"></a>value <span class="op">=</span> <span class="fl">0.20</span>  <span class="co"># Baseline hypothesis threshold (20%)</span></span>
-<span id="cb20-288"><a href="#cb20-288"></a></span>
-<span id="cb20-289"><a href="#cb20-289"></a><span class="co"># H0: p &lt;= 0.20 vs HA: p &gt; 0.20</span></span>
-<span id="cb20-290"><a href="#cb20-290"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>count, nobs<span class="op">=</span>nobs, value<span class="op">=</span>value, alternative<span class="op">=</span><span class="st">&#39;larger&#39;</span>)</span>
-<span id="cb20-291"><a href="#cb20-291"></a></span>
-<span id="cb20-292"><a href="#cb20-292"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
-<span id="cb20-293"><a href="#cb20-293"></a></span>
-<span id="cb20-294"><a href="#cb20-294"></a></span>
-<span id="cb20-295"><a href="#cb20-295"></a><span class="in">```</span></span>
-<span id="cb20-296"><a href="#cb20-296"></a></span>
-<span id="cb20-297"><a href="#cb20-297"></a><span class="fu">## **5. One-Proportion Z-Test**</span></span>
-<span id="cb20-298"><a href="#cb20-298"></a></span>
-<span id="cb20-299"><a href="#cb20-299"></a>**Use Case:** You have a single categorical (binary) variable and want to test if the proportion of successes differs from a baseline proportion \$p_0\$.</span>
-<span id="cb20-300"><a href="#cb20-300"></a></span>
-<span id="cb20-301"><a href="#cb20-301"></a><span class="fu">### **Example: Testing if the proportion of &quot;Unhealthy Air Days&quot; in a city exceeds 20%**</span></span>
-<span id="cb20-302"><a href="#cb20-302"></a></span>
-<span id="cb20-305"><a href="#cb20-305"></a><span class="in">```{python}</span></span>
-<span id="cb20-306"><a href="#cb20-306"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
-<span id="cb20-307"><a href="#cb20-307"></a></span>
-<span id="cb20-308"><a href="#cb20-308"></a><span class="co"># 35 out of 120 sampled days were classified as &quot;Unhealthy&quot;</span></span>
-<span id="cb20-309"><a href="#cb20-309"></a>count <span class="op">=</span> <span class="dv">35</span></span>
-<span id="cb20-310"><a href="#cb20-310"></a>nobs <span class="op">=</span> <span class="dv">120</span></span>
-<span id="cb20-311"><a href="#cb20-311"></a>value <span class="op">=</span> <span class="fl">0.20</span>  <span class="co"># Baseline hypothesis threshold (20%)</span></span>
-<span id="cb20-312"><a href="#cb20-312"></a></span>
-<span id="cb20-313"><a href="#cb20-313"></a><span class="co"># H0: p &lt;= 0.20 vs HA: p &gt; 0.20</span></span>
-<span id="cb20-314"><a href="#cb20-314"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>count, nobs<span class="op">=</span>nobs, value<span class="op">=</span>value, alternative<span class="op">=</span><span class="st">&#39;larger&#39;</span>)</span>
-<span id="cb20-315"><a href="#cb20-315"></a></span>
-<span id="cb20-316"><a href="#cb20-316"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
-<span id="cb20-317"><a href="#cb20-317"></a></span>
-<span id="cb20-318"><a href="#cb20-318"></a></span>
-<span id="cb20-319"><a href="#cb20-319"></a><span class="in">```</span></span>
-<span id="cb20-320"><a href="#cb20-320"></a></span>
-<span id="cb20-321"><a href="#cb20-321"></a><span class="fu">## **6. Two-Proportion Z-Test**</span></span>
-<span id="cb20-322"><a href="#cb20-322"></a></span>
-<span id="cb20-323"><a href="#cb20-323"></a>**Use Case:** You want to compare the proportion of a binary outcome between two independent groups (e.g., comparing compliance or success rates between two states or test variants).</span>
-<span id="cb20-324"><a href="#cb20-324"></a></span>
-<span id="cb20-325"><a href="#cb20-325"></a><span class="fu">### **Example: Comparing high-pollution day rates between State A and State B**</span></span>
-<span id="cb20-326"><a href="#cb20-326"></a></span>
-<span id="cb20-329"><a href="#cb20-329"></a><span class="in">```{python}</span></span>
-<span id="cb20-330"><a href="#cb20-330"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb20-331"><a href="#cb20-331"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
-<span id="cb20-332"><a href="#cb20-332"></a></span>
-<span id="cb20-333"><a href="#cb20-333"></a><span class="co"># State A: 45 high-pollution days out of 200 total samples</span></span>
-<span id="cb20-334"><a href="#cb20-334"></a><span class="co"># State B: 25 high-pollution days out of 180 total samples</span></span>
-<span id="cb20-335"><a href="#cb20-335"></a>counts <span class="op">=</span> np.array([<span class="dv">45</span>, <span class="dv">25</span>])</span>
-<span id="cb20-336"><a href="#cb20-336"></a>nobs <span class="op">=</span> np.array([<span class="dv">200</span>, <span class="dv">180</span>])</span>
-<span id="cb20-337"><a href="#cb20-337"></a></span>
-<span id="cb20-338"><a href="#cb20-338"></a><span class="co"># Two-tailed test comparing proportions</span></span>
-<span id="cb20-339"><a href="#cb20-339"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>counts, nobs<span class="op">=</span>nobs, alternative<span class="op">=</span><span class="st">&#39;two-sided&#39;</span>)</span>
-<span id="cb20-340"><a href="#cb20-340"></a></span>
-<span id="cb20-341"><a href="#cb20-341"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
-<span id="cb20-342"><a href="#cb20-342"></a></span>
-<span id="cb20-343"><a href="#cb20-343"></a></span>
-<span id="cb20-344"><a href="#cb20-344"></a></span>
-<span id="cb20-345"><a href="#cb20-345"></a></span>
-<span id="cb20-346"><a href="#cb20-346"></a><span class="in">```</span></span>
-<span id="cb20-347"><a href="#cb20-347"></a>:::</span>
+<div class="sourceCode" id="cb21" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">---</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="an">title:</span><span class="co"> Use Python to conduct a hypothesis test</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="co">---</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a></span>
+<span id="cb21-7"><a href="#cb21-7"></a>Recently, we talked about how did professionals ​use two-sample hypothesis test to determine ​whether the difference between two sample means is ​statistically significant or due to chance.</span>
+<span id="cb21-8"><a href="#cb21-8"></a></span>
+<span id="cb21-9"><a href="#cb21-9"></a>​Two-sample tests are especially useful for AB tests, ​which often sample two groups ​of users to compare how they ​respond to different versions of a product or website. ​</span>
+<span id="cb21-10"><a href="#cb21-10"></a></span>
+<span id="cb21-11"><a href="#cb21-11"></a>For instance, an AB tests can ​help you decide if an observed difference in ​the average click rates is due to ​a specific change in website design or due to chance.</span>
+<span id="cb21-12"><a href="#cb21-12"></a></span>
+<span id="cb21-13"><a href="#cb21-13"></a>​In this video, you will use Python to conduct ​a two-sample $t$-test based on sample data. ​Python is helpful for conducting ​hypothesis tests with speed and accuracy. ​</span>
+<span id="cb21-14"><a href="#cb21-14"></a></span>
+<span id="cb21-15"><a href="#cb21-15"></a>We&#39;ll continue with our scenario ​from an earlier part of the course in ​which you&#39;re a data professional working for ​the Department of Education of a large nation. ​Recall that you&#39;re analyzing data on ​the literacy rate for each district. ​You&#39;ll continue to use ​the data set you worked with before. ​If you need to access the data, do so now.</span>
+<span id="cb21-16"><a href="#cb21-16"></a></span>
+<span id="cb21-19"><a href="#cb21-19"></a><span class="in">```{python}</span></span>
+<span id="cb21-20"><a href="#cb21-20"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb21-21"><a href="#cb21-21"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb21-22"><a href="#cb21-22"></a></span>
+<span id="cb21-23"><a href="#cb21-23"></a>education_districtwise <span class="op">=</span> pd.read_csv(<span class="vs">r&quot;Datasets/education_districtwise</span><span class="dv">.</span><span class="vs">csv&quot;</span>)</span>
+<span id="cb21-24"><a href="#cb21-24"></a>education_districtwise <span class="op">=</span> education_districtwise.dropna()</span>
+<span id="cb21-25"><a href="#cb21-25"></a><span class="in">```</span></span>
+<span id="cb21-26"><a href="#cb21-26"></a></span>
+<span id="cb21-27"><a href="#cb21-27"></a>​For this video, we&#39;ll make a new change to our story. ​Imagine that the Department of Education ​asks you to collect data on ​mean district literacy rates for ​two of the nation&#39;s largest states, ​state 21 and state 28.</span>
+<span id="cb21-28"><a href="#cb21-28"></a></span>
+<span id="cb21-29"><a href="#cb21-29"></a>​State 28 has almost 40 districts, ​and state 21 has more than 70.</span>
+<span id="cb21-30"><a href="#cb21-30"></a></span>
+<span id="cb21-31"><a href="#cb21-31"></a>​Due to limited time and resources, ​you are only able to survey ​20 randomly chosen districts in each state.</span>
+<span id="cb21-32"><a href="#cb21-32"></a></span>
+<span id="cb21-33"><a href="#cb21-33"></a>​The department however asks you ​to determine if the difference between ​the two mean district literature rates is ​statistically significant or due to chance.</span>
+<span id="cb21-34"><a href="#cb21-34"></a></span>
+<span id="cb21-35"><a href="#cb21-35"></a>​This will help the department decide how to ​distribute government funding to improve literacy. ​If there is a statistically significant difference, ​the state with a lower literacy rate ​may receive more funding.</span>
+<span id="cb21-36"><a href="#cb21-36"></a></span>
+<span id="cb21-37"><a href="#cb21-37"></a>​You can use Python to simulate ​taking a random sample of 20 districts in ​each state and conduct ​a two-sample $t$-test based on the sample data.</span>
+<span id="cb21-38"><a href="#cb21-38"></a></span>
+<span id="cb21-39"><a href="#cb21-39"></a>​To start filter your data frame for ​the district literacy rate data from the states, ​state 28 and state 21.</span>
+<span id="cb21-40"><a href="#cb21-40"></a></span>
+<span id="cb21-43"><a href="#cb21-43"></a><span class="in">```{python}</span></span>
+<span id="cb21-44"><a href="#cb21-44"></a>state21 <span class="op">=</span> education_districtwise[education_districtwise[<span class="st">&#39;STATNAME&#39;</span>] <span class="op">==</span> <span class="st">&quot;STATE21&quot;</span>]</span>
+<span id="cb21-45"><a href="#cb21-45"></a>state28 <span class="op">=</span> education_districtwise[education_districtwise[<span class="st">&#39;STATNAME&#39;</span>] <span class="op">==</span> <span class="st">&quot;STATE28&quot;</span>]</span>
+<span id="cb21-46"><a href="#cb21-46"></a><span class="in">```</span></span>
+<span id="cb21-47"><a href="#cb21-47"></a></span>
+<span id="cb21-48"><a href="#cb21-48"></a>​Now that you&#39;ve organized your data, ​use Python to simulate random sampling. ​Use the sample function to take ​a random sample of 20 districts from each state.</span>
+<span id="cb21-49"><a href="#cb21-49"></a></span>
+<span id="cb21-50"><a href="#cb21-50"></a>​First, name a variable ​called sampled underscore state 21, ​then enter the arguments of the sample function, ​n, the sample size equals 20, ​replace equals true because you&#39;re sampling with ​replacement for random underscore state, ​choose an arbitrary number for ​the random seed to start ​the computer&#39;s random number generator. ​How about 13,490? ​Recall that using the same random seed ​lets you generate the same set of ​random numbers in case you want to ​return to this sample data in the future. ​Now, name another variable sampled, underscore state 28, ​follow the same procedure, ​but this time choose ​a different number for the random seed. ​How about 39,103? ​You now have two random samples of 20 districts, ​one sample for each state.</span>
+<span id="cb21-51"><a href="#cb21-51"></a></span>
+<span id="cb21-52"><a href="#cb21-52"></a>::: extra</span>
+<span id="cb21-53"><a href="#cb21-53"></a>if you are physically surveying 20 actual school districts in a state, you would never visit the exact same district twice and survey it again.However, in this Python code, setting replace=True is done for two specific reasons:</span>
+<span id="cb21-54"><a href="#cb21-54"></a></span>
+<span id="cb21-55"><a href="#cb21-55"></a><span class="ss">1.  </span>Statistical Independence (The Assumptions of the $t$-Test) A standard two-sample $t$-test assumes that every observation in your sample is independent of every other observation.</span>
+<span id="cb21-56"><a href="#cb21-56"></a></span>
+<span id="cb21-57"><a href="#cb21-57"></a>Sampling With Replacement (replace=True): The probability of selecting any given district remains identical on every single draw. This mathematically guarantees strict independence, matching the exact theoretical assumptions of standard hypothesis tests and the Central Limit Theorem.</span>
+<span id="cb21-58"><a href="#cb21-58"></a></span>
+<span id="cb21-59"><a href="#cb21-59"></a>Sampling Without Replacement (replace=False): Every time you pick a district, the pool of remaining districts gets smaller. The remaining districts now have a slightly higher probability of being picked on the next draw, which introduces a small mathematical dependency between draws.</span>
+<span id="cb21-60"><a href="#cb21-60"></a></span>
+<span id="cb21-61"><a href="#cb21-61"></a><span class="ss">2.  </span>The Finite Population Correction Factor</span>
+<span id="cb21-62"><a href="#cb21-62"></a></span>
+<span id="cb21-63"><a href="#cb21-63"></a>When you sample without replacement from a relatively small population (like sampling 20 districts out of a state with \~40 total districts), your sample represents a massive chunk (50%) of the total population! When you sample $\ge 5\%$ of a finite population without replacement, the variance of your sample mean actually shrinks because you are getting close to measuring the full population.To do a mathematically rigorous $t$-test without replacement on a small total population, you would have to apply an advanced formula adjustment called the Finite Population Correction (FPC) factor to shrink your standard error.By simulating the sampling with replacement (replace=True), your 20 draws behave as if they come from an infinite population, allowing you to use standard $t$-test formulas without needing the extra FPC correction.</span>
+<span id="cb21-64"><a href="#cb21-64"></a></span>
+<span id="cb21-65"><a href="#cb21-65"></a>In real life, when you sample without replacement from a finite population (like 20 unique districts out of 40), you actually still use the exact same two-sample $t$-test!You don&#39;t need a different test—you just need a slight mathematical adjustment to the Standard Error ($SE$) formula if your sample size is a large fraction of the total population.</span>
+<span id="cb21-66"><a href="#cb21-66"></a></span>
+<span id="cb21-67"><a href="#cb21-67"></a>In applied statistics, whether you need to adjust your test depends on how much of the total population you surveyed: - If your sample is LESS than 10% of the total population ($n &lt; 0.1 N$): Ignore the fact that it&#39;s without replacement! The population is so large that sampling without replacement makes virtually zero difference. Use the standard $t$-test formula directly. <span class="co">[</span><span class="ot">Finite Population Correction</span><span class="co">](sampling_distributions.qmd#fpc-note)</span></span>
+<span id="cb21-68"><a href="#cb21-68"></a></span>
+<span id="cb21-69"><a href="#cb21-69"></a>The $t$-test in python&#39;s library stats do not cather for this nuance, so in this case you will have to compute your p value manually. Here is an example (note that this is not executable because it is not part of the course.)</span>
+<span id="cb21-70"><a href="#cb21-70"></a></span>
+<span id="cb21-71"><a href="#cb21-71"></a><span class="in">```{import numpy as np}</span></span>
+<span id="cb21-72"><a href="#cb21-72"></a><span class="in">from scipy import stats</span></span>
+<span id="cb21-73"><a href="#cb21-73"></a></span>
+<span id="cb21-74"><a href="#cb21-74"></a><span class="in"># Given Data &amp; Population Sizes</span></span>
+<span id="cb21-75"><a href="#cb21-75"></a></span>
+<span id="cb21-76"><a href="#cb21-76"></a><span class="in"># State 21: sampled n1=20 out of N1=70 total</span></span>
+<span id="cb21-77"><a href="#cb21-77"></a><span class="in">s1 = sampled_state21[&quot;OVERALL_LI&quot;]</span></span>
+<span id="cb21-78"><a href="#cb21-78"></a><span class="in">n1, N1 = len(s1), 70</span></span>
+<span id="cb21-79"><a href="#cb21-79"></a></span>
+<span id="cb21-80"><a href="#cb21-80"></a><span class="in"># State 28: sampled n2=20 out of N2=40 total</span></span>
+<span id="cb21-81"><a href="#cb21-81"></a><span class="in">s2 = sampled_state28[&quot;OVERALL_LI&quot;]</span></span>
+<span id="cb21-82"><a href="#cb21-82"></a><span class="in">n2, N2 = len(s2), 40</span></span>
+<span id="cb21-83"><a href="#cb21-83"></a></span>
+<span id="cb21-84"><a href="#cb21-84"></a><span class="in"># 2. Sample Means and Sample Variances (ddof=1 for sample variance s^2)</span></span>
+<span id="cb21-85"><a href="#cb21-85"></a><span class="in">m1, v1 = np.mean(s1), np.var(s1, ddof=1)</span></span>
+<span id="cb21-86"><a href="#cb21-86"></a><span class="in">m2, v2 = np.mean(s2), np.var(s2, ddof=1)</span></span>
+<span id="cb21-87"><a href="#cb21-87"></a></span>
+<span id="cb21-88"><a href="#cb21-88"></a><span class="in"># 3. Compute FPC Factors</span></span>
+<span id="cb21-89"><a href="#cb21-89"></a><span class="in">fpc1 = (N1 - n1) / (N1 - 1)</span></span>
+<span id="cb21-90"><a href="#cb21-90"></a><span class="in">fpc2 = (N2 - n2) / (N2 - 1)</span></span>
+<span id="cb21-91"><a href="#cb21-91"></a></span>
+<span id="cb21-92"><a href="#cb21-92"></a><span class="in"># 4. FPC-Adjusted Standard Error</span></span>
+<span id="cb21-93"><a href="#cb21-93"></a><span class="in">se_fpc = np.sqrt(fpc1 * (v1 / n1) + fpc2 * (v2 / n2))</span></span>
+<span id="cb21-94"><a href="#cb21-94"></a></span>
+<span id="cb21-95"><a href="#cb21-95"></a><span class="in"># 5. Adjusted t-statistic</span></span>
+<span id="cb21-96"><a href="#cb21-96"></a><span class="in">t_stat = (m1 - m2) / se_fpc</span></span>
+<span id="cb21-97"><a href="#cb21-97"></a></span>
+<span id="cb21-98"><a href="#cb21-98"></a><span class="in"># 6. Degrees of Freedom (Welch-Satterthwaite with FPC-scaled variance terms)</span></span>
+<span id="cb21-99"><a href="#cb21-99"></a><span class="in">v1_adj = fpc1 * (v1 / n1)</span></span>
+<span id="cb21-100"><a href="#cb21-100"></a><span class="in">v2_adj = fpc2 * (v2 / n2)</span></span>
+<span id="cb21-101"><a href="#cb21-101"></a><span class="in">df_fpc = ((v1_adj + v2_adj) ** 2) / (</span></span>
+<span id="cb21-102"><a href="#cb21-102"></a><span class="in">    (v1_adj**2 / (n1 - 1)) + (v2_adj**2 / (n2 - 1))</span></span>
+<span id="cb21-103"><a href="#cb21-103"></a><span class="in">)</span></span>
+<span id="cb21-104"><a href="#cb21-104"></a></span>
+<span id="cb21-105"><a href="#cb21-105"></a><span class="in"># 7. Two-Tailed p-value from Student&#39;s t-distribution</span></span>
+<span id="cb21-106"><a href="#cb21-106"></a><span class="in">p_value = 2 * stats.t.sf(abs(t_stat), df=df_fpc)</span></span>
+<span id="cb21-107"><a href="#cb21-107"></a></span>
+<span id="cb21-108"><a href="#cb21-108"></a><span class="in">print(f&quot;Adjusted SE: {se_fpc:.4f}&quot;)</span></span>
+<span id="cb21-109"><a href="#cb21-109"></a><span class="in">print(f&quot;Adjusted t-stat: {t_stat:.4f}&quot;)</span></span>
+<span id="cb21-110"><a href="#cb21-110"></a><span class="in">print(f&quot;Degrees of Freedom: {df_fpc:.2f}&quot;)</span></span>
+<span id="cb21-111"><a href="#cb21-111"></a><span class="in">print(f&quot;Two-Tailed p-value: {p_value:.4f}&quot;)</span></span>
+<span id="cb21-112"><a href="#cb21-112"></a><span class="in">```</span></span>
+<span id="cb21-113"><a href="#cb21-113"></a>:::</span>
+<span id="cb21-114"><a href="#cb21-114"></a></span>
+<span id="cb21-117"><a href="#cb21-117"></a><span class="in">```{python}</span></span>
+<span id="cb21-118"><a href="#cb21-118"></a>sampled_state21 <span class="op">=</span> state21.sample(n<span class="op">=</span><span class="dv">20</span>, replace <span class="op">=</span> <span class="va">True</span>, random_state<span class="op">=</span><span class="dv">13490</span>)</span>
+<span id="cb21-119"><a href="#cb21-119"></a>sampled_state28 <span class="op">=</span> state28.sample(n<span class="op">=</span><span class="dv">20</span>, replace <span class="op">=</span> <span class="va">True</span>, random_state<span class="op">=</span><span class="dv">39103</span>)</span>
+<span id="cb21-120"><a href="#cb21-120"></a><span class="in">```</span></span>
+<span id="cb21-121"><a href="#cb21-121"></a></span>
+<span id="cb21-122"><a href="#cb21-122"></a>​Next, use the mean function to compute ​the mean district literacy rate for ​both state 21 and state 28.</span>
+<span id="cb21-123"><a href="#cb21-123"></a></span>
+<span id="cb21-126"><a href="#cb21-126"></a><span class="in">```{python}</span></span>
+<span id="cb21-127"><a href="#cb21-127"></a>mean_state21 <span class="op">=</span> sampled_state21[<span class="st">&#39;OVERALL_LI&#39;</span>].mean()</span>
+<span id="cb21-128"><a href="#cb21-128"></a><span class="bu">print</span>(mean_state21)</span>
+<span id="cb21-129"><a href="#cb21-129"></a>mean_state28 <span class="op">=</span> sampled_state28[<span class="st">&#39;OVERALL_LI&#39;</span>].mean()</span>
+<span id="cb21-130"><a href="#cb21-130"></a><span class="bu">print</span>(mean_state28)</span>
+<span id="cb21-131"><a href="#cb21-131"></a><span class="in">```</span></span>
+<span id="cb21-132"><a href="#cb21-132"></a></span>
+<span id="cb21-133"><a href="#cb21-133"></a>​State 21 has a mean district literacy rate ​of about 70.8 percent, ​while state 28 has ​a mean district literacy rate of about 64.6 percent.</span>
+<span id="cb21-134"><a href="#cb21-134"></a></span>
+<span id="cb21-135"><a href="#cb21-135"></a>​Based on your sample data, ​the observed difference between ​the mean district literacy rates of ​state 21 and state 28 is ​6.2 percentage points or 70.8 minus 64.6.</span>
+<span id="cb21-136"><a href="#cb21-136"></a></span>
+<span id="cb21-137"><a href="#cb21-137"></a>​At this point, you might want to conclude that state ​21 has a higher overall literacy rate than state 28. ​However, you don&#39;t want to ​assume the results of your hypothesis test ahead of time. ​The observed difference in your sample might be ​due to chance or sampling variability. ​In other words, the difference might not be due to ​an actual difference in ​the corresponding population means. ​Is the observed difference ​statistically significant or due to chance?</span>
+<span id="cb21-138"><a href="#cb21-138"></a></span>
+<span id="cb21-139"><a href="#cb21-139"></a>​Your hypothesis test will help you determine the answer. ​Now that you&#39;ve organized your data ​and simulated random sampling, ​you&#39;re ready to conduct your hypothesis test.</span>
+<span id="cb21-140"><a href="#cb21-140"></a></span>
+<span id="cb21-141"><a href="#cb21-141"></a>​Recall that the two-sample $t$-test is ​the standard approach for comparing ​the means of two independent samples. ​Let&#39;s review the steps for conducting a hypothesis test.</span>
+<span id="cb21-142"><a href="#cb21-142"></a></span>
+<span id="cb21-143"><a href="#cb21-143"></a>First, state the null and alternative hypothesis. ​Second, choose a significance level. ​Third, find the $p$-value. ​Forth, reject or fail to reject the null hypothesis. ​</span>
+<span id="cb21-144"><a href="#cb21-144"></a></span>
+<span id="cb21-145"><a href="#cb21-145"></a>First, state your null hypothesis ​and alternative hypothesis. ​ In a two-sample $t$-test, ​the null hypothesis states that there is ​no difference between the means, of two groups. ​This is assumed to be true unless ​there&#39;s convincing evidence to the contrary.</span>
+<span id="cb21-146"><a href="#cb21-146"></a></span>
+<span id="cb21-147"><a href="#cb21-147"></a>​For your null hypothesis, you say, ​&quot;There&#39;s no difference in ​the mean district literacy rates ​between State 21 and State 28.&quot;</span>
+<span id="cb21-148"><a href="#cb21-148"></a></span>
+<span id="cb21-149"><a href="#cb21-149"></a>​Your alternative hypothesis will ​State the contrary claim. ​There is a difference in ​the mean district literacy rates between ​State 21 and State 28.</span>
+<span id="cb21-150"><a href="#cb21-150"></a></span>
+<span id="cb21-151"><a href="#cb21-151"></a>​Next, set the significance level, ​or the threshold at which you will ​consider a result statistically significant. ​This is the probability of rejecting ​the null hypothesis when it is true.</span>
+<span id="cb21-152"><a href="#cb21-152"></a></span>
+<span id="cb21-153"><a href="#cb21-153"></a>​The education department asks you to use ​their standard level of 5 percent or 0.05. ​</span>
+<span id="cb21-154"><a href="#cb21-154"></a></span>
+<span id="cb21-155"><a href="#cb21-155"></a>Now, compute the $p$-value. ​In this case, your $p$-value is ​the probability of observing a difference in ​your sample means as or more ​extreme than the difference observed, ​when the null hypothesis is true. ​Based on your sample data, ​the difference between the mean ​district literacy rates of State ​21 and State 28 is 6.2 percentage points. ​Your null hypothesis claims ​that this difference is due to chance.</span>
+<span id="cb21-156"><a href="#cb21-156"></a></span>
+<span id="cb21-157"><a href="#cb21-157"></a>​Your $p$-value is the probability of ​observing an absolute difference in sample means that ​is 6.2 or greater if the null hypothesis is true.</span>
+<span id="cb21-158"><a href="#cb21-158"></a></span>
+<span id="cb21-159"><a href="#cb21-159"></a>​If the probability of this outcome is ​very unlikely in particular, ​if your $p$-value is less ​than your significance level of five percent, ​then you will reject the null hypothesis.</span>
+<span id="cb21-160"><a href="#cb21-160"></a></span>
+<span id="cb21-161"><a href="#cb21-161"></a>​For a two-sample $t$-test uses ​a scipy function (<span class="in">`stats.$t$-test_ind`</span>) ​to compute your $p$-value.</span>
+<span id="cb21-162"><a href="#cb21-162"></a></span>
+<span id="cb21-163"><a href="#cb21-163"></a>​This function includes the following arguments; - a, ​refers to observations from your first sample, - b, ​refers to observations from your second sample, ​- equal_var is a Boolean or true-false statement, ​which indicates whether the population variance of ​the two samples is assumed to be equal. ​In our example, you don&#39;t have ​access to data for the entire population, ​so you don&#39;t want to assume anything about the variance. ​To avoid making a wrong assumption, ​set equal_var to false.</span>
+<span id="cb21-164"><a href="#cb21-164"></a></span>
+<span id="cb21-165"><a href="#cb21-165"></a>​Now, you&#39;re ready to write this all out in code.</span>
+<span id="cb21-166"><a href="#cb21-166"></a></span>
+<span id="cb21-169"><a href="#cb21-169"></a><span class="in">```{python}</span></span>
+<span id="cb21-170"><a href="#cb21-170"></a>stats.ttest_ind(a<span class="op">=</span>sampled_state21[<span class="st">&#39;OVERALL_LI&#39;</span>], b<span class="op">=</span>sampled_state28[<span class="st">&#39;OVERALL_LI&#39;</span>], equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb21-171"><a href="#cb21-171"></a><span class="in">```</span></span>
+<span id="cb21-172"><a href="#cb21-172"></a></span>
+<span id="cb21-173"><a href="#cb21-173"></a>​The output confirms your $p$-value is about ​0.0064 or a 0.64 percent.</span>
+<span id="cb21-174"><a href="#cb21-174"></a></span>
+<span id="cb21-175"><a href="#cb21-175"></a>​This means there&#39;s only a 0.64 percent ​probability that the absolute difference ​between the two mean district literacy rates, ​would be 6.2 percentage points ​or greater if the null hypothesis is true. ​In other words, it&#39;s highly unlikely that ​the difference in the two means is due to chance.</span>
+<span id="cb21-176"><a href="#cb21-176"></a></span>
+<span id="cb21-177"><a href="#cb21-177"></a>​To draw conclusion, compare ​your $p$-value with the significance level. ​Remember, if your $p$-value ​is less than the significance level, ​you conclude that there is ​a statistically significant difference in ​the mean district literacy rates between ​State 21, and State 28. ​In other words, you reject the null hypothesis. ​</span>
+<span id="cb21-178"><a href="#cb21-178"></a></span>
+<span id="cb21-179"><a href="#cb21-179"></a>If your $p$-value is greater than the significance level, ​you conclude that there is not ​a statistically significant difference ​in the mean district literacy rates, ​between State 21 and State 28. ​In other words, you fail to reject the null hypothesis.</span>
+<span id="cb21-180"><a href="#cb21-180"></a></span>
+<span id="cb21-181"><a href="#cb21-181"></a>​Your $p$-value of 0.0064 or 0.64 ​percent is less than the significance level ​of 0.05 or five percent. ​You reject the null hypothesis and conclude that there is ​a statistically significant difference between ​the mean district literacy rates of the two states, ​State 21 and State 28.</span>
+<span id="cb21-182"><a href="#cb21-182"></a></span>
+<span id="cb21-183"><a href="#cb21-183"></a>​You analysis will help the department ​decide how to distribute government resources. ​Since there is a statistically significant difference ​in mean district literacy rates, ​the State with the lower literacy rate State 28, ​will likely receive more resources to improve literacy.</span>
+<span id="cb21-184"><a href="#cb21-184"></a></span>
+<span id="cb21-185"><a href="#cb21-185"></a>​The two-sample $t$-test, ​is a powerful tool for ​investigating the differences between two sample means. ​Data professionals often use $t$-tests to ​help stake holders make data-driven decisions.</span>
+<span id="cb21-186"><a href="#cb21-186"></a></span>
+<span id="cb21-187"><a href="#cb21-187"></a>------------------------------------------------------------------------</span>
+<span id="cb21-188"><a href="#cb21-188"></a></span>
+<span id="cb21-189"><a href="#cb21-189"></a>::: Extra</span>
+<span id="cb21-190"><a href="#cb21-190"></a>Some of the following examples are used in the next practice, but were not explained in the lectures, so I included here a brief description, also included some more that were not used in the course at all</span>
+<span id="cb21-191"><a href="#cb21-191"></a></span>
+<span id="cb21-192"><a href="#cb21-192"></a><span class="fu"># **Hypothesis Testing in Python: Beyond the Two-Sample Unpaired T-Test**</span></span>
+<span id="cb21-193"><a href="#cb21-193"></a></span>
+<span id="cb21-194"><a href="#cb21-194"></a>While standard two-sample independent t-tests (such as scipy.stats.ttest_ind) are frequently introduced first, real-world data analysis requires selecting the right statistical test based on your variable types (continuous vs. categorical), group counts, target thresholds, and proportion comparisons.</span>
+<span id="cb21-195"><a href="#cb21-195"></a></span>
+<span id="cb21-196"><a href="#cb21-196"></a><span class="fu">## **Summary of Key Hypothesis Tests**</span></span>
+<span id="cb21-197"><a href="#cb21-197"></a></span>
+<span id="cb21-198"><a href="#cb21-198"></a><span class="pp">|</span> **Test Type** | **Python Function** | **Data Requirements** | **Primary Use Case** <span class="pp">|</span></span>
+<span id="cb21-199"><a href="#cb21-199"></a><span class="pp">|-----------------|-----------------|-----------------|---------------------|</span></span>
+<span id="cb21-200"><a href="#cb21-200"></a><span class="pp">|</span> **Two-Sample Independent t-Test** <span class="pp">|</span> scipy.stats.ttest_ind <span class="pp">|</span> 1 continuous outcome, 2 independent groups <span class="pp">|</span> Comparing means between two separate populations or groups (e.g., LA vs. Rest of CA). <span class="pp">|</span></span>
+<span id="cb21-201"><a href="#cb21-201"></a><span class="pp">|</span> **One-Sample t-Test** <span class="pp">|</span> scipy.stats.ttest_1samp <span class="pp">|</span> 1 continuous variable, 1 pop. target value <span class="pp">|</span> Comparing a single group&#39;s mean to a specific threshold or benchmark (e.g., Is AQI <span class="sc">\&gt;</span> 10?). <span class="pp">|</span></span>
+<span id="cb21-202"><a href="#cb21-202"></a><span class="pp">|</span> **Two-Sample Paired t-Test** <span class="pp">|</span> scipy.stats.ttest_rel <span class="pp">|</span> 1 continuous outcome, 2 dependent measurements <span class="pp">|</span> Comparing repeated measurements on the exact same subjects (e.g., Before/After intervention). <span class="pp">|</span></span>
+<span id="cb21-203"><a href="#cb21-203"></a><span class="pp">|</span> **One-Proportion Z-Test** <span class="pp">|</span> statsmodels.stats.proportion.proportions_ztest <span class="pp">|</span> 1 categorical binary outcome, 1 target proportion <span class="pp">|</span> Comparing a sample proportion to a fixed population benchmark (e.g., Is success rate <span class="sc">\&gt;</span> 50%?). <span class="pp">|</span></span>
+<span id="cb21-204"><a href="#cb21-204"></a><span class="pp">|</span> **Two-Proportion Z-Test** <span class="pp">|</span> statsmodels.stats.proportion.proportions_ztest <span class="pp">|</span> 1 categorical binary outcome, 2 independent groups <span class="pp">|</span> Comparing proportions of success between two distinct groups (e.g., A/B testing conversion rates). <span class="pp">|</span></span>
+<span id="cb21-205"><a href="#cb21-205"></a></span>
+<span id="cb21-206"><a href="#cb21-206"></a><span class="fu">## Two-Sample Independent t-Test (Unpaired)</span></span>
+<span id="cb21-207"><a href="#cb21-207"></a></span>
+<span id="cb21-208"><a href="#cb21-208"></a>**Use Case:** You want to compare the mean of a continuous numerical variable between two separate, non-overlapping groups.</span>
+<span id="cb21-209"><a href="#cb21-209"></a></span>
+<span id="cb21-210"><a href="#cb21-210"></a><span class="fu">### **Example: Comparing LA County AQI vs. Rest of California**</span></span>
+<span id="cb21-211"><a href="#cb21-211"></a></span>
+<span id="cb21-212"><a href="#cb21-212"></a>As seen in the lab exercise:</span>
+<span id="cb21-213"><a href="#cb21-213"></a></span>
+<span id="cb21-216"><a href="#cb21-216"></a><span class="in">```{python}</span></span>
+<span id="cb21-217"><a href="#cb21-217"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb21-218"><a href="#cb21-218"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb21-219"><a href="#cb21-219"></a></span>
+<span id="cb21-220"><a href="#cb21-220"></a><span class="co"># Load sample data</span></span>
+<span id="cb21-221"><a href="#cb21-221"></a>aqi <span class="op">=</span> pd.read_csv(<span class="vs">r&#39;Datasets</span><span class="er">\</span><span class="vs">c4_epa_air_quality</span><span class="dv">.</span><span class="vs">csv&#39;</span>)</span>
+<span id="cb21-222"><a href="#cb21-222"></a></span>
+<span id="cb21-223"><a href="#cb21-223"></a><span class="co"># Subset independent groups</span></span>
+<span id="cb21-224"><a href="#cb21-224"></a>ca_la <span class="op">=</span> aqi[aqi[<span class="st">&#39;county_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;Los Angeles&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
+<span id="cb21-225"><a href="#cb21-225"></a>ca_other <span class="op">=</span> aqi[(aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;California&#39;</span>) <span class="op">&amp;</span> (aqi[<span class="st">&#39;county_name&#39;</span>] <span class="op">!=</span> <span class="st">&#39;Los Angeles&#39;</span>)][<span class="st">&#39;aqi&#39;</span>]</span>
+<span id="cb21-226"><a href="#cb21-226"></a></span>
+<span id="cb21-227"><a href="#cb21-227"></a><span class="co"># Perform Two-Sample Welch&#39;s t-test (equal_var=False handles unequal variances)</span></span>
+<span id="cb21-228"><a href="#cb21-228"></a>tstat, pval <span class="op">=</span> stats.ttest_ind(a<span class="op">=</span>ca_la, b<span class="op">=</span>ca_other, equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb21-229"><a href="#cb21-229"></a></span>
+<span id="cb21-230"><a href="#cb21-230"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb21-231"><a href="#cb21-231"></a></span>
+<span id="cb21-232"><a href="#cb21-232"></a><span class="in">```</span></span>
+<span id="cb21-233"><a href="#cb21-233"></a></span>
+<span id="cb21-234"><a href="#cb21-234"></a><span class="fu">## Two-Sample Independent t-Test (One-Tailed)</span></span>
+<span id="cb21-235"><a href="#cb21-235"></a></span>
+<span id="cb21-236"><a href="#cb21-236"></a>**Use Case:** You have a specific directional hypothesis (e.g., Group A has a lower or higher mean than Group B) rather than just testing for any difference.</span>
+<span id="cb21-237"><a href="#cb21-237"></a></span>
+<span id="cb21-238"><a href="#cb21-238"></a><span class="fu">### **Example: Testing if New York has a lower AQI than Ohio**</span></span>
+<span id="cb21-239"><a href="#cb21-239"></a></span>
+<span id="cb21-240"><a href="#cb21-240"></a>As seen in the lab exercise:</span>
+<span id="cb21-241"><a href="#cb21-241"></a></span>
+<span id="cb21-244"><a href="#cb21-244"></a><span class="in">```{python}</span></span>
+<span id="cb21-245"><a href="#cb21-245"></a><span class="co"># Subset independent groups</span></span>
+<span id="cb21-246"><a href="#cb21-246"></a>ny <span class="op">=</span> aqi[aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;New York&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
+<span id="cb21-247"><a href="#cb21-247"></a>ohio <span class="op">=</span> aqi[aqi[<span class="st">&#39;state_name&#39;</span>] <span class="op">==</span> <span class="st">&#39;Ohio&#39;</span>][<span class="st">&#39;aqi&#39;</span>]</span>
+<span id="cb21-248"><a href="#cb21-248"></a></span>
+<span id="cb21-249"><a href="#cb21-249"></a><span class="co"># Directional test: H_A is that NY mean &lt; Ohio mean</span></span>
+<span id="cb21-250"><a href="#cb21-250"></a>tstat, pval <span class="op">=</span> stats.ttest_ind(a<span class="op">=</span>ny, b<span class="op">=</span>ohio, alternative<span class="op">=</span><span class="st">&#39;less&#39;</span>, equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb21-251"><a href="#cb21-251"></a></span>
+<span id="cb21-252"><a href="#cb21-252"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb21-253"><a href="#cb21-253"></a></span>
+<span id="cb21-254"><a href="#cb21-254"></a><span class="in">```</span></span>
+<span id="cb21-255"><a href="#cb21-255"></a></span>
+<span id="cb21-256"><a href="#cb21-256"></a><span class="fu">## One-Sample t-Test</span></span>
+<span id="cb21-257"><a href="#cb21-257"></a></span>
+<span id="cb21-258"><a href="#cb21-258"></a>**Use Case:** You want to evaluate whether a single sample&#39;s mean significantly differs from a known population mean or specific policy benchmark.</span>
+<span id="cb21-259"><a href="#cb21-259"></a></span>
+<span id="cb21-260"><a href="#cb21-260"></a><span class="fu">### **Example: Testing if Michigan&#39;s AQI exceeds a threshold of 10**</span></span>
+<span id="cb21-261"><a href="#cb21-261"></a></span>
+<span id="cb21-262"><a href="#cb21-262"></a>As seen in the lab exercise:</span>
+<span id="cb21-263"><a href="#cb21-263"></a></span>
+<span id="cb21-266"><a href="#cb21-266"></a><span class="in">```{python}</span></span>
+<span id="cb21-267"><a href="#cb21-267"></a><span class="co"># Example measurements from 10 monitoring sites before and after a clean air initiative</span></span>
+<span id="cb21-268"><a href="#cb21-268"></a>aqi_before <span class="op">=</span> [<span class="fl">18.2</span>, <span class="fl">14.5</span>, <span class="fl">22.1</span>, <span class="fl">19.8</span>, <span class="fl">12.4</span>, <span class="fl">25.0</span>, <span class="fl">16.3</span>, <span class="fl">11.9</span>, <span class="fl">21.4</span>, <span class="fl">17.6</span>]</span>
+<span id="cb21-269"><a href="#cb21-269"></a>aqi_after  <span class="op">=</span> [<span class="fl">14.1</span>, <span class="fl">13.0</span>, <span class="fl">18.5</span>, <span class="fl">15.2</span>, <span class="fl">11.0</span>, <span class="fl">19.8</span>, <span class="fl">14.0</span>, <span class="fl">10.5</span>, <span class="fl">17.2</span>, <span class="fl">15.0</span>]</span>
+<span id="cb21-270"><a href="#cb21-270"></a></span>
+<span id="cb21-271"><a href="#cb21-271"></a><span class="co"># Perform Paired t-test</span></span>
+<span id="cb21-272"><a href="#cb21-272"></a>tstat, pval <span class="op">=</span> stats.ttest_rel(aqi_before, aqi_after, alternative<span class="op">=</span><span class="st">&#39;greater&#39;</span>)</span>
+<span id="cb21-273"><a href="#cb21-273"></a></span>
+<span id="cb21-274"><a href="#cb21-274"></a><span class="bu">print</span>(<span class="ss">f&quot;t-statistic: </span><span class="sc">{</span>tstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb21-275"><a href="#cb21-275"></a></span>
+<span id="cb21-276"><a href="#cb21-276"></a><span class="in">```</span></span>
+<span id="cb21-277"><a href="#cb21-277"></a></span>
+<span id="cb21-278"><a href="#cb21-278"></a><span class="fu">## Paired Samples t-Test (Dependent Samples)</span></span>
+<span id="cb21-279"><a href="#cb21-279"></a></span>
+<span id="cb21-280"><a href="#cb21-280"></a>**Use Case:** You measure the same continuous variable twice on the same subjects (e.g., before and after a treatment or policy change).</span>
+<span id="cb21-281"><a href="#cb21-281"></a></span>
+<span id="cb21-282"><a href="#cb21-282"></a><span class="fu">### Example: AQI at identical monitoring stations before and after policy implementation</span></span>
+<span id="cb21-283"><a href="#cb21-283"></a></span>
+<span id="cb21-286"><a href="#cb21-286"></a><span class="in">```{python}</span></span>
+<span id="cb21-287"><a href="#cb21-287"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
+<span id="cb21-288"><a href="#cb21-288"></a></span>
+<span id="cb21-289"><a href="#cb21-289"></a><span class="co"># 35 out of 120 sampled days were classified as &quot;Unhealthy&quot;</span></span>
+<span id="cb21-290"><a href="#cb21-290"></a>count <span class="op">=</span> <span class="dv">35</span></span>
+<span id="cb21-291"><a href="#cb21-291"></a>nobs <span class="op">=</span> <span class="dv">120</span></span>
+<span id="cb21-292"><a href="#cb21-292"></a>value <span class="op">=</span> <span class="fl">0.20</span>  <span class="co"># Baseline hypothesis threshold (20%)</span></span>
+<span id="cb21-293"><a href="#cb21-293"></a></span>
+<span id="cb21-294"><a href="#cb21-294"></a><span class="co"># H0: p &lt;= 0.20 vs HA: p &gt; 0.20</span></span>
+<span id="cb21-295"><a href="#cb21-295"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>count, nobs<span class="op">=</span>nobs, value<span class="op">=</span>value, alternative<span class="op">=</span><span class="st">&#39;larger&#39;</span>)</span>
+<span id="cb21-296"><a href="#cb21-296"></a></span>
+<span id="cb21-297"><a href="#cb21-297"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb21-298"><a href="#cb21-298"></a></span>
+<span id="cb21-299"><a href="#cb21-299"></a></span>
+<span id="cb21-300"><a href="#cb21-300"></a><span class="in">```</span></span>
+<span id="cb21-301"><a href="#cb21-301"></a></span>
+<span id="cb21-302"><a href="#cb21-302"></a><span class="fu">## One-Proportion Z-Test</span></span>
+<span id="cb21-303"><a href="#cb21-303"></a></span>
+<span id="cb21-304"><a href="#cb21-304"></a>**Use Case:** You have a single categorical (binary) variable and want to test if the proportion of successes differs from a baseline proportion \$p_0\$.</span>
+<span id="cb21-305"><a href="#cb21-305"></a></span>
+<span id="cb21-306"><a href="#cb21-306"></a><span class="fu">### **Example: Testing if the proportion of &quot;Unhealthy Air Days&quot; in a city exceeds 20%**</span></span>
+<span id="cb21-307"><a href="#cb21-307"></a></span>
+<span id="cb21-310"><a href="#cb21-310"></a><span class="in">```{python}</span></span>
+<span id="cb21-311"><a href="#cb21-311"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
+<span id="cb21-312"><a href="#cb21-312"></a></span>
+<span id="cb21-313"><a href="#cb21-313"></a><span class="co"># 35 out of 120 sampled days were classified as &quot;Unhealthy&quot;</span></span>
+<span id="cb21-314"><a href="#cb21-314"></a>count <span class="op">=</span> <span class="dv">35</span></span>
+<span id="cb21-315"><a href="#cb21-315"></a>nobs <span class="op">=</span> <span class="dv">120</span></span>
+<span id="cb21-316"><a href="#cb21-316"></a>value <span class="op">=</span> <span class="fl">0.20</span>  <span class="co"># Baseline hypothesis threshold (20%)</span></span>
+<span id="cb21-317"><a href="#cb21-317"></a></span>
+<span id="cb21-318"><a href="#cb21-318"></a><span class="co"># H0: p &lt;= 0.20 vs HA: p &gt; 0.20</span></span>
+<span id="cb21-319"><a href="#cb21-319"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>count, nobs<span class="op">=</span>nobs, value<span class="op">=</span>value, alternative<span class="op">=</span><span class="st">&#39;larger&#39;</span>)</span>
+<span id="cb21-320"><a href="#cb21-320"></a></span>
+<span id="cb21-321"><a href="#cb21-321"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb21-322"><a href="#cb21-322"></a></span>
+<span id="cb21-323"><a href="#cb21-323"></a></span>
+<span id="cb21-324"><a href="#cb21-324"></a><span class="in">```</span></span>
+<span id="cb21-325"><a href="#cb21-325"></a></span>
+<span id="cb21-326"><a href="#cb21-326"></a><span class="fu">## Two-Proportion Z-Test</span></span>
+<span id="cb21-327"><a href="#cb21-327"></a></span>
+<span id="cb21-328"><a href="#cb21-328"></a>**Use Case:** You want to compare the proportion of a binary outcome between two independent groups (e.g., comparing compliance or success rates between two states or test variants).</span>
+<span id="cb21-329"><a href="#cb21-329"></a></span>
+<span id="cb21-330"><a href="#cb21-330"></a><span class="fu">### Example: Comparing high-pollution day rates between State A and State B</span></span>
+<span id="cb21-331"><a href="#cb21-331"></a></span>
+<span id="cb21-334"><a href="#cb21-334"></a><span class="in">```{python}</span></span>
+<span id="cb21-335"><a href="#cb21-335"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb21-336"><a href="#cb21-336"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
+<span id="cb21-337"><a href="#cb21-337"></a></span>
+<span id="cb21-338"><a href="#cb21-338"></a><span class="co"># State A: 45 high-pollution days out of 200 total samples</span></span>
+<span id="cb21-339"><a href="#cb21-339"></a><span class="co"># State B: 25 high-pollution days out of 180 total samples</span></span>
+<span id="cb21-340"><a href="#cb21-340"></a>counts <span class="op">=</span> np.array([<span class="dv">45</span>, <span class="dv">25</span>])</span>
+<span id="cb21-341"><a href="#cb21-341"></a>nobs <span class="op">=</span> np.array([<span class="dv">200</span>, <span class="dv">180</span>])</span>
+<span id="cb21-342"><a href="#cb21-342"></a></span>
+<span id="cb21-343"><a href="#cb21-343"></a><span class="co"># Two-tailed test comparing proportions</span></span>
+<span id="cb21-344"><a href="#cb21-344"></a>zstat, pval <span class="op">=</span> proportions_ztest(count<span class="op">=</span>counts, nobs<span class="op">=</span>nobs, alternative<span class="op">=</span><span class="st">&#39;two-sided&#39;</span>)</span>
+<span id="cb21-345"><a href="#cb21-345"></a></span>
+<span id="cb21-346"><a href="#cb21-346"></a><span class="bu">print</span>(<span class="ss">f&quot;Z-statistic: </span><span class="sc">{</span>zstat<span class="sc">:.4f}</span><span class="ss">, p-value: </span><span class="sc">{</span>pval<span class="sc">:.4f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb21-347"><a href="#cb21-347"></a><span class="in">```</span></span>
+<span id="cb21-348"><a href="#cb21-348"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

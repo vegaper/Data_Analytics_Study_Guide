@@ -58,7 +58,7 @@ Recall that we use the multiplication rule to ​calculate the probability of i
 
 ​Let's explore each step in more detail. 
 
-## State the null hypothesis
+# State the null hypothesis
 
 ​First, state your null hypothesis ​and your alternative hypothesis. ​**The null hypothesis is a statement that is assumed to be ​true unless there's convincing evidence to the contrary.** ​The null hypothesis typically ​assumes that your observed data occurs by chance. **​**
 
@@ -66,13 +66,13 @@ Recall that we use the multiplication rule to ​calculate the probability of i
 
 In our example, your null hypothesis states ​that the coin is fair. ​Having a fair coin is ​the standard or typical state of things. ​The null hypothesis states that ​your observations result purely from chance. ​Your alternative hypothesis states the contrary claim, ​the coin is not fair. ​The alternative hypothesis says that the outcome was ​the result of rigging and did not happen by chance. 
 
-## ​Choose a significance level
+# ​Choose a significance level
 
 Next, choose your **significance level**. ​**This is the threshold at which you will ​consider results statistically significant. ​**The significance level is also the probability of ​rejecting the null hypothesis when it is true. ​I'll talk more about this later in the video. ​In our example, you use five percent as ​a threshold determine if ​the outcome of the coin toss occurred by chance. ​Typically, data professional set ​the significance level at five percent. ​
 
 Note that there's nothing magical about five percent, ​this is a choice based on tradition ​and statistical research in education. ​You can adjust the significance level ​to meet the requirements of your analysis. ​Other common choices are one percent and 10 percent. 
 
-## Find the p-value
+# Find the p-value
 
 ​Next, find your $p$-value. ​ $p$**-value refers to the probability of observing results as ​or more extreme than those ​observed when the null hypothesis is true**. ​We already calculated that ​the probability of fair coin landing on tails ​six times in a row is 1.56 percent. 
 
@@ -80,7 +80,7 @@ Note that there's nothing magical about five percent, ​this is a choice based
 
 ​For instance, the probability of tossing seven tails ​in a row with a fair coin is 0.79 percent, ​which is lower than the $p$-value of 1.56 percent. ​If you toss seven tails in a row, ​you'd have even stronger evidence for ​the alternative hypothesis that the coin is not fair. 
 
-## Reject or fail to reject the null hypothesis. ​
+# Reject or fail to reject the null hypothesis. ​
 
 Finally, you have to decide whether to ​reject or fail to reject the null hypothesis. ​Statisticians always say, ​fail to reject rather than except. ​This is because hypothesis tests ​are based on probability, ​not certainty. ​Acceptance implies certainty. ​In general, as data professionals, ​we try not to claim certainty about ​results based on statistical methods. 
 
@@ -94,7 +94,7 @@ The example of the coin toss, ​your $p$-value of 1.56 percent ​is less tha
 
 ​A statistically significant result cannot prove ​with 100 percent certainty ​that our hypothesis is correct. ​Because hypothesis testing is based on probability, ​there's always a chance of drawing ​the wrong conclusion about the null hypothesis. ​
 
-## Types of errors in Statistical Testing
+# Types of errors in Statistical Testing
 
 In hypothesis testing, ​there are two types of errors you ​can make when drawing a conclusion, ​a Type I error and a Type II error. ​
 
@@ -118,7 +118,7 @@ Recently, you learned that **hypothesis testing** uses sample data to evaluate a
 
 In this reading, we’ll go over the main differences between the null hypothesis and the alternative hypothesis, and how to formulate each hypothesis in different scenarios. 
 
-## Statistical hypotheses
+# Statistical hypotheses
 
 Let’s review the steps for conducting a hypothesis test:
 
@@ -152,7 +152,7 @@ For example, imagine you’re a data professional working for a car dealership. 
 
 Let’s explore each hypothesis in more detail. 
 
-### **Null hypothesis**
+## **Null hypothesis**
 
 The null hypothesis has the following characteristics:
 
@@ -162,7 +162,7 @@ The null hypothesis has the following characteristics:
 
 -   Null hypotheses often include phrases such as “no effect,” “no difference,” “no relationship,” or “no change.” 
 
-### **Alternative hypothesis**
+## **Alternative hypothesis**
 
 The alternative hypothesis has the following characteristics:
 
@@ -186,11 +186,11 @@ The prosecution doesn't need to prove that the person is innocent. Instead, it a
 If the evidence is extremely unlikely under innocence, we reject H₀.
 :::
 
-### **Example scenarios**
+## **Example scenarios**
 
 Typically, the null hypothesis represents the *status quo*, or the current state of things. The null hypothesis assumes that the status quo hasn’t changed. The alternative hypothesis suggests a new possibility or different explanation. Let’s check out some examples to get a better idea of how to write the null and alternative hypotheses for different scenarios:
 
-#### Example#1: Mean weight
+### Example#1: Mean weight
 
 An organic food company is famous for their granola. The company claims each bag they produce contains 300 grams of granola—no more and no less. To test this claim, a quality control expert measures the weight of a random sample of 40 bags.
 
@@ -198,7 +198,7 @@ An organic food company is famous for their granola. The company claims each bag
 
 -   **H~a~:** μ ≠ 300 (the mean weight of all produced granola bags is not equal to 300 grams)
 
-#### Example#2: Mean height
+### Example#2: Mean height
 
 Suppose it’s assumed that the mean height of a certain species of tree is 30 feet tall. However, one ecologist claims the actual mean height is greater than 30 feet. To test this claim, the ecologist measures the height of a random sample of 50 trees.
 
@@ -206,7 +206,7 @@ Suppose it’s assumed that the mean height of a certain species of tree is 30 f
 
 -   **H~a~:** μ \> 30 (the mean height of this species of tree is greater than 30 feet)
 
-#### Example#3: Proportion of employees
+### Example#3: Proportion of employees
 
 A corporation claims that at least 80% of all employees are satisfied with their job. However, an independent researcher believes that less than 80% of all employees are satisfied with their job. To test this claim, the researcher surveys a random sample of 100 employees.
 
@@ -214,7 +214,7 @@ A corporation claims that at least 80% of all employees are satisfied with their
 
 -   **H~a~:** p \< 0.80 (the proportion of all employees who are satisfied with their job is less than 80%)
 
-#### Example#4: Proportion of customers
+### Example#4: Proportion of customers
 
 The company claims that at least 80% of its customers are satisfied with their shopping experience. You survey a random sample of 100 customers. According to the survey, 73% of customers say they are satisfied.
 
@@ -222,7 +222,7 @@ The company claims that at least 80% of its customers are satisfied with their s
 
 -   Hₐ: P \< 0.80
 
-### **Summary: Null versus alternative**
+## **Summary: Null versus alternative**
 
 A very useful rule is:
 
@@ -248,11 +248,11 @@ The following table summarizes some important differences between the null and a
 | **Symbols**  | Equality (=, ≤, ≥)                    | Inequality (≠, \<, \>)                |
 +--------------+---------------------------------------+---------------------------------------+
 
-## Key takeaways
+# Key takeaways
 
 The null hypothesis and the alternative hypothesis are foundational concepts in hypothesis testing. To conduct an effective hypothesis test, it’s important to understand the differences between the null and alternative hypotheses, and how to properly state each hypothesis. 
 
-## Resources for more information
+# Resources for more information
 
 To learn more about the null hypothesis and the alternative hypothesis, refer to the following resources: 
 
@@ -266,7 +266,7 @@ Earlier, you learned that you can use a hypothesis test to help determine if you
 
 In this reading, we’ll discuss the difference between Type I and Type II errors, and the risks involved in making each error.
 
-## Errors in statistical decision-making
+# Errors in statistical decision-making
 
 Let’s review the steps for conducting a hypothesis test:
 
@@ -290,7 +290,7 @@ When you decide to reject or fail to reject the null hypothesis, there are four 
 
 ![](images/paste-66.png)
 
-### **Example: Clinical trial**
+## **Example: Clinical trial**
 
 Let’s explore an example to get a better understanding of Type I and Type II errors. Hypothesis tests are often used in clinical trials to determine whether a new medicine leads to better outcomes in patients. Imagine you’re a data professional who works for a pharmaceutical company. The company invents a new medicine to treat the common cold. The company tests a random sample of 200 people with cold symptoms. Without medicine, the typical person experiences cold symptoms for 7.5 days. The average recovery time for people who take the medicine is 6.2 days. 
 
@@ -302,7 +302,7 @@ In this case:
 
 -   Your **alternative hypothesis** (H~a~) is that the medicine is effective.
 
-### **Type I error**
+## **Type I error**
 
 A **Type 1 error**, also known as a false positive, occurs when you reject a null hypothesis that is actually true. In other words, you conclude that your result is statistically significant when in fact it occurred by chance. 
 
@@ -310,7 +310,7 @@ For example, in your clinical trial, if the null hypothesis is true, that means 
 
 The probability of making a Type I error is called alpha (α). Your significance level, or alpha (α), represents the probability of making a Type I error. Typically, the significance level is set at 0.05, or 5%. A significance level of 5% means you are willing to accept a 5% chance you are wrong when you reject the null hypothesis. 
 
-#### **Reduce your risk**
+### **Reduce your risk**
 
 To reduce your chance of making a Type I error, choose a lower significance level.
 
@@ -321,7 +321,7 @@ For instance, if you want to minimize the risk of a Type I error, you can choose
 | 0.05                       | 5%                                |
 | 0.01                       | 1%                                |
 
-### **Type II error**
+## **Type II error**
 
 However, reducing your risk of making a Type I error means you are more likely to make a Type II error, or false negative. A **Type II error** occurs when you fail to reject a null hypothesis which is actually false. In other words, you conclude your result occurred by chance, when in fact it didn’t. 
 
@@ -329,13 +329,13 @@ For example, in your clinical study, if the null hypothesis is false, this means
 
 The probability of making a Type II error is called beta (β), and beta is related to the power of a hypothesis test (power = 1- β). Power refers to the likelihood that a test can correctly detect a real effect when there is one. 
 
-#### **Reduce your risk**
+### **Reduce your risk**
 
 You can reduce your risk of making a Type II error by ensuring your test has enough power. In data work, power is usually set at 0.80 or 80%. The higher the statistical power, the lower the probability of making a Type II error. To increase power, you can increase your sample size or your significance level.
 
 **Note**: A detailed discussion of the concept of statistical power is beyond the scope of this course. Power is something you’ll learn more about as you advance in your career as a data professional and grow your knowledge of statistics. 
 
-### **Potential risks of Type I and Type II errors**
+## **Potential risks of Type I and Type II errors**
 
 As a data professional, it’s important to be aware of the potential risks involved in making the two types or errors.
 
@@ -347,11 +347,11 @@ A Type II error means failing to reject a null hypothesis which is actually fals
 
 For example, if you make a Type II error in your clinical trial, the new medicine will be considered ineffective even though it’s actually effective. This means that a useful medication may not reach a large number of people who could benefit from it.
 
-## Key takeaways 
+# Key takeaways 
 
 As a data professional, it helps to be aware of the potential errors built into hypothesis testing and how they can affect your results. Depending on the specific situation, you may choose to minimize the risk of either a Type I or Type II error. Ultimately, it’s your responsibility as a data professional to determine which type of error is riskier based on the goals of your analysis. 
 
-## Resources for more information
+# Resources for more information
 
 To learn more about Type I and Type II errors, refer to the following resources: 
 
@@ -943,7 +943,7 @@ Earlier, you learned that a hypothesis test can be either one-tailed or two-tail
 
 In this reading, we’ll go over the main differences between one-tailed and two-tailed tests, and discuss the procedure for conducting each test. 
 
-## One-tailed and two-tailed tests
+# One-tailed and two-tailed tests
 
 First, let’s discuss the differences between one-tailed and two-tailed tests. 
 
@@ -981,7 +981,7 @@ In A/B Tests\
 
 Let’s explore a more detailed example to get a better understanding of the difference between one-tailed and two-tailed tests. 
 
-### **Example: One-tailed tests**
+## **Example: One-tailed tests**
 
 Imagine you’re a data professional working for an online retail company. The company claims that *at least* 80% of its customers are satisfied with their shopping experience. You survey a random sample of 100 customers. According to the survey, 73% of customers say they are satisfied. Based on the survey data, you conduct a $z$-test to evaluate the claim that *at least* 80% of customers are satisfied. 
 
@@ -1021,7 +1021,7 @@ Finally, you draw a conclusion. Since your $p$-value of 0.04 is less than your s
 
 ![](images/paste-68.png)
 
-### **Example: Two-tailed tests**
+## **Example: Two-tailed tests**
 
 Now, imagine our previous example has a slightly different set up. Suppose the company claims that 80% of its customers are satisfied with their shopping experience. To test this claim, you survey a random sample of 100 customers. According to the survey, 73% of customers say they are satisfied. Based on the survey data, you conduct a $z$-test to evaluate the claim that 80% of customers are satisfied.
 
@@ -1045,7 +1045,7 @@ So, in this case, your $p$-value = 0.04 + 0.04 = 0.08. In a two-tailed test, you
 
 ![Finally, you draw a conclusion. Since your $p$-value of 0.08 is greater than your significance level of 0.05, you **fail to reject** the null hypothesis. ](images/paste-69.png)
 
-## One-tailed versus two-tailed
+# One-tailed versus two-tailed
 
 You can use one-tailed and two-tailed tests to examine different effects. 
 
@@ -1055,7 +1055,7 @@ For example, imagine a pharmaceutical company develops a new medication they bel
 
 A one-tailed test may be appropriate if the negative consequences of missing an effect in the untested direction are minimal. For example, imagine that the company develops a new, less expensive medication that they believe is at least as effective as the existing medication. The lower price gives the new medication an advantage in the market. So, they just want to make sure the new medication is not *less* effective than the existing medication. Testing whether it’s *more* effective is not a priority. In this case, a one-tailed test may be appropriate.
 
-### Why Two-Tailed is the Standard in Practice
+## Why Two-Tailed is the Standard in Practice
 
 In real-world data science and business analytics, **two-tailed tests are heavily preferred and usually the default.**
 
@@ -1063,13 +1063,13 @@ In real-world data science and business analytics, **two-tailed tests are heavil
 
 2.  **Avoiding Bias:** If you use a one-tailed test expecting an improvement, but Version B actually performs much worse, a one-tailed test treats that negative result as "no different than zero." It completely ignores how bad the new design might be.
 
-### When Would Someone Use a One-Tailed Test?
+## When Would Someone Use a One-Tailed Test?
 
 A data team might choose a one-tailed test only if **a change in the opposite direction is physically impossible, irrelevant, or won't change the business decision.**
 
 -   **Example:** Testing a new server infrastructure that costs extra money. You only care if it makes site loading speed **faster** ($\mu_B < \mu_A$). If it's slower *or* the same, you won't buy it either way. Since both "no change" and "worse performance" lead to the exact same decision (don't buy), a one-tailed test can be justified.
 
-### Key Takeaway
+## Key Takeaway
 
 Unless a business problem explicitly states a directional goal (e.g., *"We only want to know if Green increases conversions"*), **always default to a two-tailed test.** It is the safer, more conservative statistical approach.
 
@@ -1104,7 +1104,7 @@ Because proportions directly determine their own variance, there is no separate 
 
 By the Central Limit Theorem, as long as your sample size is large enough (typically $n \cdot p \ge 10$ and $n \cdot (1 - p) \ge 10$), the sampling distribution of a difference in proportions follows a Normal distribution.Since you calculate the standard error directly using the sample proportions without needing a separate variance estimate, the test statistic follows a standard Normal distribution ($Z$), leading directly to a two-sample $z$-test.
 
-### Formula Comparison: Proportions vs. Means
+## Formula Comparison: Proportions vs. Means
 
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------+
 | **Parameter**              | **Two-Sample Z-Test (Proportions)**                                            | **Two-Sample t-Test (Means)**                                 |
@@ -1120,7 +1120,7 @@ By the Central Limit Theorem, as long as your sample size is large enough (typic
 | **Reference Distribution** | Standard Normal ($Z$)                                                          | Student's $t$ (with $df$ degrees of freedom)                  |
 +----------------------------+--------------------------------------------------------------------------------+---------------------------------------------------------------+
 
-### Key Takeaway
+## Key Takeaway
 
 -   In the $Z$-test, the standard error $SE_p$ relies entirely on the pooled proportion $\hat{p} = \frac{x_1 + x_2}{n_1 + n_2}$. You don't need a separate sample variance $s^2$.
 
@@ -1158,7 +1158,6 @@ As a data professional, ​you'll almost always calculate $p$-value on your comp
 Use the following formula to calculate ​the $Z$-statistic based on your sample data.
 
 ::: extra
-
 Remember: The Core Idea:
 
 $Z = \frac{\text{Signal}}{\text{Noise}}$
@@ -1292,7 +1291,7 @@ else:
 
 In the HR example, employee response was strictly binary (**Satisfied** vs. **Not Satisfied**) across two groups. In practice, categorical metrics often involve more than two outcomes or more than two groups.
 
-## Multi-Class Proportions (e.g., Traffic Origin, Multiple Survey Options)
+# Multi-Class Proportions (e.g., Traffic Origin, Multiple Survey Options)
 
 When analyzing data with multiple categories (e.g., website traffic split across **USA (10%)**, **Canada (12%)**, **Spain (25%)**, and **Others (53%)**), the underlying mathematical distribution shifts from Bernoulli/Binomial to a **Multinomial Distribution**.
 
@@ -1302,14 +1301,17 @@ When analyzing data with multiple categories (e.g., website traffic split across
     \text{Cov}(X_i, X_j) = -n \cdot p_i \cdot p_j
     $$
 
-|  |  |  |
-|----|----|----|
-| **Question** | **Data Type** | **Test Used** |
-| "Is the proportion of US visitors higher in Version A than Version B?" | 1 Category collapsed (USA vs. Non-USA) | Two-Sample $Z$-Test for Proportions |
-| "Has the overall geographic distribution (USA, CAN, ESP, Other) changed?" | All $k$ Categories simultaneously | Chi-Square ($\chi^2$) Goodness-of-Fit / Independence Test |
-| "Is average session length different across countries?" | Continuous metric grouped by categories | ANOVA (Analysis of Variance) |
++---------------------------------------------------------------------------+-----------------------------------------+-----------------------------------------------------------+
+| **Question**                                                              | **Data Type**                           | **Test Used**                                             |
++---------------------------------------------------------------------------+-----------------------------------------+-----------------------------------------------------------+
+| "Is the proportion of US visitors higher in Version A than Version B?"    | 1 Category collapsed (USA vs. Non-USA)  | Two-Sample $Z$-Test for Proportions                       |
++---------------------------------------------------------------------------+-----------------------------------------+-----------------------------------------------------------+
+| "Has the overall geographic distribution (USA, CAN, ESP, Other) changed?" | All $k$ Categories simultaneously       | Chi-Square ($\chi^2$) Goodness-of-Fit / Independence Test |
++---------------------------------------------------------------------------+-----------------------------------------+-----------------------------------------------------------+
+| "Is average session length different across countries?"                   | Continuous metric grouped by categories | ANOVA (Analysis of Variance)                              |
++---------------------------------------------------------------------------+-----------------------------------------+-----------------------------------------------------------+
 
-### 
+## 
 :::
 
 ------------------------------------------------------------------------
@@ -1320,7 +1322,7 @@ Earlier, you learned that A/B testing is a way to compare two versions of someth
 
 In this reading, you’ll learn more about the general purpose and design of an A/B test and how A/B testing uses statistical methods to analyze data. 
 
-## Business context  
+# Business context  
 
 Data professionals often use A/B testing to help stakeholders choose the best design for a website or app to optimize marketing, increase revenue, or enhance customer experience. In practice, A/B testing involves randomly selecting a sample of users and dividing them into two groups (A and B). The two groups visit different versions of a company’s website. The two versions are identical except for a single design feature. For instance, the “Purchase” button on Group A’s version might have a different size, shape, or color than the “Purchase” button on Group B’s version. An A/B test uses statistical analysis to determine whether the change in the feature (e.g., a larger button) affects user behavior for a specific metric. A data professional might use an A/B test to analyze one of the following metrics: 
 
@@ -1334,7 +1336,7 @@ Data professionals often use A/B testing to help stakeholders choose the best de
 
 Let’s explore an example to get a better understanding of how A/B testing works. 
 
-## Example: Average revenue per user  
+# Example: Average revenue per user  
 
 Imagine you’re a data professional who works for an online footwear retailer. The company is trying to grow its business and is researching the average revenue per user on its website. Your team leader asks you to conduct an A/B test to determine whether increasing the size of the “Purchase” button has any effect on average revenue. You randomly select a sample of users and divide them into two groups, A and B. Group A visits the standard version of the company website. Group B visits a version of the website that is identical to the standard version except for the larger “Purchase” button. You run the test online and collect your sample data. The results indicate that average revenue per user is higher for Group B. Finally, you conduct a two-sample hypothesis test to determine whether the observed difference in average revenue is statistically significant or due to chance. 
 
@@ -1348,11 +1350,11 @@ A typical A/B test has at least three main features: 
 
 Let’s examine each feature in more detail using our example. 
 
-## **Test design**   
+# **Test design**   
 
 First, let’s discuss the fundamental design of an A/B test. 
 
-### Randomized controlled experiment 
+## Randomized controlled experiment 
 
 An A/B test is a basic version of what’s known as a randomized controlled experiment. In a **randomized controlled experiment**, test subjects are randomly assigned to a control group and a treatment group. The **treatment** is the new change being tested in the experiment. The **control** **group** is not exposed to the treatment. The **treatment group** is exposed to the treatment. The difference in metric values between the two groups measures the treatment’s effect on the test subjects.
 
@@ -1362,13 +1364,13 @@ In our example, group A is the control group, group B is the treatment group, an
 
 Randomization, or randomly assigning test subjects to the control group or treatment group, also helps control the potential effect of other factors on the outcome of the experiment. In practice, many different factors might influence whether a user clicks the “Purchase” button or not. For example, perhaps super wealthy users are much more likely to make purchases in general, regardless of button size. If your treatment group consists *only* of super wealthy users, you won’t get valid test results. Any observed increase in average revenue might be due to wealth, not to the larger size of the “Purchase” button (the factor you’re interested in testing). Randomization helps minimize the chance that other factors, such as wealth, will significantly influence your results on average. 
 
-## Sampling  
+# Sampling  
 
 Random selection helps you create a representative sample that reflects the characteristics of the overall user population. In our example, this is the population of online customers of the company you work for. Using a representative sample for your A/B test will give you valid results that are generalizable, or applicable to the overall population. 
 
 You’ll also need to choose a sample size that is appropriate for your A/B test. The larger the sample size, the more precise the results, and the more likely you’ll get results that are statistically significant when there is a difference between group A and group B. However, working with large samples can be expensive and time-consuming. Data professionals determine sample size based on both the goal of the analysis and their available budget.   
 
-## Hypothesis testing 
+# Hypothesis testing 
 
 For the purpose of our example, let’s say you run the online test, collect your data, and discover that group B has a higher average revenue per user than group A. Recall that group B is the treatment group (larger “Purchase” button), and group A is the control group.
 
@@ -1378,13 +1380,13 @@ The next step is to determine whether the observed difference in your data is st
 
 -   **H**~a~: There is a difference in average revenue per user between A and B 
 
-## Results
+# Results
 
 Based on the results of your $t$-test, you reject the null hypothesis and conclude that the observed increase in average revenue per user is statistically significant. 
 
 The results of your A/B test help you decide whether or not to recommend a design change for your company’s website. In this case, when you present your results to company stakeholders, you suggest implementing the larger “Purchase” button to increase average revenue per user going forward. 
 
-## Key takeaways
+# Key takeaways
 
 A/B testing is one of the most popular applications of statistics for business purposes. Data professionals use A/B testing to help business leaders optimize product performance, improve customer experience, and grow their online business. Understanding the general purpose and design of an A/B test will be useful in your future career as a data professional.
 
@@ -1398,7 +1400,7 @@ Data professionals often work with experimental data previously collected by oth
 
 In this reading, we’ll discuss how data professionals design experiments to collect data, test hypotheses, and discover relationships between variables. You’ll learn more about the basic concepts and procedures of experimental design.
 
-## Context: Experimental design
+# Context: Experimental design
 
 **Experimental design** refers to planning an experiment in order to collect data to answer your research question. 
 
@@ -1416,7 +1418,7 @@ It’s important to understand experimental design because it affects the qualit
 
 You can explore an example to get a better understanding of experimental design. 
 
-## Example: Clinical trial 
+# Example: Clinical trial 
 
 Imagine you’re a data professional who works for a pharmaceutical company. The company invents a new medicine to treat the common cold. Your team leader asks you to design an experiment to test the effectiveness of the medicine. You want to find out whether taking the medicine leads to faster recovery time.
 
@@ -1432,7 +1434,7 @@ There are at least three key steps in designing an experiment: 
 
 Next, examine each step in more detail using our example. 
 
-### **Step 1: Define your variables** 
+## **Step 1: Define your variables**
 
 Data professionals often begin by defining the independent and dependent variables in their experiment. This helps clarify the relationship between the variables. 
 
@@ -1450,7 +1452,7 @@ In a more complex experiment, you might test the effect of different medicines o
 
 **Note**: Later in this certificate program, when we discuss regression analysis, you'll have the chance to learn about independent and dependent variables in more detail. 
 
-### **Step 2: Formulate your hypothesis**
+## **Step 2: Formulate your hypothesis**
 
 The next step is to formulate a hypothesis. Your hypothesis states the relationship between your independent and dependent variables and predicts the outcome of your experiment. Earlier, you learned that data professionals formulate both null and alternative hypotheses when they conduct research that involves statistical testing. Recall that the null hypothesis typically assumes that there is no effect on the population, and the alternative hypothesis assumes the opposite. For your clinical trial: 
 
@@ -1458,9 +1460,9 @@ The next step is to formulate a hypothesis. Your hypothesis states the relations
 
 -   Your alternative hypothesis (H~a~) is that the medicine is effective.
 
-### **Step 3: Assign test subjects to treatment and control groups**
+## **Step 3: Assign test subjects to treatment and control groups**
 
-#### **Treatment and control groups**
+### **Treatment and control groups**
 
 Experiments such as clinical trials and A/B tests are controlled experiments. In a **controlled experiment**, test subjects are assigned to a treatment group and a control group. The **treatment** is the new change being tested in the experiment. The **treatment group** is exposed to the treatment. The **control group** is not exposed to the treatment. The difference in metric values between the two groups measures the treatment’s effect on the test subjects. 
 
@@ -1472,7 +1474,7 @@ Ideally, exposure to the treatment is the only significant difference between th
 
 For example, imagine the subjects in your treatment group have a much healthier diet than the subjects in your control group. Any observed decrease in recovery time for the treatment group might be due to their healthier diet—and not to the medicine. In this case, you cannot say with confidence that the medicine alone is the *cause* of the faster recovery time. 
 
-#### **Randomization** 
+### **Randomization** 
 
 Typically, data professionals randomly assign test subjects to treatment and control groups. Randomization helps control the effect of other factors on the outcome of an experiment. Two common methods for assigning subjects to treatment and control groups are completely randomized design and randomized block design. 
 
@@ -1486,7 +1488,7 @@ For example, suppose you know that age is a significant factor in recovery time 
 
 In this case, blocking for the age factor is a more effective way to design your experiment. First, you divide the test subjects into blocks based on age, such as 21-35, 36-50, and 51-65. Next, you randomly assign the subjects within each block to treatment and control groups. This way, if there is a significant difference in recovery time within a specific block, you can be more confident that this result is due to the treatment (medicine) and not to the nuisance factor (age). 
 
-## Key takeaways
+# Key takeaways
 
 Data professionals use experimental design to plan experiments and collect data that helps answer their research questions. The design of an experiment affects the quality of your data and the validity of your conclusions. Whether you’re designing your own experiment, or using data collected by others, it’s important to understand the basic principles of experimental design. This knowledge will help you analyze data from experiments such as clinical trials, A/B tests, and more.  
 
@@ -1496,11 +1498,11 @@ Data professionals use experimental design to plan experiments and collect data 
 
 Previously, you learned that A/B testing is a way to compare two versions of something to find out which version performs better. For example, a data professional might use A/B testing to compare two versions of a web page or two versions of an online ad. You also learned that A/B testing utilizes statistical methods such as sampling and hypothesis testing. This case study describes how Ipsos used A/B testing to compare two different online ad formats: ads presented in a sequenced narrative vs. a traditional 30-second ad presented multiple times. You’ll learn how data-driven market research reveals important insights about the impact of different ad formats on the effectiveness of a digital ad campaign.
 
-## Company background  
+# Company background  
 
 Ipsos is a full-service market research company. Founded in France in 1975, Ipsos is now a global company with 18,000 staff operating in 90 countries. Ipsos provides research services across numerous private and public sector domains. These services include brand building; advertising effectiveness; product development; reputation; customer and user experience; and public opinion, election, and crisis management. Ipsos uses a combination of data sources for their research, from primary data collection to social listening, mobility, and satellite imagery. 
 
-## Project background
+# Project background
 
 Ipsos’ client for this project was an online media company that allows users to post their own video content. The media company wanted to help its own clients - the advertisers on their platform - create the most effective ads. In particular, they wanted to find out whether investing in sequenced ads would increase the likelihood of viewers recalling an ad and purchasing a product. Video ad sequencing lets advertisers show ads in an order based on the most engaging and memorable story structures. The media company commissioned Ipsos to conduct research to measure the impact of five different sequence structures on brand lift. 
 
@@ -1508,17 +1510,17 @@ Ipsos’ client for this project was an online media company that allows users t
 
 ![](images/paste-71.png)
 
-## Project framework
+# Project framework
 
 Ipsos developed the following research question to guide their project: Does an ad sequence with the Tease, Amplify, Echo structure increase ad recall and purchase intent compared to repeated viewings of a traditional 30-second ad? 
 
 Ipsos’ initial hypothesis was that ads presented in a sequenced narrative would be more effective than repeated viewings of a traditional ad. To test this hypothesis for these two advertising approaches, Ipsos conducted an A/B test. The A/B test set up an experiment for two groups of users: one group was shown the Tease, Amplify, Echo ads and the other group was shown a traditional ad multiple times. In each case, the different ad formats were based on the same brand content. You’ll learn more about the details of the testing process in what follows.  
 
-## The challenges 
+# The challenges 
 
 At the outset of the project, Ipsos identified two main challenges. The first challenge involved properly designing the A/B test. The second challenge involved creating the test ads in the appropriate test environment.
 
-### **Test design** 
+## **Test design**
 
 Ipsos’s primary concern was for the results of the A/B test to be generalizable, or applicable to the overall population of the media company’s users. In other words, Ipsos wanted to make valid inferences about the larger user population based on the smaller sample of test participants. To obtain valid test results, Ipsos needed to do the following; 
 
@@ -1526,7 +1528,7 @@ Ipsos’s primary concern was for the results of the A/B test to be generalizabl
 
 2.  Create an online test environment that mirrored the media company’s online environment. This also implied creating test ads from multiple brands to reproduce the diversity of ads featured on the media company’s platform. 
 
-## The approach  
+# The approach  
 
 Despite these challenges, Ipsos conducted the A/B test and achieved their research goals. Ipsos’ successful approach to their project included the following elements: 
 
@@ -1538,17 +1540,17 @@ Despite these challenges, Ipsos conducted the A/B test and achieved their resear
 
 -   Hypothesis testing 
 
-### **Team**
+## **Team**
 
 To build an effective team, Ipsos created a cross-functional operation, including video production to create test ads based on the Tease, Amplify, Echo structure, and technology to build a realistic online test environment. 
 
 To facilitate collaboration among project participants, Ipsos outlined a clear set of editing rules and organized a shared site to house links to videos and edit notes. This allowed rapid feedback and adjustment throughout the development process. Finally, Ipsos had senior client service project managers own and monitor the project design and workflow from beginning to end.
 
-### **Sampling** 
+## **Sampling**
 
 Ipsos used random selection from consumer panels to generate a representative sample that accurately reflected the characteristics of the overall user population. Ipsos also made sure that each test group included the same proportion of respondents for key categories such as age and gender. Further, Ipsos used a relatively large sample size of 7,500 respondents to obtain more precise results. 
 
-### **Testing process** 
+## **Testing process**
 
 To get valid test results, Ipsos conducted A/B testing in an online environment where respondents used the media company’s platform as they typically would in their everyday lives. To mirror the diversity of ads on the platform, Ipsos developed test ads across 30 brand categories, from airline tickets to fast food to laundry detergent. 
 
@@ -1556,7 +1558,7 @@ The testing process was organized in the following way: 
 
 Surveys were administered online via respondents’ smartphones in November and December of 2018. After initial screening, respondents were taken to a browser-based version of the platform where they were free to search for and watch videos as they normally would. Ipsos dynamically inserted test ads at the beginning of the videos selected by respondents in the live test environment. After the browsing session, respondents completed a survey to measure brand lift for ad recall and product intent. 
 
-### **Hypothesis testing**
+## **Hypothesis testing**
 
 The survey data indicated that the Tease, Amplify, Echo ad sequence led to higher levels of ad recall and purchase intent among respondents than repeated viewings of a traditional ad. To determine whether their observed results were statistically significant, Ipsos conducted a two-sample t-test for each category: one for ad recall and one for purchase intent. They formulated their hypotheses as follows: 
 
@@ -1570,13 +1572,13 @@ The survey data indicated that the Tease, Amplify, Echo ad sequence led to highe
 
 For both tests, Ipsos rejected the null hypothesis. They concluded that there are statistically significant and substantively meaningful differences in ad recall and purchase intent between sequenced ads and a repeated traditional ad. 
 
-## The results  
+# The results  
 
 The results of the A/B test indicated that ad sequencing works!  
 
 The Tease, Amplify, Echo ad sequence had a significantly greater impact on ad recall and purchase intent than repeated viewings of a traditional ad. For example, across all product categories, 54% of viewers recalled the ad after being exposed to the “Tease, Amplify, Echo” sequence as compared to 42% with a repeated traditional ad. Further, 30% of viewers expressed intent to purchase after being exposed to the “Tease, Amplify, Echo” ad sequence as compared to 25% with a repeated traditional ad. 
 
-## Resources
+# Resources
 
 Explore the following resources to learn more about the research project that inspired this case study: 
 

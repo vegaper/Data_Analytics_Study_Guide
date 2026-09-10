@@ -240,29 +240,29 @@ website:
       - section: "Course 4: Regression Analysis"    
         contents:
               - href: intro_to_regression.html
-              - text: "Introduction to Regression"
+                text: "Introduction to Regression"
               - href: linear_regression.html
-              - text: "Linear Regression"
+                text: "Linear Regression"
               - href: logistic_regression.html
-              - text: "Logistic Regression"
+                text: "Logistic Regression"
               - href: simple_linear_regression.html
-              - text: "Simple Linear Regression"
+                text: "Simple Linear Regression"
               - href: linear_regression_with_python.html
-              - text: "Linear Regression with Python"
+                text: "Linear Regression with Python"
               - href: Exemplar_Run_simple_linear_regression.html
-              - text: "Practice: Run simple linear regression"
+                text: "Practice: Run simple linear regression"
               - href: Exemplar_Perform_multiple_linear_regression.html
-              - text: "Practice: Perform multiple linear regression"
+                text: "Practice: Perform multiple linear regression"
               - href: advanced_hypothesis_testing.html  
-              - text: "Advanced Hypothesis Testing"
+                text: "Advanced Hypothesis Testing"
 
               - section: "Reference materials"
                 contents:
                   - href: Annotated_follow-along_guide_Explore_linear_regression_with_Python.html
                     text: "Annotated follow-along guide: Explore Linear Regression with Python"
-                  - href: Annotated_follow-along guide_Interpret_multiple_regression_results_with_Python.html
+                  - href: Annotated_follow-along_guide_Interpret_multiple_regression_results_with_Python.html
                     text: "Annotated follow-along guide: Interpret multiple regression results with Python"
-                  - href: Annotated_follow-along_guide_ Explore_one-way_versus_two-way_ANOVA_tests_with_Python.html
+                  - href: Annotated_follow-along_guide_Explore_one-way_versus_two-way_ANOVA_tests_with_Python.html
                     text: "Annotated follow-along guide: Explore one-way versus two-way ANOVA tests with Python"
 
       - section: "Anexos"
@@ -270,4 +270,4 @@ website:
           - href: index.html
             text: "Anexos Index"
           - href: Advanced_Data_Analytics_Certificate_glossary.html
-            Infddffs555text: Glossary
+            text: Glossary
