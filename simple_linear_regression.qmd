@@ -127,11 +127,13 @@ In order to capture a summary ​of total error in the model, ​we square eac
 \sum_{i=1}^{n} \epsilon_i^2 = \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2
 $$
 
+​For linear regression, we'll be using a technique ​called **ordinary least squares** to get our best-fit line. 
+
+::: nota
+Ordinary least squares, also known as OLS, ​is a method that minimizes the sum of ​squared residuals to estimate ​parameters in a linear regression model. 
 :::
 
-​For linear regression, we'll be using a technique ​called **ordinary least squares** to get our best-fit line.  ::: nota ​Ordinary least squares, also known as OLS, ​is a method that minimizes the sum of ​squared residuals to estimate ​parameters in a linear regression model.  :::
-
-​Using OLS, we can calculate $\hat{\Beta_0}$ ​and $\hat{\Beta_1}$ using properties of the sample data. ​Recall that the hat symbol means ​it is an estimate of a parameter. ​We will never know the exact parameter. ​
+​Using OLS, we can calculate $\hat{\beta_0}$ ​and $\hat{\beta_1}$ using properties of the sample data. ​Recall that the hat symbol means ​it is an estimate of a parameter. ​We will never know the exact parameter. ​
 
 Remember parameters or Betas ​are characteristics of a population. ​Since we will only ever have sampled data, ​our goal is to get ​a reasonable estimate of the parameter. 
 
@@ -567,7 +569,19 @@ Here is an example using a sample of 100 students with study times rounded to th
 
 In this scatterplot, all of the students who studied for seven hours fall between the two vertical lines. Their mean exam score is represented by an $X$. Linear regression expands on this concept. A regression line represents the estimated average value of $Y$ for every value of $X$, given the assumptions and limitations of a linear model. In other words, the actual average $Y$ values for each $X$ might not lie exactly on the regression line if the relationship between $X$ and $Y$ is not perfectly linear or if there are other factors influencing $Y$ that are not included in the model. The regression line attempts to balance out these influences to find a straight-line relationship that best fits the data as a whole. It’s an estimation of the central tendency of $Y$, given $X$.
 
+::: extra
+### The Two Rules to Keep Clear
+
++---------------------------------------------------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Concept**                                       | **Does it HAVE to lie on the OLS line?** | **Why?**                                                                                                                                                                            |
++---------------------------------------------------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **The overall grand mean** $(\bar{X}, \bar{Y})$   | **YES (Always)**                         | Mathematical constraint of OLS. The line pivots around the single center of gravity of the entire dataset.                                                                          |
++---------------------------------------------------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Local subgroup means (**$\bar{Y}_{\vert{}X=7}$) | **NO (Rarely)**                          | These are noisy sample averages. The regression line estimates the *true underlying population trend* by smoothing out these local sample fluctuations into a single straight line. |
++---------------------------------------------------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 ### The regression equation
+:::
 
 Now that you know about $r$ and you better understand the concept of regression, you’re ready to put everything together to find the line of best fit through the data. The formula for this line is known as the **regression equation**. There are two keys to this step.
 
@@ -575,7 +589,13 @@ The first is:
 
 -   The mean value of $X$ and the mean value of $Y$ (i.e., point (x̄, ȳ)) will always fall on the regression line. 
 
-The second is to understand what $r$ means: ::: nota For each increase of one standard deviation in $X$, there is an expected increase of $r$ standard deviations in $Y$, on average over $X$.  ::: The following figure illustrates how these concepts work together to determine the regression line.
+The second is to understand what $r$ means:
+
+::: nota
+For each increase of one standard deviation in $X$, there is an expected increase of $r$ standard deviations in $Y$, on average over $X$. 
+:::
+
+The following figure illustrates how these concepts work together to determine the regression line.
 
 ![](images/paste-80.png)
 
@@ -629,7 +649,7 @@ Linear regression is one of the most important tools that data professionals use
 
 Alright, let's begin with the analyzed stage ​of the pace framework.
 
-​The first task in ​simple linear regression analysis ​is checking the assumptions of the model. ​In addition to the technical needs of the model, ​you'll need to consider ​the business context of the problem you're working on. ​This will come in the plan stage. ​Previously, I spoke about ​m**odel assumptions as statements about the data that ​must be true in order to justify ​the use of a particular modeling technique**.
+​The first task in ​simple linear regression analysis ​is checking the assumptions of the model. ​In addition to the technical needs of the model, ​you'll need to consider ​the business context of the problem you're working on. ​This will come in the plan stage. ​Previously, I spoke about ​**model assumptions as statements about the data that ​must be true in order to justify ​the use of a particular modeling technique**.
 
 ​Ensuring that we're using ​the right model given the data that we ​have allows us to be ​confident in the results those models produce. ​Think of model assumptions as the bridge between ​the analyze and construct phase of the pace framework. ​In other words, examine the assumptions ​before the construct phase when possible. ​Certain assumptions can only be ​checked after model construction. ​Make sure you check those assumptions after you apply ​the model to confirm if the model is valid or not.
 
@@ -761,82 +781,115 @@ plt.show()
 
 ​Next up on the checklist is the normality assumption. ​This assumes that **the residual values ​or errors are normally distributed**. ​Since this assumption is about residuals, ​you cannot check the assumption ​until after the model is built. ​But once the model is built, ​you can create a specific plot called a ​quantile-quantile or QQ plot of the residuals. ​If the points on the plot appear to ​form a straight diagonal line, ​then you can assume normality ​and check this assumption off the list.
 
-```{python}
-import matplotlib.pyplot as plt
+```{import matplotlib.pyplot as plt}
 import numpy as np
-import scipy.stats as stats
+import pandas as pd
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
 
-# Set random seed matching previous code
+# Set seed and generate sample data
 np.random.seed(42)
-
-# Generate identical data: linear with gaussian noise
 x = np.linspace(1, 10, 80)
 y = 2.0 * x + 3.0 + np.random.normal(loc=0.0, scale=2.2, size=len(x))
+df = pd.DataFrame({"x": x, "y": y})
 
-# Calculate OLS model residuals
-m, b = np.polyfit(x, y, 1)
-residuals = y - (m * x + b)
+# Fit OLS model and extract residuals
+model = smf.ols("y ~ x", data=df).fit()
 
-
-# Create Q-Q Plot
+# Create Q-Q plot using statsmodels.api
 fig, ax = plt.subplots(figsize=(7, 5), dpi=100)
+sm.qqplot(model.resid, line="s", ax=ax, markerfacecolor="black", markeredgecolor="black", alpha=0.7)
 
-# Generate Q-Q plot data using scipy.stats
-(osm, osr), (slope, intercept, r) = stats.probplot(residuals, dist="norm")
+# Labels and styling
+ax.set_title("Q-Q Plot: Normality Assumption MET", fontsize=14, pad=12)
+ax.set_xlabel("Theoretical Quantiles", fontsize=11)
+ax.set_ylabel("Sample Quantiles", fontsize=11)
 
-# Plot standard Q-Q scatter points and reference line
-ax.scatter(osm, osr, color='black', s=45, zorder=3)
-ax.plot(osm, slope * np.array(osm) + intercept, color='#1a73e8', linewidth=2.5, zorder=4)
-
-# Title and Labels
-ax.set_title("Q-Q Plot: Normality Assumption MET", fontsize=15, pad=12, fontweight='bold')
-ax.set_xlabel("Theoretical Quantiles", fontsize=12, labelpad=8)
-ax.set_ylabel("Ordered Residuals", fontsize=12, labelpad=8)
-
-# Styling frame
 for spine in ax.spines.values():
-    spine.set_color('#cccccc')
-    spine.set_linewidth(1.2)
-
-# Minimal tick display
-ax.tick_params(colors='#4a4a4a', labelsize=10)
-
-# Green Checkmark Badge
-ax.text(0.10, 0.90, '✓', color='#2e7d32', fontsize=26, fontweight='bold',
-        transform=ax.transAxes, ha='center', va='center',
-        bbox=dict(boxstyle='circle,pad=0.2', facecolor='#f0f0f0', edgecolor='none'))
+    spine.set_color("#cccccc")
 
 plt.tight_layout()
-plt.savefig('qq_plot_met.png', bbox_inches='tight')
+plt.savefig("qq_plot_met.png", bbox_inches="tight")
 ```
+
+------------------------------------------------------------------------
+
+:::: extra
+The **Assumption of Normality** in linear regression states that the **residuals** (the errors/differences between actual observed values $Y$ and predicted values $\hat{Y}$) are normally distributed with a mean of zero:
+
+$$
+\epsilon_i \sim \mathcal{N}(0, \sigma\^2)
+$$
+
+A widespread misconception is that your raw input data ($X$) or your target outcome ($Y$) must be normally distributed. **They do not.** Linear regression works perfectly fine if $X$ or $Y$ are skewed, uniform, or bimodal. The requirement applies **strictly to the model's prediction errors (**$\epsilon_i$).
+
+**What Does "Normal Residuals" Look Like in Practice?**
+
+If the normality assumption holds:
+
+1.  **Most errors are close to zero:** Your model's predictions are on point for the vast majority of observations.
+
+2.  **Errors are symmetric:** The model overpredicts ($\hat{Y} > Y$) about as often and as severely as it underpredicts ($\hat{Y} < Y$).
+
+3.  **Large errors are rare:** Extreme over- or under-predictions occur very infrequently, tapering off gracefully like a bell curve.
+
+::: nota
+**Hypothesis Testing & Inference DO Require Normality**
+
+Normality becomes essential when you move from estimation to **statistical inference**:
+
+-   Calculating $p$**-values** for predictors ($t$-tests).
+
+-   Evaluating overall model significance ($F$-tests).
+
+-   Constructing **Confidence Intervals** and **Prediction Intervals**.
+
+These tests rely on standard $t$ and $F$ sampling distributions, which mathematically derive from normally distributed errors. If residuals deviate heavily from normality, your $p$-values and confidence intervals can become unreliable.
+:::
+
+**Why Does Normality Matter?**
+
+Point Estimates ($\beta_0, \beta_1$) Do NOT Require Normality
+
+By the **Gauss-Markov Theorem**, Ordinary Least Squares (OLS) produces the Best Linear Unbiased Estimates (BLUE) of your slope and intercept as long as Linearity, Independence, and Homoscedasticity hold. Your regression line itself is unbiased even if residuals are non-normal, but the normality of the residuals matters to calculate your confidence in the calculation of the slope. We will see this later, but the model results provides as well with a $p$ value and confidence intervals to test if the slope is statistically significant. To calculate a $p$-value, you have to ask: *"If the true slope were zero, how likely would I be to get a slope this steep just by random chance?"*
+
+To answer that question, statisticians needed a standard mathematical probability distribution to compute exact probabilities, and that is why it is required that the errors follow a normal distribution.
+::::
+
+------------------------------------------------------------------------
 
 ::: extra
+**Steps to create the qq plot in python:**
 
-**Fitting the OLS Model:**
-```python
-results = sm.OLS(y, sm.add_constant(x)).fit()
+**1. Fitting the OLS Model**
+
+``` python
+model = smf.ols("y ~ x", data=df).fit()
 ```
-`sm.OLS` fits an Ordinary Least Squares regression. `sm.add_constant(x)` adds an intercept column of ones so the model estimates both slope ($\beta_1$) and intercept ($\beta_0$).
 
-**Extracting Residuals:**
-```python
-residuals = results.resid
+`smf.ols` fits an Ordinary Least Squares regression using the formula interface. The string `"y ~ x"` automatically includes an intercept ($\beta_0$) alongside the slope ($\beta_1$).
+
+**2. Generating the Q-Q Plot**
+
+``` python
+sm.qqplot(model.resid, line="s", ax=ax)
 ```
-`results.resid` automatically calculates the model residuals $e_i = y_i - \hat{y}_i$ across all observed points.
 
-**Generating the Q-Q Plot:**
-```python
-sm.qqplot(residuals, line='s')
-```
-The function sorts sample residuals, maps them against theoretical standard normal quantiles, and overlays a reference line.
+Passing `model.resid` directly into `sm.qqplot` sorts the model residuals ($e_i = y_i - \hat{y}_i$), maps them against theoretical standard normal quantiles, and overlays a reference line.
 
-| Parameter / Attribute | Description |
-| :--- | :--- |
-| `residuals` | Array-like series of model residuals $e_i$. |
-| `line='s'` | Standardized line fit through the data (uses sample mean and standard deviation). |
-| `line='45'` | Adds a 1-to-1 reference line ($y = x$). |
-| `ax=ax` | Passes the plot directly into a Matplotlib/Seaborn subplot axis. |
+TKey Parameters in `sm.qqplot`
 
++--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| **Parameter / Option**                                 | **Description**                                                                                                             |
++--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| `data` / `model.resid`                                 | Array or Series of model residuals ($e_i = y_i - \hat{y}_i$).                                                               |
++--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| `line='s'`                                             | Draws a standardized reference line passing through the 25th and 75th percentiles using sample mean and standard deviation. |
++--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| `line='45'`                                            | Draws a strict 1-to-1 reference line ($y = x$).                                                                             |
++--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| `ax=ax`                                                | Directs the render into an existing Matplotlib subplot axis for custom styling.                                             |
++--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 :::
 
 ### Common Departures from Normality
@@ -875,10 +928,9 @@ plt.tight_layout()
 plt.show()
 ```
 
-* **Straight Line:** Points follow the red reference line closely. Normality assumption is met.
-* **S-Curve (Heavy Tails):** Points bend upward on the right end and downward on the left end, indicating extreme outliers on both sides.
-* **Upward/Downward Curve (Skewness):** Points curve away from the line in a single arc, signaling an asymmetric distribution (e.g., right-skewed or left-skewed errors).
-:::
+-   **Straight Line:** Points follow the red reference line closely. Normality assumption is met.
+-   **S-Curve (Heavy Tails):** Points bend upward on the right end and downward on the left end, indicating extreme outliers on both sides.
+-   **Upward/Downward Curve (Skewness):** Points curve away from the line in a single arc, signaling an asymmetric distribution (e.g., right-skewed or left-skewed errors). :::
 
 ### ​Independent Observation assumption
 
@@ -1263,13 +1315,13 @@ fig.set_ylabel("Residuals")
 plt.show()
 ```
 
-## What to do if an assumption is violated 
+## What to do if an assumption is violated
 
 Now that you've reviewed the four assumptions and how to test for their violations, it’s time to discuss some common next steps you can take once an assumption is violated. Keep in mind that if you transform the data, this might change how you interpret the results. Additionally, if these potential solutions don’t work for your data, you have to consider trying a different kind of model.
 
 For now, focus on a few essential approaches to get you started!
 
-### Linearity: 
+### Linearity:
 
 Transform one or both of the variables, such as taking the logarithm.
 
@@ -1285,7 +1337,7 @@ If you transform a variable, you will need to reconstruct the model and then rec
 
 ![](images/paste-84.png)
 
-### Independent observations 
+### Independent observations
 
 Take just a subset of the available data.
 
@@ -1293,7 +1345,7 @@ If, for example, you are conducting a survey and get responses from people in th
 
 Another example is if you are collecting data over a time period. Let’s say you are researching data on bike rentals. If you collect your data every 15 minutes, the number of bikes rented out at 8:00 a.m. might correlate with the number of bikes rented out at 8:15 a.m. But, perhaps the number of bikes rented out is independent if the data is taken once every 2 hours, instead of once every 15 minutes.
 
-### Homoscedasticity 
+### Homoscedasticity
 
 Define a different outcome variable.
 
@@ -1303,7 +1355,7 @@ Transform the Y variable.
 
 As with the above assumptions, sometimes taking the logarithm or transforming the Y variable in another way can potentially fix inconsistencies with the homoscedasticity assumption.
 
-## Key takeaways 
+## Key takeaways
 
 -   There are four key assumptions for simple linear regression: linearity, normality, independent observations, and homoscedasticity.
 
@@ -1319,6 +1371,396 @@ As with the above assumptions, sometimes taking the logarithm or transforming th
 
 -   [Download the seaborn penguins dataset here](https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv "penguins dataset from seaborn GitHub repository")
 
--   More information about the penguins dataset: [Introduction to Palmer penguins ](https://allisonhorst.github.io/palmerpenguins/articles/intro.html)
+-   More information about the penguins dataset: [Introduction to Palmer penguins](https://allisonhorst.github.io/palmerpenguins/articles/intro.html)
 
 -   More information about Q-Q plots: [Normal Quantile-Quantile Plots (video from jbstatistics)](https://www.youtube.com/watch?v=X9_ISJ0YpGw)
+
+------------------------------------------------------------------------
+
+# Evaluate a linear regression model
+
+So far, ​we've used pace to think like a data professional as we address the penguin ​problem at our local zoo. ​We planned by thinking through the problem and ​sub setting the available data appropriately. ​How can we better understand the relationship between penguin anatomy and ​their body mass. ​In the analyzed stage we performed ​EDA ​and check model assumptions. ​Then moving on to the construct stage. As a reminder, ​there are two parts. ​We built our model and were able to pull out some parameter estimates. 
+
+​Now we're going to focus on the next step of the construct phase: **model evaluation**. ​
+
+Model evaluation is an important practice in data analysis. ​Careful evaluation and interpretation of your regression model helps ​you understand its performance and accuracy. ​To start, let's revisit the results from our regression model.
+
+Based on ​the summary results, ​you know that Ols has determined that the best fit line ​has an intercept of negative 1707.29 and a slope of 141.19. ​But randomness and unpredictability are characteristics of every regression ​model that make it difficult to predict outcomes with 100% certainty. ​After all, there is still a difference between our observed and predicted values. 
+
+​You've just found the model that you are most certain about. To explore ​the notion of uncertainty further, let's turn our attention to the rest ​of the Ols summary table rose about the intercept and bill length. 
+
+![](images/paste-86.png)
+
+​There is a column labeled $P>|t|$ . ​This indicates the $p$-value associated with the coefficient ​estimates. The two columns to the right of the $p$-value column indicate ​a 95% confidence interval around the coefficient estimates. ​**When evaluating simple linear regression results, ​you'll focus less on the intercept row and ​more on the row involving your independent variables of interest**. In this case, ​that's bill length. 
+
+​So you can say that the coefficient estimates for ​bill length is 141.19 with a p value of 0.0 and ​a confidence interval from 131.788 to 150.592. ​Previously, when you learned about hypothesis tests, ​confidence intervals were defined as a range of values that described ​the uncertainty surrounding an estimate. ​In the case of linear regression, we are estimating parameters. ​So **a 95% confidence interval means that interval has a 95% ​chance of containing the true parameter value of the slope**. ​
+
+What if the slope and intercept were slightly different? ​Well, let's draw out a few different lines on our plot with slightly different ​slopes and intercepts all within our confidence intervals. 
+
+![](images/paste-87.png)​
+
+We get a region around the regression line that is tight around the center and ​fans out a bit towards either end of the line. 
+
+​This shape may appear familiar. ​You plotted it previously using Seaborn's reg plot function. ​These lines make up the shaded region that was around the regression line. 
+
+```{python}
+sns.regplot(x="bill_length_mm", y = "body_mass_g", data = chinstrap_penguins)
+```
+
+​Essentially the confidence interval around the parameter estimates reveal what we ​call a confidence band. ​A confidence band is the area surrounding the line that describes ​the uncertainty around the predicted outcomes at every value of X. ​Typically expressed as a shaded region around the best fit line ​on a scatter plot. ​A confidence band reveals the confidence interval for ​each point on a regression line. 
+
+​Confidence bands are simply another way to report your findings responsibly. ​Simple linear regression is a powerful addition to any data professional's toolbox. ​Whether you are analyzing the financial impact of price increases to a streaming ​service or your forecasting sales for a fashion boutique, regression analysis can ​help you make discoveries and understand the relationship behind the data. ​But we must remember data is noisy and results can be uncertain. When using ​regression models like simple linear regression, ​even the best data doesn't tell a complete story. ​As a data analytics professional, you should always aim not only to evaluate ​the performance and accuracy of your models, but also to report uncertainty. ​Communicating about confidence intervals and ​confidence bands is part of being a responsible data professional. 
+
+​These metrics will also help you understand ​how well the models can tell the story behind the data. 
+
+------------------------------------------------------------------------
+
+# Interpret measures of uncertainty in regression
+
+# Goal of Reading
+
+In this reading, we will continue exploring uncertainty in regression analysis, specifically through confidence intervals, confidence bands, and p-values. Together, we will:
+
+-   Review key concepts
+
+-   Discuss how to interpret measures of uncertainty
+
+-   Review sample graphs 
+
+# Review of Concepts
+
+Recall that we can represent a simple linear regression line as y=β0+β1X
+
+Since regression analysis utilizes **estimation** techniques, there is always a level of uncertainty surrounding the predictions made by regression models. To represent the error, we can actually rewrite the equation to include an error term, represented by the letter ϵ (pronounced “epsilon”): y=β0+β1X+ϵ[y]{.underline}=[β]{.underline}0​+[β]{.underline}1​[X]{.underline}+[ϵ]{.underline}
+
+There is one residual, also known as the difference between the predicted and actual value, for each data point in the dataset used to construct the model. We can then quantify how uncertain the entire model is through a few measures of uncertainty:
+
+-   **Confidence intervals** around beta coefficients
+
+-   **P-values** for the beta coefficients
+
+-   **Confidence band** around the regression line
+
+You can refer to the glossary of terms to check any key terms and definitions, but we’ve provided the two key terms here:
+
+-   **Confidence interval:** a range of values that describes the uncertainty surrounding an estimate
+
+-   **P-value:** the probability of observing results as extreme as those observed when the null hypothesis is true
+
+# Interpreting Uncertainty
+
+Let’s first revisit the summary of results from the linear regression model we created together in prior videos:
+
+![](images/paste-88.png)
+
+According to the simple linear regression model we built, β_1 is 141.1904. So for every one-millimeter increase in the bill length of a penguin, we would expect a penguin to have about 141.1904 more grams in body mass. The estimate has a $p$-value of 0.000, which is less than 0.05, meaning that the coefficient is “statistically significant.” Additionally our estimate has a 95% confidence interval of 131.788 and 150.592. Let’s review these short sentences a bit more.
+
+Previously you may have learned about $p$-values and confidence intervals within the context of hypothesis testing. Even though it may seem unintuitive, even in regression analysis we are testing hypotheses.
+
+### P-values
+
+When running regression analysis, you want to know if X is really correlated with Y or not. So we do a hypothesis test on the regression results. In regression analysis, for each beta coefficient, we are testing the following set of null and alternative hypotheses:
+
+-   H₀ (null hypothesis): β_1=0
+
+-   H₁ (alternative hypothesis): β_1≠0
+
+In our example, because the $p$-value is less than 0.05, we can reject the null hypothesis that β_1, and state that the coefficient is statistically significant, which means that a difference in bill length of a penguin is truly correlated with a difference in body mass.
+
+### Confidence Intervals
+
+Each beta coefficient also has a confidence interval associated with its estimate. A 95% interval means the interval itself has a 95% chance of containing the true parameter value of the coefficient. So there is 5% chance that our confidence interval \[131.788, 150.592\] does not contain the true value of β_1. More precisely, this means that if you were to repeat this experiment many times, 95% of the confidence intervals would contain the true value of β_1.
+
+But, since there is uncertainty in both of the estimated beta coefficients, then the estimated y values also have uncertainty. This is where confidence bands become useful.
+
+# Example Graph
+
+-   **Confidence band:** the area surrounding the line that describes the uncertainty around the predicted outcome. You can think of the confidence band as representing the confidence interval surrounding each point estimate of y. Since there is uncertainty at every point in the line, we use the confidence band to summarize the confidence intervals across the regression model. The confidence band is always narrowest towards the mean of the sample and widest at the extremities.
+
+![](images/paste-89.png)
+
+# Key Takeaways
+
+-   Regression analysis utilizes **estimation** techniques, so there is always uncertainty around the predictions.
+
+-   We can measure uncertainty using confidence intervals, p-values, and confidence bands.
+
+-   For every coefficient estimate, we are testing the hypothesis that the coefficient equals 0.
+
+------------------------------------------------------------------------
+
+# Model evaluation metrics
+
+Up to this point, we've progressed through the plan and ​analyze phases of the pace framework for regression modeling. ​We've even started the construct phase by actually building a linear ​regression model. ​I'm excited to continue guiding you through model evaluation. ​We're getting so close to the execute phase, ​where you share the stories behind the data you're studying. ​Using a variety of evaluation metrics, supports data professionals, ​confidence in the insights produced by their analysis. ​These metrics are key to responsible communication of results. ​If models are inaccurate or imprecise, ​decisions made based on those insights may also be inaccurate. 
+
+​Three metrics you might encounter are **R-squared**, ​**mean squared error** also called MSE, and **mean absolute error** or MAE. ​
+
+The main metric that academics researchers and data professionals use when evaluating ​regression models is called the **coefficient of determination** or **R-squared**. ​So that's what we'll focus on. ​
+
+You may have noticed that in the output from OLS model you previously built, ​there was a part of the output labeled R-squared. ​This is what we're talking about. ​
+
+::: nota
+R-squared or the coefficient of determination, ​measures the proportion of variation in the dependent variable, Y, ​explained by the independent variables, X. ​
+:::
+
+To explain this metric more thoroughly, ​let's think through the example about penguins and linear regression again. 
+
+​You identified a linear relationship between the penguins ​bill length in millimeters, and the penguins body mass in grams. ​Based on your regression analysis, ​you found the best fit line, body mass and ​grams equals -1,707.30 plus 141.19 times bill length. ​But the data points just cluster around this best fit line. ​Many of the data points are actually not on the line. ​This means that bill length only accounts for some of the changes in body mass. ​R-squared helps data professionals determine how much of ​the variation in the X variable explains the variation in the Y variable. ​
+
+At most R-squared can equal 1, ​which would mean that X explains 100% of the variance and Y. ​If R-squared equals 0, then that would mean X explains 0% of the variance in Y. ​
+
+The OLS summary table shows the model has an R-squared of 0.769. This means that bill length explains about 77% of the variance in body mass. ​There is still about 23% of the variance of body ​mass that is unexplained by the model. 
+
+​This variance might be due to other factors or ​natural unexplained differences from penguin to penguin. ​There is no benchmark value that R-squared has to equal. ​But in general, **the higher R-squared the better**, because it adds ​validity to any recommendation you make based on your analysis. 
+
+​R-squared is a useful metric that can help you evaluate your model. ​But there are also processes that help strengthen the evaluation of a model. ​
+
+Typically when we have a data set, ​we use at least part of the data set to build and test the regression model. ​The computer uses the data to calculate a measure of difference between ​the actual and predicted values, such as sum of squared residuals. ​Then based on the computer's calculations, it can find the best line. ​But sometimes we want our model to be good at generating predictions for ​data we haven't collected, or that doesn't exist yet. ​
+
+For example, let's return to the penguins at the local zoo. ​They welcomed a new group of penguins to their flightless bird habitat. ​It would be helpful to have a sense of how the new penguins structural measurements ​relates to their body mass. ​So in those cases we want to know how the model we built performs on the data it ​learned from, and how the model performs on data it hasn't experienced yet. 
+
+​In this case we'll need to save a hold-out sample before we build the model. ​**A hold-out sample is a random sample of observed data that is not used to ​fit the model**. ​Then you can evaluate how well the model fits the data used to build the model, ​and you can evaluate how well the model fits the hold-out sample. ​We've covered a lot of different ways you might evaluate linear regression model. 
+
+​R-squared and hold-out samples will serve you in many cases, ​allowing you to confidently share the insights you've discovered. ​I'm excited to discuss the execute phase, and ​how to communicate model findings soon. 
+
+------------------------------------------------------------------------
+
+In this reading, we’ll provide a more comprehensive overview about evaluation metrics for simple linear regression. In a prior video we covered R², and mentioned a few other metrics, MAE and MSE. In this reading, we will review the metrics we’ve previously mentioned, and introduce a few more as well that you may encounter throughout your career as a data professional.
+
+## **Review of R², MSE, and MAE**
+
+The main evaluation metric for linear regression is R², or the coefficient of determination.
+
+## R²: The coefficient of determination
+
+**R²** measures the proportion of variation in the dependent variable, Y, explained by the independent variable(s), X.
+
+-   This is calculated by subtracting the sum of squared residuals divided by the total sum of squares from 1.
+
+$$
+R^2 =1-\frac{\text{Sum of squared residuals (SSR)}}{\text{Total Sum of Squares (TSS)}}
+$$
+
+::: extra
+The **Total Sum of Squares** measures the distance between actual data points ($Y$) and the **baseline average line** ($\bar{Y}$). It quantifies the total variance inherent in your outcome variable before you even fit a regression model.
+
+$$
+\text{Total Sum of Squares (TTS)} = \sum^n_{i=1}(Y_i - \bar Y)^2
+$$
+
+If you had no regression model (ignoring $X$ completely), your best naive guess for any variable Y would simply be the average of Y. TSS is the the variation of the values of Y around the average price, by dividing the Sum of Squared Residuals (SSR) by that variation, you get
+
+Imagine the total variation ($TSS$) in penguin beak lengths equals **100 units** of randomness:
+
+-   **Scenario A (A useless model):**
+
+    -   You predict beak length using a variable that has nothing to do with penguins (like today's stock market index).
+
+    -   Your line explains nothing, so your leftover errors ($SSR$) are still **100 units**.
+
+    -   Fraction of failure: $\frac{SSR}{TSS} = \frac{100}{100} = 1.0$ (100% unexplained error).
+
+    -   $R^2 = 1 - 1.0 = \mathbf{0.0}$ (**0% explained**).
+
+-   **Scenario B (A strong model):**
+
+    -   You predict beak length using body mass ($X$).
+
+    -   Body mass explains a lot, so your leftover errors ($SSR$) drop down from 100 units to **30 units**.
+
+    -   Fraction of failure: $\frac{SSR}{TSS} = \frac{30}{100} = 0.30$ (30% unexplained error remains).
+
+    -   $R^2 = 1 - 0.30 = \mathbf{0.70}$ (**70% explained**).
+
+-   **Scenario C (A perfect imaginary model):**
+
+    -   Every single penguin falls directly on the line. Residuals ($SSR$) = **0 units**.
+
+    -   Fraction of failure: $\frac{0}{100} = 0.0$.
+
+    -   $R^2 = 1 - 0.0 = \mathbf{1.0}$ (**100% explained**).
+
+The Big Picture
+
+The formula $1 - \frac{SSR}{TSS}$ simply flips the question:
+
+Instead of asking *"What fraction of the total randomness did my model fail to predict?"* ($\frac{SSR}{TSS}$), subtracting it from **1** asks *"What fraction of the total randomness did my model successfully eliminate?"* ($R^2$).
+:::
+
+R² ranges from 0 to 1. So, if a model has an R² of 0.85, that means that the X variables explain about 85% of the variation in the Y variable. Although R² is a highly interpretable and commonly used metric, you may also encounter mean squared error (MSE) and mean absolute error (MAE) when R² is insufficient in evaluating model performance.
+
+## MSE: Mean squared error
+
+**MSE (mean squared error)** is the average of the squared difference between the predicted and actual values.
+
+**Mean Squared Error (MSE)** is simply the **Sum of Squared Errors (SSE)**—also called $SSR$—divided by the total number of observations ($n$).
+
+$$
+\text{MSE} = \frac{\text{SSE}}{n} = \frac{\sum\_{i=1}\^{n} (y_i - \hat{y}\_i)\^2}{n}
+$$
+
+-   Because of how MSE is calculated, MSE is very sensitive to large errors.
+
+::: extra
+Why Have Both?
+
+SSE ($SSR$): Gives you the total cumulative error across all data points. The problem with SSE is that as your sample size ($n$) grows larger, your total SSE automatically gets bigger, even if your model predictions aren't getting any worse.
+
+MSE: Gives you the average squared error per observation. By taking the mean, it normalizes the error so you can fairly compare model performance across datasets of different sizes (e.g., comparing a model trained on 100 penguins vs. 1,000 penguins).
+
+(Note: In formal OLS regression, you will sometimes see MSE defined as $\frac{\text{SSE}}{n - p}$ where $p$ accounts for estimated model parameters to adjust for degrees of freedom, but in general data science practice, dividing by $n$ is standard!)
+:::
+
+## MAE: Mean absolute error
+
+**MAE (mean absolute error)** is the average of the absolute difference between the predicted and actual values.
+
+-   If your data has outliers that you want to ignore, you can use MAE, as it is not sensitive to large errors.
+
+::: extra
+Both metrics measure the average magnitude of model errors in unit terms, but they treat large mispredictions very differently because of their math.
+
+### The Mathematical Difference
+
++------------+--------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+| **Metric** | **Formula**                                      | **What It Does to Errors**                                                                                                            |
++------------+--------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+| **MAE**    | $\frac{1}{n} \sum \Vert{}y_i - \hat{y}_i\Vert{}$ | Treats all errors **linearly**. An error of 10 is simply twice as bad as an error of 5.                                               |
++------------+--------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+| **MSE**    | $\frac{1}{n} \sum (y_i - \hat{y}_i)^2$           | **Squares** errors before averaging. An error of 10 becomes $10^2 = 100$, which is **4 times worse** than an error of 5 ($5^2 = 25$). |
++------------+--------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+:::
+
+## Other evaluation metrics
+
+Beyond the three metrics listed above, you may also encounter [**AIC (Akaike information criterion) and BIC (Bayesian information criterion)**](https://machinelearningmastery.com/probabilistic-model-selection-measures/).
+
+Lastly, there is **adjusted R²**, which will be addressed in more detail in upcoming videos. It is a variation of R² that accounts for having multiple independent variables present in a linear regression model.
+
+## Key takeaways
+
+-   There are many evaluation metrics to choose from with regard to simple linear regression.
+
+-   The most common evaluation metric you’ll encounter is probably R². But, there are times when R² is insufficient or inappropriate to use.
+
+-   Based on your experiences and the particulars of a metric, you can use your best judgment to select an appropriate metric to evaluate a regression model.
+
+------------------------------------------------------------------------
+
+# Interpret and present linear regression results
+
+Earlier in the course, ​you build a regression model that passed all ​four of the assumptions for simple linear regression. 
+
+​Residual plots confirmed ​a linear relationship and you are able to ​successfully evaluate the performance of ​the model using a few common metrics. Next, it's onto the execute phase of ​the PACE framework, how exciting. ​
+
+This is the point of the PACE framework when ​your ability to communicate is crucial. ​Together, we're going to review ​interpreting the results of our regression model, ​exploring ways in which those insights ​can be translated into formal visualizations, ​and communicating a ​meaningful narrative with stakeholders. ​In one of my previous positions, ​I was brought on to help ​a newly launched mobile phone service provider ​reduce the amount of ​fraudulent orders they were receiving. ​After building out a model, ​it was time to present the model, ​insights, and recommendations to my stakeholders. 
+
+​These folks were non-technical business partners so I ​knew that data-specific terminology ​wouldn't interest them. ​As a matter of fact, ​it would be too technical and they would ​probably lose interest very quickly, ​which would cause lack of buy-in. ​What was important to my business partners ​was stopping fraudulent orders. ​So telling a story in a way where I succinctly ​articulated how many fraudulent orders the model ​would detect and how that translated to ​the bottom line resulted in ​the model being implemented immediately. ​I remember feeling so accomplished in ​that moment because after ​all the hard work of building the model, ​I was able to get the model into production. ​Once the model was in production, ​fraudulent orders dropped drastically. ​
+
+Telling the right story to ​the right people takes time and practice. ​This is a skill that will continue ​to work on throughout our careers. ​It's super important to know your audience and tailor ​your delivery and story in order to have the most impact. ​Enough about me, let's return to the example that we've ​been exploring where you were working at a local zoo. ​
+
+You were trying to understand the relationship between ​penguins' structural measurements and their body mass. ​In the regression model you created, ​you observe a positive correlation between ​bill length and body mass of a group of penguins. ​Let's use the results of that model to ​translate the statistical findings for stakeholders. ​
+
+Regression model interpretation depends ​on coefficients and $p$-values. ​**Coefficients will determine how changes in ​the independent variable are associated ​with changes in the dependent variable**. **​\$p\$-values demonstrate whether ​coefficients are statistically significant**. ​Recall that the slope is ​used to determine the amount you expect ​\$y\$ to increase or decrease per one unit increase of $x$. 
+
+​Let's go through the numbers yielded in ​the OLS summary table to gain a better understanding. ​Body mass equals intercept plus slope times bill length. ​The slope is positive 141.19 and ​the intercept is negative 1707.29. ​Next, let's review the $p$-value. ​The coefficient for bill length has a $p$-value of 0.000. 
+
+::: nota
+​**This** $p$**-value tests the null hypothesis ​that the coefficient is zero.** 
+
+​If we observe a small $p$-value, ​the null hypothesis is likely false. ​We reject the null hypothesis ​and conclude that the coefficient is not zero, ​meaning that there is a strong relationship ​between $x$ and $y$. ​
+:::
+
+It's important to understand that ​the positive correlation between bill length and ​body mass you've observed does ​not necessarily reflect causation. ​Remember, causation ​describes a cause-and-effect relationship ​where one variable directly ​causes the other to change in a particular way. ​The positive correlation between bill size and ​mass could be the result of a variety of factors. 
+
+​Even though we cannot speak to causation, ​we can still provide ​valuable insights about the penguins. ​Based on our regression analysis, ​we can say that for penguins with ​one millimeter more in bill length, ​their body mass is 141.19 grams more. ​These results are statistically ​significant with a $p$-value of 0.000, ​a confidence interval of \[131.79-150.59\], ​and an $R^2$ of 0.77. ​
+
+By providing measures of ​uncertainty around our estimates, ​we're responsibly reporting our results. ​Based on the interpretation of the numbers, ​you can contribute to the zoo community around you. ​Each person on the team at the zoo ​brings a variety of experiences and knowledge. ​The input from your colleagues adds ​richer detail to the story the model tells. 
+
+​Without the informed perspectives ​of the other bird caretakers, ​the avian department would not be able to make ​a sound argument for an increase in food ​to maintain an adequate inventory that ​supports the penguins and other birds at the zoo. ​
+
+When sharing insights as a data analytics professional, ​you need to make sure that your findings can be ​quickly understood and correctly interpreted. ​Communicating the context of your data ​is one way you can report it responsibly. ​For example, if your results ​only apply to a specific penguin population, ​make it clear that people should be cautious about ​extrapolating to larger or different groups of penguins. ​Data visualizations are excellent ways ​of making statistics relatable for others. ​Use caution when presenting terms like ​coefficients and $p$-values in your visualizations. ​Consider that not everyone will fully ​grasp the significance of these terms immediately. 
+
+​There are many useful libraries like Matplotlib ​and Seaborn that can help create visualizations. ​Programs like Tableau, PowerPoint, ​or Google slides allow for creation of ​high-quality presentations to help you provide ​contexts that's relevant to the business problem. ​Regardless of your visualization tool of choice, ​communicating with those around you is critical to ​your success at all points of the PACE process. ​As a data analytics professional, ​clear communication allows you and your work to ​have impact throughout your team and organization. 
+
+------------------------------------------------------------------------
+
+# Correlation versus causation: Interpret regression results
+
+In previous videos, you learned that correlation is not causation. In this reading, you will continue to explore the differences between correlation and causation so that you will be prepared to report regression results responsibly, honestly, and effectively.
+
+## What is correlation?
+
+You might recall that there are two main kinds of correlation: positive and negative correlation.
+
+-   **Positive correlation** is a relationship between two variables that tend to increase or decrease together.
+
+-   **Negative correlation** is an inverse relationship between two variables, where when one variable increases, the other variable tends to decrease, and vice versa.
+
+To generalize, **correlation** measures the way two variables tend to change together. There is a metric called the [Pearson correlation coefficient](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html) that ranges from -1 to 1 that can measure the relationship between two variables.
+
+Note that correlation is just observational. Two variables can be correlated–they tend to change together without one variable causing the other variable to change. In fact, there is an entire website and book, [*Spurious Correlations*](https://www.tylervigen.com/spurious-correlations), devoted to documenting interesting and unexpected correlations between variables.
+
+For example, here is a graph illustrating the correlation between total revenue generated by arcades and computer science doctorates awarded in the United States. Over time, computer science doctorates and arcade revenue increase at about the same rate. So, the graph definitely shows a correlation between the two variables, but it’s pretty hard to argue that one causes the other.
+
+![](images/paste-90.png)
+
+## It’s difficult to claim causation
+
+Previously you learned that **causation** describes a cause-and-effect relationship where one variable directly causes the other to change in a particular way. Although this is an intuitive definition, proving causation requires a lot of particular circumstances to be met.
+
+To argue for causation between variables, in general, you must run a [**randomized controlled experiment**](https://www.urban.org/research/data-methods/data-analysis/quantitative-data-analysis/impact-analysis/experiments). The following are some key components of a proper randomized controlled experiment:
+
+-   You must control for every factor in the experiment.
+
+-   You must have a control group under certain conditions.
+
+-   You must have at least one treatment group under certain conditions.
+
+-   The difference(s) between the control and treatment groups must be observable and measurable.
+
+Setting up a randomized controlled experiment is quite laborious and intensive. There are a number of requirements and factors not included in this reading, but there is a lot of information online and in academic research that you can explore on your own. Understanding the basics of causal claims allows you to responsibly report the results of your data analysis.
+
+## Correlation leads to interesting insights
+
+When working as a data professional, you often do not have complete control of how the data is collected. You or your team might not be able to run a randomized controlled experiment. But, even if you cannot make causal claims, correlational research can still yield interesting results that have meaningful business implications.
+
+### **Scenario 1: Optimizing athletic performance**
+
+Suppose a runner is training for a race. There are many ways to track health data—from built-in apps to paid-for apps. But, there are also so many factors that can contribute to the runner’s performance—how much water they drank, how sore their muscles are on a given day, the weather, how much sleep they got, what equipment they are using on race day, and the clothes they are wearing. It’s very hard to claim that any one factor would make or break their race time. But, over time, one might observe patterns in how sleep, soreness, water, clothing, and other factors tend to correlate with performance. This is why athletes can be so particular about brands of equipment, their diet, and pre-race day routines.
+
+### **Claims you can make (correlation)**
+
+-   When the runner drinks more water the day before a race, they tend to have more stamina.
+
+-   When the runner doesn’t run long distances the week before a race, they tend to feel better on race day.
+
+### **Claims you cannot make (causation)**
+
+-   Drinking more water the day before a race causes the runner to run faster.
+
+-   Not running long distances the week before a race causes the runner to run faster.
+
+### **Scenario 2: Improving food quality**
+
+Perhaps you’re a new chef at a restaurant or you’re cooking for yourself or family. Every time you make a dish, there are a lot of variables: what pan was used, when the ingredients were purchased, if the ingredients are in season, and how hungry everyone was. Any one of these factors can change how “good” the dish is. But, this data is valuable regardless of causal claims. Over time, you can hone your cooking skills for this particular dish to ensure better food quality.
+
+These are just two examples where gathering data to understand correlation between factors can drastically improve outcomes. The same principles can be applied on a larger scale, with big data, and in different industries, depending on the desired outcome you want to optimize.
+
+### **Claims you can make (correlation)**
+
+-   When I use fresher ingredients, the final dish tends to taste better.
+
+-   When I am very hungry, the final dish tends to taste better.
+
+### **Claims you cannot make (causation)**
+
+-   Using fresher ingredients makes the dish taste better.
+
+-   Being hungrier makes the dish taste better.
+
+## Key takeaways
+
+-   Claiming causation requires specific circumstances that are often not within your control.
+
+-   Correlation analyses are an incredibly useful tool for data professionals, and can provide interesting insights and actionable next steps.
