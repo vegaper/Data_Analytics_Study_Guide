@@ -5348,7 +5348,7 @@ text-transform: uppercase;
 <p>​As a data professional, ​you’ll almost always calculate <span class="math inline">\(p\)</span>-value on your computer ​using a programming language like ​Python or other statistical software. ​However, let’s briefly explore the concepts involved ​in the calculation to get ​a better understanding of how it works. ​Being able to use code for ​calculations is important for your future career. ​But being familiar with the concepts behind ​the calculations will help you apply ​statistical methods to workplace problems. </p>
 <p>​The <span class="math inline">\(p\)</span>-value is calculated from ​what’s called a <strong><em>test statistic</em></strong>.  ​In hypothesis testing, ​the <strong><em>test statistic (Z)</em></strong> is a value that shows how ​closely your observed sample mean matches ​the <strong>sampling distribution of sample means</strong> expected under the null hypothesis.</p>
 <p>So if you assume the null hypothesis is ​true and the mean delivery time is 40 minutes, ​the data for delivery times ​follows a normal distribution. </p>
-<div id="21731990" class="cell" data-execution_count="2">
+<div id="091c5b86" class="cell" data-execution_count="2">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -5573,7 +5573,7 @@ Z = \frac{38-40}{\frac{5}{\sqrt{50}}} =-2,828
 <p>​To draw a conclusion about your null hypothesis, ​compare your <span class="math inline">\(p\)</span>-value with the significance level. </p>
 <p>​If your <span class="math inline">\(p\)</span>-value is less than the significance level, ​you conclude that there is ​a statistically significant difference ​in mean delivery time. ​In other words, you reject the null hypothesis. ​If your <span class="math inline">\(p\)</span>-value is greater than the significance level, ​you conclude that there is not ​a statistically significant difference ​in mean delivery time. ​In other words, you fail to reject the null hypothesis. ​Your <span class="math inline">\(p\)</span>-value of 0.0023, ​or 0.23 percent is less than ​the significance level of 0.05 or five percent, ​so you reject the null hypothesis and conclude that ​there is a statistically significant difference ​in mean delivery time.  ​Your results suggest that ​the faster delivery time is likely ​due to the positive effects of the training. ​Your analysis will help company leadership decide ​whether to make a bigger investment ​in the training program going forward.  ​Based on your results, ​they’re likely to do so.</p>
 <p>Calculating the <span class="math inline">\(p\)</span>-value in python:</p>
-<div id="2ec5ab6d" class="cell" data-execution_count="4">
+<div id="165420fc" class="cell" data-execution_count="4">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
@@ -5718,7 +5718,7 @@ t = \frac{(\bar{x_1}- \bar{x_2})}{SE_{diff}} \to \frac{(\bar{x_1}- \bar{x_2})}{\
 </ul>
 </div>
 <p>​Because you’re interested in values in both directions, ​either less than or greater than your test statistic, ​your <span class="math inline">\(p\)</span>-value is the probability of getting a value less than the <span class="math inline">\(t\)</span>-score ​-1.2508 or greater than the <span class="math inline">\(t\)</span>-score positive 1.2508.</p>
-<div id="10f9b7f1" class="cell" data-execution_count="5">
+<div id="c6bfc94a" class="cell" data-execution_count="5">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -5808,7 +5808,7 @@ t = \frac{(\bar{x_1}- \bar{x_2})}{SE_{diff}} \to \frac{(\bar{x_1}- \bar{x_2})}{\
 </div>
 <p>Your <span class="math inline">\(p\)</span>-value corresponds to the area under the curve on both the left tail and ​the right tail of the distribution.</p>
 <p>​This is called a <strong>two tailed test</strong>. ​If you calculate the <span class="math inline">\(p\)</span>-value you’ll find that it’s 0.2148 or 21.48%.</p>
-<div id="113fbaa3" class="cell" data-execution_count="6">
+<div id="f80f4203" class="cell" data-execution_count="6">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Manual calculation of the p-value given the t value.</span></span>
@@ -6102,7 +6102,7 @@ Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}_0(1 - \hat{p}_0)\left(\frac{1}{n_
 <p><strong>Key Intuition:</strong> Instead of evaluating the two groups separately, you simply sum the total successful cases across both groups and divide by the combined total number of participants.</p>
 </blockquote>
 </div>
-<div id="cf8b5498" class="cell" data-execution_count="7">
+<div id="6ec8e352" class="cell" data-execution_count="7">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -6135,7 +6135,7 @@ Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}_0(1 - \hat{p}_0)\left(\frac{1}{n_
 <p>​Recall that your alternative ​hypothesis states that there is ​a difference in the proportion of ​satisfied employees in London and Beijing. ​The observed difference is 10 percentage points. ​If you find a statistically significant difference ​between the two proportions, ​either less than or greater than ​the observed difference of 10 percentage points, ​you will reject the null hypothesis.</p>
 <p>​Because you’re interested in values in both directions, ​either less than or greater than your test statistic, ​your <span class="math inline">\(p\)</span>-value is the probability ​of getting a value less than the <span class="math inline">\(z\)</span>-score of ​negative 1.03 or greater than the <span class="math inline">\(z\)</span>-score positive 1.03. ​Your <span class="math inline">\(p\)</span>-value corresponds to the area under the curve on ​both the left tail and ​the right tail of the distribution.</p>
 <p>​This is a two-tailed test. ​If you calculate the <span class="math inline">\(p\)</span>-value, ​you’ll find that it’s 0.3030 or 30.3 percent.</p>
-<div id="d912e1fb" class="cell" data-execution_count="8">
+<div id="057eb96a" class="cell" data-execution_count="8">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># 5. Step 4: Calculate Two-Tailed p-value</span></span>
@@ -6163,7 +6163,7 @@ p-value: 0.3030 (30.30%)</code></pre>
 <p>​This means that there’s a 30.3 percent ​probability that the absolute difference between ​the proportion of satisfied employees ​in London and Beijing ​would be 10 percent or ​greater if the null hypothesis is true.</p>
 <p>​To draw a conclusion, ​compare your <span class="math inline">\(p\)</span>-value with the significance level.</p>
 <p>​If your <span class="math inline">\(p\)</span>-value is less than the significance level, ​you conclude that there is ​a statistically significant difference ​in the proportions between the two groups. ​In other words, you reject the null hypothesis. ​If your <span class="math inline">\(p\)</span>-value is greater than the significance level, ​you conclude that there is not ​a statistically significant difference ​in the proportions between the two groups. ​In other words, you fail to reject the null hypothesis.</p>
-<div id="d865ca1e" class="cell" data-execution_count="9">
+<div id="35621510" class="cell" data-execution_count="9">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># 6. Step 5: Make Decision</span></span>

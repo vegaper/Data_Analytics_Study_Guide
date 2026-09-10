@@ -4910,7 +4910,7 @@ text-transform: uppercase;
 <p>For instance, an AB tests can ​help you decide if an observed difference in ​the average click rates is due to ​a specific change in website design or due to chance.</p>
 <p>​In this video, you will use Python to conduct ​a two-sample <span class="math inline">\(t\)</span>-test based on sample data. ​Python is helpful for conducting ​hypothesis tests with speed and accuracy. ​</p>
 <p>We’ll continue with our scenario ​from an earlier part of the course in ​which you’re a data professional working for ​the Department of Education of a large nation. ​Recall that you’re analyzing data on ​the literacy rate for each district. ​You’ll continue to use ​the data set you worked with before. ​If you need to access the data, do so now.</p>
-<div id="37630aa1" class="cell" data-execution_count="1">
+<div id="da44231c" class="cell" data-execution_count="1">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -4927,7 +4927,7 @@ text-transform: uppercase;
 <p>​This will help the department decide how to ​distribute government funding to improve literacy. ​If there is a statistically significant difference, ​the state with a lower literacy rate ​may receive more funding.</p>
 <p>​You can use Python to simulate ​taking a random sample of 20 districts in ​each state and conduct ​a two-sample <span class="math inline">\(t\)</span>-test based on the sample data.</p>
 <p>​To start filter your data frame for ​the district literacy rate data from the states, ​state 28 and state 21.</p>
-<div id="c392b4ae" class="cell" data-execution_count="2">
+<div id="a2b8b92f" class="cell" data-execution_count="2">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>state21 <span class="op">=</span> education_districtwise[education_districtwise[<span class="st">&#39;STATNAME&#39;</span>] <span class="op">==</span> <span class="st">&quot;STATE21&quot;</span>]</span>
@@ -4991,7 +4991,7 @@ text-transform: uppercase;
 <span id="cb3-39"><a href="#cb3-39"></a>print(f&quot;Degrees of Freedom: {df_fpc:.2f}&quot;)</span>
 <span id="cb3-40"><a href="#cb3-40"></a>print(f&quot;Two-Tailed p-value: {p_value:.4f}&quot;)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c448dea3" class="cell" data-execution_count="3">
+<div id="075e0399" class="cell" data-execution_count="3">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>sampled_state21 <span class="op">=</span> state21.sample(n<span class="op">=</span><span class="dv">20</span>, replace <span class="op">=</span> <span class="va">True</span>, random_state<span class="op">=</span><span class="dv">13490</span>)</span>
@@ -4999,7 +4999,7 @@ text-transform: uppercase;
 </details>
 </div>
 <p>​Next, use the mean function to compute ​the mean district literacy rate for ​both state 21 and state 28.</p>
-<div id="11c2b85a" class="cell" data-execution_count="4">
+<div id="c3ca684f" class="cell" data-execution_count="4">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>mean_state21 <span class="op">=</span> sampled_state21[<span class="st">&#39;OVERALL_LI&#39;</span>].mean()</span>
@@ -5029,12 +5029,12 @@ text-transform: uppercase;
 <p>​For a two-sample <span class="math inline">\(t\)</span>-test uses ​a scipy function (<code>stats.$t$-test_ind</code>) ​to compute your <span class="math inline">\(p\)</span>-value.</p>
 <p>​This function includes the following arguments; - a, ​refers to observations from your first sample, - b, ​refers to observations from your second sample, ​- equal_var is a Boolean or true-false statement, ​which indicates whether the population variance of ​the two samples is assumed to be equal. ​In our example, you don’t have ​access to data for the entire population, ​so you don’t want to assume anything about the variance. ​To avoid making a wrong assumption, ​set equal_var to false.</p>
 <p>​Now, you’re ready to write this all out in code.</p>
-<div id="609c0bac" class="cell" data-execution_count="5">
+<div id="3eefd704" class="cell" data-execution_count="5">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>stats.ttest_ind(a<span class="op">=</span>sampled_state21[<span class="st">&#39;OVERALL_LI&#39;</span>], b<span class="op">=</span>sampled_state28[<span class="st">&#39;OVERALL_LI&#39;</span>], equal_var<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>TtestResult(statistic=np.float64(2.8980444277268735), pvalue=np.float64(0.006421719142765242), df=np.float64(35.20796133045557))</code></pre>
 </div>
 </div>
@@ -5108,7 +5108,7 @@ text-transform: uppercase;
 <section id="example-comparing-la-county-aqi-vs.-rest-of-california" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="example-comparing-la-county-aqi-vs.-rest-of-california"><span class="header-section-number">1.2.1</span> <strong>Example: Comparing LA County AQI vs. Rest of California</strong></h3>
 <p>As seen in the lab exercise:</p>
-<div id="98a2a7d4" class="cell" data-execution_count="6">
+<div id="c120a5f4" class="cell" data-execution_count="6">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
@@ -5138,7 +5138,7 @@ text-transform: uppercase;
 <section id="example-testing-if-new-york-has-a-lower-aqi-than-ohio" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="example-testing-if-new-york-has-a-lower-aqi-than-ohio"><span class="header-section-number">1.3.1</span> <strong>Example: Testing if New York has a lower AQI than Ohio</strong></h3>
 <p>As seen in the lab exercise:</p>
-<div id="dc4b4007" class="cell" data-execution_count="7">
+<div id="987d2ed8" class="cell" data-execution_count="7">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Subset independent groups</span></span>
@@ -5162,7 +5162,7 @@ text-transform: uppercase;
 <section id="example-testing-if-michigans-aqi-exceeds-a-threshold-of-10" class="level3" data-number="1.4.1">
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="example-testing-if-michigans-aqi-exceeds-a-threshold-of-10"><span class="header-section-number">1.4.1</span> <strong>Example: Testing if Michigan’s AQI exceeds a threshold of 10</strong></h3>
 <p>As seen in the lab exercise:</p>
-<div id="98522f76" class="cell" data-execution_count="8">
+<div id="ea1dd573" class="cell" data-execution_count="8">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Example measurements from 10 monitoring sites before and after a clean air initiative</span></span>
@@ -5185,7 +5185,7 @@ text-transform: uppercase;
 <p><strong>Use Case:</strong> You measure the same continuous variable twice on the same subjects (e.g., before and after a treatment or policy change).</p>
 <section id="example-aqi-at-identical-monitoring-stations-before-and-after-policy-implementation" class="level3" data-number="1.5.1">
 <h3 data-number="1.5.1" class="anchored" data-anchor-id="example-aqi-at-identical-monitoring-stations-before-and-after-policy-implementation"><span class="header-section-number">1.5.1</span> Example: AQI at identical monitoring stations before and after policy implementation</h3>
-<div id="1820f023" class="cell" data-execution_count="9">
+<div id="b2c8ee73" class="cell" data-execution_count="9">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
@@ -5211,7 +5211,7 @@ text-transform: uppercase;
 <p><strong>Use Case:</strong> You have a single categorical (binary) variable and want to test if the proportion of successes differs from a baseline proportion $p_0$.</p>
 <section id="example-testing-if-the-proportion-of-unhealthy-air-days-in-a-city-exceeds-20" class="level3" data-number="1.6.1">
 <h3 data-number="1.6.1" class="anchored" data-anchor-id="example-testing-if-the-proportion-of-unhealthy-air-days-in-a-city-exceeds-20"><span class="header-section-number">1.6.1</span> <strong>Example: Testing if the proportion of “Unhealthy Air Days” in a city exceeds 20%</strong></h3>
-<div id="e996f217" class="cell" data-execution_count="10">
+<div id="aed18016" class="cell" data-execution_count="10">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
@@ -5237,7 +5237,7 @@ text-transform: uppercase;
 <p><strong>Use Case:</strong> You want to compare the proportion of a binary outcome between two independent groups (e.g., comparing compliance or success rates between two states or test variants).</p>
 <section id="example-comparing-high-pollution-day-rates-between-state-a-and-state-b" class="level3" data-number="1.7.1">
 <h3 data-number="1.7.1" class="anchored" data-anchor-id="example-comparing-high-pollution-day-rates-between-state-a-and-state-b"><span class="header-section-number">1.7.1</span> Example: Comparing high-pollution day rates between State A and State B</h3>
-<div id="6561d650" class="cell" data-execution_count="11">
+<div id="6c876281" class="cell" data-execution_count="11">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
