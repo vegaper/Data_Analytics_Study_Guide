@@ -113,14 +113,13 @@ print(results_array.summary())
 
 This works when you pass raw NumPy arrays directly into sm.ols Statsmodels' array interface does not include an intercept (the $y$-intercept or $c$ in $y = mx + c$) by default. You have to manually call `sm.add_constant(x)` to add a column of 1s.
 
-In the method we are seeing in this lesson, we are passing a Pandas DataFrame and specify column names as strings in a formula ("target \~ predictor"). The tilde \~ reads as "is modeled as a function of". So "body_mass_g \~ bill_length_mm" translates mathematically to: 
+In the method we are seeing in this lesson, we are passing a Pandas DataFrame and specify column names as strings in a formula ("target \~ predictor"). The tilde \~ reads as "is modeled as a function of". So "body_mass_g \~ bill_length_mm" translates mathematically to: $$
+\text{body\_mass\_g} = \beta_0 + \beta_1 \cdot \text{bill\_length\_mm}
 $$
-\text{body_mass_g} = \beta_0 + \beta_1 \cdot \text{bill_length_mm}
-$$ 
 
 The formula syntax in Method 2 is generally preferred when working with real-world datasets in Pandas DataFrames. It is cleaner to write, easier to read, and automatically handles complex relationships (like categorical features or interaction terms like "y \~ x1 \* x2").
 
- **Side-by-Side Comparison**
+**Side-by-Side Comparison**
 
 |  |  |  |
 |------------------------|------------------------|------------------------|

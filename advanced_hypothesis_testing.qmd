@@ -367,8 +367,7 @@ What is ANOVA actually doing?
 
 ANOVA (**AN**alysis **O**f **VA**riance) compares the means of three or more groups to see if at least one group mean is significantly different from the others in the same category
 
-Instead of comparing every pair of groups one by one (which increases the risk of false positives), ANOVA looks at **variance**: 
-$$
+Instead of comparing every pair of groups one by one (which increases the risk of false positives), ANOVA looks at **variance**: $$
 \text{F-statistic} = \frac{\text{Variance BETWEEN group means}}{\text{Variance WITHIN the groups (random noise)}
 $$
 
@@ -427,8 +426,7 @@ $$
 
 $$
 H_1 = \text{NOT } \mu_{monarch} = \mu_{\text{mourning cloak}} = \mu_{swallowtail}
-$$​
-​Only one of the mean lifespan has to be different to reject the null hypothesis. ​We represent the alternative hypothesis as $H_1$ ​because you may run more complex tests in the future where you are testing more ​than two hypotheses at once. ​
+$$​ ​Only one of the mean lifespan has to be different to reject the null hypothesis. ​We represent the alternative hypothesis as $H_1$ ​because you may run more complex tests in the future where you are testing more ​than two hypotheses at once. ​
 
 One-way ANOVA is a great tool, but sometimes you might encounter situations ​in which there are two factors that are associated with the continuous dependent ​variable. At the botanical garden, let's say you want to study if butterfly ​lifespan is related to the species of the butterfly and the size of the butterfly. ​Imagine that butterflies can be small, medium, or large. ​Now the data is varying according to two factors, species and size.
 
@@ -759,7 +757,6 @@ sns.histplot(data=colorless, x="price",  linewidth=.5)
 ```
 
 The Log Solution: Taking the natural log "compresses" large values while stretching smaller values, converting a heavily skewed distribution into a bell-shaped, near-normal distribution.
-
 :::
 
 ```{python}
@@ -800,7 +797,7 @@ model.summary()
 
 Based on the results from the model, ​you can observe that there is ​a statistically significant relationship ​between diamond color and price, ​but it's unclear if ​the price differs between the various colors. ​To learn more you can run a one way ANOVA test.
 
-​You can create an ANOVA table using ​the stats models `anova_lm `function. ​The table will provide you with ​statistics about the color variable. ​Recall that a one way ANOVA test compares ​three or more groups of ​one categorical independent variable, ​based on one continuous dependent variable.
+​You can create an ANOVA table using ​the stats models `anova_lm`function. ​The table will provide you with ​statistics about the color variable. ​Recall that a one way ANOVA test compares ​three or more groups of ​one categorical independent variable, ​based on one continuous dependent variable.
 
 ​Let's state the null and alternative hypotheses. - ​The null hypothesis is that there is ​no difference in price of diamond based on color grade, - ​the alternative hypothesis is that there is ​a difference in price of diamond based on color grade.
 
@@ -900,14 +897,14 @@ $$
 
 There is nearly a **40% chance** of declaring a fake difference just by random luck!
 
-** What Tukey's HSD Does**
+\*\* What Tukey's HSD Does\*\*
 
 **Tukey’s HSD (Honestly Significant Difference)** test fixes this by automatically adjusting the critical threshold based on the total number of comparisons. It holds the **overall family-wise error rate strictly at 5%**, no matter how many pairs you test.
 :::
 
 ​Now let's return to the one-way ANOVA diamond example.
 
-​Let's say you already have your packages imported from ​last time and you've saved ​the dataset as a DataFrame called diamonds, ​create the linear model again. ​You already know that there is ​a statistically significant relationship ​between color and price. ​Now, run the one-way ANOVA, just like before. ​Here, you can observe that ​the $p$-values are much smaller than ​0.05 so the results ​are statistically significant and therefore, ​you can reject the null hypothesis that ​the mean price is the same across all diamond colors. 
+​Let's say you already have your packages imported from ​last time and you've saved ​the dataset as a DataFrame called diamonds, ​create the linear model again. ​You already know that there is ​a statistically significant relationship ​between color and price. ​Now, run the one-way ANOVA, just like before. ​Here, you can observe that ​the $p$-values are much smaller than ​0.05 so the results ​are statistically significant and therefore, ​you can reject the null hypothesis that ​the mean price is the same across all diamond colors.
 
 ```{python}
 colorless.head()
@@ -925,17 +922,315 @@ from statsmodels.stats.multicomp import pairwise_tukeyhsd
 tukey_oneway = pairwise_tukeyhsd(endog = colorless["log_price"], groups = colorless["color"], alpha = 0.05)
 ```
 
-​The `endog` variable indicates which ​variable is being compared across groups. ​The `groups` variable tells the function which ​variable holds the groups you're interested in. ​In this case, color. ​The `Alpha` variable tells the function ​the significance or confidence level you are testing for. ​You set alpha to 0.05 as ​you are aiming for a 95% confidence level. ​You can access the results of Tukey's test in two ways. ​One way is to use the summary function. ​You can also use the print function. 
+​The `endog` variable indicates which ​variable is being compared across groups. ​The `groups` variable tells the function which ​variable holds the groups you're interested in. ​In this case, color. ​The `Alpha` variable tells the function ​the significance or confidence level you are testing for. ​You set alpha to 0.05 as ​you are aiming for a 95% confidence level. ​You can access the results of Tukey's test in two ways. ​One way is to use the summary function. ​You can also use the print function.
 
 ```{python}
 # Get results (pairwise comparisons)
 tukey_oneway.summary()
 ```
 
-​In both cases, you can observe all of ​the pairwise comparisons between ​each pair of diamond color grades. ​There is an adjusted $p$-value column, ​a column with the lower and upper bound ​of the confidence intervals, ​as well as the column letting you know whether or ​not you can reject the null hypothesis. ​If the reject column reads false, ​then you cannot reject the null hypothesis. ​If the reject column reads true, ​then you can reject the null hypothesis. ​The null hypothesis is that ​the diamond prices between ​the two color grades are the same. 
+​In both cases, you can observe all of ​the pairwise comparisons between ​each pair of diamond color grades. ​There is an adjusted $p$-value column, ​a column with the lower and upper bound ​of the confidence intervals, ​as well as the column letting you know whether or ​not you can reject the null hypothesis. ​If the reject column reads false, ​then you cannot reject the null hypothesis. ​If the reject column reads true, ​then you can reject the null hypothesis. ​The null hypothesis is that ​the diamond prices between ​the two color grades are the same.
 
-The Tukey's HSD test informs us that you can reject ​the null hypothesis with a $p$-value of 0.001. ​For example, the diamond price is not ​the same for H and I grade diamonds. 
+The Tukey's HSD test informs us that you can reject ​the null hypothesis with a $p$-value of 0.001. ​For example, the diamond price is not ​the same for H and I grade diamonds.
 
 ​Awesome job today. ​To recap, combining tests may seem like a complex task, ​but it's so powerful to have ​a wide set of tools to run analysis. ​We'll continue unpacking ANOVA and post-hoc tests ​in the course materials. ​As always, revisit any prior videos ​and readings as needed. ​You can do this. ​Good luck, and I look forward ​to joining you again next time.
 
+::: extra
+Using Anova in feature selection
 
+When people talk about variable selection for multiple regression, ANOVA is usually re-branded or skipped in favor of other techniques due to how it behaves in multi-variable settings
+
+**ANOVA F-tests Are Used (Under Another Name)** When building regression models, ANOVA is heavily used in two specific variable selection workflows: - Nested Model Comparisons (Sequential ANOVA): Comparing a simple model against a complex model (e.g., $Y \sim X_1 + X_2$ vs. $Y \sim X_1 + X_2 + X_3$). An ANOVA $F$-test determines if adding $X_3$ significantly improves the model's overall $R^2$. - Stepwise Selection ($F$-to-enter / $F$-to-remove): Automated selection algorithms (like forward selection) often use ANOVA $F$-test $p$-values as the strict threshold to decide whether to add or drop a categorical predictor.
+
+**Why One-Way ANOVA Fails for Multiple Regression** Running a simple One-Way ANOVA on each candidate variable before building your regression model leads to major issues: A. Multicollinearity (Redundancy) Suppose you are predicting house prices: - Neighborhood is significant in ANOVA ($p < 0.001$). - School District is significant in ANOVA ($p < 0.001$).
+
+If you select both based on individual ANOVA tests, you will introduce massive multicollinearity because Neighborhood and School District overlap heavily. ANOVA tests variables in isolation, ignoring how much unique information a variable adds when other predictors are already in the model.
+
+B. Confounding & Masking Effects A variable might look completely useless in a One-Way ANOVA, but become highly predictive once you control for other factors in a multiple regression model (and vice-versa).
+
+3.  What Gets Taught Instead (and Why) Because modern data science focuses on out-of-sample prediction rather than just hypothesis testing, courses usually favor methods that handle all variables simultaneously:
+
++---------------------------------------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+
+| \*election Method                     | How it compares to ANOVA                                                       | Why it's preferred for ML/Analytics                                                        |
++=======================================+================================================================================+============================================================================================+
+| **Penalized Regression (Lasso / L1)** | Shrinks unhelpful coefficients directly to 0.                                  | Handles numeric & categorical variables together while preventing overfitting.             |
++---------------------------------------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+
+| **AIC / BIC Information Criteria**    | Evaluates the model as a whole.                                                | Penalizes model complexity directly; doesn't rely on arbitrary $p$-value cutoffs ($0.05$). |
++---------------------------------------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+
+| **Permutation Feature Importance**    | Evaluates drop in model performance ($R^2$, RMSE) when a variable is shuffled. | Works uniformly across linear models, decision trees, and neural networks.                 |
++---------------------------------------+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+
+
+**The Takeaway** ANOVA tells you "Does this variable have any relationship with $Y$ by itself?" Multiple regression requires asking "Does this variable provide new, non-redundant predictive power on top of what we already know?" Because ANOVA doesn't naturally account for variable overlap on its own, courses jump straight to Lasso, AIC/BIC, or adjusted $R^2$ for feature selection.
+:::
+
+------------------------------------------------------------------------
+
+# ANCOVA: Analysis of covariance
+
+So far, we've learned some exciting ways to uncover stories about categorical ​variables. ​One of these tests is ANOVA or analysis of variance. ​ANOVA helps us learn more about the differences in ​continuous Y variable based on different groupings. ​Using ANOVA, ​we can determine whether groups are actually different from one another. ​You may recall that when we learned about simple linear regression, ​we could only take into account one independent variable to explain ​the variance of one dependent variable. ​Then we learned about multiple regression, ​which allowed us to incorporate lots of different factors into our analysis. ​By working with simple linear regression, you build a strong foundation for ​understanding the mechanics of regression modeling. 
+
+​By working with multiple regression, ​you were able to vastly expand the kinds of questions you could explore. ​For example, using simple linear regression, ​you could explore the relationship between the weather and ice coffee sales. ​But with multiple regression, you could then include temperature and ​distance to public transportation or ​other variables you think might be related to coffee sales. ​
+
+There's a similar relationship between ANOVA and ​ANCOVA or *analysis of covariance*. ​
+
+::: nota
+Analysis of covariances or ANCOVA is a statistical technique that test ​the difference of means between three or ​more groups while controlling for the effects of covariance. ​
+:::
+
+**Covariates are the variables that are not of direct interest to the question we ​are trying to address.** ​
+
+By taking the covariates into account, we can better isolate the relationship ​between the categorical variable we are interested in and the Y variable. ​This allows us to draw more accurate conclusions about the relationships ​among the variables. ​For example, if examining ice coffee sales ANCOVA allows you to analyze how the sales ​are different on workdays versus the weekend while controlling for ​the temperature of the day. 
+
+​Let's say we have a drop in sales on weekend. ​We could assume that no one buys coffee on weekends because they're not going to ​work, but perhaps it was especially cold that weekend. ​ANCOVA allows us to double-check whether temperature was a factor. ​
+
+You might wonder why a data analytics professional would ​use ANCOVA when we already have linear regression analysis we can use. ​There are many similarities between ANCOVA and linear regression. ​For example, both allow for continuous and categorical independent variables. ​Both focus on a continuous Y variable and ​both center on understanding relationships between variables. ​But the use cases depend on which variable we're most interested in understanding. ​With ANCOVA, while we are not focused on the covariates, we are including ​covariates to gain a clear understanding of the categorical variable. ​With regression, we might be interested in all of the independent variables or ​in predicting the Y variable for unseen data. ​
+
+![](paste-7m5zh4LCyTjNTV4EF5rFx)
+
+::: extra
+ANCOVA (Analysis of Covariance)
+
+ANCOVA is just **ANOVA + Linear Regression combined**. You use it when you want to compare continuous group means across a categorical variable ($X$), but you know there is a continuous nuisance variable (a **covariate**, $C$) that distorts your outcome ($Y$).
+
+ANCOVA **statistically removes the variance** explained by the covariate *before* testing if the categorical groups are different.
+
+**Conceptual Intuition**
+
+Imagine comparing average **Sales Volume (**$Y$) across three **Store Layouts (**$X$: A, B, C).
+
+-   If Layout A has higher sales, is it because of the layout, or simply because Layout A stores happen to be larger in square footage?
+
+-   Here, **Store Square Footage** is your **Covariate (**$C$).
+
+-   ANCOVA mathematically adjusts everyone’s sales to what they *would be* if all stores were the exact same size, allowing a fair comparison of Layout A vs. B vs. C.
+
+**Mathematical Formulation**
+
+ANCOVA is implemented directly as a multiple linear regression model:
+
+$$
+Y_i = \beta_0 + \beta_1 (\text{Category}_i) + \beta_2 (C_i) + \varepsilon_i
+$$
+
+Where:
+
+-   $Y_i$ is the continuous outcome variable.
+
+-   $\text{Category}_i$ is the categorical group (dummy-encoded).
+
+-   $C_i$ is the continuous covariate.
+
+-   $\beta_2$ isolates and removes the linear baseline effect of the covariate.
+
+**Critical Assumption: Homogeneity of Regression Slopes**
+
+ANCOVA assumes that the continuous covariate ($C$) has the **same linear relationship** with the outcome ($Y$) across **all** categorical group levels.
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Set random seed for reproducibility
+np.random.seed(42)
+
+# Generate synthetic dataset (n=40 per group)
+n = 40
+covariate_a = np.random.uniform(10, 50, n)
+covariate_b = np.random.uniform(10, 50, n)
+
+# 1. Valid ANCOVA Scenario: Equal Slopes (Beta_1 = 0.8 for both groups)
+y_valid_a = 5 + 0.8 * covariate_a + np.random.normal(0, 3, n)
+y_valid_b = 15 + 0.8 * covariate_b + np.random.normal(0, 3, n)
+
+# 2. Invalid ANCOVA Scenario: Intersecting Slopes (Beta_GroupA = 1.2, Beta_GroupB = 0.1)
+y_invalid_a = 2 + 1.2 * covariate_a + np.random.normal(0, 3, n)
+y_invalid_b = 35 + 0.1 * covariate_b + np.random.normal(0, 3, n)
+
+# Build DataFrames
+df_valid = pd.DataFrame({
+    'Covariate': np.concatenate([covariate_a, covariate_b]),
+    'Outcome': np.concatenate([y_valid_a, y_valid_b]),
+    'Group': ['Group A'] * n + ['Group B'] * n
+})
+
+df_invalid = pd.DataFrame({
+    'Covariate': np.concatenate([covariate_a, covariate_b]),
+    'Outcome': np.concatenate([y_invalid_a, y_invalid_b]),
+    'Group': ['Group A'] * n + ['Group B'] * n
+})
+
+# Plotting Side-by-Side
+fig, axes = plt.subplots(1, 2, figsize=(13, 5.5), sharey=True)
+sns.set_theme(style="whitegrid")
+
+# --- Left Plot: Valid ANCOVA ---
+sns.regplot(data=df_valid[df_valid['Group'] == 'Group A'], x='Covariate', y='Outcome', 
+            ax=axes[0], color='#1f77b4', label='Group A', ci=None)
+sns.regplot(data=df_valid[df_valid['Group'] == 'Group B'], x='Covariate', y='Outcome', 
+            ax=axes[0], color='#ff7f0e', label='Group B', ci=None)
+
+axes[0].set_title('Valid ANCOVA\n(Homogeneity of Slopes Met: Parallel Lines)', fontsize=12, fontweight='bold', pad=10)
+axes[0].set_xlabel('Covariate (C)', fontsize=11)
+axes[0].set_ylabel('Outcome (Y)', fontsize=11)
+axes[0].legend(title='Group')
+
+# --- Right Plot: Invalid ANCOVA ---
+sns.regplot(data=df_invalid[df_invalid['Group'] == 'Group A'], x='Covariate', y='Outcome', 
+            ax=axes[1], color='#1f77b4', label='Group A', ci=None)
+sns.regplot(data=df_invalid[df_invalid['Group'] == 'Group B'], x='Covariate', y='Outcome', 
+            ax=axes[1], color='#ff7f0e', label='Group B', ci=None)
+
+axes[1].set_title('Invalid ANCOVA\n(Homogeneity Violated: Intersecting Slopes)', fontsize=12, fontweight='bold', pad=10)
+axes[1].set_xlabel('Covariate (C)', fontsize=11)
+axes[1].legend(title='Group')
+
+plt.tight_layout()
+plt.show()
+```
+
+If slopes are parallel: The covariate affects all groups equally. You can run standard ANCOVA. If slopes intersect: There is an interaction effect between $X$ and $C$ ($X \times C$). You must switch to a moderated regression model instead of standard ANCOVA.
+:::
+
+That was a lot. ​We've gone through one-way ANOVA, two-way ANOVA, and ANCOVA. 
+
+​After covering various linear regression models. ​All of these are important concepts to be able to talk about as a data analytics ​professional. ​But don't feel like you have to remember everything we're going through verbatim. ​That would be really hard. ​When you're working on a new project, you'll be able to refresh your memory by ​revisiting this course, doing a quick google search, or asking other people. ​I literally do this every day. ​For instance, I don't remember every equation off the top of my head. 
+
+​But what's important is knowing that there are assumptions and equations. ​And when I need them, I can either look at my past code or search for them. ​If you're anything like me, you'll get really good at fine-tuning your searches. 
+
+​Going back to ANCOVA, we're dealing with hypothesis tests. ​So it's important to state our null and ​alternative hypothesis before running a test. ​We'll cover how to run the test and Python later in this course. ​In this video, ​we'll focus on understanding what kinds of questions ANCOVA can help us answer. 
+
+​Let's say that you're working at a bookstore and ​you're interested in the relationship between book genres and sales. ​It seems new books tend to get more attention because authors are traveling to ​promote their recent work. ​The good news is that ANCOVA will let us control for publication year. ​Controlling for other variables is important so ​we don't draw conclusions that are not accurate. ​In this example,
+
+-   the categorical independent variable is book genre. ​
+
+-   The covariates is the years since the book was published. 
+
+-   ​The continuous dependent variable is the number of books sold in the last month. 
+
+-   ​The null hypothesis or Ho is that book sales are equal for ​all genres regardless of the number of years since publication. ​
+
+-   The alternative hypothesis or H1 is that book sales are not equal for ​all genres regardless of number of years since publication. 
+
+​Just like with ANOVA, you have Python and our computers available to run ​the test and the math, but you need to interpret the results. ​Typically, if the test yields a $p$-value of less than 0.05, ​you can reject the null hypothesis that all of the means ​were the same even when controlling for the covariates. ​
+
+Great work. ​We've reviewed a lot about the importance of ANCOVA, ​which you can add to your data analysis toolkit now. ​As always remember that there are additional resources for ​you to keep exploring ANOVA and its variants. 
+
+​Good luck, and until next time, keep exploring interesting questions and ​telling compelling stories.
+
+------------------------------------------------------------------------
+
+# More dependent variables: MANOVA and MANCOVA
+
+Remember how far you've come on your data journey so far, ​you've built and extended a number of models and tests from their ​most basic form to include more variables, and different kinds of data. ​As you've explored various models, you've encountered different questions you ​can answer, and different use cases for each model. ​You've made the shift from anova to ancova, ​much like you extended simple linear regression, to multiple regression. ​You added more independent variables to help isolate the effect, ​of each $x$, variable on the $y$ variable in question. 
+
+​In this video, we'll add more dependent variables, ​to allow us to perform new and different kinds, of comparative analysis. ​The two tests will introduce our **manova** and **mancova** based on the names. ​You might be able to guess, how these relate to anova, and ancova.
+
+## MANOVA
+
+::: nota
+**MANOVA** or multivariate analysis of variance is an extension of ANOVA that compares how **two, or more continuous outcome ​variables**, vary according to categorical independent variables.
+:::
+
+​Like anova, the two most common versions of manova, ​involve **one or two categorical independent variables**, and ​are referred to as a **one way and two way manova**. 
+
+-   ​The independent variable must be categorical,
+
+-   The outcome variables must be continuous. ​
+
+Since we're still dealing with hypothesis testing, we need some hypotheses to test. ​Let's return to the bookstore example to generate, and test new hypotheses, ​about factors relating to book sales. ​The one categorical variable will be book genre, ​the two continuous deepening variables, ​could be the number of books sold per month, and profits from the book sales. ​Let's say, you're working with a one way MANOVA test, in this case, 
+
+-   ​the null hypothesis would be that the means of both continuous variables ​are equal for every book genre. ​So, the number of books sold per month is the same for each book genre, and ​the profit from selling books, is the same for each book genre. 
+
+-   ​The alternative hypothesis would be that the means of both continuous variables, ​are not equal for every book genre. ​This indicates, that the only two genres of books must differ for ​just one of the outcome variables were examining. ​
+
+For example, perhaps the profit made from self help books, ​differs from the profit made from science fiction books. ​Or maybe the number of graphic novels sold per month, ​differs from the number of historical fiction books sold per month. ​In either case, you could reject the null hypothesis.
+
+Manova allows us to ​think of each data point is having a number of characteristics. ​Which are the continuous Y variables, that we want to understand based on one, ​or two sets of groups we care about, the one, or two categorical $X$ variables. 
+
+::: extra
+MANOVA (Multivariate Analysis of Variance)
+
+**What it actually does** While ANOVA compares group means on one continuous dependent variable, MANOVA compares group means across two or more continuous dependent variables simultaneously.
+
+Why not just run multiple separate ANOVAs?
+
+**Family-Wise Error Rate**: Running 5 separate ANOVAs at $\alpha = 0.05$ inflates your false-positive rate to nearly 23% ($1 - 0.95^5$). **Correlated Outcomes**: Outcome variables are often correlated (e.g., Customer Satisfaction and Customer Retention). MANOVA combines these outcome variables into a single synthetic compound variable (a linear combination) that maximizes group differences.
+
+Conceptual Scenario
+
+You want to test if Teaching Method ($X$: Traditional, Gamified, Hands-on) impacts student performance. Instead of measuring just test scores, you measure two continuous outcomes ($Y_1, Y_2$): - $Y_1$: Math Score - $Y_2$: Logic & Problem Solving Score
+
+MANOVA tests whether the multi-dimensional vector of means (called a centroid $[\mu_{Y1}, \mu_{Y2}]$) differs across teaching methods.
+
+**How MANOVA Test Statistics Work**
+
+Unlike ANOVA's $F$-test (based on scalar variance ratios), MANOVA uses matrices: - $\mathbf{H}$ (Hypothesis / Between-group variance matrix) - $\mathbf{E}$ (Error / Within-group variance matrix)
+
+Common multivariate test statistics calculate the eigenvalues of $\mathbf{E}^{-1}\mathbf{H}$: - **Wilks' Lambda (**$\Lambda$): The most standard metric; measures the proportion of total variance not explained by group differences (smaller values indicate stronger statistical significance). - **Pillai's Trace**: Most robust statistic when sample sizes are small or variance assumptions are slightly violated.
+:::
+
+## MANCOVA
+
+​If however, we're only interested in one categorical variable, and ​we want to control for another variable. ​We can use, MANCOVA:
+
+::: nota
+MANCOVA or multivariate analysis of ​covariance, is an extension of ANCOVA and MANOVA that compares how **two, or more continuous outcome variables**, vary according ​to **categorical independent variables**, while controlling for covariates. ​
+:::
+
+Let's say you're still interested in whether book genre is related to ​the number of books sold, and the amount of profit, but you want to control for ​the popularity of the author, then you could use MANCOVA. The categorical $X$ variable is still book genre, but ​now you add a covariant, which is the follower account an ​author has across social media platforms, which you are controlling for. ​Then the two $y$ outcome variables remain the same, ​the number of books sold per month, and the monthly profit. 
+
+-   ​The null hypothesis is that book sells, and monthly profits are equal for ​all genres, regardless of the author's social media following. 
+
+​The alternative hypothesis, is that book sales and monthly profits ​are not equal, for all genres, regardless of the author's social media following. 
+
+::: extra
+​MANCOVA (Multivariate Analysis of Covariance)
+
+### What it actually does
+
+MANCOVA is the final synthesis: **Multiple continuous outcomes (**$Y_1, Y_2, \dots$) + Categorical groups ($X$) + Continuous covariates ($C$).
+
+It evaluates whether group centroids across multiple outcome variables are significantly different after statistically partialling out the variance of one or more continuous covariates.
+
+### Conceptual Scenario
+
+-   **Independent Variable (**$X$): Book Genre (Sci-Fi, Romance, Non-Fiction)
+
+-   **Dependent Variables (**$Y_1, Y_2$): Monthly Sales ($Y_1$) AND Monthly Profit Margin ($Y_2$)
+
+-   **Covariate (**$C$): Author Social Media Followers
+
+MANCOVA determines if Genre impacts the combination of Sales AND Profit Margin after adjusting for the author's pre-existing online popularity.
+:::
+
+As you continue expanding your data toolkit, you'll encounter more test, ​tools, and models that build off each other. ​Identifying the connections, and use cases, ​as important as you continue throughout your career, as a data professional, ​I'm excited for you to continue testing your hypotheses
+
+::: extra
+## Method Selection Matrix
+
++-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
+| **Model**   | **Categorical IVs (X) Unknown**  | **Continuous IV Covariates (C) Unknown**  | **Continuous Outcome DVs (Y) Unknown**  | **Primary Question Answered**                                                       |
++-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
+| **ANOVA**   | $\ge 1$                          | $0$                                       | $1$                                     | Do group means differ on a single outcome?                                          |
++-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
+| **ANCOVA**  | $\ge 1$                          | $\ge 1$                                   | $1$                                     | Do group means differ after removing background noise/covariates?                   |
++-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
+| **MANOVA**  | $\ge 1$                          | $0$                                       | $\ge 2$                                 | Do group means differ across a combined profile of multiple outcomes?               |
++-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
+| **MANCOVA** | $\ge 1$                          | $\ge 1$                                   | $\ge 2$                                 | Do group profiles of outcomes differ after controlling for background covariates?   |
++-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
+:::
+
+------------------------------------------------------------------------
+
+Everything we've covered so far has allowed us to ​explore categorical variables in different ways. ​By fully utilizing the assortment of tools ​available with regards to categorical variables, ​you'll be able to tell ​a wider variety of stories in your data. ​After all, we are scientists and sometimes we need to try ​out a few tests in order to ​figure out the story that the data holds. ​
+
+Starting with just understanding ​one categorical variable, ​we examined the *chi-square goodness of fit test*, ​which determines whether a ​variable matches a theoretical distribution. ​Then the *test of independence* helped us determine whether ​two categorical variables were ​independent of one another. ​Moving beyond the chi-square distribution, ​we discovered ANOVA or analysis of variance. ​ANOVA forms the basis of ​all the other tests we covered in this section. 
+
+​*One-way ANOVA* is a powerful way to determine if ​there are differences in a continuous outcome variable ​between groups you're interested in ​*Two-way ANOVA* allows you to gain similar insights, ​while incorporating another set of groups as well. ​*ANCOVA* built upon the idea of ANOVA by ​allowing us to control for another variable, ​to isolate the effect of the groups from covariates. ​*MANCOVA* built upon ANOVA and ANCOVA ​to allow testing of ​multiple outcome variables of interest. ​As with any hypothesis testing, ​all of these tests had null and alternative hypotheses. 
+
+​Stating these hypotheses helps you to ​articulate what you're trying ​to learn from running these tests. ​I encourage you to continue working ​through scenarios with hypothesis tests. ​The more questions you ask, ​the more the data will reveal. 
+
+​Keep in mind the data requirements of ​each test and that there's always room for error. ​With practice and time, ​you'll be telling impressive story soon. ​I'll join you again next time.
