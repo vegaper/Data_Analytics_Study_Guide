@@ -242,9 +242,7 @@ website:
               - href: intro_to_regression.html
                 text: "Introduction to Regression"
               - href: linear_regression.html
-                text: "Linear Regression"
-              - href: logistic_regression.html
-                text: "Logistic Regression"
+                text: "Linear Regression"             
               - href: simple_linear_regression.html
                 text: "Simple Linear Regression"
               - href: linear_regression_with_python.html
@@ -255,6 +253,10 @@ website:
                 text: "Practice: Perform multiple linear regression"
               - href: advanced_hypothesis_testing.html  
                 text: "Advanced Hypothesis Testing"
+              - href: Exemplar_Hypothesis_testing_with_Python.html
+                text: "Practice: Hypothesis testing with Python"
+              - href: logistic_regression.html
+                text: "Logistic Regression"
 
               - section: "Reference materials"
                 contents:

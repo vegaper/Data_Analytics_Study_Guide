@@ -1,20 +1,40 @@
 ---
-title: "Logistic Regression"
+title: Logistic Regression
 format: html
+jupyter: python3
 ---
+
+Hello, it's great to be with you again. ​When we learned about linear regression, ​we started thinking about different kinds of ​questions that regression analysis can help us answer. ​For example, we could ​consider the factors that contribute to ​penguins body mass or ​factors that affect click-throughs on a website. ​We're going to expand the kinds of questions we can ask. ​This time we'll focus on modeling **​the probability that an event will occur**. ​There are lots of problems that we could explore. ​For example, what factors influence ​the odds that a customer buys from a company again? ​What impacts the likelihood ​a worker receives high performance ratings? ​What contributes to a user ​commenting or not commenting on a video. Logistic regression can help us in these situations. ​
+
+::: nota
+Logistic regression ​is a technique that models ​a categorical dependent variable $Y$ ​based on one or more independent variables $X$. ​The dependent variable can have ​two or more possible discrete values. ​
+:::
+
+We'll focus mostly on binomial logistic regression, ​which models the probability of ​an observation falling into one ​of two categories based on ​one or more independent variables. ​We use a binary variable $Y$ to indicate the category. 
+
+​For example, let's say that you're a data ​professional working for a basketball team, ​and you want to understand the probability that ​any given player on your team will ​score more than 10 points in the game. ​There are many variables you might want to consider. ​For example, how ​well did the player perform last season? ​What's their average playing time? ​How many points did they score this season? ​This might seem like ​a multiple linear regression problem, ​but consider the outcome variable, ​whether or not the player will score ​more than 10 points in a basketball game. ​This is a binary outcome variable. ​Since there are only two possible outcomes, ​we can't draw a best fit line in ​the same way we did for linear regression.
+
+​For example, if you ​plot playing times against whether or ​not the player will score more than 10 points in a game, ​your data will look like two flat lines, ​one at $Y = 0$, ​and one at $Y = 1$. ​
+
+![](paste-8sygIO2tXmSbq9DEl7b21)
+
+This is very different from ​the linear relationship you observed in prior scenarios. ​Later in the program, ​we'll learn more about ​binomial logistic regression and ​review the stages of regression and pace. ​We'll analyze our data by ​understanding the model assumptions to the best of ​our ability and ensure we have a binary outcome variable. ​We'll construct our model and evaluate ​it using several different metrics. ​Then we'll execute and share ​the results with stakeholders and other team members. 
+
+​Logistic regression is a versatile and powerful model ​and I'm excited to review it with you. ​So let's get started
+
+------------------------------------------------------------------------
 
 I still remember being on ​a sports team needing to determine ​which team first played ​offense or defense using a coin toss. ​What's the chance the coin will come up heads? ​What's the chance the coin will come up tails? ​The probability of either event occurring ​is 0.5 or 50 percent. ​This is a classic probability problem. ​But in the field of data analytics, ​we get to use a technique called logistic regression to ​model much more complex probability problems. ​For example, what factors lead to someone ​subscribing or not subscribing to a newsletter. ​Under what circumstances does someone comment ​on an online video or social media post? ​Given certain factors, how likely is it that ​someone renews their membership to an organization? ​
 
 All of these questions are tackling ​discrete events or *categorical data*. ​There are a specific set of possible outcomes. ​Subscribe or don't subscribe, comment, ​or don't comment, renew, or don't renew. ​To answer these questions, ​data professionals use a model ​called logistic regression. ​
 
-::: nota
-Logistic regression is a technique that models ​a categorical variable based on ​one or more independent variables. 
-:::
+Logistic regression is a technique that models ​a categorical variable based on ​one or more independent variables. **​The dependent variable can have ​two or more possible discrete values**. 
 
-**​The dependent variable can have ​two or more possible discrete values**. ​Let's say that your company has ​a newsletter and is interested in increasing readership. ​On the company website users have ​the opportunity to subscribe to the newsletter. ​One factor related to ​the newsletter subscription could be ​how many minutes the user ​spends on the web-page before leaving? 
-​Our dependent variable $y$ has two possibilities:
--   ​Users don't subscribe, which we'll represent with a zero. 
--   ​Or users do subscribe, ​which we'll represent with a one. 
+​Let's say that your company has ​a newsletter and is interested in increasing readership. ​On the company website users have ​the opportunity to subscribe to the newsletter. ​One factor related to ​the newsletter subscription could be ​how many minutes the user ​spends on the web-page before leaving?  ​Our dependent variable $y$ has two possibilities:
+
+\-  ​Users don't subscribe, which we'll represent with a zero. 
+
+\- ​Or users do subscribe, ​which we'll represent with a one. 
 
 ​Our independent variable $x$ is continuous and measures ​how many minutes the users ​spend on the web-page before leaving. 
 
@@ -67,54 +87,45 @@ ax.tick_params(axis='both', which='both', length=0, labelsize=11, labelcolor='#3
 
 plt.tight_layout()
 plt.show()
-
 ```
-
 
 ​We can observe that the data points are ​roughly and two horizontal lines.​The higher one indicates the user subscribed, ​this is when $y$ equals one. ​The lower one indicates that the user did not subscribe. ​This is when $y$ equals zero, ​the $x$-axis indicates how ​long the user was on the site in minutes. 
 
 ​Since the relationship between $x$ and ​y is not just a straight line, ​we need a new mathematical way of ​expressing the relationship between $x$ and $​y$. Logistic regression will allow us to ​model the probability a user ​will subscribe to the newsletter. 
 
-​The key concept is that the mean of $y$ given $x$ ​is equal to the probability of $y$ equals one given $x$. 
-$$
+​The key concept is that the mean of $y$ given $x$ ​is equal to the probability of $y$ equals one given $x$.  $$
 \mu{Y|X} = Prob(Y=1|X) =p
 $$
 
-
-​Let's explore this idea. ​At this point, our observed $y$ values ​are just a bunch of zeros and ones. ​To find the mean, ​we would sum all of our observations and ​then divide the total by the number of observations. 
-Because some of the observed data are ​zeros when summing the observations, ​the zeros all add up to zero. ​Therefore, the sum of ​all the observations is equal ​to the total number of ones. ​Then we divide by the total number of observations. 
-​This is equal to the probability of $y$ equaling ​one or someone becoming a subscriber. 
+​Let's explore this idea. ​At this point, our observed $y$ values ​are just a bunch of zeros and ones. ​To find the mean, ​we would sum all of our observations and ​then divide the total by the number of observations.  Because some of the observed data are ​zeros when summing the observations, ​the zeros all add up to zero. ​Therefore, the sum of ​all the observations is equal ​to the total number of ones. ​Then we divide by the total number of observations.  ​This is equal to the probability of $y$ equaling ​one or someone becoming a subscriber. 
 
 ​In this case, we know that the mean of $y$ given $x$ is equal ​to the probability of $y$ ​equaling a certain outcome given $x$. ​Sometimes the probability of $y$ given $x$ is ​written as $p$ to reinforce the idea of probability. ​To help you remember, ​you can think $p$ is for probability. ​Now we want to understand what ​variables help explain those probabilities.
 
 ​Mathematically, we need a way to relate ​the $x$ variables to the probability that $y$ equals one. ​Imagine we only have one independent variable. 
 
-​So then we need to relate the probability of $y$ equals ​one to Beta 0 plus Beta 1 times $x$. 
-$$
+​So then we need to relate the probability of $y =1$ to $\beta_0 + \beta_1 \times x$.  $$
 {\beta_0} + {\beta_1} X \to \text{???} \to Prob(Y=1|X)
 $$
 
-​In logistic regression, we use ​a link function to express the relationship ​between the $x$'s and ​the probability that $y$ equals some outcome. 
-$$
+​In logistic regression, we use ​a link function to express the relationship ​between the $x$'s and ​the probability that $y$ equals some outcome.  $$
 {\beta_0} + {\beta_1} X \to \text{???} \to Prob(Y=1|X)
 $$
+
 $$
 \text{link function} \to g(p) = {\beta_0} + {\beta_1} X 
 $$
 
 ​A link function is a non-linear function that connects or ​links the dependent variable ​to the independent variables mathematically. ​We will discuss how logistic regression and ​link functions work in more detail later on. ​But for now, just know that this is an example of ​the differences between linear ​and logistic regression models. 
 
-​Let's review a few more similarities ​and differences between modeling approaches. ​First, linear regression involves ​a $y$ that is continuous, like book sales. 
+​Let's review a few more similarities ​and differences between modeling approaches. ​
 
-​While logistic regression involves a $y$ that is ​categorical, like newsletter subscription. 
+-   First, linear regression involves ​a $y$ that is continuous, like book sales. ​While logistic regression involves a $y$ that is ​categorical, like newsletter subscription. ​Choosing one model over the ​other is about the kind of data you have.
 
-​Choosing one model over the ​other is about the kind of data you have.
+-   ​You can answer similar questions about what ​factors impact an outcome of interests. 
 
-​You can answer similar questions about what ​factors impact an outcome of interests. 
+-   ​Secondly, ​since linear regression model is a continuous variable, ​we're estimating the mean of $y$. ​But logistic regression models a categorical variable. ​We're modeling the probability of an outcome, ​For example, if $y$ equals one or if $y$ equals zero. 
 
-​Secondly, ​since linear regression model is a continuous variable, ​we're estimating the mean of $y$. ​But logistic regression models a categorical variable. ​We're modeling the probability of an outcome, ​For example, if $y$ equals one or if $y$ equals zero. 
-
-​Lastly, for linear regression, ​we can express $y$ directly as a function of $x$. ​But for logistic regression, ​we need a link function to connect ​the probability of $y$ with $x$. 
+-   ​Lastly, for linear regression, ​we can express $y$ directly as a function of $x$. ​But for logistic regression, ​we need a link function to connect ​the probability of $y$ with $x$. 
 
 ​We'll continue focusing on ​logistic regression with just two categories, ​like the subscription problem. ​But there are more complex versions of ​logistic regression that can model ​multiple outcomes or categories, ​such as types of skincare products people buy, ​or types of services that people receive. 
 
@@ -123,3 +134,359 @@ $$
 ​Later in this course we'll ​cover an estimation technique for ​logistic regression called ***maximum likelihood estimation*** and ​we'll uncover a bit more of the math. ​For now, know that computers are ​incredibly powerful and enable ​us as data practitioners to focus ​less on the math and more on the storytelling. 
 
 ​The rest of the course will provide ​you with a solid understanding so ​you know what's going on ​in that powerful machine of yours.
+
+------------------------------------------------------------------------
+
+# Find the best logistic regression model for your data
+
+So far, we've learned that binomial logistic regression is a method for ​modeling the probability of a binary outcome, such as, ​how likely it is that a player will score more than 10 points in a basketball game. ​Will a user comment or not? ​But just like any other statistical method, ​we have to make assumptions about the data to have confidence in the results. ​Now we'll discuss the main assumptions of binomial logistic regression and ​consider how to find the best logistic regression model, given a set of data. ​Logistic regression is a bit more complex than linear regression. ​So our goal is to understand the basics of how it works, ​not to understand every detail of the model. ​
+
+Recall that as we navigate the first two stages of pace, ​we can figure out if a logistic regression model is the best choice to address ​the question we're working on. ​We consider the assumptions of the model as we analyze our approach. ​Some assumptions are similar to those of linear aggression and some are different. ​
+
+The first and most important assumption of binomial logistic regression is ​the **linearity assumption**. ​Which is a bit different from the linearity assumption for ​linear regression. ​
+
+::: nota
+In binomial logistic regression, the linearity assumption states that **there ​should be a linear relationship between each** $X$ **variable and ​the logit of the probability that** $Y$ **equals 1**. ​
+:::
+
+The linearity assumption is the key assumption that explains how we can ​estimate a logistic regression model that fits the data best. ​To understand logit, we must first define the odds. 
+
+$$
+Odds = \frac{p}{1-p}
+$$
+
+​​We can think of the equation as the probability of $p$ occurring divided by ​the probability of $p$ not occurring. ​
+
+For example, let's imagine that in a package of cookies with different flavors, ​you know that about 60% are chocolate. ​You'll represent this as 0.6. ​Then the probability of a cookie not being chocolate is 0.4, ​because 1 -0.60 is 0.4, the odds a given cookies, ​chocolate is 0.6, divided by 0.4, which is 1.5. 
+
+​The logit or ​log-odds function is the logarithms of the odds of a given probability. ​
+
+$$
+logit(p) = log\left(\frac{p}{1-p}\right)
+$$
+
+​Logit is the most common link function used to linearly relate ​the $X$ variables to the probability of $Y$. ​
+
+To translate this into less technical language, ​let's explore the basketball example further. ​If you're working for a basketball team as a data practitioner, ​you'll want to know the likelihood of your players scoring many points in a game, ​rather than the other outcome, that they don't score many points. ​By assuming that there is a linear relationship between the $X$ variables and ​the logit of the probability that $Y$ equals our outcome of interest or one, you can then find some beta coefficient that explains the data you've observed. ​You can write the logit of $p$ in terms of the $X$ variables. ​$$
+logit(p) = log\left(\frac{p}{1-p}\right) = \beta_0 +\beta_1X_1+\beta_2X_2 + \dots+ \beta_nX_n
+$$
+
+​And like linear regression, we don't want just any set of beta coefficients. ​We want the best set of beta coefficients to make sure our model fits the data. ​In linear regression, we minimize the sum of squared residuals, ​which is a measure of error to figure out the best model. ​In logistic regression, we'll often use **maximum likelihood estimation** to ​find the best logistic regression model. ​
+
+::: nota
+**Maximum likelihood estimation** or MLE, is a technique for estimating the beta ​parameters that maximize the likelihood of the model producing the observed data. ​
+
+We can think of likelihood as the probability of observing the actual data, ​given some set of beta parameters. 
+:::
+
+​To understand these definitions, ​we need to revisit the assumptions of binomial logistic regression. ​
+
+Aside from linearity between each $X$ variable and the logit of $Y$ variable, ​we assume that the **observations are independent**. ​This assumption relates to how the data was collected. ​
+
+Because the observations are assumed to be independent, we can say that ​the probability of observing data point A and observing data point B, ​is equal to the probability of observing A times the probability of observing B. ​
+
+$$
+P(\text {A AND B}) = P(A) \times P(B)
+$$
+
+Therefore, if you have $n$ basketball players on your team, ​you can calculate the likelihood of observing the outcome for each player, and ​then multiply all of the likelihoods together to determine the likelihood ​of observing all of the sample data. 
+
+::: nota
+​The best logistic regression model estimates the set of beta ​coefficients that maximizes the likelihood of observing all of the sample data.
+:::
+
+​Now that we have estimated how maximum likelihood estimation works, ​we'll consider two other assumptions of binomial logistic regression. 
+
+​**We assume that there is little to no multicollinearity between the independent variables**. ​If we include multiple $X$ variables, they should not be highly correlated ​with one another, just like with linear regression. 
+
+​Lastly, **we assume that there are no extreme outliers in the dataset.** ​Outliers are a complex topic in regression modeling and ​can be detected after the model is fit. ​Sometimes it is appropriate to transform or adjust variables to maintain model validity. ​Other times it can be appropriate to remove outlier data. ​
+
+To recap, we've defined the main assumptions of logistic regression and ​how to fit the best logistic regression model to the data using MLE. 
+
+​Coming up we'll explore how to build and ​evaluate a logistic regression model in Python using real data. ​Meet you there.
+
+------------------------------------------------------------------------
+
+# Construct a logistic regression model with Python
+
+We've explored the kinds of questions ​logistic regression can help answer. ​Reviewed the theory supporting logistic regression, ​and why it's a reliable and ​foundational data analysis tool. ​In this video, we'll build ​a logistic regression model in Python, ​which puts us in the construct phase of pace. 
+
+​To illustrate how to code ​a binomial logistic regression in Python, ​we'll go through an example with data together. ​The dataset we'll use comes from a study ​about motion detection in older adults. ​We've selected a subset of the data to work with. ​We've already loaded our dataset in ​a DataFrame called activity. ​You can call the describe function to get ​more statistical information about the variables.
+
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+activity = pd.read_csv(r'Datasets/activity.csv')
+activity.describe()
+```
+
+ ​There are 494 rows of data based on the count row. ​You can also observe the mean, standard deviation, ​minimum value, maximum value, ​and the value at each quartile for every variable. ​Now examine the first few rows using the head function. ​There are two variables in the dataset. ​The first variable measures acceleration ​in the vertical direction. ​The second variable indicates ​whether a person is lying down. 
+
+```{python}
+activity.head()
+```
+
+​You want to use logistic regression to ​predict whether the person is lying down or not. ​Load in scikit-learn's train test ​split and logistic regression functions. ​Now prepare the data for the Python functions to ​split the data into training set and a holdout dataset, ​divide the activity DataFrame into ​the $x$ variables and $y$ ​variables as you've done for other models. ​Here, you'll just focus on ​one $x$ variable vertical acceleration. ​To follow good data practices, ​split the data into a training and holdout dataset ​using scikit-learn's train test split method ​you imported earlier. ​You'll use the holdout or testing ​data later when you ​evaluate the model you're building now. ​We set the random state so ​that the results are repeatable, ​but you don't always have to set the random state. 
+
+```{python}
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+X = activity[["Acc (vertical)"]] # for the logistic regression model X is a table, needs double brakets 
+y = activity["LyingDown"] # y is a line, needs single brakets. 
+
+# Split dataset into training and holdout datasets
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.3, random_state=42)
+```
+
+​If you use a different random state, ​your results will differ.  ​Next, build the logistic regression model and ​save it as a variable called clf. ​This is a name you'll encounter frequently. ​Clf stands for the classifier.  ​Call on the logistic regression function ​to build a classifier, ​then use the fit method ​of the logistic regression classifier, ​and input the training dataset. 
+
+```{python}
+clf = LogisticRegression().fit(X_train, y_train)    
+```
+
+​Then call on the classifier's coefficient and ​intercept attributes to get the parameter estimates.
+
+```{python}
+# Print the coefficient
+print ('Coefficient: ', clf.coef_)
+print ('Intercept: ', clf.intercept_)
+```
+
+ The coefficient or parameter estimate for $\beta_1$ is negative 0.118, ​rounded to the nearest thousandth, ​and the estimate of the intercept, ​or $\beta_0$ is 6.102, ​rounded to the nearest thousandth. 
+
+​If you want to create a plot ​of your model to visualize results, ​you can use the seaborn package. ​So import seaborn using sns alias, ​if you haven't already, ​then call on the regplot function. ​You have to tell the function which ​column the $x$ variable is in, ​which is labeled ACC(vertical), ​then specify $y$ variable column. ​Next, tell the function where the data is stored. ​Specify that you're interested in ​logistic regression by setting ​the logistic argument as true. 
+
+```{python}
+sns.regplot(x="Acc (vertical)", y="LyingDown", data=activity, logistic=True, scatter_kws={"s": 70, "color": "#4285f4"}, line_kws={"color": "#ea4335", "linewidth": 2})
+```
+
+​The plot displays a sharp S-shaped curve. ​The shaded region around ​the line indicates the confidence band. 
+
+​You can observe two horizontal lines of data points. ​One where the person is lying down, ​when the variable equals one. ​The other one is when the person is not lying down, ​when the variable equals zero. ​We'll discuss how to interpret ​logistic regression results next. 
+
+​In this video, you told ​the computer to find the best way to determine ​the likelihood of someone lying ​down based on vertical acceleration. ​You also began the work of interpreting ​the results and were able to plot the model. ​Coming up, we'll consider a variety of ways to evaluate ​the quality of the model and how ​to tell a meaningful story about the data.
+
+------------------------------------------------------------------------
+
+You have built your first binomial logistic regression. ​You were able to calculate the parameter estimates and ​graph the logistic regression. In this video, ​we'll use the metrics and graphs produced in Python to evaluate how good your ​model actually was.
+
+To recap, you're working with the activity data that measured ​acceleration and whether or not a person was lying down. ​You previously saved the data into training and ​hold out datasets and the logistic regression model as a variable 'clf'. ​Now input the holdout data into the 'predict' method to get ​the predicted labels from the model. ​Save these predictions as a variable called y_pred. Note that ​MLE predicts a probability that an observation is a zero or one.
+
+```{python}
+y_pred = clf.predict(X_test)
+print('Predictions: ', y_pred)
+```
+
+​The 'predict' function from scikit-learn actually labels each observation with ​a zero or one. The 'predict' function works by assuming a threshold of 0.5. - ​So if MLE predicts a value greater than or equal to 0.5, ​the 'predict' function will label that observation a one. - ​If MLE predicts a value less than 0.5, ​the 'predict' function will label that observation a zero.
+
+​The 'predict_proba' function, on the other hand, ​will allow you to check what probability was predicted for each data point.
+
+```{python}
+y_prob = clf.predict_proba(X_test)
+print('Probabilities: ', y_prob[:10])  # Displaying the first 10 probabilities for brevity  
+```
+
+​Now that you have predictions about whether each observation is a zero or one, ​you can create a confusion matrix that will give you a quick overview of how well ​your model categorized each data point ​in the holdout dataset.
+
+::: nota
+A confusion matrix is a graphical representation of how ​accurate a classifier is at predicting the labels for a categorical variable.
+:::
+
+First let's take a look at the values of the true labels and the predicted labels
+
+```{python}
+print("true labels ", y_test.value_counts())
+# Predicted labels (NumPy array converted to Series)
+print("\nPredicted labels:\n", pd.Series(y_pred).value_counts())
+```
+
+WE can visualize the matrix of both:
+
+```{python}
+# Cross-tabulate true vs predicted labels directly
+crosstab = pd.crosstab(y_test, y_pred, rownames=['Actual'], colnames=['Predicted'])
+print(crosstab)
+```
+
+Or use a graph with sklearn.metrics
+
+```{python}
+import sklearn.metrics as metrics
+
+
+cm = metrics.confusion_matrix(y_test, y_pred, labels =clf.classes_)
+disp = metrics.ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=clf.classes_)
+disp.plot()
+```
+
+The diagonal ​from upper left to lower right (The intersection between true label 0 and predicted label 0, as well as the intersection between true label 1 and predicted label 1) displays how many data points were accurately categorized ​by a classifier for each category. ​The other squares in the grid convey how many data points were misclassified.
+
+​On the axes of the confusion matrix ​there are labels indicating the category of data point as zero or ​1. Zero means the person was labeled as not lying down ​for that observation. ​Data professionals call a data point that is labeled zero a negative data point. ​One means a person was labeled as lying down for that observation. ​A data point that is labeled one is a positive data point.
+
+​In the upper left corner of the confusion matrix ​we have the count of observations that our classifier predicted as not lying down and ​they actually were not lying down. ​These are called **true negatives**. ​Moving to the lower right, we have our **true positives**. ​This is our count of observations that our classifier predicted as lying down and ​they actually were lying down. ​Now let's consider where our model's predictions were wrong. ​In the upper right is the count of observations where a classifier predicted ​the person was lying down, but they were NOT lying down. ​These are **false positives**. In the lower left is the count of observations where ​our classifier predicted the person was not lying down, but they WERE lying down. ​These are **false negatives**. ​
+
+![](paste-dZq6Xobg31d7Bo64VtXHs)
+
+In a great model we should observe a high proportion of true positives and ​true negatives and a low proportion of false positives and false negatives. ​In this video, you learned about the confusion matrix. ​This versatile tool can help you add depth to stories ​you tell about logistic regression models. In the following videos, we'll discuss ​even more ways to evaluate the quality of a logistic regression model. ​I'll meet you there!
+
+------------------------------------------------------------------------
+
+Earlier we covered confusion matrices which helped to ​visually represent and quantify ​how well a logistic regression performed. ​In this video we'll continue ​to work through the analyze and construct ​phase of pace and discuss ​evaluation metrics for logistic regression. ​These metrics summarize the true positives, ​true negatives, ​false positives, ​and false negatives presented by the confusion matrix. ​The three metrics we'll discuss are ​precision, recall, and accuracy. ​You can access the functions used in ​this video through scikit-learn metrics module, ​and we'll continue to consider our activity data example. 
+
+## Pecision​
+
+::: nota
+Precision measures the proportion of ​positive predictions that were true positives. ​
+
+$$
+\text{Precision}=\frac{\text{True Positives}}{\text{True Positives + False Positives}}
+$$
+
+**Answers the question**: *Out of everything the model claimed was positive, how much was actually positive?*
+:::
+
+​In this case precision would tell us ​among the people we predicted to be lying down, ​how many of them are actually lying down? ​Scikit learns metrics library has ​a convenient function that does the math for us. ​We input the $y$ values in our holdout data set and ​the $y$ values that our model predicted from ​the $x$-values in our holdout data set. 
+
+$$
+\text{Precision}=\frac{\text{True Positives}}{\text{True Positives + False Positives}} = \frac{76}{76+2}=0,974
+$$
+
+We can say that from all the labels that the model predicted as 1s, 97.4% were correct
+
+```{python}
+import sklearn.metrics as metrics
+metrics.precision_score(y_test,y_pred)
+```
+
+​Since the range of precision is 0-1, ​a score of 0.97 is great. 
+
+## Recall
+
+::: nota
+​Recall measures the proportion of ​positives that the model was able to identify correctly. 
+
+$$
+Recall= \frac{\text{True Positives}}{\text{True Positives + False Negatives}}
+$$​**Answers the question:** *Out of all the actual positive cases that existed in real life, how many did the model manage to catch?*
+:::
+
+​Remember that false negatives ​are those that we're lying down, ​but the model did not detect as lying down. ​Recall measures the proportion ​of people the model correctly ​identified as laying down out of ​the people who are actually lying down. 
+
+​\$\$
+
+Recall= \frac{\text{True Positives}}{\text{True Positives + False Negatives}} = \frac{76}{76+1}=0,987
+$$
+
+We input the same data that we input to get precision, ​but using the recall score function from scikit-learn. ​
+
+```{python}
+metrics.recall_score(y_test,y_pred)
+```
+
+We get a recall of about 0.98, ​and since recall also ranges ​0-1 this model performs pretty well. 
+
+## Accuracy
+
+​Lastly, we have accuracy.
+
+::: nota
+Accuracy is ​the proportion of data points ​that were correctly categorized. 
+
+$$
+Accuracy = \frac{\text{True Positives + True Negatives}}{\text{Total predictions}}
+$$
+
+**Answers the question:** *Out of all total predictions the model made (both positive and negative), what percentage were completely right?*
+:::
+
+​In our activity example accuracy will measure ​the proportion of people our model ​correctly identified as laying down, ​and the proportion of people are model ​correctly identified as not laying down. 
+
+We can use the accuracy score function from scikit-learn. 
+
+```{python}
+metrics.accuracy_score(y_test, y_pred)
+```
+
+​In this case our model achieved ​an accuracy score of 0.97, ​but note that most of ​the time precision recall and ​accuracy are not all this high. ​
+
+This is to be expected, ​two other common evaluation techniques ​that may be helpful when working ​with classifiers are the **ROC curve and AUC.** ​These concepts are related to thresholds, ​true positives, and false positives. ​
+
+Although we use a threshold of ​0.5 to generate our predictions, ​sometimes the threshold is ​determined based on the scenario.
+
+![](paste-ibag9uZICm7Pqrs0Pc182)
+
+Notice that when we decrease the threshold ​the true positive increases because we are ​predicting more observations to be positive, ​but the false positive rate also increases. 
+
+![](paste-XWoY5GpU38czeyLuB-O_J)​
+
+The model's true positive rate and ​false positive rate changes at every threshold. ​With an ideal model there would exist a threshold where ​the true positive rate is ​high and the false positive rate is low. 
+
+​We can use an ROC curve in AUC to examine how ​the true positive and false positive rate change ​together at every threshold. 
+
+​Data professionals may use ROC curves ​and AUC when comparing classification models, ​so we'll explore them later in this program.
+
+ ​In this video, we covered a number of important metrics. ​These concepts are similar and related. ​Don't expect to grasp ​all the nuances of the content on your first pass. ​Allow yourself some extra time ​and practice to understand how best ​to apply these measurement tools to ​support the stories you're telling with data. ​Now we'll start constructing the kinds of ​stories you can share with logistic regression.
+
+------------------------------------------------------------------------
+
+::: extra
+**Metric selection depends entirely on the cost of making a mistake in a specific real-world context.**
+
+High accuracy can be a dangerous illusion, especially with **imbalanced datasets** (like a rare disease, where real positive cases are $1\%$).
+
+### When Recall is Most Important
+
+> **Goal:** Catch every positive case. False alarms are acceptable; missed positives are catastrophic.
+
+-   **The Cost Function:** High cost for **False Negatives** (saying "Negative" when the answer is actually "Positive").
+
+-   **The Strategy:** Set a sensitive threshold to cast a wide net. You prefer to double-check a false alarm rather than let a true case slip through.
+
+**Real-World Contexts:**
+
+-   **Medical Screening (Rare Disease):** As you noted, missing a sick patient (False Negative) means they don't get treatment, which can be fatal. A false alarm (False Positive) just means running a second test to confirm.
+
+-   **Fraud Detection:** It is better to temporarily flag a legitimate credit card transaction as suspicious (False Positive) and send a text verification than to miss an actual fraudulent transaction (False Negative).
+
+-   **Defect Detection in Manufacturing (Safety Equipment):** Missing a faulty car airbag (False Negative) leads to injury or death. Throwing away a good airbag by mistake (False Positive) just costs a few dollars.
+
+### When Precision is Most Important
+
+> **Goal:** Be absolutely certain when you flag something. Missed positives are acceptable; false alarms destroy trust or waste expensive resources.
+
+-   **The Cost Function:** High cost for **False Positives** (saying "Positive" when the answer is actually "Negative").
+
+-   **The Strategy:** Be conservative. Only predict positive when confidence is extremely high.
+
+**Real-World Contexts:**
+
+-   **Spam Detection:** If a good email goes to the Spam folder (False Positive), you might miss a job offer or a key work message. If a spam email gets into your inbox (False Negative), it’s just a mild annoyance. Here, **Precision matters more**—when the filter claims an email is spam, it better be right.
+
+-   **Legal / Judicial Systems:** The baseline principle "innocent until proven guilty" prioritizes high Precision. Convicting an innocent person (False Positive) is considered far worse than failing to convict a guilty person (False Negative).
+
+-   **High-Cost Interventions (Targeted Marketing/Sales):** If sending a sales rep to visit a high-value client in person costs \$5,000, you only want to target leads predicted as "high probability" with extremely high precision. False positives waste real budget.
+
+### When Accuracy is Most Important
+
+> **Goal:** Get an overall snapshot of correct predictions across all classes equally.
+
+-   **The Cost Function:** Both False Positives and False Negatives carry roughly equal, low-to-moderate costs.
+
+-   **The Prerequisite:** **Balanced Datasets** (e.g., 50% class A, 50% class B).
+
+**Real-World Contexts:**
+
+-   **Digit Recognition (OCR):** Scanning handwritten zip codes on mail. Misclassifying an 8 as a 3 costs about the same as misclassifying a 3 as an 8.
+
+-   **Sentiment Analysis for General Feedback:** Classifying customer reviews as simply "Positive" or "Negative" when you have a roughly equal mix of both, and no single misclassification causes a critical failure.
+
+### How to Balance Them: F1-Score & Custom Costs
+
+When you need a single metric that balances Precision and Recall, standard practice uses the **F1-Score**:
+
+\$\$\\text{F1-Score} = 2 \\times \\frac{\\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}}\$\$
+
+The F1-Score uses the **harmonic mean**, which heavily punishes extreme trade-offs. If your model gets 99% Precision but 1% Recall, standard averaging gives 50%, but the F1-Score collapses to **1.98%**, signaling that the model is failing on one front.
+:::
