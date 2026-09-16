@@ -327,15 +327,17 @@ The diagonal ​from upper left to lower right (The intersection between true la
 
 ​In the upper left corner of the confusion matrix ​we have the count of observations that our classifier predicted as not lying down and ​they actually were not lying down. ​These are called **true negatives**. ​Moving to the lower right, we have our **true positives**. ​This is our count of observations that our classifier predicted as lying down and ​they actually were lying down. ​Now let's consider where our model's predictions were wrong. ​In the upper right is the count of observations where a classifier predicted ​the person was lying down, but they were NOT lying down. ​These are **false positives**. In the lower left is the count of observations where ​our classifier predicted the person was not lying down, but they WERE lying down. ​These are **false negatives**. ​
 
-![](paste-dZq6Xobg31d7Bo64VtXHs)
+![](images\paste-dZq6Xobg31d7Bo64VtXHs)
 
 In a great model we should observe a high proportion of true positives and ​true negatives and a low proportion of false positives and false negatives. ​In this video, you learned about the confusion matrix. ​This versatile tool can help you add depth to stories ​you tell about logistic regression models. In the following videos, we'll discuss ​even more ways to evaluate the quality of a logistic regression model. ​I'll meet you there!
 
 ------------------------------------------------------------------------
 
+# Assessing the model
+
 Earlier we covered confusion matrices which helped to ​visually represent and quantify ​how well a logistic regression performed. ​In this video we'll continue ​to work through the analyze and construct ​phase of pace and discuss ​evaluation metrics for logistic regression. ​These metrics summarize the true positives, ​true negatives, ​false positives, ​and false negatives presented by the confusion matrix. ​The three metrics we'll discuss are ​precision, recall, and accuracy. ​You can access the functions used in ​this video through scikit-learn metrics module, ​and we'll continue to consider our activity data example. 
 
-## Pecision​
+## Precision​
 
 ::: nota
 Precision measures the proportion of ​positive predictions that were true positives. ​
@@ -374,10 +376,9 @@ $$​**Answers the question:** *Out of all the actual positive cases that existe
 
 ​Remember that false negatives ​are those that we're lying down, ​but the model did not detect as lying down. ​Recall measures the proportion ​of people the model correctly ​identified as laying down out of ​the people who are actually lying down. 
 
-​\$\$
+​$$
 
-Recall= \frac{\text{True Positives}}{\text{True Positives + False Negatives}} = \frac{76}{76+1}=0,987
-$$
+Recall= \frac{\text{True Positives}}{\text{True Positives + False Negatives}} = \frac{76}{76+1}=0,987 $$
 
 We input the same data that we input to get precision, ​but using the recall score function from scikit-learn. ​
 
@@ -415,11 +416,11 @@ This is to be expected, ​two other common evaluation techniques ​that may 
 
 Although we use a threshold of ​0.5 to generate our predictions, ​sometimes the threshold is ​determined based on the scenario.
 
-![](paste-ibag9uZICm7Pqrs0Pc182)
+![](images\paste-ibag9uZICm7Pqrs0Pc182)
 
 Notice that when we decrease the threshold ​the true positive increases because we are ​predicting more observations to be positive, ​but the false positive rate also increases. 
 
-![](paste-XWoY5GpU38czeyLuB-O_J)​
+![](images\paste-XWoY5GpU38czeyLuB-O_J)​
 
 The model's true positive rate and ​false positive rate changes at every threshold. ​With an ideal model there would exist a threshold where ​the true positive rate is ​high and the false positive rate is low. 
 
@@ -466,7 +467,7 @@ High accuracy can be a dangerous illusion, especially with **imbalanced datasets
 
 -   **Legal / Judicial Systems:** The baseline principle "innocent until proven guilty" prioritizes high Precision. Convicting an innocent person (False Positive) is considered far worse than failing to convict a guilty person (False Negative).
 
--   **High-Cost Interventions (Targeted Marketing/Sales):** If sending a sales rep to visit a high-value client in person costs \$5,000, you only want to target leads predicted as "high probability" with extremely high precision. False positives waste real budget.
+-   **High-Cost Interventions (Targeted Marketing/Sales):** If sending a sales rep to visit a high-value client in person costs $5,000, you only want to target leads predicted as "high probability" with extremely high precision. False positives waste real budget.
 
 ### When Accuracy is Most Important
 
@@ -486,7 +487,104 @@ High accuracy can be a dangerous illusion, especially with **imbalanced datasets
 
 When you need a single metric that balances Precision and Recall, standard practice uses the **F1-Score**:
 
-\$\$\\text{F1-Score} = 2 \\times \\frac{\\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}}\$\$
+$$\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
 
 The F1-Score uses the **harmonic mean**, which heavily punishes extreme trade-offs. If your model gets 99% Precision but 1% Recall, standard averaging gives 50%, but the F1-Score collapses to **1.98%**, signaling that the model is failing on one front.
+
+Example:
+
+We will simulate a rare disease scenario where **99% of patients are healthy (Negative)** and only **1% have the disease (Positive)**.\
+
+Step 1: Generate an Imbalanced Synthetic Dataset
+
+We create 1,000 patient records. 990 patients are healthy (`0`) and 10 patients have the rare disease (`1`).
+
+```{python}
+import numpy as np
+import pandas as pd
+
+# Set random seed for reproducibility
+np.random.seed(42)
+
+# Generate 1,000 samples: 990 Healthy (0), 10 Rare Disease (1)
+y_true = np.array([0] * 990 + [1] * 10)
+
+# Shuffle the labels so they aren't in order
+np.random.shuffle(y_true)
+
+# Check the distribution
+print(pd.Series(y_true).value_counts())
+```
+
+Step 2: Imagine a model that predicts Healthy (0) for 995 patients and only flags 5 patients as having the disease (1)\
+Out of those 5 positive predictions:
+
+-   It gets **2 right** (True Positives).
+
+-   It gets **3 wrong** (False Positives — healthy people given a false alarm).
+
+-   It misses **8 actual sick people** (False Negatives — saying they are healthy when they are sick).\
+
+```{python}
+# Simulate our model's predictions
+# Suppose the model predicts 0 for almost everyone, but flags 5 people as positive
+y_pred = np.zeros(1000, dtype=int)
+
+# Identify indices of actual sick patients
+sick_indices = np.where(y_true == 1)[0]
+healthy_indices = np.where(y_true == 0)[0]
+
+# Model correctly catches 2 sick people (True Positives)
+y_pred[sick_indices[:2]] = 1
+
+# Model incorrectly flags 3 healthy people as sick (False Positives)
+y_pred[healthy_indices[:3]] = 1
+```
+
+Step 3: Compute the Confusion Matrix Breakdown
+
+Let's extract the raw counts: True Negatives (TN), False Positives (FP), False Negatives (FN), and True Positives (TP).
+
+```{python}
+from sklearn.metrics import confusion_matrix
+
+tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+
+print(f"True Negatives (Healthy correctly identified):  {tn}")
+print(f"False Positives (False Alarms):                {fp}")
+print(f"False Negatives (MISSED Sick Patients):        {fn}")
+print(f"True Positives (Sick Patients caught):         {tp}")
+```
+
+Step 4: Calculate and Compare All Metrics
+Now we pass y_true and y_pred into scikit-learn's metrics module and calculate Accuracy, Precision, Recall, and F1-Score manually and via functions.
+```{python}
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+acc = accuracy_score(y_true, y_pred)
+prec = precision_score(y_true, y_pred)
+rec = recall_score(y_true, y_pred)
+f1 = f1_score(y_true, y_pred)
+
+print(f"Accuracy:  {acc:.4f}  ({acc*100:.1f}%)")
+print(f"Precision: {prec:.4f}  ({prec*100:.1f}%)")
+print(f"Recall:    {rec:.4f}  ({rec*100:.1f}%)")
+print(f"F1-Score:  {f1:.4f}  ({f1*100:.1f}%)")
+```
+Step 5: Metric-by-Metric Analysis
+
+Here is what each number actually means in this scenario:
+1. Accuracy (98.9%) — The Dangerous Illusion
+Math: $\frac{\text{TN} + \text{TP}}{\text{Total}} = \frac{987 + 2}{1000} = \frac{989}{1000} = 98.9\%$
+Why it deceives us: The model looks nearly perfect because it got 987 True Negatives right simply by guessing "Healthy" all the time. But in a medical setting, this model is a failure because it lets 8 out of 10 sick people leave the hospital untreated.
+2. Recall (20.0%) — The True Reality Check
+Math: $\frac{\text{TP}}{\text{TP} + \text{FN}} = \frac{2}{2 + 8} = \frac{2}{10} = 20.0\%$
+What it tells us: Out of the 10 actual sick patients in real life, the model only caught 2 of them. It missed 80% of the disease cases. For a rare disease model, Recall is your primary KPI, and 20% indicates total failure.
+3. Precision (40.0%) — Quality of Positive Flags
+Math: $\frac{\text{TP}}{\text{TP} + \text{FP}} = \frac{2}{2 + 3} = \frac{2}{5} = 40.0\%$
+What it tells us: When the model raised an alarm and predicted "Disease", it was only correct 40% of the time (2 out of 5 times). The other 3 predictions were false alarms.
+4. F1-Score (26.7%) — The Balanced Indicator
+Math: $2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = 2 \times \frac{0.40 \times 0.20}{0.40 + 0.20} = \frac{0.16}{0.60} = 26.7\%$
+Why it helps: Notice how F1-Score ignores the massive 987 True Negatives. Because it takes the harmonic mean of Precision (40%) and Recall (20%), it collapses to 26.7%, accurately signaling that the model performs poorly overall on positive detections.
+
 :::
