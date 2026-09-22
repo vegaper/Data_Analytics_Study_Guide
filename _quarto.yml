@@ -257,6 +257,10 @@ website:
                 text: "Practice: Hypothesis testing with Python"
               - href: logistic_regression.html
                 text: "Logistic Regression"
+              - href: Exemplar_Perform_logistic_regression.html
+                text: "Practice: Perform logistic regression"
+              - href: regression_types.html
+                text: "Prediction with Regression"
 
               - section: "Reference materials"
                 contents:
@@ -266,6 +270,8 @@ website:
                     text: "Annotated follow-along guide: Interpret multiple regression results with Python"
                   - href: Annotated_follow-along_guide_Explore_one-way_versus_two-way_ANOVA_tests_with_Python.html
                     text: "Annotated follow-along guide: Explore one-way versus two-way ANOVA tests with Python"
+                  - href: Annotated_follow-along_guide_Construct_a_logistic_regression_model_with_Python.html
+                    text: "Annotated follow-along guide: Construct a logistic regression model with Python"
 
       - section: "Anexos"
         contents:

@@ -16,7 +16,7 @@ We'll focus mostly on binomial logistic regression, ​which models the probabi
 
 ​For example, if you ​plot playing times against whether or ​not the player will score more than 10 points in a game, ​your data will look like two flat lines, ​one at $Y = 0$, ​and one at $Y = 1$. ​
 
-![](paste-8sygIO2tXmSbq9DEl7b21)
+![](images\paste-8sygIO2tXmSbq9DEl7b21.png)
 
 This is very different from ​the linear relationship you observed in prior scenarios. ​Later in the program, ​we'll learn more about ​binomial logistic regression and ​review the stages of regression and pace. ​We'll analyze our data by ​understanding the model assumptions to the best of ​our ability and ensure we have a binary outcome variable. ​We'll construct our model and evaluate ​it using several different metrics. ​Then we'll execute and share ​the results with stakeholders and other team members. 
 
@@ -32,9 +32,9 @@ Logistic regression is a technique that models ​a categorical variable based 
 
 ​Let's say that your company has ​a newsletter and is interested in increasing readership. ​On the company website users have ​the opportunity to subscribe to the newsletter. ​One factor related to ​the newsletter subscription could be ​how many minutes the user ​spends on the web-page before leaving?  ​Our dependent variable $y$ has two possibilities:
 
-\-  ​Users don't subscribe, which we'll represent with a zero. 
+-   ​Users don't subscribe, which we'll represent with a zero. 
 
-\- ​Or users do subscribe, ​which we'll represent with a one. 
+-   Or users do subscribe, ​which we'll represent with a one. 
 
 ​Our independent variable $x$ is continuous and measures ​how many minutes the users ​spend on the web-page before leaving. 
 
@@ -174,7 +174,7 @@ $$
 ​And like linear regression, we don't want just any set of beta coefficients. ​We want the best set of beta coefficients to make sure our model fits the data. ​In linear regression, we minimize the sum of squared residuals, ​which is a measure of error to figure out the best model. ​In logistic regression, we'll often use **maximum likelihood estimation** to ​find the best logistic regression model. ​
 
 ::: nota
-**Maximum likelihood estimation** or MLE, is a technique for estimating the beta ​parameters that maximize the likelihood of the model producing the observed data. ​
+**Maximum likelihood estimation** or **MLE**, is a technique for estimating the beta ​parameters that maximize the likelihood of the model producing the observed data. ​
 
 We can think of likelihood as the probability of observing the actual data, ​given some set of beta parameters. 
 :::
@@ -195,13 +195,15 @@ Therefore, if you have $n$ basketball players on your team, ​you can calculat
 ​The best logistic regression model estimates the set of beta ​coefficients that maximizes the likelihood of observing all of the sample data.
 :::
 
+## Assumptions of binomial logistic regression
+
 ​Now that we have estimated how maximum likelihood estimation works, ​we'll consider two other assumptions of binomial logistic regression. 
 
 ​**We assume that there is little to no multicollinearity between the independent variables**. ​If we include multiple $X$ variables, they should not be highly correlated ​with one another, just like with linear regression. 
 
 ​Lastly, **we assume that there are no extreme outliers in the dataset.** ​Outliers are a complex topic in regression modeling and ​can be detected after the model is fit. ​Sometimes it is appropriate to transform or adjust variables to maintain model validity. ​Other times it can be appropriate to remove outlier data. ​
 
-To recap, we've defined the main assumptions of logistic regression and ​how to fit the best logistic regression model to the data using MLE. 
+To recap, we've defined the main assumptions of logistic regression and ​how to fit the best logistic regression model to the data using MLE (Maximum likelihood estimation). 
 
 ​Coming up we'll explore how to build and ​evaluate a logistic regression model in Python using real data. ​Meet you there.
 
@@ -221,13 +223,15 @@ activity = pd.read_csv(r'Datasets/activity.csv')
 activity.describe()
 ```
 
- ​There are 494 rows of data based on the count row. ​You can also observe the mean, standard deviation, ​minimum value, maximum value, ​and the value at each quartile for every variable. ​Now examine the first few rows using the head function. ​There are two variables in the dataset. ​The first variable measures acceleration ​in the vertical direction. ​The second variable indicates ​whether a person is lying down. 
+​There are 494 rows of data based on the count row. ​You can also observe the mean, standard deviation, ​minimum value, maximum value, ​and the value at each quartile for every variable. ​Now examine the first few rows using the head function. ​There are two variables in the dataset. ​The first variable measures acceleration ​in the vertical direction. ​The second variable indicates ​whether a person is lying down. 
 
 ```{python}
 activity.head()
 ```
 
-​You want to use logistic regression to ​predict whether the person is lying down or not. ​Load in scikit-learn's train test ​split and logistic regression functions. ​Now prepare the data for the Python functions to ​split the data into training set and a holdout dataset, ​divide the activity DataFrame into ​the $x$ variables and $y$ ​variables as you've done for other models. ​Here, you'll just focus on ​one $x$ variable vertical acceleration. ​To follow good data practices, ​split the data into a training and holdout dataset ​using scikit-learn's train test split method ​you imported earlier. ​You'll use the holdout or testing ​data later when you ​evaluate the model you're building now. ​We set the random state so ​that the results are repeatable, ​but you don't always have to set the random state. 
+​You want to use logistic regression to ​predict whether the person is lying down or not. ​Load in scikit-learn's train test ​split and logistic regression functions. ​Now prepare the data for the Python functions to ​split the data into training set and a holdout dataset, ​divide the activity DataFrame into ​the $x$ variables and $y$ ​variables as you've done for other models. ​Here, you'll just focus on ​one $x$ variable vertical acceleration. ​
+
+To follow good data practices, ​split the data into a training and holdout dataset ​using scikit-learn's train test split method ​you imported earlier. ​You'll use the holdout or testing ​data later when you ​evaluate the model you're building now. ​We set the random state so ​that the results are repeatable, ​but you don't always have to set the random state. 
 
 ```{python}
 from sklearn.model_selection import train_test_split
@@ -240,7 +244,9 @@ y = activity["LyingDown"] # y is a line, needs single brakets.
 X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.3, random_state=42)
 ```
 
-​If you use a different random state, ​your results will differ.  ​Next, build the logistic regression model and ​save it as a variable called clf. ​This is a name you'll encounter frequently. ​Clf stands for the classifier.  ​Call on the logistic regression function ​to build a classifier, ​then use the fit method ​of the logistic regression classifier, ​and input the training dataset. 
+​If you use a different random state, ​your results will differ.  ​Next, build the logistic regression model and ​save it as a variable called `clf`. ​This is a name you'll encounter frequently. ​`Clf` stands for the classifier. 
+
+​Call on the logistic regression function ​to build a classifier, ​then use the fit method ​of the logistic regression classifier, ​and input the training dataset. 
 
 ```{python}
 clf = LogisticRegression().fit(X_train, y_train)    
@@ -254,12 +260,18 @@ print ('Coefficient: ', clf.coef_)
 print ('Intercept: ', clf.intercept_)
 ```
 
- The coefficient or parameter estimate for $\beta_1$ is negative 0.118, ​rounded to the nearest thousandth, ​and the estimate of the intercept, ​or $\beta_0$ is 6.102, ​rounded to the nearest thousandth. 
+The coefficient or parameter estimate for $\beta_1$ is negative 0.118, ​rounded to the nearest thousandth, ​and the estimate of the intercept, ​or $\beta_0$ is 6.102, ​rounded to the nearest thousandth. 
 
-​If you want to create a plot ​of your model to visualize results, ​you can use the seaborn package. ​So import seaborn using sns alias, ​if you haven't already, ​then call on the regplot function. ​You have to tell the function which ​column the $x$ variable is in, ​which is labeled ACC(vertical), ​then specify $y$ variable column. ​Next, tell the function where the data is stored. ​Specify that you're interested in ​logistic regression by setting ​the logistic argument as true. 
+​If you want to create a plot ​of your model to visualize results, ​you can use the `seaborn` package. ​So import seaborn using sns alias, ​if you haven't already, ​then call on the `regplot` function. ​You have to tell the function which ​column the $x$ variable is in, ​which is labeled ACC(vertical), ​then specify $y$ variable column. ​Next, tell the function where the data is stored. ​Specify that you're interested in ​logistic regression by setting ​the logistic argument as true. 
 
 ```{python}
-sns.regplot(x="Acc (vertical)", y="LyingDown", data=activity, logistic=True, scatter_kws={"s": 70, "color": "#4285f4"}, line_kws={"color": "#ea4335", "linewidth": 2})
+sns.regplot(
+    x="Acc (vertical)"
+    , y="LyingDown"
+    , data=activity
+    , logistic=True
+    , scatter_kws={"s": 70, "color": "#4285f4"}
+    , line_kws={"color": "#ea4335", "linewidth": 2})
 ```
 
 ​The plot displays a sharp S-shaped curve. ​The shaded region around ​the line indicates the confidence band. 
@@ -272,16 +284,20 @@ sns.regplot(x="Acc (vertical)", y="LyingDown", data=activity, logistic=True, sca
 
 You have built your first binomial logistic regression. ​You were able to calculate the parameter estimates and ​graph the logistic regression. In this video, ​we'll use the metrics and graphs produced in Python to evaluate how good your ​model actually was.
 
-To recap, you're working with the activity data that measured ​acceleration and whether or not a person was lying down. ​You previously saved the data into training and ​hold out datasets and the logistic regression model as a variable 'clf'. ​Now input the holdout data into the 'predict' method to get ​the predicted labels from the model. ​Save these predictions as a variable called y_pred. Note that ​MLE predicts a probability that an observation is a zero or one.
+To recap, you're working with the activity data that measured ​acceleration and whether or not a person was lying down. ​You previously saved the data into training and ​hold out datasets and the logistic regression model as a variable `clf`. ​Now input the holdout data into the `predict` method to get ​the predicted labels from the model. ​Save these predictions as a variable called `y_pred`. Note that ​Maximum likelihood estimation(MLE) predicts a probability that an observation is a zero or one.
 
 ```{python}
 y_pred = clf.predict(X_test)
 print('Predictions: ', y_pred)
 ```
 
-​The 'predict' function from scikit-learn actually labels each observation with ​a zero or one. The 'predict' function works by assuming a threshold of 0.5. - ​So if MLE predicts a value greater than or equal to 0.5, ​the 'predict' function will label that observation a one. - ​If MLE predicts a value less than 0.5, ​the 'predict' function will label that observation a zero.
+​The `predict` function from scikit-learn actually labels each observation with ​a zero or one. The `predict` function works by assuming a threshold of 0.5.
 
-​The 'predict_proba' function, on the other hand, ​will allow you to check what probability was predicted for each data point.
+-   ​So if MLE predicts a value greater than or equal to 0.5, ​the `predict` function will label that observation a one.
+
+-   If MLE predicts a value less than 0.5, ​the 'predict' function will label that observation a zero.
+
+​The `predict_proba` function, on the other hand, ​will allow you to check what probability was predicted for each data point.
 
 ```{python}
 y_prob = clf.predict_proba(X_test)
@@ -302,7 +318,7 @@ print("true labels ", y_test.value_counts())
 print("\nPredicted labels:\n", pd.Series(y_pred).value_counts())
 ```
 
-WE can visualize the matrix of both:
+We can visualize the matrix of both:
 
 ```{python}
 # Cross-tabulate true vs predicted labels directly
@@ -310,7 +326,7 @@ crosstab = pd.crosstab(y_test, y_pred, rownames=['Actual'], colnames=['Predicted
 print(crosstab)
 ```
 
-Or use a graph with sklearn.metrics
+Or use a graph with `sklearn.metrics`
 
 ```{python}
 import sklearn.metrics as metrics
@@ -323,11 +339,17 @@ disp.plot()
 
 The diagonal ​from upper left to lower right (The intersection between true label 0 and predicted label 0, as well as the intersection between true label 1 and predicted label 1) displays how many data points were accurately categorized ​by a classifier for each category. ​The other squares in the grid convey how many data points were misclassified.
 
-​On the axes of the confusion matrix ​there are labels indicating the category of data point as zero or ​1. Zero means the person was labeled as not lying down ​for that observation. ​Data professionals call a data point that is labeled zero a negative data point. ​One means a person was labeled as lying down for that observation. ​A data point that is labeled one is a positive data point.
+​On the axes of the confusion matrix ​there are labels indicating the category of data point as zero or ​1. Zero means the person was labeled as not lying down ​for that observation. ​One means a person was labeled as lying down for that observation. **​**
+
+::: nota
+**Data professionals call a data point that is labeled zero a negative data point**. ​
+
+**A data point that is labeled one is a positive data point.**
+:::
 
 ​In the upper left corner of the confusion matrix ​we have the count of observations that our classifier predicted as not lying down and ​they actually were not lying down. ​These are called **true negatives**. ​Moving to the lower right, we have our **true positives**. ​This is our count of observations that our classifier predicted as lying down and ​they actually were lying down. ​Now let's consider where our model's predictions were wrong. ​In the upper right is the count of observations where a classifier predicted ​the person was lying down, but they were NOT lying down. ​These are **false positives**. In the lower left is the count of observations where ​our classifier predicted the person was not lying down, but they WERE lying down. ​These are **false negatives**. ​
 
-![](images\paste-dZq6Xobg31d7Bo64VtXHs)
+![](images\paste-dZq6Xobg31d7Bo64VtXHs.png)
 
 In a great model we should observe a high proportion of true positives and ​true negatives and a low proportion of false positives and false negatives. ​In this video, you learned about the confusion matrix. ​This versatile tool can help you add depth to stories ​you tell about logistic regression models. In the following videos, we'll discuss ​even more ways to evaluate the quality of a logistic regression model. ​I'll meet you there!
 
@@ -335,7 +357,7 @@ In a great model we should observe a high proportion of true positives and ​tr
 
 # Assessing the model
 
-Earlier we covered confusion matrices which helped to ​visually represent and quantify ​how well a logistic regression performed. ​In this video we'll continue ​to work through the analyze and construct ​phase of pace and discuss ​evaluation metrics for logistic regression. ​These metrics summarize the true positives, ​true negatives, ​false positives, ​and false negatives presented by the confusion matrix. ​The three metrics we'll discuss are ​precision, recall, and accuracy. ​You can access the functions used in ​this video through scikit-learn metrics module, ​and we'll continue to consider our activity data example. 
+Earlier we covered confusion matrices which helped to ​visually represent and quantify ​how well a logistic regression performed. ​In this video we'll continue ​to work through the analyze and construct ​phase of pace and discuss ​evaluation metrics for logistic regression. ​These metrics summarize the true positives, ​true negatives, ​false positives, ​and false negatives presented by the confusion matrix. ​The three metrics we'll discuss are ​precision, recall, and accuracy. ​You can access the functions used in ​this video through `scikit-learn metrics` module, ​and we'll continue to consider our activity data example. 
 
 ## Precision​
 
@@ -371,14 +393,16 @@ metrics.precision_score(y_test,y_pred)
 
 $$
 Recall= \frac{\text{True Positives}}{\text{True Positives + False Negatives}}
-$$​**Answers the question:** *Out of all the actual positive cases that existed in real life, how many did the model manage to catch?*
+$$
+
+​**Answers the question:** *Out of all the actual positive cases that existed in real life, how many did the model manage to catch?*
 :::
 
 ​Remember that false negatives ​are those that we're lying down, ​but the model did not detect as lying down. ​Recall measures the proportion ​of people the model correctly ​identified as laying down out of ​the people who are actually lying down. 
 
 ​$$
-
-Recall= \frac{\text{True Positives}}{\text{True Positives + False Negatives}} = \frac{76}{76+1}=0,987 $$
+Recall= \frac{\text{True Positives}}{\text{True Positives + False Negatives}} = \frac{76}{76+1}=0,987 
+$$
 
 We input the same data that we input to get precision, ​but using the recall score function from scikit-learn. ​
 
@@ -416,11 +440,11 @@ This is to be expected, ​two other common evaluation techniques ​that may 
 
 Although we use a threshold of ​0.5 to generate our predictions, ​sometimes the threshold is ​determined based on the scenario.
 
-![](images\paste-ibag9uZICm7Pqrs0Pc182)
+![](images\paste-ibag9uZICm7Pqrs0Pc182.png)
 
 Notice that when we decrease the threshold ​the true positive increases because we are ​predicting more observations to be positive, ​but the false positive rate also increases. 
 
-![](images\paste-XWoY5GpU38czeyLuB-O_J)​
+![](images\paste-XWoY5GpU38czeyLuB-O_J.png)​
 
 The model's true positive rate and ​false positive rate changes at every threshold. ​With an ideal model there would exist a threshold where ​the true positive rate is ​high and the false positive rate is low. 
 
@@ -428,7 +452,7 @@ The model's true positive rate and ​false positive rate changes at every thre
 
 ​Data professionals may use ROC curves ​and AUC when comparing classification models, ​so we'll explore them later in this program.
 
- ​In this video, we covered a number of important metrics. ​These concepts are similar and related. ​Don't expect to grasp ​all the nuances of the content on your first pass. ​Allow yourself some extra time ​and practice to understand how best ​to apply these measurement tools to ​support the stories you're telling with data. ​Now we'll start constructing the kinds of ​stories you can share with logistic regression.
+​In this video, we covered a number of important metrics. ​These concepts are similar and related. ​Don't expect to grasp ​all the nuances of the content on your first pass. ​Allow yourself some extra time ​and practice to understand how best ​to apply these measurement tools to ​support the stories you're telling with data. ​Now we'll start constructing the kinds of ​stories you can share with logistic regression.
 
 ------------------------------------------------------------------------
 
@@ -467,7 +491,7 @@ High accuracy can be a dangerous illusion, especially with **imbalanced datasets
 
 -   **Legal / Judicial Systems:** The baseline principle "innocent until proven guilty" prioritizes high Precision. Convicting an innocent person (False Positive) is considered far worse than failing to convict a guilty person (False Negative).
 
--   **High-Cost Interventions (Targeted Marketing/Sales):** If sending a sales rep to visit a high-value client in person costs $5,000, you only want to target leads predicted as "high probability" with extremely high precision. False positives waste real budget.
+-   **High-Cost Interventions (Targeted Marketing/Sales):** If sending a sales rep to visit a high-value client in person costs \$5,000, you only want to target leads predicted as "high probability" with extremely high precision. False positives waste real budget.
 
 ### When Accuracy is Most Important
 
@@ -487,7 +511,9 @@ High accuracy can be a dangerous illusion, especially with **imbalanced datasets
 
 When you need a single metric that balances Precision and Recall, standard practice uses the **F1-Score**:
 
-$$\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
+$$
+\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+$$
 
 The F1-Score uses the **harmonic mean**, which heavily punishes extreme trade-offs. If your model gets 99% Precision but 1% Recall, standard averaging gives 50%, but the F1-Score collapses to **1.98%**, signaling that the model is failing on one front.
 
@@ -495,7 +521,7 @@ Example:
 
 We will simulate a rare disease scenario where **99% of patients are healthy (Negative)** and only **1% have the disease (Positive)**.\
 
-Step 1: Generate an Imbalanced Synthetic Dataset
+Step 1: Generate an Imbalanced Synthetic Dataset.
 
 We create 1,000 patient records. 990 patients are healthy (`0`) and 10 patients have the rare disease (`1`).
 
@@ -516,14 +542,13 @@ np.random.shuffle(y_true)
 print(pd.Series(y_true).value_counts())
 ```
 
-Step 2: Imagine a model that predicts Healthy (0) for 995 patients and only flags 5 patients as having the disease (1)\
-Out of those 5 positive predictions:
+Step 2: Imagine a model that predicts Healthy (0) for 995 patients and only flags 5 patients as having the disease (1). Out of those 5 positive predictions:
 
 -   It gets **2 right** (True Positives).
 
 -   It gets **3 wrong** (False Positives — healthy people given a false alarm).
 
--   It misses **8 actual sick people** (False Negatives — saying they are healthy when they are sick).\
+-   It misses **8 actual sick people** (False Negatives — saying they are healthy when they are sick).
 
 ```{python}
 # Simulate our model's predictions
@@ -557,7 +582,9 @@ print(f"True Positives (Sick Patients caught):         {tp}")
 ```
 
 Step 4: Calculate and Compare All Metrics
+
 Now we pass y_true and y_pred into scikit-learn's metrics module and calculate Accuracy, Precision, Recall, and F1-Score manually and via functions.
+
 ```{python}
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
@@ -571,20 +598,371 @@ print(f"Precision: {prec:.4f}  ({prec*100:.1f}%)")
 print(f"Recall:    {rec:.4f}  ({rec*100:.1f}%)")
 print(f"F1-Score:  {f1:.4f}  ({f1*100:.1f}%)")
 ```
+
 Step 5: Metric-by-Metric Analysis
 
-Here is what each number actually means in this scenario:
+Here is what each number actually means in this scenario:\
 1. Accuracy (98.9%) — The Dangerous Illusion
-Math: $\frac{\text{TN} + \text{TP}}{\text{Total}} = \frac{987 + 2}{1000} = \frac{989}{1000} = 98.9\%$
-Why it deceives us: The model looks nearly perfect because it got 987 True Negatives right simply by guessing "Healthy" all the time. But in a medical setting, this model is a failure because it lets 8 out of 10 sick people leave the hospital untreated.
-2. Recall (20.0%) — The True Reality Check
-Math: $\frac{\text{TP}}{\text{TP} + \text{FN}} = \frac{2}{2 + 8} = \frac{2}{10} = 20.0\%$
-What it tells us: Out of the 10 actual sick patients in real life, the model only caught 2 of them. It missed 80% of the disease cases. For a rare disease model, Recall is your primary KPI, and 20% indicates total failure.
-3. Precision (40.0%) — Quality of Positive Flags
-Math: $\frac{\text{TP}}{\text{TP} + \text{FP}} = \frac{2}{2 + 3} = \frac{2}{5} = 40.0\%$
-What it tells us: When the model raised an alarm and predicted "Disease", it was only correct 40% of the time (2 out of 5 times). The other 3 predictions were false alarms.
-4. F1-Score (26.7%) — The Balanced Indicator
-Math: $2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = 2 \times \frac{0.40 \times 0.20}{0.40 + 0.20} = \frac{0.16}{0.60} = 26.7\%$
-Why it helps: Notice how F1-Score ignores the massive 987 True Negatives. Because it takes the harmonic mean of Precision (40%) and Recall (20%), it collapses to 26.7%, accurately signaling that the model performs poorly overall on positive detections.
 
+Math: $\frac{\text{TN} + \text{TP}}{\text{Total}} = \frac{987 + 2}{1000} = \frac{989}{1000} = 98.9\%$
+
+Why it deceives us: The model looks nearly perfect because it got 987 True Negatives right simply by guessing "Healthy" all the time. But in a medical setting, this model is a failure because it lets 8 out of 10 sick people leave the hospital untreated.
+
+2\. Recall (20.0%) — The True Reality Check
+
+Math: $\frac{\text{TP}}{\text{TP} + \text{FN}} = \frac{2}{2 + 8} = \frac{2}{10} = 20.0\%$
+
+What it tells us: Out of the 10 actual sick patients in real life, the model only caught 2 of them. It missed 80% of the disease cases. For a rare disease model, Recall is your primary KPI, and 20% indicates total failure.
+
+3\. Precision (40.0%) — Quality of Positive Flags
+
+Math: $\frac{\text{TP}}{\text{TP} + \text{FP}} = \frac{2}{2 + 3} = \frac{2}{5} = 40.0\%$
+
+What it tells us: When the model raised an alarm and predicted "Disease", it was only correct 40% of the time (2 out of 5 times). The other 3 predictions were false alarms.
+
+4\. F1-Score (26.7%) — The Balanced Indicator
+
+Math: $2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = 2 \times \frac{0.40 \times 0.20}{0.40 + 0.20} = \frac{0.16}{0.60} = 26.7\%$
+
+Why it helps: Notice how F1-Score ignores the massive 987 True Negatives. Because it takes the harmonic mean of Precision (40%) and Recall (20%), it collapses to 26.7%, accurately signaling that the model performs poorly overall on positive detections.
 :::
+
+# Common logistic regression metrics in Python
+
+Logistic regression is a powerful technique for categorical prediction tasks in data science. Data professionals often use metrics such as precision, recall, and accuracy, as well as visualizations such as ROC curves, to gauge the performance of their logistic regression models. It is important to evaluate the performance of a model, as this shows how well the model can make predictions. The results from applying metrics can be used to report how well a model performs to relevant stakeholders. 
+
+In this reading, you will review parts of a confusion matrix and understand how to compute and visualize metrics for evaluating logistic regression through code in Python.
+
+## Parts of a confusion matrix
+
+A confusion matrix helps summarize the performance of a classifier. The components of a confusion matrix are used to compute metrics for evaluating logistic regression classifiers. 
+
+![](images\paste-m8hDKh5V4yGCahE7liQAt.png)
+
+The four key parts of a confusion matrix, in the context of binary classification, are the following:
+
+1\. **True negatives:** The count of observations that a classifier correctly predicted as False (0)
+
+2\. **True positives:** The count of observations that a classifier correctly predicted as True (1)
+
+3\. **False positives:** The count of observations that a classifier incorrectly predicted as True (1)
+
+4\. **False negatives:** The count of observations that a classifier incorrectly predicted as False (0)
+
+These counts are useful in computing metrics such as precision, recall, accuracy, and ROC for evaluating logistic regression classifiers.
+
+## Precision 
+
+One of the major metrics for evaluating a logistic regression classifier is **precision**. Precision measures the proportion of data points predicted as True that are actually True.
+
+Imagine that you have built a logistic regression classifier for email spam detection, trained this classifier on a relevant dataset, and used this classifier to generate predictions for a set of emails. The predictions consist of True and False values. True represents an email predicted as spam, and False represents an email predicted as not spam. The precision for this classifier would convey the proportion of emails that are actually spam, out of all the emails that have been predicted as spam. 
+
+The formula for precision is as follows: $$
+\text{Precision}=\frac{\text{True Positives}}{\text{True Positives + False Positives}}
+$$
+
+To compute precision in Python, you can use the 'precision_score()' function from the **metrics** module in the **sklearn** library. You can start with the following import statement.
+
+`import sklearn.metrics as metrics`
+
+The `precision_score()` function takes in true values and predicted values as arguments and returns the precision score. Assume that **`y_test`** and **`y_pred`** are variables that contain true values and predicted values respectively. You can use the following code to compute the precision. 
+
+`metrics.precision_score(y_test,y_pred)`
+
+In the context of email spam detection, if precision_score() returns 0.91, that means 91% of the emails predicted as spam are indeed spam. 
+
+## Recall
+
+Another major metric for evaluating a logistic regression classifier is **recall**. Recall measures the proportion of data points that are predicted as True, out of all the data points that are actually True. Imagine that you have built a logistic regression classifier for fraud detection and generated predictions. In the predictions, True represents a credit card transaction predicted as fraudulent, and False represents a credit card transaction predicted as not fraudulent. The recall for this classifier would convey the proportion of fraudulent credit card transactions that the classifier correctly identified as such.
+
+The formula for recall is as follows:
+
+​$$
+Recall= \frac{\text{True Positives}}{\text{True Positives + False Negatives}} = \frac{76}{76+1}=0,987 
+$$
+
+To compute recall in Python, you can use the 'recall_score() function from the metrics module. The function takes in true values and predicted values as arguments and returns the recall score. You can use the following code to compute the recall. 
+
+`metrics.recall_score(y_test,y_pred)`
+
+In the context of fraud detection among credit card transactions, if the **recall_score()** function returns 0.87, that means 87% of the fraudulent credit card transactions are correctly detected as fraudulent.  
+
+## Accuracy
+
+Another important metric for evaluating logistic regression is **accuracy**. Accuracy measures the proportion of data points that are correctly classified. Imagine that you have built a logistic regression classifier for loan approval prediction. In the predictions, True represents a prediction that the loan will be approved, and False represents a prediction that the loan will not be approved. The accuracy score for this classifier would convey the proportion of loans that have been correctly classified. 
+
+The formula for accuracy is as follows:
+
+$$
+Accuracy = \frac{\text{True Positives + True Negatives}}{\text{Total predictions}}
+$$
+
+To compute accuracy in Python, you can use the 'accuracy_score()' function from the metrics module. The function takes in true values and predicted values as arguments and returns the accuracy score. You can use the following code to compute the accuracy. 
+
+`metrics.accuracy_score(y_test,y_pred)`
+
+In the context of loan approval prediction, if the **accuracy_score()** function returns 0.90, that means 90% of the loans are correctly predicted, with the predictions being either will be approved or will not be approved.  
+
+## ROC curves
+
+An **ROC curve** helps in visualizing the performance of a logistic regression classifier. **ROC curve stands for receiver operating characteristic curve**. To visualize the performance of a classifier at different classification thresholds, you can graph an ROC curve. In the context of binary classification, a classification threshold is a cutoff for differentiating the positive class from the negative class.
+
+An ROC curve plots two key concepts
+
+1\. **True Positive Rate:** equivalent to **Recall.** The formula for True Positive Rate is as follows:
+
+$$
+\text{True Positive Rate} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+$$
+
+2\. **False Positive Rate:** The ratio between the False Positives and the total count of observations that should be predicted as False. The formula for False Positive Rate is as follows:
+
+$$
+\text{False Positive Rate} = \frac{\text{False Positives}}{\text{False Positives} + \text{True Negatives}}
+$$
+
+For each point on the curve, the $x$ and $y$ coordinates represent the *False Positive Rate* and the *True Positive Rate* respectively at the corresponding threshold.
+
+![You can examine an ROC curve to observe how the False Positive Rate and True Positive Rate change together over the different thresholds. In the ROC curve for an ideal model, there would exist a threshold at which the True Positive Rate is high and the False Positive Rate is low. The more that the ROC curve hugs the top left corner of the plot, the better the model does at classifying the data.](images/paste-uSO0wWejBoMQ5WF8mLnSC.png)
+
+**You can use the following steps to graph an ROC curve in Python.**
+
+Start by importing the necessary modules as follows.
+
+``` python
+import matplotlib.pyplot as plt from sklearn.metrics import RocCurveDisplay
+```
+
+Then use the following code to plot the ROC curve.
+
+``` python
+RocCurveDisplay.from_predictions(y_test, y_pred) plt.show()
+```
+
+Using these steps to generate an ROC curve could result in a graph.
+
+![](images\paste-NPxiE4YMlXjzuIgt7ACiN)
+
+In this graph, the ROC curve indicates that the corresponding classifier performs decently well.
+
+## AUC
+
+**AUC** stands for area under the ROC curve. AUC provides an aggregate measure of performance across all possible classification thresholds. AUC ranges in value from 0.0 to 1.0.
+
+A model whose predictions are 100% wrong has an AUC of 0.0, and a model whose predictions are 100% correct has an AUC of 1.0. An AUC smaller than 0.5 indicates that the model performs worse than a random classifier (i.e. a classifier that randomly assigns each example to True or False), and an AUC larger than 0.5 indicates that the model performs better than a random classifier.
+
+In the following visualization, AUC is the area of the shaded region. To compute AUC in Python, you can use the `roc_auc_score()` function from the metrics module. The function takes in true values and predicted values as arguments and returns the accuracy score. You can use the following code to compute the AUC. 
+
+![](images\paste-eqYs0Y03aohs5S__qj53C.png)
+
+``` python
+ python metrics.roc_auc_score(y_test,y_pred) 
+```
+
+For example, in the context of a logistic regression classifier for email spam detection, if the `roc_auc_score()` function returns 0.99, that means 99% of the classifier’s predictions are correct across all classification thresholds.  
+
+## Key takeaways
+
+-   Precision, Recall, and Accuracy are common metrics for evaluating the performance of a logistic regression classifier.
+
+-   You can use functions from the metrics module in the sklearn library to compute these metrics in Python.
+
+-   Graphing an ROC curve helps visualize how a classifier performs across different classification thresholds.
+
+-   Computing AUC helps aggregate a classifier’s performance across thresholds into one measure.
+
+## Resources for more information
+
+-   [precision_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html): Documentation on the precision_score() function 
+
+-   [recall_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html?highlight=recall_score#sklearn.metrics.recall_score): Documentation on the recall_score() function 
+
+-   [accuracy_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html?highlight=accuracy_score#sklearn.metrics.accuracy_score): Documentation on the accuracy_score() function 
+
+-   [RocCurveDisplay.from_predictions](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.RocCurveDisplay.html#sklearn.metrics.RocCurveDisplay.from_predictions): Documentation on the RocCurveDisplay.from_predictions() function 
+
+-   [roc_auc_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score): Documentation on the roc_auc_score() function
+
+-   
+
+    ------------------------------------------------------------------------
+
+# Interpret the results of a logistic regression
+
+So far we've discussed how ​to apply pace to logistic regression. ​We've analyzed our data by understanding ​the model assumptions to the best of our ability, ​ensuring we have a binary outcome variable. ​We've constructed our model and ​created several evaluation metrics. ​Now we can begin executing and sharing the results. ​
+
+For example, just like linear regression, ​we have coefficients that ​the maximum likelihood estimation technique ​found that would best model the data. ​But the interpretation is slightly different. ​Let's revisit the role of logit and ​logistic regression using our example.
+
+​To recap, we wanted to understand how changes in ​vertical acceleration are related ​to whether a person is lying down or not. ​Our focus now is on what ​the Beta coefficient means in our equation.
+
+$$
+logit(p) = log\left(\frac{p}{1-p}\right) = \beta_0 +\beta_1X_1+\beta_2X_2 + \dots+ \beta_nX_n
+$$
+
+​In this case, a one unit increase ​in vertical acceleration is associated with ​a $\beta_1$ unit increase in the log odds of ​$p$. But if we exponentiate the log odds, ​then we can determine how much the odds change as ​a percentage based on changes in vertical acceleration.  ​So $e^{\beta_1}$ is how many times the odds ​of $p$ will increase or decrease for ​every one unit increase in vertical acceleration. ​We know our coefficient is negative ​0.118 from the output. ​Now we can exponentiate the coefficient, $​e$ raised to the power of negative 0.118 is 0.89.  $$
+e^{\beta_1}=e^{-0.118} = 0.89
+$$
+
+​We can say that for every one unit increase ​in vertical acceleration, ​we expect that the odds the person is ​lying down decreases by 11 percent. ​This makes sense because if someone is ​moving faster in a vertical direction, ​they are probably not lying down. 
+
+::: extra
+This number ($0.89$) is an Odds Ratio (a multiplier): - An odds ratio of 1.00 means 0% change (the odds stay exactly $100\%$ of what they were). - An odds ratio of 0.89 means the new odds are $89\%$ of the original odds.
+
+To express this multiplier as a percentage change, you subtract it from 1 (or 100%): $$
+\text{Percentage Change} = (0.89 - 1) \times 100\% = -11\%
+$$ Keeping $89\%$ of something is the exact same thing as losing or decreasing by $11\%$.
+
+**What Are "Odds" in Real Life?**
+
+In everyday conversation, people often mix up **Probability** and **Odds**, but in statistics, they are two distinct ways of expressing likelihood:
+
+-   **Probability (**$p$): Compares the target event to **everything that could happen** (Part-to-Whole).
+
+-   **Odds (**$\frac{p}{1-p}$): Compares the target event directly to **the event NOT happening** (Part-to-Part).
+
+$$
+\text{Odds} = \frac{\text{Probability of Event Happening}}{\text{Probability of Event NOT Happening}} = \frac{p}{1 - p}
+$$
+
+Real-Life Example: Betting / Sports
+
+Suppose a soccer team has an $80\%$ chance of winning ($p = 0.80$). That means they have a $20\%$ chance of losing ($1 - p = 0.20$).
+
+-   **Probability of winning:** $0.80$ (or $80\%$).
+
+-   **Odds of winning:** $\frac{0.80}{0.20} = 4$.
+
+**Real-life meaning:** The team is **4 times as likely to win as they are to lose** (often written as 4 to 1 odds).
+
+In our logistic regression model:the target event is "Lying Down" ($y = 1$). Suppose at a certain activity level, the odds of a person lying down are 4 to 1 (meaning they are 4 times more likely to be lying down than standing/sitting). Now, their vertical acceleration increases by 1 unit. The model applies the $0.89$ multiplier: $$
+\text{New Odds} = 4 \times 0.89 = 3.56
+$$ The relative likelihood of being lying down compared to not lying down dropped from $4.00$ to $3.56$ —a $11\%$ reduction in odds.As vertical acceleration increases, movement increases, making it progressively less likely that the person is lying still on the floor!
+:::
+
+​Given that we have found a strong predictor ​of whether a person is lying down or not, ​we can consider the larger picture. ​For example, classifying motion can help ​detect falls or suspicions of injury. ​Our strong predictor can be a piece of ​a larger story about providing care to older adults. ​Next, let's examine how ​the interpretation would change in different scenarios. ​Let's try an example where the coefficient is positive. 
+
+​Imagine the coefficient is 0.25. ​Then we exponentiate and get $e^{0.25}$, ​which is 1.28, rounded to the nearest hundredth. ​Then we could say that for every one unit increase in $x$, ​we expect the odds of $y = 1$ to increase by 28 percent. 
+
+​Now imagine there are other factors in the model, ​such as acceleration in other directions. ​When there are multiple independent variables ​in a logistic regression model, ​just like in a linear regression model, ​we have to report coefficients ​while holding other variables constant. ​So we could say for ​every one unit increase in $​x$ holding other variables constant, ​we expect the odds of $y =1$ to increase by 28 percent. 
+
+​Moving beyond the coefficient, ​it is always helpful to state ​the $p$-value and confidence interval to ​give additional information about how ​likely the result is just by chance. 
+
+​Scikit-learn does not have a built-in way of getting $​p$-values or confidence intervals, but `statsmodels` does. ​This is a great example of how different tools and ​packages can give you different information. 
+
+::: extra
+```{python}
+import pandas as pd
+import statsmodels.api as sm
+
+# 1. Load data
+activity = pd.read_csv('Datasets/activity.csv')
+
+# 2. Define X and y
+X = activity[["Acc (vertical)"]]
+y = activity["LyingDown"]
+
+# 3. Add a constant column for the intercept (statsmodels doesn't add it automatically)
+X = sm.add_constant(X)
+
+# 4. Fit the Binomial Logistic Regression model (Logit)
+logit_model = sm.Logit(y, X).fit()
+
+# 5. Print the full statistical summary (p-values, CIs, Z-scores, etc.)
+print(logit_model.summary())
+```
+
+What the output table gives you:\| Variable \| coef \| std err \| z \| P \> \|z\| (p-value) \| \[0.025 0.975\] (95% CI) \|\| :--- \| :--- \| :--- \| :--- \| :--- \| :--- \|\| const \| 6.102 \| ... \| ... \| \< 0.001 \| \[5.12, 7.08\] \|\| Acc (vertical) \| -0.118 \| ... \| ... \| \< 0.001 \| \[-0.145, -0.091\] \|
+
+**Getting Odds Ratios with Confidence Intervals** The coefficients need to be exponentiated ($e^{\beta_1}$) to get Odds Ratios. You can exponentiate the confidence intervals from statsmodels as well:
+
+```{python}
+import numpy as np
+
+# Extract coefficients and 95% confidence intervals
+params = logit_model.params
+conf = logit_model.conf_int()
+
+# Exponentiate to get Odds Ratios and Odds Ratio Confidence Intervals
+odds_ratios = np.exp(params)
+conf_odds = np.exp(conf)
+
+# Combine into a clean DataFrame
+summary_df = pd.DataFrame({
+    'Odds Ratio': odds_ratios,
+    'p-value': logit_model.pvalues,
+    '2.5% CI': conf_odds[0],
+    '97.5% CI': conf_odds[1]
+})
+
+print(summary_df)
+
+```
+
+How to interpret the 95% Confidence Interval for Odds Ratios:If the $95\%$ Confidence Interval for an Odds Ratio does not cross 1.0 (e.g., \[0.86, 0.91\]), the predictor is statistically significant at $\alpha = 0.05$.If it includes 1.0 (e.g., \[0.95, 1.08\]), it means a $0\%$ change in odds is plausible, matching a $p\text{-value} > 0.05$.
+:::
+
+​As a data practitioner, ​you have to choose your tools ​depending on your priorities. ​When presenting the results, ​it can be helpful to include ​a confusion matrix and some statistics on precision, ​recall accuracy and or ROC, AUC. ​However, depending on the situation, ​you might want to include all of them ​or focus on a subset of metrics. ​Consider that certain industries ​or organizations may have ​preferred metrics given how ​they manage their modeling process. ​It's important to check with your team about this ​as you get started as a data analytics professional. 
+
+​Take for example, ​the case of detecting ​spam texts or unsolicited messages ​sent to many recipients. ​Only a small fraction of ​text messages that you receive are probably spam. ​But if your goal is to accurately ​classify spam text messages so ​you don't give away ​private information or click on a bad link, ​then you're really only focusing on ​how well you can detect spam messages. ​In fact, in this case, ​accuracy is not a good metric. ​Let's say only three percent of text messages are spam. ​That means 97 percent are text message you want to ​receive from friends and family ​or automated messages from service providers. ​So if a model predicts that ​100 percent of messages are not spam, ​that model would have ​a 97 percent accuracy rate, which seems great. ​But it's not that good in this context because ​the model will not have detected any spam at all, ​even though three percent of messages are in fact spam. 
+
+In the case of spam messages, ​recall is probably a more meaningful metric. ​Recall will tell us the proportion of ​spam messages that the model was actually able to detect. ​
+
+Precision, on the other hand, ​would tell us the proportion of data points labeled spam, ​that were actually spam. ​Precision essentially measures the quality ​of our spam labeling. ​
+
+There are other metrics that you can explore as well, ​such as AIC and BIC, ​which can help determine how good a model is ​while factoring in how complex the model is. ​As with many of the topics covered in this course, ​we've reviewed many concepts and now ​understand the terminology associated with the material. 
+
+​Work in the data space is dynamic. ​There is no one solution that works every time. ​Data professionals are constantly ​learning and thinking about better approaches. ​We always have to contextualize the data, ​the problem, and the available solutions. ​Next up, we'll focus on comparing some of ​the models and tests you've ​learned so far. Meet you there
+
+------------------------------------------------------------------------
+
+Interpreting a logistic regression model involves examining coefficients and computing metrics. After you fit your logistic regression model to training data, you can access the coefficient estimates from the model using code in Python. You can then use those values to understand how the model makes predictions. This reading will show you an example of how to interpret coefficients from a logistic regression model, as well as things to consider when choosing metrics for model evaluation. 
+
+## Coefficients from the model
+
+To understand how a logistic regression model works, it is important to start with the equation that describes the relationship between the variables. That equation is also called the *logit function*. 
+
+### The logit function
+
+When the *logit function* is written in terms of the independent variables, it conveys the following: there is a linear relationship between each independent variable, $x$, and the logit of the probability that the dependent variable, $y=1$ . The logit of that probability is the logarithm of the odds of that probability. 
+
+The equation for the *logit function* in binomial logistic regression is shown below. This involves the probability that $Y=1$ because 1 is the typical outcome of interest in binary classification, where the possible values of $Y$ are 1 and 0. 
+
+$$
+logit(p) = log\left(\frac{p}{1-p}\right) = \beta_0 +\beta_1X_1 \text{ where } p = P(Y=1)
+$$
+
+## Interpret coefficients
+
+Imagine you have built a binomial logistic regression model for predicting emails as spam or non-spam. The dependent variable, $Y$ is whether an email is spam (1) or non-spam (0). The independent variable, $X_1$ is the message length. Assume that 'clf' is the classifier you fitted to training data. You can use the following code to access the coefficient $\beta_1$ estimated by the model: 'clf.coef\_'. If the estimated $\beta_1$ is 0.186, for example, that means a one-unit increase in message legth is associated with a 0.186 increase in the log odds of an email being spam. To interpret change in odds of Y as a percentage, you can exponentiate the coefficient. $$
+e^{\beta_1} = e^{0.186} = 1.204
+$$You can use the following code to exponentiate the coefficient: `np.exp(clf.coef_)`. So, for every one-unit increase in message length, you can expect that the odds the email is spam increases by 1.204, or 20.4%.
+
+**Things to consider when choosing metrics**
+
+The next important step after examining the coefficients from a logistic regression model is evaluating the model through metrics. The most commonly used metrics include precision, recall, and accuracy. The following sections describe things to keep in mind when choosing between these.
+
+**When to use precision**
+
+Using precision as an evaluation metric is especially helpful in contexts where the cost of a false positive is quite high and much higher than the cost of a false negative. For example, in the context of email spam detection, a false positive (predicting a non-spam email as spam) would be more costly than a false negative (predicting a spam email as non-spam). A non-spam email that is misclassified could contain important information, such as project status updates from a vendor to a client or assignment deadline announcements from an instructor to a class of students.
+
+**When to use recall**
+
+Using recall as an evaluation metric is especially helpful in contexts where the cost of a false negative is quite high and much higher than the cost of a false positive. For example, in the context of fraud detection among credit card transactions, a false negative (predicting a fraudulent credit card charge as non-fraudulent) would be more costly than a false positive (predicting a non-fraudulent credit card charge as fraudulent). A fraudulent credit card charge that is misclassified could lead to the customer losing money, undetected.
+
+**When to use accuracy**
+
+It is helpful to use accuracy as an evaluation metric when you specifically want to know how much of the data at hand has been correctly categorized by the classifier. Another scenario to consider: accuracy is an appropriate metric to use when the data is balanced, in other words, when the data has a roughly equal number of positive examples and negative examples. Otherwise, accuracy can be biased. For example, imagine that 95% of a dataset contains positive examples, and the remaining 5% contains negative examples. Then you train a logistic regression classifier on this data and use this classifier predict on this data. If you get an accuracy of 95%, that does not necessarily indicate that this classifier is effective. Since there is a much larger proportion of positive examples than negative examples, the classifier may be biased towards the majority class (positive) and thus the accuracy metric in this context may not be meaningful. When the data you are working with is imbalanced, consider either transforming it to be balanced or using a different evaluation metric other than accuracy.
+
+## Key takeaways
+
+Examine the beta coefficients from a model to understand how the model predicts the dependent variable.
+
+When determining which metrics are meaningful for evaluating a logistic regression classifier, consider the context of the data involved, how the predictions will be used, and how impactful False Positives versus False Negatives are in that context.
+
+Resources for more information
+
+-   [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html): Documentation for implementing Logistic Regression models using **sklearn** and accessing intercept and coefficients from a model
+
+------------------------------------------------------------------------
+
+#

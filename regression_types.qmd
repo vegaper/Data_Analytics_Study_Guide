@@ -1,0 +1,237 @@
+---
+title: "Answer questions"
+format: html
+---
+
+Answer questions with regression models
+
+You've learned a lot about ​binomial logistic regression and ​the kinds of problems it can help you solve. ​Now, you'll review some of ​the other techniques that you've learned and focus ​on the kinds of questions you might ​encounter in your work as a data professional. 
+
+​So far, you've learned about ​linear regression models, hypothesis testing, ​specifically chi-squared test, ​and ANOVA variance, and logistic regression. ​You've also used the PACE framework, plan, ​analyze, construct, and execute to help guide your work. ​You started with the plan phase to ​understand which needs were being prioritized. ​Based on the questions being ​asked and the data you had access to, ​you determined which models or ​tests would be most appropriate. ​Let's consider an example. 
+
+​Imagine you're a data professional at a recording studio. ​You have a team meeting and the conversation is ​about the number of times each song is streamed. ​Some questions that come up include: ​What factors influence the number of music streams? ​How much does each factor ​influence the number of streams? ​Since the number of music streams is ​the outcome variable and the number ​of streams is a continuous variable, ​you could consider linear regression ​or hypothesis testing. ​But because the question ask about how ​much each factor influences music streams, ​linear regression is a better model ​to answer the question. ​Remember that linear regression allows for ​assessable interpretation of the coefficients and ​R-squared to help explain which factors ​impact the outcome variable and by how much. ​But you want to make sure that the model assumptions are ​met to add validity to your conclusions and insights.
+
+​Let's consider another example. ​Imagine you're working for a cafe. ​They are sampling different coffee beans ​from different countries ​and want to figure out ​which kinds of coffee beans sell better. ​The team has put together some projections ​about how they expect the beans to sell. ​But they're curious if these bean sales ​are independent of their pastry sales. ​The country of origin of ​the beans is a known differentiator. ​The pastry sales would be more of the covariate. ​In this case, although the outcome variable, ​sales, is still continuous, ​the focus of the question is ​about comparing different groups, ​such as different kinds of ​coffee beans and different countries of origin. ​Therefore, you should focus more on hypothesis testing, ​which can be a great way to conduct A/B tests. ​The null hypothesis would be that the cafe sells ​approximately the same number of ​bags of each coffee bean type. ​The alternative hypothesis would be that the cafe does ​not sell the same number of ​bags of each coffee bean type. ​By conducting a series of tests, ​you can either accept or reject the null hypothesis with ​the particular $p$-value to help ​understand how well the model explains the trends. ​The team will be able to better understand ​which beans to order to sell more coffee at the cafe. 
+
+​Let's consider one last example in ​which you're working at a social media company and ​you're interested in exploring why ​some posts do or do not go viral. ​You decide on a question. ​How can I predict whether a post will go viral? ​Since the outcome variable is binary, ​either the post go viral or does not, ​binomial logistic regression might ​be the first model you consider. ​The best way to determine if ​a logistic regression is the right choice, ​is to build and evaluate the model. ​Luckily, there are many metrics you can use, ​including $p$-value, confusion matrices, ​precision, recall, accuracy, ​ROC/AUC, AIC, and BIC. ​Choosing the best metrics will depend on the situation. 
+
+​When interpreting the coefficients ​for logistic regression models, ​remember to exponentiate them. ​Recall that when sharing results, ​logistic regression coefficients ​report in percentages how ​much a factor increases or ​decreases the likelihood of an outcome. 
+
+​As a data professional, ​you will encounter many different questions ​that require a variety of approaches to address. ​By focusing on the fundamentals ​of what each model does well, ​you'll be able to find ways to ​put these tools into practice.
+
+------------------------------------------------------------------------
+
+# Prediction with different types of regression
+
+As you have been learning, key techniques that you will encounter in your work as a data professional include linear regression, hypothesis testing, and logistic regression. It is important to consider these different approaches and think about which approach will best help you achieve your task. In this reading, you will learn more about how to choose the most relevant technique for a project, based on the question you want to answer, the outcome variable, and how it is measured.
+
+::: extra
+-   **Hypothesis Testing is an *inferential method*, not a model:** Hypothesis tests (like $t$-tests, ANOVA, or $z$-tests) test whether a specific claim or relationship in a population is statistically significant. They give you a $p$-value to accept or reject a null hypothesis—they do **not** take new input values and output a predicted outcome value.
+
+-   **Regression can perform prediction AND hypothesis testing:** While regression models (linear, logistic) are used for prediction, you can *also* perform hypothesis tests **on** a regression model's coefficients (e.g., testing if $\beta_1 = 0$ using a $p$-value).
+
+\*\* Regression vs. Hypothesis Testing\*\*
+
+To clear up how these fit together in data analysis, here is how they actually compare:
+
+|  |  |  |
+|---------------------|--------------------------|--------------------------|
+| **Feature** | **Hypothesis Testing** | **Linear / Logistic Regression** |
+| **Primary Goal** | Determine if a difference/effect is statistically significant (Inference). | Quantify relationships and predict outcome values for new inputs. |
+| **Output** | $p$-values, test statistics ($t$, $z$, $F$), Confidence Intervals. | Predicted target values ($\hat{y}$ or predicted probabilities), model coefficients. |
+| **Example Question** | *"Is there a significant difference in average salary between group A and group B?"* | *"Given a person's years of experience and location, what is their expected salary?"* |
+:::
+
+## How to choose
+
+When choosing a technique, it is important to consider the data you are working with and the question you want to address. 
+
+### **Things to consider**
+
+1.  What is the question you want to answer? In other words, what do you want to predict? 
+
+2.  Which variable in your data can be the outcome variable?
+
+3.  How is the outcome variable measured? If the outcome variable is continuous, it is more likely that either linear regression or hypothesis testing will be most appropriate. However, if the outcome variable is binary, you will find logistic regression to be more useful. 
+
+## Example contexts for regression 
+
+The following examples demonstrate how the questions about prediction, outcome variable, and measurement can be navigated in order to choose a regression technique.
+
+### **Example context: User engagement**
+
+In your work as a data professional, imagine that you are interested in making predictions about user engagement for a mobile app.
+
+First, you might ask, **what is the question you want to answer**? 
+
+One possible question could be “How much does each in-app feature influence user engagement?” The in-app features might include a live chat with customer support, a FAQ section that updates weekly, and a community space to connect with other users.
+
+Next, you might ask, **which variable in your data can be the outcome variable**? If you have access to data about users’ session lengths (in other words, how long users spend in the app each time they open it), the outcome variable can be session length.
+
+Your next question might be: **how is the outcome variable measured**? Session length can be measured by number of minutes, which is continuous. Because the outcome variable is continuous, and you are interested in how much each feature influences the outcome variable, you could proceed with linear regression and check the relevant model assumptions.
+
+If there is only one feature of interest, you would build a simple linear regression model. If there are multiple features of interest, you would build a multiple linear regression model. 
+
+Another question of interest could be “Does a dynamic landing page versus a static landing page make a difference in user engagement?” The outcome variable can be session length, measured by number of minutes, for this example, too. Since the outcome variable is continuous, and the target question is about whether there is a difference in user engagement when one type of landing page is used over the other, you could proceed with hypothesis testing. You can then frame the hypotheses, which could be the following:
+
+-   Null hypothesis (H~0~): Users spend approximately the same amount of time in the app when the landing page is dynamic versus when it is static. 
+
+-   Alternative hypothesis (H~1~): Users do NOT spend approximately the same amount of time in the app when the landing page is dynamic versus when it is static. 
+
+Another question you might be interested in is “Will a user engage with the new line of products in-app?” Next, you might ask, which variable in your data can be the outcome variable? If you have access to data about whether a user clicks to view the new line of products, that could be the outcome variable. The next question is: how is the outcome variable measured? Whether a user clicks to view that content can be represented as a binary variable, with 1 indicating they clicked to view the content and 0 indicating that they did not click to view that content. Since this outcome variable is binary, you could proceed with binomial logistic regression. 
+
+### **Example context: Patient response**
+
+Now imagine that you are tasked with making predictions about patient responses to medical treatments. 
+
+You can start by asking, what is the question you want to answer? 
+
+A possible question could be “How much does each factor influence a patient’s response to a medical treatment?” If the goal of the treatment is to improve white blood cell (WBC) count and you have access to that data, WBC count can be the outcome variable. The outcome variable is a continuous measure, and you could use linear regression to address this task. 
+
+Another question of interest could be “Will Treatment A, Treatment B, or Treatment C have a stronger impact on a patient’s WBC count?” The outcome variable in this case would also be WBC count, which is continuous. Since the target question is about comparing different treatments, it would be best to proceed with hypothesis testing. You can then form the hypotheses, which could be the following.
+
+-   Null hypothesis (H~0~): Patients have approximately the same white blood cell count with each treatment. 
+
+-   Alternative hypothesis (H~1~): Patients do NOT have approximately the same white blood cell count with each treatment. 
+
+A different question you might be interested in: “With Treatment A, will a patient’s WBC count reach the ideal range?” If you have access to the associated data, the outcome variable would be whether a patient’s WBC count reaches the ideal range or not, which is a binary variable: 1 indicating that their WBC count falls within the ideal range and 0 indicating that it does not. You could build a logistic regression model to make predictions in this scenario. 
+
+## Key takeaways
+
+-   Consider the question you want to answer and the data you have access to when choosing a regression technique for making predictions. 
+
+-   Identifying the outcome variable of interest and how it is measured will help you decide which regression technique is most suitable for your task. 
+
+The following flowchart captures a high-level approach for choosing a regression technique, starting from the outcome variable, as discussed in this reading. Also note that hypothesis testing is connected to regression analysis. For example, in linear regression, the process of testing whether there is a correlation between two variables (in other words, determining if the coefficients are statistically significant in the linear model) involves a hypothesis test.
+
+![](paste-g_PvMvw0sOP7xOyTcRr91)
+
+## Resources for more information
+
+-   If you want to learn more about different types of regression models, you can check out [this article](https://www.analyticsvidhya.com/blog/2022/01/different-types-of-regression-models/) about different types of regression models, covering linear regression, logistic regression, and more.
+
+-   If you want to learn more about hypothesis testing, you can check out [this article](https://towardsdatascience.com/hypothesis-testing-for-data-scientists-everything-you-need-to-know-8c36ddde4cd2) that provides an overview of the key steps for approaching hypothesis testing in data science.
+
+------------------------------------------------------------------------
+
+::: extra
+# Master Statistical Decision Tree
+
+## CONTINUOUS Outcome Variable *(e.g., height, revenue, temperature)*
+
+### Goal: Compare Groups or Test Hypotheses
+
+- **Compare 1 Group to a Known Benchmark:**
+  - **1-Sample $t$-test / $z$-test (Mean)**
+    - **Question answered:** Does our sample mean differ significantly from a known standard or historical target?
+    - **Business Example:** Is the average resolution time for customer support tickets this month significantly different from our company KPI benchmark of 15 minutes?
+
+- **Compare 2 Groups:**
+  - **Independent 2-Sample $t$-test**
+    - **Question answered:** Is there a statistically significant difference between the means of two separate, independent groups?
+    - **Business Example:** Do users who received Discount Voucher A spend a higher average order value than users who received Discount Voucher B?
+  - **Paired 2-Sample $t$-test**
+    - **Question answered:** Is there a statistically significant change in the mean of the exact same subjects before and after an intervention?
+    - **Business Example:** Did monthly spending per customer increase significantly after the launch of our new loyalty program (comparing the same users before vs. after)?
+
+- **Compare $\ge 3$ Groups (1 Categorical Predictor):**
+  - **One-Way ANOVA**
+    - **Question answered:** Is there a statistically significant difference in the means among three or more independent groups?
+    - **Business Example:** Does average monthly revenue per user (ARPU) differ across our three marketing acquisition channels (Paid Search, Organic, Referral)?
+
+- **Compare Groups across 2 Categorical Predictors:**
+  - **Two-Way ANOVA**
+    - **Question answered:** How do two separate categorical factors (and their interaction) affect a continuous outcome?
+    - **Business Example:** How do both Region (North America vs. Europe) and Store Format (Flagship vs. Outlet) jointly impact store sales volume?
+
+- **Compare $\ge 3$ Groups across Multiple Continuous Outcomes simultaneously:**
+  - **MANOVA (Multivariate ANOVA)**
+    - **Question answered:** Do different groups vary significantly across a combination of multiple dependent continuous variables at the same time?
+    - **Business Example:** Does customer tier (Free, Pro, Enterprise) show significant overall differences when simultaneously evaluating both Monthly Usage Hours and Support Ticket Volume?
+
+---
+
+### Goal: Model, Estimate Impact, or Predict
+
+- **1 Continuous Predictor $\rightarrow$ 1 Continuous Outcome:**
+  - **Simple Linear Regression**
+    - **Question answered:** How much does a continuous outcome change for every unit increase in a single predictor variable?
+    - **Business Example:** How much additional sales revenue can we expect for every $1,000 increase in digital ad spend?
+
+- **Multiple Predictors (Continuous and/or Categorical) $\rightarrow$ 1 Continuous Outcome:**
+  - **Multiple Linear Regression**
+    - **Question answered:** How do multiple factors jointly predict a continuous outcome while controlling for each other?
+    - **Business Example:** How do ad spend, regional price index, and promotional discounts together predict quarterly product sales?
+
+---
+
+## CATEGORICAL / BINARY Outcome Variable *(e.g., yes/no, click/no-click, churn)*
+
+### Goal: Compare Proportions or Test Association
+
+- **Compare 1 Sample Proportion to a Benchmark:**
+  - **1-Sample Proportion $z$-test**
+    - **Question answered:** Does our observed sample conversion rate differ significantly from a historical or targeted benchmark rate?
+    - **Business Example:** Is our current website checkout conversion rate significantly higher than last year’s benchmark of 3.5%?
+
+- **Compare 2 Sample Proportions:**
+  - **2-Sample Proportion $z$-test**
+    - **Question answered:** Is there a statistically significant difference between the conversion/success rates of two independent groups?
+    - **Business Example:** Did Landing Page Variant A produce a significantly higher click-through rate (CTR) than Landing Page Variant B in an A/B test?
+
+- **Test Independence or Fit between Categorical Variables ($\ge 2$ categories):**
+  - **Chi-Square Goodness-of-Fit Test**
+    - **Question answered:** Does the observed distribution of a single categorical variable match an expected theoretical distribution?
+    - **Business Example:** Are customer sign-ups distributed equally across all 7 days of the week, or do specific days attract a disproportionate share?
+  - **Chi-Square Test of Independence**
+    - **Question answered:** Is there a statistically significant association between two distinct categorical variables?
+    - **Business Example:** Is customer subscription tier (Basic, Premium, Enterprise) associated with subscription type (Monthly vs. Annual plan)?
+
+---
+
+### Goal: Model Probabilities or Predict Binary Outcomes
+
+- **Predict Binary Outcome (0 or 1) using 1 or more Predictors:**
+  - **Binary Logistic Regression**
+    - **Question answered:** What is the probability of a binary event occurring, given a set of predictor variables?
+    - **Business Example:** What is the probability that an active user will churn next month based on their login frequency, tenure, and recent support tickets?
+
+- **Predict Multi-Class Categorical Outcome (> 2 classes):**
+  - **Multinomial Logistic Regression**
+    - **Question answered:** What is the probability of an outcome falling into one of three or more unordered categorical classes?
+    - **Business Example:** Which product category (Tech Accessories, Home Goods, or Apparel) is a website visitor most likely to buy based on their browsing behavior?
+
+---
+
+## Universal Modifier: One-Tailed vs. Two-Tailed
+
+For any parametric hypothesis test ($t$-test, $z$-test for means or proportions), you apply tail direction based on your underlying business hypothesis:
+
+```         
+                          ┌── Directional ("greater than" / "less than") ──> ONE-TAILED
+Hypothesis Test Direction ┤
+                          └── Non-directional ("different from") ─────────> TWO-TAILED
+```
+
+- **One-Tailed Test:** Used when you specifically hypothesize a single direction ($\mu_1 > \mu_2$ or $\mu_1 < \mu_2$).
+  - **Question answered:** Is the new feature strictly *better* than the old feature?
+  - **Business Example:** Is the conversion rate of our newly redesigned checkout flow strictly **greater than** our existing flow? (All 5% significance level $\alpha = 0.05$ is concentrated in one tail).
+
+- **Two-Tailed Test:** Used when testing for *any* significant difference ($\mu_1 \neq \mu_2$), regardless of direction.
+  - **Question answered:** Does changing the UI result in *any* difference in user engagement (positive or negative)?
+  - **Business Example:** Does changing the app layout alter average session length in **either direction**? (Significance level is split: $\alpha/2 = 0.025$ per tail).
+
+## Summary Cheat Sheet
+
+|  |  |  |  |
+|---------------|------------------|------------------|-------------------|
+| **Outcome Variable** | **Goal** | **Predictors / Groups** | **Recommended Method** |
+| **Continuous** | Compare to benchmark | 1 sample | **1-Sample** $t$-test / $z$-test |
+| **Continuous** | Compare groups | 2 groups | **2-Sample** $t$-test |
+| **Continuous** | Compare groups | $\ge 3$ groups | **ANOVA** |
+| **Continuous** (Multiple outcomes) | Compare groups | $\ge 3$ groups | **MANOVA** |
+| **Continuous** | Predict / Model | Continuous or Categorical | **Linear Regression** |
+| **Binary / Categorical** | Compare proportions | 1 or 2 samples | **1 / 2-Sample Proportion** $z$-test |
+| **Binary / Categorical** | Test of independence | 2 categorical variables | **Chi-Square Test** |
+| **Binary / Categorical** | Predict / Model | Continuous or Categorical | **Logistic Regression** |
+:::
