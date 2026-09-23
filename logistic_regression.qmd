@@ -404,7 +404,7 @@ $$
 Recall= \frac{\text{True Positives}}{\text{True Positives + False Negatives}} = \frac{76}{76+1}=0,987 
 $$
 
-We input the same data that we input to get precision, ​but using the recall score function from scikit-learn. ​
+We input the same data that we input to get precision, ​but using the recall score function from `scikit-learn`. ​
 
 ```{python}
 metrics.recall_score(y_test,y_pred)
@@ -705,7 +705,7 @@ In the context of loan approval prediction, if the **accuracy_score()** function
 
 ## ROC curves
 
-An **ROC curve** helps in visualizing the performance of a logistic regression classifier. **ROC curve stands for receiver operating characteristic curve**. To visualize the performance of a classifier at different classification thresholds, you can graph an ROC curve. In the context of binary classification, a classification threshold is a cutoff for differentiating the positive class from the negative class.
+An **ROC curve** helps in visualizing the performance of a logistic regression classifier. **ROC curve stands for r*eceiver operating characteristic curve***. To visualize the performance of a classifier at different classification thresholds, you can graph an ROC curve. In the context of binary classification, a classification threshold is a cutoff for differentiating the positive class from the negative class.
 
 An ROC curve plots two key concepts
 
@@ -747,7 +747,7 @@ In this graph, the ROC curve indicates that the corresponding classifier perform
 
 ## AUC
 
-**AUC** stands for area under the ROC curve. AUC provides an aggregate measure of performance across all possible classification thresholds. AUC ranges in value from 0.0 to 1.0.
+**AUC** stands for *area under the ROC curve*. AUC provides an aggregate measure of performance across all possible classification thresholds. AUC ranges in value from 0.0 to 1.0.
 
 A model whose predictions are 100% wrong has an AUC of 0.0, and a model whose predictions are 100% correct has an AUC of 1.0. An AUC smaller than 0.5 indicates that the model performs worse than a random classifier (i.e. a classifier that randomly assigns each example to True or False), and an AUC larger than 0.5 indicates that the model performs better than a random classifier.
 
@@ -782,8 +782,6 @@ For example, in the context of a logistic regression classifier for email spam d
 -   [RocCurveDisplay.from_predictions](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.RocCurveDisplay.html#sklearn.metrics.RocCurveDisplay.from_predictions): Documentation on the RocCurveDisplay.from_predictions() function 
 
 -   [roc_auc_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score): Documentation on the roc_auc_score() function
-
--   
 
     ------------------------------------------------------------------------
 
@@ -961,8 +959,6 @@ When determining which metrics are meaningful for evaluating a logistic regressi
 
 Resources for more information
 
--   [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html): Documentation for implementing Logistic Regression models using **sklearn** and accessing intercept and coefficients from a model
+-   [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html): Documentation for implementing Logistic Regression models using `sklearn` and accessing intercept and coefficients from a model
 
 ------------------------------------------------------------------------
-
-#

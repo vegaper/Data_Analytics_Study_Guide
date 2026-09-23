@@ -2,10 +2,12 @@
 title: "Arrays and Vectors with numPy"
 format: html
 ---
+
 ```{python}
 #| include: false
 import _setup
 ```
+
 ```{python}
 
 
@@ -115,8 +117,6 @@ A **library** is a corpus of reusable code modules and their accompanying docume
 **Modules** are similar to libraries, in that they are groups of related classes and functions, but they are generally subcomponents of libraries. In other words, a library can have many different modules, and you can choose to import the entire library or just the module you need. 
 
 First we will have to install the libraries in our python environment you can look at this on your own, but it will like `pip install numpy`
-
-
 
 ## **Import statements**
 
