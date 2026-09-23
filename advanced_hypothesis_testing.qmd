@@ -342,7 +342,7 @@ The output above is in the following order: the $chi^2$ statistic, $p$-value, de
 
 ------------------------------------------------------------------------
 
-# Introduction to the analysis of variance
+# Introduction to the analysis of variance (ANOVA)
 
 Knowing our data well helps us determine what we can do with the data. ​It helps us understand which tests we can run, which tests we can't run and ​which tests we might be able to run if we transform the data a bit more. ​In prior videos, we showed the difference between continuous and ​categorical variables.
 
@@ -367,7 +367,9 @@ What is ANOVA actually doing?
 
 ANOVA (**AN**alysis **O**f **VA**riance) compares the means of three or more groups to see if at least one group mean is significantly different from the others in the same category
 
-Instead of comparing every pair of groups one by one (which increases the risk of false positives), ANOVA looks at **variance**: $$
+Instead of comparing every pair of groups one by one (which increases the risk of false positives), ANOVA looks at **variance**:
+
+$$
 \text{F-statistic} = \frac{\text{Variance BETWEEN group means}}{\text{Variance WITHIN the groups (random noise)}
 $$
 
@@ -1210,17 +1212,17 @@ As you continue expanding your data toolkit, you'll encounter more test, ​too
 ::: extra
 ## Method Selection Matrix
 
-+-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
-| **Model**   | **Categorical IVs (X) Unknown**  | **Continuous IV Covariates (C) Unknown**  | **Continuous Outcome DVs (Y) Unknown**  | **Primary Question Answered**                                                       |
-+-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
-| **ANOVA**   | $\ge 1$                          | $0$                                       | $1$                                     | Do group means differ on a single outcome?                                          |
-+-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
-| **ANCOVA**  | $\ge 1$                          | $\ge 1$                                   | $1$                                     | Do group means differ after removing background noise/covariates?                   |
-+-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
-| **MANOVA**  | $\ge 1$                          | $0$                                       | $\ge 2$                                 | Do group means differ across a combined profile of multiple outcomes?               |
-+-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
-| **MANCOVA** | $\ge 1$                          | $\ge 1$                                   | $\ge 2$                                 | Do group profiles of outcomes differ after controlling for background covariates?   |
-+-------------+----------------------------------+-------------------------------------------+-----------------------------------------+-------------------------------------------------------------------------------------+
++-------------+---------------------------------+------------------------------------------+----------------------------------------+-----------------------------------------------------------------------------------+
+| **Model**   | **Categorical IVs (X) Unknown** | **Continuous IV Covariates (C) Unknown** | **Continuous Outcome DVs (Y) Unknown** | **Primary Question Answered**                                                     |
++-------------+---------------------------------+------------------------------------------+----------------------------------------+-----------------------------------------------------------------------------------+
+| **ANOVA**   | $\ge 1$                         | $0$                                      | $1$                                    | Do group means differ on a single outcome?                                        |
++-------------+---------------------------------+------------------------------------------+----------------------------------------+-----------------------------------------------------------------------------------+
+| **ANCOVA**  | $\ge 1$                         | $\ge 1$                                  | $1$                                    | Do group means differ after removing background noise/covariates?                 |
++-------------+---------------------------------+------------------------------------------+----------------------------------------+-----------------------------------------------------------------------------------+
+| **MANOVA**  | $\ge 1$                         | $0$                                      | $\ge 2$                                | Do group means differ across a combined profile of multiple outcomes?             |
++-------------+---------------------------------+------------------------------------------+----------------------------------------+-----------------------------------------------------------------------------------+
+| **MANCOVA** | $\ge 1$                         | $\ge 1$                                  | $\ge 2$                                | Do group profiles of outcomes differ after controlling for background covariates? |
++-------------+---------------------------------+------------------------------------------+----------------------------------------+-----------------------------------------------------------------------------------+
 :::
 
 ------------------------------------------------------------------------
