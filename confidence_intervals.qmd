@@ -292,7 +292,7 @@ Imagine you take 20 random samples of 100 penguins each from the penguin populat
 
 Now that you have a better understanding of how to properly interpret a confidence interval, let’s review some common misinterpretations and how to avoid them. 
 
-### **Misinterpretation 1: 95\% refers to the probability that the population mean falls within the constructed interval**
+### Misinterpretation 1: 95\% refers to the probability that the population mean falls within the constructed interval
 
 One incorrect statement that is often made about a confidence interval at a 95\% level of confidence is that there is a 95\% probability that the population mean falls within the constructed interval. 
 
@@ -316,13 +316,13 @@ What you can say is that if you take repeated random samples from the population
 
 **Pro tip:** Remember that a 95\% confidence level refers to the success rate of the estimation process. 
 
-### **Misinterpretation 2: 95\% refers to the percentage of data values that fall within the interval**
+### Misinterpretation 2: 95\% refers to the percentage of data values that fall within the interval
 
 Another common mistake is to interpret a 95\% confidence interval as saying that 95\% of all of the data values in the population fall within the interval. This is not necessarily true. A 95\% confidence interval shows a range of values that likely includes the actual population mean. This is *not* the same as a range that contains 95\% of the data values in the population. 
 
 For example, your 95\% confidence interval for the mean penguin weight is between 28 pounds and 32 pounds. It may not be accurate to say that 95\% of all weight values fall within this interval. It’s possible that over 5% of the penguin weights in the population are outside this interval—either less than 28 pounds or greater than 32 pounds. 
 
-### **Misinterpretation 3: 95\% refers to the percentage of sample means that fall within the interval**
+### Misinterpretation 3: 95\% refers to the percentage of sample means that fall within the interval
 
 A third common misinterpretation is that a 95\% confidence interval implies that 95\% of all possible sample *means* fall within the range of the interval. This is not necessarily true. For example, your 95\% confidence interval for mean penguin weight is between 28 pounds and 32 pounds. Imagine you take repeated samples of 100 penguins and calculate the mean weight for each sample. It’s possible that *over* 5% of your sample means will be less than 28 pounds or greater than 32 pounds.
 
@@ -540,11 +540,11 @@ In this reading, you’ll learn how to construct a confidence interval for a sma
 
 First, let’s briefly discuss the different methods you use to construct confidence intervals for large and small sample sizes.
 
-### **Large sample: Z-scores**
+### Large sample: Z-scores
 
 For large sample sizes, you use $z$-scores to calculate the margin of error, just like you did earlier to estimate mean battery life for cell phones. This is because of the central limit theorem: for large sample sizes, the sample mean is approximately normally distributed. For a standard normal distribution, also called a **z-distribution**, you use $z$-scores to make calculations about your data. 
 
-### **Small sample: T-scores** 
+### Small sample: T-scores 
 
 For small sample sizes, you need to use a different distribution, called the $t$-distribution. Statistically speaking, this is because there is more uncertainty involved in estimating the standard error for small sample sizes. You don't need to worry about the technical details, which are beyond the scope of this course. For now, just know that **if you're working with a small sample size, and your data is approximately normally distributed, you should use the** $t$-distribution **rather than the standard normal distribution.**
 
@@ -558,19 +558,19 @@ The graph of the $t$-distribution has a bell shape that is similar to the standa
 
 Now that you know a little bit about the $t$-distribution and $t$-scores, let’s construct a confidence interval for a small sample size. 
 
-### **Context**
+### Context
 
 Imagine you’re a data professional working for an auto manufacturer. The company produces high performance cars that are sold around the world. Typically, the engines in these cars have high emission rates of carbon dioxide, or CO~2~, which is a greenhouse gas that contributes to global warming. The engineering team has designed a new engine to reduce emissions for the company’s best-selling car. 
 
-### **Goal**
+### Goal
 
 The goal is to keep emissions below 460 grams of CO~2~ per mile. This will ensure the car meets emissions standards in every country it's sold in. Plus, the lower emissions rate is good for the environment, which will appeal to new customers. 
 
-### **Ask**
+### Ask
 
 The engineering team asks you to provide a reliable estimate of the emissions rate for the new engine. Due to production issues, there are only a limited number of engines available for testing. So, you’ll be working with a small sample size. 
 
-### **Sample**
+### Sample
 
 The engineering team tests a random sample of 15 engines and collects data on their emissions. The mean emission rate is 430 grams of CO~2~ per mile, and the standard deviation is 35 grams of CO~2~ per mile. 
 

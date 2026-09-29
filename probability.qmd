@@ -95,7 +95,7 @@ In this reading, you’ll learn more about fundamental concepts of probability. 
 
 ## Probability fundamentals 
 
-### **Foundational concepts: Random experiment, outcome, event**
+### Foundational concepts: Random experiment, outcome, event
 
 Let’s begin with three concepts at the foundation of probability theory: 
 
@@ -123,7 +123,7 @@ An event is a set of one or more outcomes. Using the example of rolling a die, a
 
 In a random experiment, an event is assigned a probability. Let’s explore how to represent and calculate the probability of a random event. 
 
-### **The probability of an event**
+### The probability of an event
 
 The probability that an event will occur is expressed as a number between 0 and 1. Probability can also be expressed as a percent. 
 
@@ -135,7 +135,7 @@ There are different degrees of probability between 0 and 1. If the probability o
 
 Knowing the probability of an event can help you make informed decisions in situations of uncertainty. For example, if the chance of rain tomorrow is 0.1 or 10%, you can feel confident about your plans for an outdoor picnic. However, if the chance of rain is 0.9 or 90%, you may want to think about rescheduling your picnic for another day. 
 
-### **Calculate the probability of an event**
+### Calculate the probability of an event
 
 To calculate the probability of an event in which all possible outcomes are equally likely, you divide the number of desired outcomes by the total number of possible outcomes. You may recall that this is also the formula for classical probability:
 
@@ -143,7 +143,7 @@ To calculate the probability of an event in which all possible outcomes are equa
 
 Let’s explore the coin toss and die roll examples to get a better idea of how to calculate the probability of a single random event. 
 
-#### **Example: Coin toss**
+#### Example: Coin toss
 
 Tossing a fair coin is a classic example of a random experiment: 
 
@@ -159,7 +159,7 @@ Now imagine that you were to toss a specially designed coin that had heads on bo
 
 Note that when you say the probability of getting heads is 50%, you aren’t claiming that any actual sequence of coin tosses will result in exactly 50% heads. For example, if you toss a fair coin ten times, you may get 4 heads and 6 tails, or 7 heads and 3 tails. However, if you continue to toss the coin, you can expect the long-run frequency of heads to get closer and closer to 50%. 
 
-#### **Example: Die roll**
+#### Example: Die roll
 
 Rolling a six-sided die is another classic example of a random experiment: 
 
@@ -171,7 +171,7 @@ Rolling a six-sided die is another classic example of a random experiment: 
 
 Say you want to calculate the probability of rolling a 3. For any given die roll, the probability of rolling a 3 is one chance out of six. This is 1 ÷ 6 = 0.1666, or about 16.7%.
 
-### **Probability notation**
+### Probability notation
 
 It helps to be familiar with probability notation as it’s often used to symbolize concepts in educational and technical contexts. 
 
@@ -266,7 +266,7 @@ In this reading, you’ll learn more about multiple events. You’ll learn three
 
 The three basic rules of probability apply to different types of events. Both the complement rule and the addition rule apply to events that are mutually exclusive. The multiplication rule applies to independent events. 
 
-### **Mutually exclusive events**
+### Mutually exclusive events
 
 Two events are **mutually exclusive** if they cannot occur at the same time. 
 
@@ -274,7 +274,7 @@ For example, you can’t be on the Earth and on the moon at the same time, or be
 
 Or, take two classic examples of probability theory. If you toss a coin, you cannot get heads and tails at the same time. If you roll a die, you cannot get a 2 and a 4 at the same time. 
 
-### **Independent events**
+### Independent events
 
 Two events are **independent** if the occurrence of one event does not change the probability of the other event. This means that one event does not affect the outcome of the other event. 
 
@@ -292,7 +292,7 @@ Now that you know more about the difference between mutually exclusive and indep
 
 -   Multiplication rule
 
-### **Complement rule**
+### Complement rule
 
 The complement rule deals with mutually exclusive events. In statistics, the complement of an event is the event not occurring. For example, either it snows or it does not snow. Either your soccer team wins the championship or it does not win the championship. The complement of snow is no snow. The complement of winning is not winning.
 
@@ -314,7 +314,7 @@ P(no snow) = 1 - P(snow) = 1 - 0.4 = 0.6. 
 
 So, the probability of no snow tomorrow is 0.6, or 60%.
 
-### **Addition rule (for mutually exclusive events)**
+### Addition rule (for mutually exclusive events)
 
 The **addition rule** states that if events A and B are mutually exclusive, then the probability of A or B occurring is the sum of the probabilities of A and B. In probability notation, you can write this as: 
 
@@ -324,7 +324,7 @@ Note that there is also an addition rule for mutually inclusive events. In this 
 
 Let’s explore our example of rolling a die. 
 
-#### **Die roll (rolling either a 2 or a 4)**
+#### Die roll (rolling either a 2 or a 4)
 
 Say you want to find the probability of rolling either a 2 or a 4 on a single roll. These two events are mutually exclusive. You can roll a 2 or a 4, but not both at the same time. 
 
@@ -334,7 +334,7 @@ P(rolling 2 or rolling 4) = P(rolling 2) + P(rolling 4) = ⅙ + ⅙ = ⅓
 
 So, the probability of rolling either a 2 or a 4 is one out of three, or 33%. 
 
-### **Multiplication rule (for independent events)**
+### Multiplication rule (for independent events)
 
 The **multiplication rule** states that if events A and B are independent, then the probability of both A and B occurring is the probability of A multiplied by the probability of B. In probability notation, you can write this as: 
 
@@ -344,7 +344,7 @@ Note that there is also a multiplication rule for dependent events. In this cour
 
 Let’s continue with our example of rolling a die.
 
-#### **Die roll (rolling a 1 and then rolling a 6)**
+#### Die roll (rolling a 1 and then rolling a 6)
 
 Now imagine two consecutive die rolls. Say you want to know the probability of rolling a 1 and then rolling a 6. These are independent events as the first roll does not affect the outcome of the second roll. 
 
@@ -445,7 +445,7 @@ In this reading, you’ll learn how to calculate conditional probability for two
 
 Previously, you calculated probability for a single event, and for two or more independent events, such as two consecutive coin flips. Conditional probability applies to two or more dependent events. 
 
-### **Dependent events**
+### Dependent events
 
 Earlier, you learned two events are **independent** if the first event does not affect the outcome of the second event, or change its probability. For example, two consecutive coin tosses are independent events. Getting heads on the first toss doesn’t affect the outcome of the second toss. 
 
@@ -455,7 +455,7 @@ For instance, if you want to get a good grade on an exam, you first need to stud
 
 Now that you have a better understanding of dependent events, let’s return to conditional probability and review the formula. 
 
-### **Formula for conditional probability**
+### Formula for conditional probability
 
 The formula says that for two dependent events A and B, the probability of event A and event B occurring equals the probability of event A occurring, multiplied by the probability of event B occurring, given event A has already occurred. 
 
@@ -475,7 +475,7 @@ These are just two ways of representing the same equation. Depending on the situ
 
 **Note:** The conditional probability formula also applies to independent events. When A and B are independent events, P(B\|A) = P(B). So, the formula becomes P(A and B) = P(A) \* P(B). This formula is also the multiplication rule that you learned about earlier in the course. 
 
-### **Example: playing cards**
+### Example: playing cards
 
 Let’s explore an example of conditional probability that deals with a standard deck of 52 playing cards. 
 
@@ -501,7 +501,7 @@ Let’s enter these numbers into the formula:
 
 So, there is a 5.9% chance of drawing two hearts in a row from a standard deck of playing cards.
 
-### **Example: online purchases**
+### Example: online purchases
 
 Let’s explore another example. Imagine you are a data professional working for an online retail store. You have data that tells you 20% of the customers who visit the store’s website make a purchase of \$100 or more. If a customer spends \$100, they are eligible to receive a free gift card. The store randomly awards gift cards to 10% of the customers who spend at least \$100. 
 

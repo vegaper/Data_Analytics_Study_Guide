@@ -804,7 +804,7 @@ Suppose you want to estimate the mean of a population, like the mean height of a
 
 Let’s explore an example to get a more concrete idea of the sampling distribution of the mean. 
 
-## **Example: Mean length of lake trout**
+## Example: Mean length of lake trout
 
 You are a data professional working with a team of environmental scientists. Your team studies the effects of water pollution on fish species. Currently, your team is researching the effects of pollution on the trout population in Lake Superior, one of the Great Lakes in North America. As part of this research, they ask you to estimate the mean length of a trout. Let’s say there are 10 million trout in the lake. Instead of collecting and measuring millions of trout, you take sample data from the population. 
 
@@ -824,7 +824,7 @@ However, you don’t need to measure millions of fish to get an accurate estimat
 
 ![](images/paste-60.png)
 
-## **Standard error** 
+## Standard error 
 
 You can also use your sample data to estimate how precisely the mean length of any given sample represents the population mean. 
 

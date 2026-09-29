@@ -110,7 +110,7 @@ Recently, you learned about Python libraries, packages, and modules. As you’ve
 
 In this reading, you’ll learn more about the basic features of libraries, packages, and modules; how they are related; and a selection of basic modules you might use as a data professional.
 
-## **Libraries, packages, and modules**
+## Libraries, packages, and modules
 
 A **library** is a corpus of reusable code modules and their accompanying documentation. Libraries are bundled into **packages** that you install, which can then be imported into your coding environment as needed. You’ll typically encounter the terms “library” and “package” used interchangeably. Generally, this certificate program will refer to both as libraries, but it’s important to be acquainted with both terms.
 
@@ -118,7 +118,7 @@ A **library** is a corpus of reusable code modules and their accompanying docume
 
 First we will have to install the libraries in our python environment you can look at this on your own, but it will like `pip install numpy`
 
-## **Import statements**
+## Import statements
 
 Libraries and modules beyond the Python standard library typically must be imported into your working environment on an as-needed basis. Additional libraries are installed first and then imported into your working environment as needed.
 
@@ -146,13 +146,13 @@ n this case, the NumPy library is imported with the **np** alias. You can assign
 
 ### Additional import syntax
 
-#### **Importing modules**
+#### Importing modules
 
 `import matplotlib.pyplot as plt`
 
 You may have noticed that this syntax differs slightly from the other examples. In this case, matplotlib is the library and pyplot is a module inside. The pyplot module is aliased as **plt**, and it’s accessed from the matplotlib library using the dot. 
 
-#### **Importing functions**
+#### Importing functions
 
 Just as you can import libraries and modules, you can also import individual functions from libraries or from modules within libraries using a specific syntax. Here’s an example depicting a common import when using the scikit-learn library to build machine learning models:
 
@@ -172,7 +172,7 @@ One last syntactical variation that you might encounter is: `from library.module
 
 his imports everything from a particular library or module and allows you to use its functions without any preceding syntax. So, for instance, if you wrote **from numpy import \***,  you’d be able to use all of NumPy’s functions without preceding them with **numpy** or **np**. **This approach is not recommended** because it makes it difficult to track where functions come from. However, it’s helpful to be aware of this because you will likely encounter it in your work as a data professional. And, in specific instances, it might be useful.  
 
-## **Commonly used built-in modules**
+## Commonly used built-in modules
 
 The Python standard library comes with a number of built-in modules relevant to data professional work such as **math**, **datetime**, and **random**. These can be imported without additional installation. In other words, you can import them directly, as long as you have Python installed. For example:
 
@@ -224,7 +224,7 @@ print(random.randint(1, 10))    # a <= X <= b
 
 Libraries, packages, and modules are gateways to Python's countless capabilities. Understanding how to leverage them for your own coding needs will unlock new tools and functions that make your work much more efficient. Check out the Python Package Index at the [PyPI](https://pypi.org/) repository to search for useful libraries. There are packages designed for applications as diverse as chemistry, audio editing, natural language processing, and video games. Whatever it is you’re trying to do, chances are someone has developed a suite of tools to help you!
 
-## **Additional resources**
+## Additional resources
 
 Check out the Python Package Index at the [PyPI](https://pypi.org/) repository to search for useful libraries. There are packages designed for applications as diverse as chemistry, audio editing, natural language processing, and video games. Whatever it is you’re trying to do, chances are someone has developed a suite of tools to help you!
 
@@ -234,19 +234,19 @@ You've learned that one of Python's great strengths is its dynamism: it is devel
 
 Python's dynamism, while a strength, can introduce complexities. This can lead to challenges when code is intended to be used for long periods of time or when multiple people work on a project together. A script or program developed in one Python version is often tied to that particular environment, and running it in a different version can lead to unexpected behavior. This is because Python and its libraries are updated over time. So, if you developed a project that used, say, Python 2.7.4 in 2013, and you try to run it now in Python 3.12.4, there's a possibility that it won't execute the same way. Similarly, collaborative projects can be hindered by team members using different library versions, resulting in compatibility issues.
 
-## **Deprecation**
+## Deprecation
 
 Code inevitably evolves, gets phased out, and becomes obsolete. This process is known as deprecation. If you're working in a Jupyter notebook, you'll generally get a warning if something you use is scheduled to be deprecated in a future release. Your code will still run, but it might not continue to do so in future versions, or if it does, its behavior might change. It's best to pay attention to these warnings and change your code to conform with the coming change, because it's easier to do it when you're actively writing the code than to come back to it when it breaks and try to figure out what you were doing at that particular stage of the project. Also, small updates—for example, Python 3.11.8 to 3.11.9—won't be as disruptive as large updates—say, Python 2.X to 3.X, so you'll notice more deprecation when there are major releases.
 
 It's important to note that you can still use older versions of Python and its libraries. You don't always have to update your code every time there is a new release. Indeed, older versions typically continue to receive support long after they've been superseded by more recent releases. This is to allow for people and organizations to plan their code updates over time. While *you* might be able to simply update your project, it's a lot harder for a large company to update their code base while ensuring that nothing breaks. 
 
-## **Environments**
+## Environments
 
 The particular set of conditions and configurations that you use to develop code is known as your environment. Your environment includes the tools, libraries, dependencies, settings, etc. that are used to write and run your code. So, when you work on a project with a group of people, it's important that you all share the same environment so the code runs the same way for everybody. If you're doing this course's labs on Coursera, you generally don't have to worry about the environment because it has been preconfigured for you. But if you're doing the labs off the Coursera platform, be aware that your code might execute differently than it would on Coursera, depending on your environment. 
 
 Environment management can be a complex and technical process, and we won't go into it much in this course because your environment has been preconfigured to allow you to focus on learning other skills. If you're interested in learning more about environment configuration or creating and working in your own development environment, [Anaconda Navigator](https://docs.anaconda.com/navigator/) is a great place to get started. Anaconda Navigator is a free, open-source, downloadable graphical user interface that provides a user-friendly tool set to manage environments. It also has a suite of other built-in feature integrations like Jupyter notebooks, PyCharm, VSCode, and other popular tools used by data professionals.
 
-## **Check which versions you have**
+## Check which versions you have
 
 We try to keep the code in this course current by using recent stable releases of Python and relevant libraries, but updating everything in all the courses for every new release isn't feasible or necessary. If you’re doing the Jupyter notebook activities on your own computer and not on Coursera, you may occasionally find differences in how your code runs compared to how it is demonstrated on Coursera. These differences are likely due to versioning.
 
@@ -258,7 +258,7 @@ To check which version of a library you're using, import the library and then us
 
 **import numpy as np import pandas as pd print(np.\_\_version\_\_) print(pd.\_\_version\_\_)**
 
-## **Key takeaways**
+## Key takeaways
 
 Python evolves and grows in response to its users and use cases. This means that code updates can change the behavior of code that was written in older versions. Understanding how to assess, manage, and troubleshoot your coding environment is an important part of coding.
 
@@ -357,11 +357,11 @@ There are many other operations ​that can be performed with arrays, ​and y
 
 ------------------------------------------------------------------------
 
-# **Reference guide: Arrays**
+# Reference guide: Arrays
 
 As you’ve learned, NumPy is a powerful library capable of performing advanced numerical computing. One of its main features is its ability to work with vectors, arrays, and matrices. The NumPy library also has many useful mathematical functions. Data professionals use NumPy for many different tasks. One of its primary advantages is its speed. An operation applied to a vector executes much faster than the same operation applied to a list. Performance increases become apparent when working with large volumes of data. This reading is a reference guide for working with NumPy arrays. 
 
-## **Create an array**
+## Create an array
 
 Remember that to use NumPy, you must first import it. Standard practice is to alias it as np. 
 
@@ -430,7 +430,7 @@ These functions are useful for various situations, including:
 
 -   To perform matrix operations
 
-## **Array methods**
+## Array methods
 
 NumPy arrays have many methods that allow you to manipulate and operate on them. For a full list of these, refer to the [NumPy array documentation](https://numpy.org/doc/stable/reference/arrays.ndarray.html). Some of the most commonly used methods include:
 
@@ -495,7 +495,7 @@ print(a.min())
 print(a.std())
 ```
 
-## **Array attributes**
+## Array attributes
 
 NumPy arrays have several attributes that allow you to access information about the array. Some of the most commonly used attributes include:
 
@@ -519,7 +519,7 @@ print(array_2d.size)
 print(array_2d.T)
 ```
 
-## **Indexing and slicing**
+## Indexing and slicing
 
 You can access individual elements of a NumPy array using indexing and slicing. Indexing in NumPy is similar to indexing in Python lists, except you can use multiple indices to access elements in multidimensional arrays.
 
@@ -543,7 +543,7 @@ print(a)
 a[:, 1:]
 ```
 
-## **Array operations**
+## Array operations
 
 NumPy arrays support many operations, including mathematical functions and arithmetic operations. These include array addition and multiplication, which performs element-wise arithmetic on arrays:
 
@@ -567,7 +567,7 @@ print(a * b)
 
 There are also nearly 100 other useful [mathematical functions](https://numpy.org/doc/stable/reference/routines.math.html#mathematical-functions) that can be applied to individual and/or multiple arrays.
 
-## **Mutability**
+## Mutability
 
 NumPy arrays are mutable, but with certain limitations. For instance, you can change an existing element of an array:
 
@@ -599,6 +599,6 @@ NumPy arrays work by allocating a contiguous block of memory at the time of inst
 
 The only way to lengthen an array is to copy the existing array to a new memory address along with the new data. 
 
-## **Key takeaways**
+## Key takeaways
 
 NumPy is a powerful Python library that uses n-dimensional arrays to perform rapid numerical operations, particularly on large datasets. With NumPy, you can manipulate arrays using various methods for reshaping, flattening, and performing mathematical operations. You can also access key attributes like shape and data type, and use indexing and slicing to access array elements.

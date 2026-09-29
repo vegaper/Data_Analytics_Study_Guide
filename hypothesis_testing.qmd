@@ -196,7 +196,7 @@ For example, imagine you’re a data professional working for a car dealership. 
 
 Let’s explore each hypothesis in more detail. 
 
-## **Null hypothesis**
+## Null hypothesis
 
 The null hypothesis has the following characteristics:
 
@@ -206,7 +206,7 @@ The null hypothesis has the following characteristics:
 
 -   Null hypotheses often include phrases such as “no effect,” “no difference,” “no relationship,” or “no change.” 
 
-## **Alternative hypothesis**
+## Alternative hypothesis
 
 The alternative hypothesis has the following characteristics:
 
@@ -230,7 +230,7 @@ The prosecution doesn't need to prove that the person is innocent. Instead, it a
 If the evidence is extremely unlikely under innocence, we reject H₀.
 :::
 
-## **Example scenarios**
+## Example scenarios
 
 Typically, the null hypothesis represents the *status quo*, or the current state of things. The null hypothesis assumes that the status quo hasn’t changed. The alternative hypothesis suggests a new possibility or different explanation. Let’s check out some examples to get a better idea of how to write the null and alternative hypotheses for different scenarios:
 
@@ -266,7 +266,7 @@ The company claims that at least 80% of its customers are satisfied with their s
 
 -   Hₐ: P \< 0.80
 
-## **Summary: Null versus alternative**
+## Summary: Null versus alternative
 
 A very useful rule is:
 
@@ -334,7 +334,7 @@ When you decide to reject or fail to reject the null hypothesis, there are four 
 
 ![](images/paste-66.png)
 
-## **Example: Clinical trial**
+## Example: Clinical trial
 
 Let’s explore an example to get a better understanding of Type I and Type II errors. Hypothesis tests are often used in clinical trials to determine whether a new medicine leads to better outcomes in patients. Imagine you’re a data professional who works for a pharmaceutical company. The company invents a new medicine to treat the common cold. The company tests a random sample of 200 people with cold symptoms. Without medicine, the typical person experiences cold symptoms for 7.5 days. The average recovery time for people who take the medicine is 6.2 days. 
 
@@ -346,7 +346,7 @@ In this case:
 
 -   Your **alternative hypothesis** (H~a~) is that the medicine is effective.
 
-## **Type I error**
+## Type I error
 
 A **Type 1 error**, also known as a false positive, occurs when you reject a null hypothesis that is actually true. In other words, you conclude that your result is statistically significant when in fact it occurred by chance. 
 
@@ -354,7 +354,7 @@ For example, in your clinical trial, if the null hypothesis is true, that means 
 
 The probability of making a Type I error is called alpha (α). Your significance level, or alpha (α), represents the probability of making a Type I error. Typically, the significance level is set at 0.05, or 5%. A significance level of 5% means you are willing to accept a 5% chance you are wrong when you reject the null hypothesis. 
 
-### **Reduce your risk**
+### Reduce your risk
 
 To reduce your chance of making a Type I error, choose a lower significance level.
 
@@ -365,7 +365,7 @@ For instance, if you want to minimize the risk of a Type I error, you can choose
 | 0.05                       | 5%                                |
 | 0.01                       | 1%                                |
 
-## **Type II error**
+## Type II error
 
 However, reducing your risk of making a Type I error means you are more likely to make a Type II error, or false negative. A **Type II error** occurs when you fail to reject a null hypothesis which is actually false. In other words, you conclude your result occurred by chance, when in fact it didn’t. 
 
@@ -373,13 +373,13 @@ For example, in your clinical study, if the null hypothesis is false, this means
 
 The probability of making a Type II error is called beta (β), and beta is related to the power of a hypothesis test (power = 1- β). Power refers to the likelihood that a test can correctly detect a real effect when there is one. 
 
-### **Reduce your risk**
+### Reduce your risk
 
 You can reduce your risk of making a Type II error by ensuring your test has enough power. In data work, power is usually set at 0.80 or 80%. The higher the statistical power, the lower the probability of making a Type II error. To increase power, you can increase your sample size or your significance level.
 
 **Note**: A detailed discussion of the concept of statistical power is beyond the scope of this course. Power is something you’ll learn more about as you advance in your career as a data professional and grow your knowledge of statistics. 
 
-## **Potential risks of Type I and Type II errors**
+## Potential risks of Type I and Type II errors
 
 As a data professional, it’s important to be aware of the potential risks involved in making the two types or errors.
 
@@ -1029,7 +1029,7 @@ In A/B Tests\
 
 Let’s explore a more detailed example to get a better understanding of the difference between one-tailed and two-tailed tests. 
 
-## **Example: One-tailed tests**
+## Example: One-tailed tests
 
 Imagine you’re a data professional working for an online retail company. The company claims that *at least* 80% of its customers are satisfied with their shopping experience. You survey a random sample of 100 customers. According to the survey, 73% of customers say they are satisfied. Based on the survey data, you conduct a $z$-test to evaluate the claim that *at least* 80% of customers are satisfied. 
 
@@ -1069,7 +1069,7 @@ Finally, you draw a conclusion. Since your $p$-value of 0.04 is less than your s
 
 ![](images/paste-68.png)
 
-## **Example: Two-tailed tests**
+## Example: Two-tailed tests
 
 Now, imagine our previous example has a slightly different set up. Suppose the company claims that 80% of its customers are satisfied with their shopping experience. To test this claim, you survey a random sample of 100 customers. According to the survey, 73% of customers say they are satisfied. Based on the survey data, you conduct a $z$-test to evaluate the claim that 80% of customers are satisfied.
 

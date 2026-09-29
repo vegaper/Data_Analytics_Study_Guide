@@ -147,7 +147,7 @@ Data professionals can use AI to improve their data analysis, perform essential 
 
 Data professionals can leverage AI to enhance the quality and efficiency of their data projects, generate valuable insights, and help stakeholders make better business decisions.
 
-### **Conversational AI tools: Gemini and ChatGPT**
+### Conversational AI tools: Gemini and ChatGPT
 
 Many data professionals now use conversational AI tools to help them analyze their data and boost their productivity. Two of the most frequently used tools are Gemini and ChatGPT.  Gemini was created by Google AI. ChatGPT, also known as Chat Generative Pre-trained Transformer, was developed by OpenAI. 
 

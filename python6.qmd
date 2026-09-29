@@ -183,7 +183,7 @@ print(5 not in num_list)
 
 Lists are a core Python class. As you’ve learned, classes package data together with tools to work with it. Methods are functions that belong to a class. Lists have a number of built-in methods that are very useful.
 
-### **append()**
+### append()
 
 Add an element to the end of a list:
 
@@ -194,7 +194,7 @@ my_list.append(variable)
 print(my_list)
 ```
 
-### **insert()**
+### insert()
 
 Insert an element at a given position:
 
@@ -204,7 +204,7 @@ my_list.insert(2, 'c')
 print(my_list)
 ```
 
-### **remove()**
+### remove()
 
 Remove the first occurrence of an item:
 
@@ -214,7 +214,7 @@ my_list.remove('a')
 print(my_list)
 ```
 
-### **pop()**
+### pop()
 
 Remove the item at the given position in the list, and return it. If no index is specified, **pop()** removes and returns the last item in the list:
 
@@ -224,7 +224,7 @@ print(my_list.pop())
 print(my_list)
 ```
 
-### **clear()**
+### clear()
 
 Remove all items:
 
@@ -234,7 +234,7 @@ my_list.clear()
 print(my_list)
 ```
 
-### **count()**
+### count()
 
 Return the number of times an item occurs in the list:
 
@@ -243,7 +243,7 @@ my_list = ['a', 'b', 'c', 'a']
 my_list.count('a')
 ```
 
-### **sort()**
+### sort()
 
 Sorts the list ascending by default. You can also make a function to decide the sorting criteria:
 
@@ -260,7 +260,7 @@ print(num_list)
 
 Python lists are a versatile and essential data structure that store and manipulate ordered collections of various data types. Because lists are mutable, you can change, add, or remove elements after their creation using a variety of built-in methods. You can also access individual elements or sublists using indexing and slicing.
 
-### **Additional resources**
+### Additional resources
 
 -   For more information about lists, refer to [An Informal Introduction to Python: Lists](https://docs.python.org/3/tutorial/introduction.html#lists).
 
@@ -324,7 +324,7 @@ The Python **string** class comes packed with many useful methods to manipulate 
 
 ## Lists
 
-### **Syntax/instantiation**
+### Syntax/instantiation
 
 -   Brackets, with each element separated by a comma:
 
@@ -378,7 +378,7 @@ print(list(('stones', 'water', 'underground')))
 
 -   You can find methods for the Python list class in [More on Lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists) in the Python documentation.
 
-# **Tuples**
+# Tuples
 
 ## Syntax/instantiation
 
@@ -426,11 +426,11 @@ my_tuple = tuple([1, 'z'])
 my_tuple = (1871, 'all', 'mimsy', ('were', 'the'), ['borogroves'])
 ```
 
-## **Mutability**
+## Mutability
 
 -   Tuples are **immutable**. This means that once a tuple is created, it cannot be modified. 
 
-## **Usage**
+## Usage
 
 -   Common uses of tuples include:
 
@@ -486,7 +486,7 @@ print(fruit2)  # banana
 print(fruit3)  # cherry
 ```
 
-## **Methods**
+## Methods
 
 -   Because tuples are built for data security, Python has only two methods that can be used on them:
 
@@ -510,7 +510,7 @@ Strings, lists, and tuples are all iterable sequential data structures that shar
 
 You’ve learned much about iterable objects such as strings, lists, and tuples, and soon you’ll learn more. These objects comprise many of Python’s core data structures and, as a data professional, you’ll work with them constantly. While working in Python, you’ll often need to perform the same tasks and operations many times. This reading will introduce you to three time-saving tools: **zip()**, **enumerate()**, and list comprehension.
 
-## **zip()**
+## zip()
 
 The [zip() function](https://docs.python.org/3/library/functions.html#zip) is a built-in Python function that does what the name implies: It performs an element-wise combination of sequences. 
 
@@ -547,7 +547,7 @@ print(surnames)
 
 Note that this operation unpacks the tuples in the original list element-wise into two tuples, thus separating the data into different variables that can be manipulated further.
 
-## **enumerate()**
+## enumerate()
 
 The [enumerate() function](https://docs.python.org/3/library/functions.html#enumerate) is another built-in Python function that allows you to iterate over a sequence while keeping track of each element’s index. Similar to **zip()**, it returns an iterator that produces pairs of indices and elements. Here’s an example:
 
@@ -567,7 +567,7 @@ for index, letter in enumerate(letters, 2):
 
 In this case, the number two was passed as an argument to the function, and the first element of the resulting iterator had an index of two. The **enumerate()** function is useful when an element’s place in a sequence must be used to determine how the element should be handled in an operation.
 
-## **List comprehension**
+## List comprehension
 
 One of the most useful tools in Python is [list comprehension](https://docs.python.org/3/tutorial/datastructures.html?highlight=list%20comprehension#list-comprehensions). List comprehension is a concise and efficient way to create a new list based on the values in an existing iterable object. List comprehensions take the following form:
 
@@ -605,7 +605,7 @@ print(new_list)
 
 Note that multiple operations can be performed in the expression component of the list comprehension to result in a list of tuples. This example also makes use of a condition to filter out words that are not more than five letters long.
 
-## **Key takeaways**
+## Key takeaways
 
 **zip()**, **enumerate()**, and list comprehension make code more efficient by reducing the need to rely on loops to process data and simplifying working with iterables. Understanding these common tools will save you time and make your process much more dynamic when manipulating data.
 
@@ -716,7 +716,7 @@ new_team
 
 Now, let's learn about some useful methods ​that we can use on dictionaries ​to really take advantage of their power. ​Specifically, we'll discuss the keys, values, ​and items methods. 
 
-## **Work with dictionaries**
+## Work with dictionaries
 
 ### Access values
 
@@ -819,7 +819,7 @@ There are two ways to create a set. ​
 
 There are two functions for creating sets in Python: **set()** and **frozenset()**. Use these on any iterable object. Or use these functions to create empty sets.
 
-#### **set()**
+#### set()
 
 -   This is a mutable data type.
 

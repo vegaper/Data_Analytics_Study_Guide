@@ -175,7 +175,7 @@ Here are the main steps you will take:
 
 4.  Make a conclusion
 
-### **Step 1: Identify the null and alternative hypotheses**
+### Step 1: Identify the null and alternative hypotheses
 
 The first step in performing a chi-squared goodness of fit test is to determine your null and alternative hypothesis. Since you are testing if the number of website visitors follows your boss’s expectations, the below are your null and alternative hypotheses :
 
@@ -183,7 +183,7 @@ H~0~: The week you observed follows your boss’s expectations that the number o
 
 H~a~: The week you observed does not follow your boss’s expectations; therefore, the number of website visitors is not equal across the days of the week
 
-### **Step 2: Calculate the chi-squared test statistic (𝛘**^2^**)**
+### Step 2: Calculate the chi-squared test statistic (𝛘^2^**)**
 
 Next, calculate a test statistic to determine if you should reject or fail to reject your null hypothesis. This test statistic is known as the chi-squared statistic and is calculated based on the following formula:
 
@@ -223,7 +223,7 @@ $\chi^2 = 97.6$
 Note that the $\chi^2$ goodness of fit test does not produce reliable results when there are any expected values of less than five.
 :::
 
-### **Step 3: Find the p-value**
+### Step 3: Find the p-value
 
 Now that you have calculated the $\chi^2$ statistic, consider the following question: What is the probability of obtaining a $\chi^2$ statistic of 97.6 or greater when examining 3,500 website visits if they null hypothesis is true? This is the question that the $p$-value —or “observed significance level"— will answer.
 
@@ -245,7 +245,7 @@ The following figure contains the $\chi^2$ curve for six degrees of freedom. For
 
 In the case of the website visits, there are six degrees of freedom, but the $\chi^2$ test statistic is 97.6—far along the x-axis in the right-skewed tail of the curve. The area under this interval is miniscule: 7.94e-19. In other words, the chances of getting a $\chi^2$ test statistic ≥ 97.6 from 3,500 website visits if the null hypothesis were true are 7.94e-17% —practically zero.
 
-### **Step 4: Make a conclusion**
+### Step 4: Make a conclusion
 
 Since the $p$-value is far less than 0.05, there is sufficient evidence to suggest that the number of visitors is not equal per day.
 
@@ -271,7 +271,7 @@ The output confirms your calculation of the chi-square test statistic in Step 2 
 
 Now suppose that you have been asked to expand your analysis to look at the relationship between the device that a website user used and their membership status. To do this, you must use the $\chi^2$ test for independence. In this example, the $\chi^2$ test of independence determines whether the type of device a visitor uses to visit the website (Mac or PC) is dependent on whether he or she has a membership account or browses as a guest (member or guest).
 
-### **Step 1: Identify the null and alternative hypotheses**
+### Step 1: Identify the null and alternative hypotheses
 
 Just like the goodness of fit scenario, the first step is to determine your null and alternative hypotheses. You are comparing if the device used to visit your clothing store (Mac or PC) is independent from the visitor’s membership status (member or guest). From that information you can determine that your null and alternative hypotheses are as follows:
 
@@ -279,7 +279,7 @@ Just like the goodness of fit scenario, the first step is to determine your null
 
 -   $H_a$: The type of device a website visitor uses to visit the website is not independent of the visitor’s membership status.
 
-### **Step 2: Calculate the chi-squared test statistic (**$\chi^2$)
+### Step 2: Calculate the chi-squared test statistic ($\chi^2$)
 
 To calculate the $\chi^2$ test statistic, arrange the data as a table that contains *m* x *n* values, where *m* and *n* are the number of possible levels contained within each respective categorical variable. The following table below breaks down the website visitors based on the device they used and their membership status.
 
@@ -310,11 +310,11 @@ The following table contains all the expected values:
 | **Mac**             | 799        | 501       |
 | **PC**              | 1,351      | 849       |
 
-### **Step 3: Find the** $p$-value
+### Step 3: Find the $p$-value
 
 Finding the $p$-value associated with a particular $chi^2$ test statistic is similar to the process outlined already for the goodness of fit test. The only minor difference is how to determine the number of degrees of freedom. For an independence test with two categorical variables with *m* x *n* possible levels, there are (*m* – 1) (*n* – 1) degrees of freedom, assuming there are no other constraints on the probabilities. So, in the working example, this means there is (2 – 1)(2 – 1) = 1 degree of freedom. The $p$-value in this example is 0.00022. It was determined using Python.
 
-### **Step 4: Make a conclusion**
+### Step 4: Make a conclusion
 
 Because the $p$-value is 0.00022, you can reject the null hypothesis in favor of the alternative. You conclude that the type of device a website user uses is not independent of his or her membership status. You may recommend to your boss to dive into the reasons behind why visitors sign up for paid memberships more on a particular device. Perhaps the sign-up button appears differently on a particular device. Or maybe there are device-specific bugs that need to be fixed. These are just a couple examples of things you might consider for further exploration.
 
@@ -470,7 +470,7 @@ Wonderful job! In this video, we reviewed the difference between one-way and ​
 
 You’ve learned that analysis of variance—ANOVA—is a group of statistical techniques that test the difference of means between groups. **ANOVA testing is useful when you want to test a hypothesis about group differences based on categorical independent variables**. For example, if you wanted to determine whether changes in people’s weight when following different diets are statistically significant or due to chance, you could use ANOVA to analyze the results. Data professionals routinely must ascertain if there are meaningful differences between groups in their data. This reading will examine more closely the intuition behind ANOVA using a worked example. Later in the program, you will learn how to implement ANOVA in Python.
 
-## **An overview of ANOVA**
+## An overview of ANOVA
 
 The intuition behind ANOVA is to compare the variability between different groups with the variability within the groups. If they are comparable, then the differences between groups are more likely to be due to sampling variability. On the other hand, if the variability between groups is much larger than the variability expected from the samples within their respective groups, then those groups are probably drawn from significantly different subpopulations.
 
@@ -484,7 +484,7 @@ Previously, you learned about one-way and two-way ANOVA. To review:
 
 To help you understand the intuition behind ANOVA, this reading will break down a worked example of a simple one-way ANOVA test.
 
-## **One-way ANOVA**
+## One-way ANOVA
 
 ### 5 steps
 
@@ -533,7 +533,7 @@ Next, determine your confidence level—the threshold above which you will rejec
 
 Now, begin the steps of ANOVA.
 
-#### **Step 1**
+#### Step 1
 
 **Calculate group means and grand mean. The grand mean is the overall mean of all samples in all groups.**
 
@@ -555,7 +555,7 @@ The following table restructures the data in the previous table such that the sc
 
 **Grand mean (M**~G~**) = 84.75**
 
-#### **Step 2**
+#### Step 2
 
 **A. Calculate the sum of squares between groups (SSB).**
 
@@ -601,7 +601,7 @@ The following table shows the squared difference between each observation and it
 
 → **SSW** = 68.75 + 53 + 46 **= 167.75**
 
-#### **Step 3**
+#### Step 3
 
 **Calculate mean squares between groups and within groups. The mean square is the sum of squares divided by the degrees of freedom, respectively.**
 
@@ -635,7 +635,7 @@ Note: $n-k$ represents the degrees of freedom within groups
 
 $\to MSSW = \frac{167.75}{12-3}=18.64$
 
-#### **Step 4**
+#### Step 4
 
 **Compute the F-statistic.**
 
@@ -649,7 +649,7 @@ $\to \text{F-statistic} = \frac{75.25}{18.64}=4.04$
 
 A higher F-statistic indicates a greater variability between group means relative to the variability within groups, suggesting that at least one group mean is significantly different from the others.
 
-#### **Step 5**
+#### Step 5
 
 **Use the F-distribution and the F-statistic to get a** $p$**-value, which you use to decide whether to reject the null hypothesis.**
 
@@ -665,7 +665,7 @@ Similar to $\chi^2$ curves, F-distributions help determine the probability of fa
 
 You can use statistical software to calculate this area. You will learn how to do this in a later activity. In this case, the area beneath the F-distribution to the right of 4.04 is 0.05604. This is the probability of observing an F-statistic greater than 4.04 if the null hypothesis were true. Whether this is sufficient to reject the null hypothesis is a decision you make at the beginning of your hypothesis test. For example, if you decided that you wanted a confidence level of 95% or greater, you cannot reject the null hypothesis that the means of the distributions for each program of study are all the same, because the $p$-value is 0.056.
 
-## **Assumptions of ANOVA**
+## Assumptions of ANOVA
 
 ANOVA will only work if the following assumptions are true:
 
@@ -683,7 +683,7 @@ ANOVA will only work if the following assumptions are true:
 
     -   ANOVA assumes that one observation does not influence or predict any other observation. If there is autocorrelation among the observations, the results of the ANOVA test could be biased.
 
-## **Key takeaways**
+## Key takeaways
 
 -   ANOVA tests are statistical tests that examine whether or not the means of a continuous dependent variable are significantly different from one another based on the different levels of one or more independent categorical variables.
 

@@ -231,7 +231,7 @@ In this reading, you will review some of the code from the videos using a differ
 
 ## Review functions from video
 
-### **Load the dataset**
+### Load the dataset
 
 The first few lines of code set up the coding environment and loaded the data. As you might be familiar with, you can call on the **import** function to import any necessary packages. You should use conventional aliases as needed. The example below references a dataset on penguins available through the **seaborn** package.
 
@@ -247,7 +247,7 @@ penguins = sns.load_dataset("penguins")
 penguins.head()
 ```
 
-### **Clean data**
+### Clean data
 
 After loading the data, the data was cleaned up to create a subset of data for the purposes of our course. The example isolates just the Chinstrap penguins from the dataset and drops rows with missing data.
 
@@ -262,7 +262,7 @@ chinstrap_penguins = penguins[penguins["species"] == "Chinstrap"]
 chinstrap_penguins.reset_index(inplace = True, drop = True)
 ```
 
-### **Setup for model construction**
+### Setup for model construction
 
 Now that the data is clean, you are able to plot the data and construct a linear regression model. First, extract the one X variable, **bill_depth_mm**, and the one Y variable, **flipper_length_mm**, that you are targeting.
 
@@ -278,7 +278,7 @@ Because this example is using statsmodels, save the ordinary least squares formu
 ols_formula = "flipper_length_mm ~ bill_depth_mm"
 ```
 
-### **Construct the model**
+### Construct the model
 
 In order to construct the model, you’ll first need to import the **ols** function from the **statsmodels.formula.api** interface.
 
@@ -296,7 +296,7 @@ model = OLS.fit()
 model.summary()
 ```
 
-### **Model predictions and residuals**
+### Model predictions and residuals
 
 You can access the predictions and residuals from a fitted [statsmodels.regression.linear_model.OLS](https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html) or [statsmodels.regression.linear_model.OLSResults](https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLSResults.html) object as follows.
 

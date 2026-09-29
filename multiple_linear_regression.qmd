@@ -60,7 +60,7 @@ Now that you have learned what multiple linear regression is, in this reading, y
 
 Let’s say that you’re a data professional working at a company that sells graphic design services. The company you work for might be interested in understanding the factors related to customer satisfaction and retention. There are many ways you can measure this, and you can use any of the following factors to develop a promising multiple linear regression model.
 
-### **Potential dependent variables (Y)**
+### Potential dependent variables (Y)
 
 -   Customer satisfaction
 
@@ -70,7 +70,7 @@ Let’s say that you’re a data professional working at a company that sells gr
 
 -   Satisfaction with customer service
 
-### **Potential independent variables (X)**
+### Potential independent variables (X)
 
 -   Cost of services
 
@@ -84,7 +84,7 @@ Let’s say that you’re a data professional working at a company that sells gr
 
 Imagine that you are working at a restaurant, and you want to determine how to improve the success of your business. Like any other client-facing business, you want to keep your costs down, your revenue high, and your customers happy. Similar to the prior example, there are many ways to measure the restaurant’s success. There are also a number of variables that could be correlated with the chosen metric of success. 
 
-### **Potential dependent variables (Y)**
+### Potential dependent variables (Y)
 
 -   Total revenue
 
@@ -94,7 +94,7 @@ Imagine that you are working at a restaurant, and you want to determine how to i
 
 -   Number of reservations per week
 
-### **Potential independent variables (X)**
+### Potential independent variables (X)
 
 -   Spending on advertising/marketing
 
@@ -112,7 +112,7 @@ Imagine that you are working at a restaurant, and you want to determine how to i
 
 Suppose you are working in agricultural production, perhaps on a farm or a ranch. Even though this is a very different environment from a restaurant or online service, multiple regression can still be helpful. For example, let’s say that you are trying to predict crop yield, revenue for the season, or amount of crops sold. From the weather to soil conditions to labor and resource usage, there are many factors that could contribute to a good year or a bad year for a farm or any kind of agricultural production. Multiple regression can be used to help better plan and predict for worse years.
 
-### **Potential dependent variables (Y)**
+### Potential dependent variables (Y)
 
 -   Crop yield
 
@@ -120,7 +120,7 @@ Suppose you are working in agricultural production, perhaps on a farm or a ranch
 
 -   Crops sold
 
-### **Potential independent variables (X)**
+### Potential independent variables (X)
 
 -   Weather (rainfall, temperature)
 
@@ -242,7 +242,7 @@ Recall that simple linear regression has four main assumptions that provide vali
 
 5.  **No multicollinearity:** No two independent variables can be highly correlated with each other.
 
-### **\*Note on errors and residuals**
+### \*Note on errors and residuals
 
 As noted earlier, “residuals” and “errors” are sometimes used interchangeably, but there is a difference. We use residuals to estimate errors when we are checking the normality and homoscedasticity assumptions of linear regression.
 
@@ -254,7 +254,7 @@ As noted earlier, “residuals” and “errors” are sometimes used interchang
 
 Much of what you learned about the first four assumptions with regard to simple linear regression can be directly applied to multiple linear regression. The code might be slightly different or longer, but the rationale is the same.
 
-### **Linearity**
+### Linearity
 
 -   With multiple linear regression, you need to consider whether each *x* variable has a linear relationship with the *y* variable. 
 
@@ -266,7 +266,7 @@ Much of what you learned about the first four assumptions with regard to simple 
 
 -   You can check the validity of the assumption in the same way you would with simple linear regression.
 
-### **(Multivariate) Normality**
+### (Multivariate) Normality
 
 -   Just as with simple linear regression, you can construct the model, and then create a Q-Q plot of the residuals. 
 
@@ -292,11 +292,11 @@ But there may be times when the primary purpose of your model is to make predict
 
 There are a few ways to check the no multicollinearity assumption. This reading will cover two of them. One is purely visual, and the other is numerical in nature. Both can be done prior to building the linear regression model.
 
-### **Scatterplots or Scatterplot Matrix**
+### Scatterplots or Scatterplot Matrix
 
 A visual way to identify multicollinearity between independent (X) variables is using scatterplots or scatterplot matrices. The process is the same as when you checked the linearity assumption, except now you’re just focusing on the X variables, not the relationship between the X variables and the Y variable. If you’re using the seaborn library, you can use the **pairplot** function, or the **scatterplot** function multiple times.
 
-### **Variance Inflation Factors (VIF)**
+### Variance Inflation Factors (VIF)
 
 Calculating the variance inflation factor, or VIF, for each independent (X) variable is a way to quantify how much the variance of each variable is “inflated” due to correlation with other X variables.
 
@@ -318,7 +318,7 @@ The smallest value a VIF can take on is 1, which would indicate 0 correlation be
 
 ## What to do if there is multicollinearity in your model
 
-### **Variable Selection**
+### Variable Selection
 
 The easiest way to handle multicollinearity is simply to only use a subset of independent variables in your model. For example, if your multiple linear regression model is something like this: $$
 y=\beta_0 +\beta_1 X_1 +\beta_2 X_2 +\beta_3 X_3
@@ -330,7 +330,7 @@ There are a few specific statistical techniques you can use to select variables 
 
 -   Backward elimination
 
-### **Advanced Techniques**
+### Advanced Techniques
 
 In addition to the techniques listed above that will be covered in-depth in this course, there are more advanced techniques that you may come across in your career as a data professional, such as:
 

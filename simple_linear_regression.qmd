@@ -559,7 +559,7 @@ The following figure illustrates this idea. The figure is divided into quadrants
 
 ![](images/paste-78.png)
 
-## **Regression**
+## Regression
 
 In the absence of any other information, if you had to guess a randomly selected student’s exam score, the best way for you to minimize your error would be to guess the average of all the students’ scores. But what if you also knew how many hours that student studied? Now, your best guess might be the average score of only the students who studied for that many hours. 
 
@@ -627,7 +627,7 @@ This is referred to as "the regression of $Y$ on $X$." Here is the regression li
 
 ![](images/paste-82.png)
 
-## **Key Takeaways**
+## Key Takeaways
 
 Linear regression is one of the most important tools that data professionals use to analyze data. Understanding the fundamental building blocks of simple linear regression will help you as you continue learning about more complex methods of regression analysis. Here are some key points to keep in mind:
 
@@ -1226,7 +1226,7 @@ This course has rather interchangeably used the terms "errors" and "residuals" i
 
 As previously reviewed, many of the simple linear regression assumptions can be checked through data visualizations. Some assumptions can be checked before a model is built, and others can only be checked after the model is constructed, and predicted values are calculated.
 
-### **Linearity**
+### Linearity
 
 In order to assess whether or not there is a linear relationship between the independent and dependent variables, it is easiest to create a scatterplot of the dataset. The independent variable would be on the x-axis, and the dependent variable would be on the y-axis. There are a number of different Python functions that you can use to read in the data and to create a scatterplot. Some packages used for data visualizations include Matplotlib, seaborn, and Plotly. Testing the linearity assumption should occur before the model is built.
 
@@ -1256,7 +1256,7 @@ In the following figure, the first Q-Q plot depicts data that was taken from a n
 
 ![](images/paste-83.png)
 
-#### **How to code a Q-Q plot**
+#### How to code a Q-Q plot
 
 Thankfully, you don’t have to manually perform the steps outlined previously. There are computing libraries to handle that. One way to create a Q-Q plot is to use the statsmodels library. If you import **statsmodels.api**, you can use the [qqplot()](https://www.statsmodels.org/stable/generated/statsmodels.graphics.gofplots.qqplot.html) function directly. The example below uses the residuals from a **statsmodels ols** model object. The model regresses penguins’ flipper length on their bill depth (Y on X).
 
@@ -1527,7 +1527,7 @@ For example, let's return to the penguins at the local zoo. ​They welcomed a 
 
 In this reading, we’ll provide a more comprehensive overview about evaluation metrics for simple linear regression. In a prior video we covered R², and mentioned a few other metrics, MAE and MSE. In this reading, we will review the metrics we’ve previously mentioned, and introduce a few more as well that you may encounter throughout your career as a data professional.
 
-## **Review of R², MSE, and MAE**
+## Review of R², MSE, and MAE
 
 The main evaluation metric for linear regression is R², or the coefficient of determination.
 
@@ -1725,35 +1725,35 @@ Setting up a randomized controlled experiment is quite laborious and intensive. 
 
 When working as a data professional, you often do not have complete control of how the data is collected. You or your team might not be able to run a randomized controlled experiment. But, even if you cannot make causal claims, correlational research can still yield interesting results that have meaningful business implications.
 
-### **Scenario 1: Optimizing athletic performance**
+### Scenario 1: Optimizing athletic performance
 
 Suppose a runner is training for a race. There are many ways to track health data—from built-in apps to paid-for apps. But, there are also so many factors that can contribute to the runner’s performance—how much water they drank, how sore their muscles are on a given day, the weather, how much sleep they got, what equipment they are using on race day, and the clothes they are wearing. It’s very hard to claim that any one factor would make or break their race time. But, over time, one might observe patterns in how sleep, soreness, water, clothing, and other factors tend to correlate with performance. This is why athletes can be so particular about brands of equipment, their diet, and pre-race day routines.
 
-### **Claims you can make (correlation)**
+### Claims you can make (correlation)
 
 -   When the runner drinks more water the day before a race, they tend to have more stamina.
 
 -   When the runner doesn’t run long distances the week before a race, they tend to feel better on race day.
 
-### **Claims you cannot make (causation)**
+### Claims you cannot make (causation)
 
 -   Drinking more water the day before a race causes the runner to run faster.
 
 -   Not running long distances the week before a race causes the runner to run faster.
 
-### **Scenario 2: Improving food quality**
+### Scenario 2: Improving food quality
 
 Perhaps you’re a new chef at a restaurant or you’re cooking for yourself or family. Every time you make a dish, there are a lot of variables: what pan was used, when the ingredients were purchased, if the ingredients are in season, and how hungry everyone was. Any one of these factors can change how “good” the dish is. But, this data is valuable regardless of causal claims. Over time, you can hone your cooking skills for this particular dish to ensure better food quality.
 
 These are just two examples where gathering data to understand correlation between factors can drastically improve outcomes. The same principles can be applied on a larger scale, with big data, and in different industries, depending on the desired outcome you want to optimize.
 
-### **Claims you can make (correlation)**
+### Claims you can make (correlation)
 
 -   When I use fresher ingredients, the final dish tends to taste better.
 
 -   When I am very hungry, the final dish tends to taste better.
 
-### **Claims you cannot make (causation)**
+### Claims you cannot make (causation)
 
 -   Using fresher ingredients makes the dish taste better.
 

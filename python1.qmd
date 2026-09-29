@@ -40,15 +40,15 @@ Another powerful programming language for data analysis is R. R is typically use
 
 Note that many of the coding concepts you'll learn with Python in this course are transferable to other programming languages, making it easier to pick up tools like R as you progress in your career. 
 
-## **What is R?**
+## What is R?
 
-### **Historical context**
+### Historical context
 
 R is an open-source programming language and software environment specifically designed for statistical computing and graphics. Created in 1993 by professors Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, R has since become a standard tool in data science, academic research, and various industries. 
 
 Unlike general-purpose languages such as Python or Java, R is a domain-specific language whose features and syntax are tailored for statistical and data-related tasks. Most R users work within an Integrated Development Environment (IDE) called RStudio, which provides a user-friendly interface for writing code, viewing plots, and managing data. You can think of R as a comprehensive toolbox for working with data, built to handle everything from simple calculations to complex statistical modeling. 
 
-### **Uses and applications**
+### Uses and applications
 
 R's primary use is in the fields of data analysis and data science. 
 
@@ -62,7 +62,7 @@ R's primary use is in the fields of data analysis and data science. 
 
 -   **Reporting:** R can be integrated with tools like R Markdown to create dynamic reports, presentations, and dashboards that combine code, output, and prose. This ensures that reports are always up-to-date with the latest data and analysis.
 
-### **Benefits**
+### Benefits
 
 R offers several key benefits that make it a useful tool for data analysts and data scientists. 
 
@@ -74,11 +74,11 @@ R offers several key benefits that make it a useful tool for data analysts and d
 
 -   **Strong community support:** The R community is large, active, and highly collaborative. This makes it easy for R users to find help, tutorials, and solutions to problems by accessing the R community's forums, blogs, and other online resources. 
 
-## **Key takeaways**
+## Key takeaways
 
 R is a robust and flexible programming language for data analysis. R's statistical capabilities, visualization options, and extensive package ecosystem make it a useful tool for data professionals and researchers worldwide.
 
-## **Additional resources**
+## Additional resources
 
 Check out the following online resources to further explore R: 
 
@@ -92,11 +92,11 @@ Check out the following online resources to further explore R: 
 
 Writing programming language code can be an exciting and rewarding experience. The programming field has a long history of people helping each other improve their skills and develop best practices. You will focus on the Python programming language in this course, but in the future you might choose to pursue additional programming languages based on your interests and professional goals. This reading is a general guide to help you decide which programming languages are best suited for you.
 
-## **Popular programming languages by profession**
+## Popular programming languages by profession
 
 Let’s go through some potential job titles you might encounter and the most popular programming languages used in those professions. Also included is a list of additional resources for you to explore and learn more about each of the programming languages introduced.
 
-### **Data analyst**
+### Data analyst
 
 A data analyst collects, transforms, and organizes data to draw conclusions, make predictions, and drive informed decision-making. The most popular programming languages used by data analysts are Python  and R. 
 
@@ -126,7 +126,7 @@ A data analyst collects, transforms, and organizes data to draw conclusions, mak
 
 -   [Learn](https://www.kaggle.com/learn): use this resource for an additional perspective on data visualization, linear regression techniques, or time series charting code. 
 
-### **Web designer**
+### Web designer
 
 A web designer is responsible for the styling and layout of web pages containing text, graphics, and video. Web designers generally use Hypertext Markup Language v5 (HTML5) and Cascading Style Sheets (CSS) to create web pages. 
 
@@ -144,7 +144,7 @@ A web designer is responsible for the styling and layout of web pages containing
 
 -   [50 Best HTML & CSS Cheat Sheets](https://sharethis.com/best-practices/2020/02/best-html-and-css-cheat-sheets/): a list of 50 cheat sheets–choose a few that are useful to you
 
-### **Mobile application developer**
+### Mobile application developer
 
 A mobile application developer uses programming to create applications used on laptops, mobile phones, and tablets. The most popular programming languages for mobile application developers are Swift, Java, and C#.
 
@@ -174,7 +174,7 @@ A mobile application developer uses programming to create applications used on l
 
 -   [Learn C# from Codecademy](https://www.codecademy.com/learn/learn-c-sharp): a website with free basic interactive lessons, and additional activities that can be accessed with a monthly subscription
 
-### **Web application developer**
+### Web application developer
 
 A web application developer designs and develops network applications used across the web. The most popular programming languages used by web application developers are Python, Java, Ruby, and PHP.
 
@@ -204,7 +204,7 @@ A web application developer designs and develops network applications used acros
 
 -   [Interactive PHP tutorial](https://www.learn-php.org/): a free tutorial that runs PHP code in exercises
 
-### **Game developer**
+### Game developer
 
 A game developer is an application developer who specializes in video game creation. Game developers most commonly use the programming languages C# and C++.
 
@@ -218,7 +218,7 @@ A game developer is an application developer who specializes in video game creat
 
 -   [Interactive C++ tutorial](https://www.learn-cpp.org/): a free tutorial that runs C++ code in exercises
 
-## **Tips for learning a new programming language**
+## Tips for learning a new programming language
 
 The best way to learn any programming language is to practice it on your own as much as you can. Here are a few tips to follow when you start learning a new programming language:
 
@@ -230,7 +230,7 @@ The best way to learn any programming language is to practice it on your own as 
 
 -   Create an online filing system for information that you can easily access while you work in various programming environments.
 
-### **Additional Python resources**
+### Additional Python resources
 
 While this course will give you information about how Python works and how to write scripts in Python, you’ll likely want to find out more about specific parts of the language. Here are some great ways to help you find additional info: 
 

@@ -35,7 +35,7 @@ The following descriptions correspond to the image above. 
 
 5.  Lastly, you will use the collection of buttons at the bottom left of the page to navigate to your data design page.  You’ll find button options for creating a new worksheet, a new dashboard, and a new story. These elements will be introduced in the next section. 
 
-### **Data design page**
+### Data design page
 
 The data design page is where your data visualizations will be built. To navigate to the data design page, click on ‘Sheet 1’ or create a new sheet as instructed in #5 on the previous corresponding image. When you first click to open a data design page, you may be prompted that Tableau is ‘Creating Extract’. That means that Tableau is extracting the providing data to be used in visualizations. This process may take several minutes. Here you will move your data source fields to appropriate shelves to build the type of visualization you want. You can build data visualizations or entire interactive dashboards from this page.
 
@@ -55,11 +55,11 @@ The following numbered items correspond to the numbers displayed in the Tableau 
 
 ## Other ways to review Tableau tools
 
-### **Google Data Analytics Professional Certificate**
+### Google Data Analytics Professional Certificate
 
 As mentioned earlier, if you have taken the [Google Data Analytics Professional Certificate](https://www.coursera.org/professional-certificates/google-data-analytics) program, you are already familiar with Tableau and Tableau Public. Go to the [Get started with Tableau](https://www.coursera.org/learn/visualize-data/lecture/sLxV4/data-visualizations-with-tableau) lesson in that program to review what you have learned.
 
-### **Tableau.com**
+### Tableau.com
 
 By visiting [Tableau.com](https://www.tableau.com/), you’ll notice multiple product offerings, everything from Tableau Public (which is free) to Tableau Desktop, Tableau Mobile, and Tableau Server. Each product has its own use and specialization, but the main elements for data visualization are the same. You can search through the [Tableau Help page](https://www.tableau.com/support/help?_ga=2.3466357.45238129.1654614666-316280037.1654614666) to find specific articles on just about any topic regarding data visualizations. There are a variety of training resources available from Tableau to help users learn the different features of their products. Tableau offers a variety of training resources for helping to learn their different products. 
 

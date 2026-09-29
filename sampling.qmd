@@ -55,7 +55,7 @@ In this reading, you’ll learn about the relationship between sample and popula
 
 # Population and Sample 
 
-## **Population vs. sample**
+## Population vs. sample
 
 In statistics, a **population** includes every possible element that you are interested in measuring, or the entire dataset that you want to draw conclusions about. A statistical population can refer to any type of data, including:
 
@@ -89,7 +89,7 @@ Samples drawn from the above populations might be: 
 
 Data professionals use samples to make inferences about populations. In other words, they use the data they collect from a small part of the population to draw conclusions about the population as a whole.
 
-## **Sampling**
+## Sampling
 
 **Sampling** is the process of selecting a subset of data from a population.
 
@@ -111,7 +111,7 @@ Imagine you’re a data professional working in a country with a large populatio
 
 However, it is realistic to survey a sample of 100 or 1000 voters drawn from the larger population of all voters. When you’re dealing with a large population, sampling can help you make valid inferences about the population as a whole. 
 
-## **Representative sample**
+## Representative sample
 
 To make valid inferences or accurate predictions about a population, your sample should be representative of the population as a whole.  Recall that a **representative sample** accurately reflects the characteristics of a population. The inferences and predictions you make about your population are based on your sample data. If your sample doesn’t accurately reflect your population, then your inferences will not be reliable, and your predictions will not be accurate. And this can lead to negative outcomes for stakeholders and organizations. 
 
@@ -198,7 +198,7 @@ First, let’s review the main steps of the sampling process:
 
 Let’s explore each step in more detail with an example. Imagine you’re a data professional working for a company that manufactures home appliances. The company wants to find out how customers feel about the innovative digital features on their newest refrigerator model. The refrigerator has been on the market for two years and 10,000 people have purchased it. Your manager asks you to conduct a customer satisfaction survey and share the results with stakeholders. 
 
-## **Step 1: Identify the target population**
+## Step 1: Identify the target population
 
 The first step in the sampling process is defining your target population. The **target population** is the complete set of elements that you’re interested in knowing more about. Depending on the context of your research, your population may include individuals, organizations, objects, events, or any other type of data you want to investigate. 
 
@@ -208,7 +208,7 @@ In this case, your target population will be the 10,000 customers who purchased 
 
 ![](images/paste-50.png)
 
-## **Step 2: Select the sampling frame**
+## Step 2: Select the sampling frame
 
 The next step in the sampling process is to create a sampling frame. A **sampling frame** is a list of all the individuals or items in your target population. 
 
@@ -220,7 +220,7 @@ Ideally, your sampling frame should include the entire target population. Howeve
 
 Therefore, generally your sampling frame is the *accessible* part of your target population, but sometimes it will include elements apart from this set.
 
-## **Step 3: Choose the sampling method**
+## Step 3: Choose the sampling method
 
 The third step in the sampling process is choosing a sampling method. 
 
@@ -230,7 +230,7 @@ Ideally, your sample will be representative of the population. One way to help e
 
 So, assuming you have the budget, the resources, and the time, you should use a probability sampling method for your survey.  
 
-## **Step 4: Determine the sample size**
+## Step 4: Determine the sample size
 
 Step four of the sampling process is to determine the best size for your sample, since you don’t have the resources to survey everyone in your sampling frame. In statistics, sample size refers to the number of individuals or items chosen for a study or experiment. 
 
@@ -240,7 +240,7 @@ The sample size you choose depends on various factors, including the sampling me
 
 Based on these factors, you can decide how many customers to include in your sample.
 
-## **Step 5: Collect the sample data**
+## Step 5: Collect the sample data
 
 Now, you’re ready to collect your sample data, which is the final step in the sampling process. 
 
@@ -318,7 +318,7 @@ There are four different probability sampling methods: 
 
 Let’s explore each method in more detail.
 
-## **Simple random sampling**
+## Simple random sampling
 
 In a **simple random sample**, every member of a population is selected randomly and has an equal chance of being chosen. You can randomly select members using a random number generator, or by another method of random selection.
 
@@ -330,7 +330,7 @@ The main benefit of simple random samples is that they’re usually fairly repre
 
 However, in practice, it’s often expensive and time-consuming to collect large simple random samples. And if your sample size is not large enough, a specific group of people in the population may be underrepresented in your sample. If you use a larger sample size, your sample will more accurately reflect the population.
 
-## **Stratified random sampling**
+## Stratified random sampling
 
 In a **stratified random sample**,you divide a population into groups, and randomly select some members from each group to be in the sample. These groups are called strata. Strata can be organized by age, gender, income, or whatever category you’re interested in studying. 
 
@@ -342,7 +342,7 @@ Stratified random samples help ensure that members from each group in the popula
 
 One main disadvantage of stratified sampling is that it can be difficult to identify appropriate strata for a study if you lack knowledge of a population. For example, if you want to study median income among a population, you may want to stratify your sample by job type, or industry, or location, or education level. If you don’t know how relevant these categories are to median income, it will be difficult to choose the best one for your study. 
 
-## **Cluster random sampling**
+## Cluster random sampling
 
 When you’re conducting a **cluster random sample**, you divide a population into clusters, randomly select certain clusters, and include all members from the chosen clusters in the sample. 
 
@@ -354,7 +354,7 @@ One advantage of this method is that a cluster sample gets every member from a p
 
 A main disadvantage of cluster sampling is that it may be difficult to create clusters that accurately reflect the overall population. For example, for practical reasons, you may only have access to restaurants in England when the franchise has locations all over the world. And employees in England may have different characteristics and values than employees in other countries. 
 
-## **Systematic random sampling**
+## Systematic random sampling
 
 In a **systematic random sample**, you put every member of a population into an ordered sequence. Then, you choose a random starting point in the sequence and select members for your sample at regular intervals. 
 
@@ -430,7 +430,7 @@ We’ll go over four methods of non-probability sampling: 
 
 Let’s explore each method in more detail. 
 
-## **Convenience sampling**
+## Convenience sampling
 
 For convenience sampling, you choose members of a population that are easy to contact or reach. As the name suggests, conducting a convenience sample involves collecting a sample from somewhere convenient to you, such as your workplace, a local school, or a public park.
 
@@ -440,7 +440,7 @@ Because these samples are based on convenience to the researcher, and not a broa
 
 Convenience sampling is often quick and inexpensive, but it’s not a reliable way to get a representative sample. 
 
-## **Voluntary response sampling**
+## Voluntary response sampling
 
 A voluntary response sample consists of members of a population who volunteer to participate in a study. Like a convenience sample, a voluntary response sample is often based on convenient access to a population. However, instead of the researcher selecting participants, participants volunteer on their own. 
 
@@ -448,7 +448,7 @@ For example, let’s say college administrators want to know how students feel a
 
 Voluntary response samples tend to suffer from nonresponse bias, which occurs when certain groups of people are less likely to provide responses. People who voluntarily respond will likely have stronger opinions, either positive or negative, than the rest of the population. In this case, only students who really like or really dislike the food may be motivated to fill out the survey. The survey may omit many students who have more mild opinions about the food, or are neutral. This makes the volunteer students unrepresentative of the overall student population.
 
-## **Snowball sampling**
+## Snowball sampling
 
 In a snowball sample,researchers recruit initial participants to be in a study and then ask them to recruit other people to participate in the study. Like a snowball, the sample size gets bigger and bigger as more participants join in. Researchers often use snowball sampling when the population they want to study is difficult to access. 
 
@@ -456,7 +456,7 @@ For example, imagine a researcher is studying people with a rare medical conditi
 
 Snowball sampling can take a lot of time, and researchers must rely on participants to successfully continue the recruiting process and build up the “snowball.” This type of recruiting can also lead to sampling bias. Because initial participants recruit additional participants on their own, it’s likely that most of them will share similar characteristics, and these characteristics might be unrepresentative of the total population under study. 
 
-## **Purposive sampling**
+## Purposive sampling
 
 In purposive sampling, researchers select participants based on the purpose of their study. Because participants are selected for the sample according to the needs of the study, applicants who do not fit the profile are rejected. 
 

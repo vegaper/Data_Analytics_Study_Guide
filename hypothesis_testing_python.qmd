@@ -179,11 +179,11 @@ If your $p$-value is greater than the significance level, ​you conclude that t
 ::: Extra
 Some of the following examples are used in the next practice, but were not explained in the lectures, so I included here a brief description, also included some more that were not used in the course at all
 
-# **Hypothesis Testing in Python: Beyond the Two-Sample Unpaired T-Test**
+# Hypothesis Testing in Python: Beyond the Two-Sample Unpaired T-Test
 
 While standard two-sample independent t-tests (such as scipy.stats.ttest_ind) are frequently introduced first, real-world data analysis requires selecting the right statistical test based on your variable types (continuous vs. categorical), group counts, target thresholds, and proportion comparisons.
 
-## **Summary of Key Hypothesis Tests**
+## Summary of Key Hypothesis Tests
 
 | **Test Type** | **Python Function** | **Data Requirements** | **Primary Use Case** |
 |-----------------|-----------------|-----------------|---------------------|
@@ -197,7 +197,7 @@ While standard two-sample independent t-tests (such as scipy.stats.ttest_ind) ar
 
 **Use Case:** You want to compare the mean of a continuous numerical variable between two separate, non-overlapping groups.
 
-### **Example: Comparing LA County AQI vs. Rest of California**
+### Example: Comparing LA County AQI vs. Rest of California
 
 As seen in the lab exercise:
 
@@ -223,7 +223,7 @@ print(f"t-statistic: {tstat:.4f}, p-value: {pval:.4f}")
 
 **Use Case:** You have a specific directional hypothesis (e.g., Group A has a lower or higher mean than Group B) rather than just testing for any difference.
 
-### **Example: Testing if New York has a lower AQI than Ohio**
+### Example: Testing if New York has a lower AQI than Ohio
 
 As seen in the lab exercise:
 
@@ -243,7 +243,7 @@ print(f"t-statistic: {tstat:.4f}, p-value: {pval:.4f}")
 
 **Use Case:** You want to evaluate whether a single sample's mean significantly differs from a known population mean or specific policy benchmark.
 
-### **Example: Testing if Michigan's AQI exceeds a threshold of 10**
+### Example: Testing if Michigan's AQI exceeds a threshold of 10
 
 As seen in the lab exercise:
 
@@ -285,7 +285,7 @@ print(f"Z-statistic: {zstat:.4f}, p-value: {pval:.4f}")
 
 **Use Case:** You have a single categorical (binary) variable and want to test if the proportion of successes differs from a baseline proportion \$p_0\$.
 
-### **Example: Testing if the proportion of "Unhealthy Air Days" in a city exceeds 20%**
+### Example: Testing if the proportion of "Unhealthy Air Days" in a city exceeds 20%
 
 ```{python}
 from statsmodels.stats.proportion import proportions_ztest

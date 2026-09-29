@@ -65,7 +65,7 @@ with open('example_filepath/file', mode='r') as file:
     data = file.read()
 ```
 
-### **Importing a CSV file using pandas**
+### Importing a CSV file using pandas
 
 Instead of using Python's standard library to read a file, you can use pandas to import the CSV file into a dataframe. First, of course, you’ll want to import the pandas library into your Python notebook.
 
@@ -88,13 +88,13 @@ There are a number of database solutions that you can connect to with Python, su
 
 If the dataset is small enough, it can be downloaded and manipulated locally on your computer. However, often the datasets kept in databases are too large to access in their entirety on a personal computer. In this case you have a number of different options, most of which involve querying the database with SQL to obtain specific tables of interest. In other words, you extract select parts—usually specified rows and/or columns—from the whole dataset. The manner in which querying is done can vary with respect to systems, platforms, and interfaces. Because of this variability, this reference guide will only present a couple of different ways to query databases. Specifically, it will explore BigQuery, Google’s data warehouse that provides a wide range of tools and services to facilitate analysis.
 
-### **Downloading data from BigQuery**
+### Downloading data from BigQuery
 
-#### **Step 1: Access BigQuery**
+#### Step 1: Access BigQuery
 
 BigQuery allows you to upload data for storage, and it also has a number of publicly available datasets to explore. You can access these public datasets for free using [BigQuery Sandbox](https://cloud.google.com/bigquery/docs/sandbox), which requires a free Google account. Sandbox gives you 10 GB of active storage and 1 TB of processed query data each month for free.
 
-#### **Step 2: Perform a query**
+#### Step 2: Perform a query
 
 Once you have authenticated your account and created a new project as indicated in the instructions linked in step one, you’re ready to query a database. Note that if it is your first time logging in, you may encounter a window asking “New to the BigQueryUI?” with a link to a quickstart guide.
 
@@ -114,13 +114,13 @@ Click the **street_trees** table in the **san_francisco** dataset. The metadata 
 
 Once you are satisfied with your query, click the “Run” button at the top of the SQL query panel. The results will display below, and there is a button to “Save results,” which allows you to save the resulting table in different locations and formats. From there, you can read the data into your notebook.
 
-### **Using notebooks within BigQuery**
+### Using notebooks within BigQuery
 
 Another way to access data on BigQuery is by using the tools within the BigQuery platform itself. This workflow more closely resembles what data professionals would use when working with very large datasets stored in the cloud. Essentially, **you set up a virtual machine on BigQuery**. A virtual machine is a computer that has its own CPU, memory, software, etc., just like any other computer, only it does not have its own dedicated hardware; they most often exist as a partition on a server. You can work in a Jupyter notebook on the virtual machine on the BigQuery platform, from which you can query and pull in data directly. 
 
 This process requires you to set up a payment method. However, new users get a \$300 credit, and a ML instance is only a few cents per minute, so you’ll get approximately 2,000 hours of free usage before incurring any charges. There are a lot of great tutorials for setting this up. For instance, if you search for “How to use Jupyter notebook in Google Cloud AI,” you’ll find a number of useful videos and blogs on the topic.
 
-### **Using notebooks outside of BigQuery**
+### Using notebooks outside of BigQuery
 
 It’s also possible to query data on BigQuery from notebooks that are not on the BigQuery platform. However, the details of this process are dependent on a number of factors, including the platform that is hosting the notebook, the operating environment, and the specific location of the data being accessed. Therefore, we will not go into depth on this method. Feel free to explore this on your own, though. You’ll find many helpful online resources that are just a search away.
 
@@ -178,7 +178,7 @@ df = pd.DataFrame(data)
     df.head()
     ```
 
-### **DataFrame.info(X)**
+### DataFrame.info(X)
 
 -   The **info()** method will display a summary of the dataframe, including the range index, dtypes, column headers, and memory usage.
 
@@ -188,7 +188,7 @@ df = pd.DataFrame(data)
 df.info()
 ```
 
-### **DataFrame.describe()**
+### DataFrame.describe()
 
 -   The **describe()** method will return descriptive statistics of the entire dataset, including total count, mean, minimum, maximum, dispersion, and distribution. 
 
@@ -198,7 +198,7 @@ df.info()
 df.describe()
 ```
 
-### **DataFrame.shape**
+### DataFrame.shape
 
 -   **shape** is an attribute that returns a tuple representing the dimensions of the dataframe by number of rows and columns. Remember that attributes are not followed by parentheses. The code will look something like this: 
 

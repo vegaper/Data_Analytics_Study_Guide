@@ -97,7 +97,7 @@ What to Include in Your Response
 
 ***Note:** The exemplar represents one possible way to complete the RACI matrix. Different groups, organizations, or teams will have their own unique way of assigning roles and responsibilities to team members; these assignments may fluctuate from project to project or depending on other business variables.*
 
-### **RACI matrix:**
+### RACI matrix:
 
 -   **Access to data:** Based on their general roles within an organization, the business intelligence engineer, analytics team manager, and data engineer have all been identified as responsible for providing access to the data. The data scientist, who is more responsible for working with the analytics team to draw insights from the data, is just consulted. 
 

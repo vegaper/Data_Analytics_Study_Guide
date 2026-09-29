@@ -46,7 +46,7 @@ To clear up how these fit together in data analysis, here is how they actually c
 
 When choosing a technique, it is important to consider the data you are working with and the question you want to address. 
 
-### **Things to consider**
+### Things to consider
 
 1.  What is the question you want to answer? In other words, what do you want to predict? 
 
@@ -58,7 +58,7 @@ When choosing a technique, it is important to consider the data you are working 
 
 The following examples demonstrate how the questions about prediction, outcome variable, and measurement can be navigated in order to choose a regression technique.
 
-### **Example context: User engagement**
+### Example context: User engagement
 
 In your work as a data professional, imagine that you are interested in making predictions about user engagement for a mobile app.
 
@@ -80,7 +80,7 @@ Another question of interest could be “Does a dynamic landing page versus a st
 
 Another question you might be interested in is “Will a user engage with the new line of products in-app?” Next, you might ask, which variable in your data can be the outcome variable? If you have access to data about whether a user clicks to view the new line of products, that could be the outcome variable. The next question is: how is the outcome variable measured? Whether a user clicks to view that content can be represented as a binary variable, with 1 indicating they clicked to view the content and 0 indicating that they did not click to view that content. Since this outcome variable is binary, you could proceed with binomial logistic regression. 
 
-### **Example context: Patient response**
+### Example context: Patient response
 
 Now imagine that you are tasked with making predictions about patient responses to medical treatments. 
 

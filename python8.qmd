@@ -4,7 +4,6 @@ format: html
 jupyter: python3
 ---
 
-
 ```{python}
 #| include: false
 import _setup
@@ -101,7 +100,7 @@ fare
 
 You’ve learned that Python has many open-source libraries and packages—including NumPy and pandas—that make it one of the most useful coding languages. In this reading, you will review the basics of pandas dataframes and learn more about how to work with them. Understanding the fundamentals of pandas is essential to becoming a capable and competent data professional.
 
-## **Primary data structures**
+## Primary data structures
 
 Pandas has two primary data structures: **Series** and **DataFrame**. 
 
@@ -109,7 +108,7 @@ Pandas has two primary data structures: **Series** and **DataFrame**. 
 
 -   **DataFrame:** A dataframe is a two-dimensional labeled data structure—essentially a table or spreadsheet—where each column and row is represented by a Series.
 
-## **Create a DataFrame**
+## Create a DataFrame
 
 To use pandas in your notebook, first import it. Similar to NumPy, pandas has its own standard alias, **pd**, that’s used by data professionals around the world:
 
@@ -140,7 +139,7 @@ From a comma-separated values (csv) file:
 
 `df3 = pd.read_csv(r'/file_path/file_name.csv')`
 
-## **Attributes and methods**
+## Attributes and methods
 
 The **DataFrame** class is powerful and convenient because it comes with a suite of built-in features that simplify common data analysis tasks. These features are known as attributes and methods. An attribute is a value associated with an object or class that is referenced by name using dotted expressions. A method is a function that is defined inside a class body and typically performs an action. A simpler way of thinking about the distinction between attributes and methods is to remember that attributes are *characteristics* of the object, while methods are *actions* or *operations*. 
 
@@ -149,7 +148,7 @@ The **DataFrame** class is powerful and convenient because it comes with a suite
 Data professionals use attributes and methods constantly. Some of the most-used **DataFrame** attributes include:
 
 | **Attribute** | **Description** |
-|:-----------------------|:-----------------------------------------------|
+|:-----------------------|:----------------------------------------------|
 | [columns](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.columns.html#pandas.DataFrame.columns) | Returns the column labels of the dataframe |
 | [dtypes](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dtypes.html#pandas.DataFrame.dtypes) | Returns the data types in the dataframe |
 | [iloc](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html#pandas.DataFrame.iloc) | Accesses a group of rows and columns using integer-based indexing |
@@ -170,7 +169,7 @@ print(list(dataframe.columns))
 Some of the most-used **DataFrame** methods include:
 
 | **Method** | **Description** |
-|:-----------------------|:-----------------------------------------------|
+|:-----------------------|:----------------------------------------------|
 | [apply(*)*](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html#pandas.DataFrame.apply) | Applies a function over an axis of the dataframe |
 | [copy()](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.copy.html#pandas.DataFrame.copy) | Makes a copy of the dataframe’s indices and data |
 | [describe()](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html#pandas.DataFrame.describe) | Returns descriptive statistics of the dataframe, including the minimum, maximum, mean, and percentile values of its numeric columns; the row count; and the data types |
@@ -328,36 +327,36 @@ ios_only.reset_index(drop=True)
 
 ------------------------------------------------------------------------
 
-# ** Selection & Subsetting**
-Note. I have changed the way I have written the selection statements to make them more clear and easier to understand. The course uses a different style that made it more confusing for me. 
+# \*\* Selection & Subsetting\*\*
 
+Note. I have changed the way I have written the selection statements to make them more clear and easier to understand. The course uses a different style that made it more confusing for me.
 
 To select, filter, or manipulate data in Pandas, you need to understand the **2D Coordinate System**. Both `.loc` and `.iloc` operate on a `[rows, columns]` axis structure:
 
-```python
+``` python
 # The Universal Selection Pattern
 df.indexer[row_selector, column_selector]
 ```
 
 If you omit the column selector, Pandas assumes you want **all columns** (`:`).
 
----
+------------------------------------------------------------------------
 
 **Key Mental Model: `.loc` vs `.iloc`**
 
 | Selector | Primary Purpose | How it Indexes | Endpoint in Slices (`a:b`) |
-| :--- | :--- | :--- | :--- |
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | **`.loc`** | **Label**-based | Index labels & Column names | **INCLUDED** (includes `b`) |
 | **`.iloc`** | **Integer position**-based | 0-indexed integer offsets | **EXCLUDED** (excludes `b`, standard Python) |
 
----
+------------------------------------------------------------------------
 
 **Output Shape: Series vs DataFrame**
 
 Across all selection methods, the return type depends on how you format your selection:
 
-* **Single Value / String** (e.g., `'row_1'` or `'A'`) $\rightarrow$ Returns a 1D **Series**.
-* **List of Values** (e.g., `['row_1']` or `['A']`) $\rightarrow$ Returns a 2D **DataFrame**.
+-   **Single Value / String** (e.g., `'row_1'` or `'A'`) $\rightarrow$ Returns a 1D **Series**.
+-   **List of Values** (e.g., `['row_1']` or `['A']`) $\rightarrow$ Returns a 2D **DataFrame**.
 
 We define a single master DataFrame `df` with custom string row labels to use across all examples:
 
@@ -406,7 +405,7 @@ df.iloc[[0, 2, 4]]
 df.iloc[0:3]
 ```
 
----
+------------------------------------------------------------------------
 
 ## Column Selection
 
@@ -438,48 +437,47 @@ df.iloc[:, [0, 3]]
 df.iloc[:, 0:3]
 ```
 
----
+------------------------------------------------------------------------
 
 ## Selection Shortcuts & Direct Brackets `[...]`
 
 When you only want columns (and don't need row slicing), Pandas provides fast shortcuts without `.loc` or `.iloc`.
 
 ### Dot Notation `df.col`
+
 Convenient for quick inspection, but has limitations:
-* Cannot create new columns (`df.new_col = ...` fails).
-* Fails if column names contain spaces or match DataFrame methods (e.g., `df.count`).
+
+-   Cannot create new columns (`df.new_col = ...` fails silently).
+
+-   Fails if column names contain spaces or match DataFrame methods (e.g., `df.count`).
 
 ```{python}
 df.A
 ```
 
 ### Bracket Notation Slicing Trap
+
 The direct bracket operator `[]` is "overloaded"—its behavior changes depending on whether it is called on a **DataFrame** or a **Series**:
 
 ```{python}
 df.C.value_counts()[:20].rename_axis('unique_values').reset_index(name='counts').style.background_gradient()
 ```
 
-Here is step-by-step how Pandas evaluates `df.C.value_counts()[:20]`:
-1. `df.C` $\rightarrow$ Selects column `'C'` as a **Series**.
-2. `.value_counts()` $\rightarrow$ Returns a **Series** containing frequency counts (sorted highest to lowest).
-3. `[:20]` $\rightarrow$ Slices the **first 20 elements (rows)** of that 1D Series.
+Here is step-by-step how Pandas evaluates `df.C.value_counts()[:20]`: 1. `df.C` $\rightarrow$ Selects column `'C'` as a **Series**. 2. `.value_counts()` $\rightarrow$ Returns a **Series** containing frequency counts (sorted highest to lowest). 3. `[:20]` $\rightarrow$ Slices the **first 20 elements (rows)** of that 1D Series.
 
-::: {.callout-tip}
-Idiomatic Alternative
-`series[:20]` is identical to `series.head(20)`. Using `.head(20)` is generally preferred in professional code because it explicitly states your intent to take top rows!
+::: callout-tip
+Idiomatic Alternative `series[:20]` is identical to `series.head(20)`. Using `.head(20)` is generally preferred in professional code because it explicitly states your intent to take top rows!
 :::
 
 ### Rules for Direct Brackets `[...]`:
 
-* **On a DataFrame (2D):**
-  * `df['A']` (Single string) $\rightarrow$ Selects **COLUMN** `'A'` (Series)
-  * `df[['A', 'B']]` (List of strings) $\rightarrow$ Selects **COLUMNS** `'A'` and `'B'` (DataFrame)
-  * `df[0:3]` (Slice object) $\rightarrow$ Selects **ROWS** by position (like `.iloc[0:3]`)
-
-* **On a Series (1D):**
-  * `s[0]` or `s['label']` $\rightarrow$ Selects **SINGLE ROW ELEMENT**
-  * `s[:20]` $\rightarrow$ Selects **TOP N ROWS**
+-   **On a DataFrame (2D):**
+    -   `df['A']` (Single string) $\rightarrow$ Selects **COLUMN** `'A'` (Series)
+    -   `df[['A', 'B']]` (List of strings) $\rightarrow$ Selects **COLUMNS** `'A'` and `'B'` (DataFrame)
+    -   `df[0:3]` (Slice object) $\rightarrow$ Selects **ROWS** by position (like `.iloc[0:3]`)
+-   **On a Series (1D):**
+    -   `s[0]` or `s['label']` $\rightarrow$ Selects **SINGLE ROW ELEMENT**
+    -   `s[:20]` $\rightarrow$ Selects **TOP N ROWS**
 
 ## Cheat Sheet & Examples
 
@@ -517,15 +515,15 @@ counts.head(2)
 
 #### Quick Reference Matrix
 
-| Object | Inside `[...]` | What it Selects | Example |
-| :--- | :--- | :--- | :--- |
-| **DataFrame** | `'col_name'` | **Column** | `df['A']` |
-| **DataFrame** | `['A', 'B']` | **Multiple Columns** | `df[['A', 'B']]` |
-| **DataFrame** | `0:20` *(Slice)* | **Rows** (by position) | `df[0:20]` |
-| **Series** | `0` or `'label'` | **Single Row Element** | `s[0]` |
-| **Series** | `0:20` *(Slice)* | **Multiple Rows** | `s[:20]` |
+| Object        | Inside `[...]`   | What it Selects        | Example          |
+|:--------------|:-----------------|:-----------------------|:-----------------|
+| **DataFrame** | `'col_name'`     | **Column**             | `df['A']`        |
+| **DataFrame** | `['A', 'B']`     | **Multiple Columns**   | `df[['A', 'B']]` |
+| **DataFrame** | `0:20` *(Slice)* | **Rows** (by position) | `df[0:20]`       |
+| **Series**    | `0` or `'label'` | **Single Row Element** | `s[0]`           |
+| **Series**    | `0:20` *(Slice)* | **Multiple Rows**      | `s[:20]`         |
 
----
+------------------------------------------------------------------------
 
 ## Simultaneous Row & Column Selection
 
@@ -560,18 +558,20 @@ df.iloc[[2, 4], 0:3]
 df.iloc[:, [1, 3]]
 ```
 
----
+------------------------------------------------------------------------
 
 ## Common Indexing Pitfalls & Traps
 
-::: {.callout-warning}
+::: callout-warning
 ### Trap 1: Label Slices vs. Position Slices
-* `.loc['a':'c']` **INCLUDES** `'c'`.
-* `.iloc[0:3]` **EXCLUDES** position `3` (returns positions 0, 1, 2).
+
+-   `.loc['a':'c']` **INCLUDES** `'c'`.
+-   `.iloc[0:3]` **EXCLUDES** position `3` (returns positions 0, 1, 2).
 :::
 
-::: {.callout-important}
+::: callout-important
 ### Trap 2: Mixing Numeric Positions on String Indices
+
 Because `df` has **custom string row labels** (`'row_0'`, `'row_1'`, etc.), using integers inside `.loc` will raise a `KeyError` because `.loc` looks for literal labels named `0`, `1`, etc.
 :::
 
@@ -583,7 +583,7 @@ Because `df` has **custom string row labels** (`'row_0'`, `'row_1'`, etc.), usin
 
 **How to solve this:**
 
-```python
+``` python
 # Option A: Use iloc for position slicing, then bracket for column names (Viewing)
 df.iloc[0:3][['D']]
 
@@ -591,8 +591,9 @@ df.iloc[0:3][['D']]
 df.loc[df.index[0:3], 'D']
 ```
 
-::: {.callout-note}
+::: callout-note
 ### Default RangeIndex Behavior
+
 If your DataFrame uses default integer indexing (`0, 1, 2...`), `.loc[0:3]` **will work**, but remember: `.loc` treats `0:3` as **labels**, so it will include row index `3` (4 rows total)!
 :::
 
@@ -610,10 +611,9 @@ In Pandas, Accessors are specialized namespaces attached to a Series that grant 
 
 Without an accessor, calling a method on a column acts on the Series structure itself (the container). With an accessor, Pandas exposes native methods corresponding to the data type inside the cells, applying those operations to every element simultaneously in a fast, vectorized way.
 
-Container-Level vs. Element-Level Operations
-To decide when an accessor is needed, ask: "Am I acting on the column structure, or on the data inside each cell?"
+Container-Level vs. Element-Level Operations To decide when an accessor is needed, ask: "Am I acting on the column structure, or on the data inside each cell?"
 
-```
+```         
                   ┌──────────────────────────────────────────┐
                   │              Pandas Series               │
                   └────────────────────┬─────────────────────┘
@@ -628,13 +628,14 @@ To decide when an accessor is needed, ask: "Am I acting on the column structure,
 ```
 
 The Three Main Accessors in Pandas
-.str (String Accessor): Operates on text columns (object or string dtypes).
 
-.dt (Datetime Accessor): Operates on date/time columns (datetime64 or timedelta64 dtypes).
+-   `.str` (String Accessor): Operates on text columns (object or string dtypes).
 
-.cat (Categorical Accessor): Operates on category-encoded columns (category dtype).
+-   `.dt` (Datetime Accessor): Operates on date/time columns (datetime64 or timedelta64 dtypes).
 
-Example: When you write code on a Pandas column, Pandas assumes by default that you are talking to the container, not the text inside, usin the accessor it will iterate through the cells and apply the operation to each cell. :
+-   `.cat` (Categorical Accessor): Operates on category-encoded columns (category dtype).
+
+Example: When you write code on a Pandas column, Pandas assumes by default that you are talking to the container, not the text inside, usin the accessor it will iterate through the cells and apply the operation to each cell:
 
 ```{python}
 import pandas as pd
@@ -682,7 +683,7 @@ print("--- CLEANED DATAFRAME ---")
 print(df[['clean_name', 'hire_year', 'hire_day_of_week', 'dept_code']])
 ```
 
-## **Key takeaways**
+## Key takeaways
 
 Pandas dataframes are a convenient way to work with tabular data. Each row and each column can be represented by a pandas **Series**, which is similar to a one-dimensional array. Both dataframes and series have a large collection of methods and attributes to perform common tasks and retrieve information. Pandas also has its own special notation to select data. As you work more with pandas, you’ll become more comfortable with this notation and its many applications in data science.
 
@@ -733,8 +734,7 @@ mask = planets['moons'] < 20
 mask
 ```
 
-​
-To apply this mask to the dataframe, ​insert it into selector brackets ​and apply it to the dataframe. 
+​To apply this mask to the dataframe, ​insert it into selector brackets ​and apply it to the dataframe. 
 
 ```{python}
 # Apply the Boolean mask to the dataframe to filter it so it contains
@@ -800,7 +800,6 @@ Let's break it into pieces. ​First is a statement for planets. ​In parenth
 
 There are a near infinite number of ways ​to select and filter data using the basic tools ​that you've learned so far. ​As always, it takes a lot of practice ​before you know exactly how to execute ​every selection statement that your work requires. ​So make sure to bookmark any and all resources ​that you find helpful to reference. ​
 
-
 ## Modifying DataFrames: Chained Indexing vs. `.loc`
 
 When updating values in a pandas DataFrame based on a condition, **chained indexing** causes silent failures or warnings, while **`.loc`** provides direct, reliable updates.
@@ -809,15 +808,16 @@ When updating values in a pandas DataFrame based on a condition, **chained index
 
 Chained indexing occurs when you evaluate two square brackets back-to-back:
 
-```python
+``` python
 # BAD: Chained Indexing
 df[mask]['column_name'] = new_value
 ```
 
-The "Photocopy" Mental Model
-* **Step 1 (`df[mask]`):** Pandas evaluates the boolean mask, creates a **temporary slice (photocopy)** of those rows, and hands it to Python.
-* **Step 2 (`['column_name'] = new_value`):** Python updates the requested column **on the photocopy**.
-* **Result:** The update completes on a temporary object that is immediately discarded. The original DataFrame (`df`) remains untouched, and pandas often raises a `SettingWithCopyWarning`.
+1.  **(`df[mask]`):** Pandas evaluates the boolean mask, creates a **temporary slice (photocopy)** of those rows, and hands it to Python.
+
+2.  **(`['column_name'] = new_value`):** Python updates the requested column **on the photocopy**.
+
+3.   The update completes on a temporary object that is immediately discarded. The original DataFrame (`df`) remains untouched, and pandas often raises a `SettingWithCopyWarning`.
 
 ```{python}
 # Create sample DataFrame
@@ -851,19 +851,18 @@ print("\nNotice that 'Year Founded' is STILL 2000!")
 
 To update the original DataFrame directly, use a single set of square brackets with `.loc`:
 
-```python
+``` python
 # GOOD: Direct Update via .loc
 df.loc[row_indexer, column_indexer] = new_value
 ```
 
-```
+```         
                   df.loc[ mask , 'column_name' ] = new_value
                           │             │
               Which rows? ┘             └ Which column?
 ```
 
 This instructs pandas to access the exact memory location of the original DataFrame and update the cell in place without generating intermediate copies.
-
 
 ```{python}
 
@@ -878,10 +877,10 @@ print("\n'Year Founded' correctly updated to 2011!")
 
 ### Quick Reference Rules
 
-* **Reading / Filtering:** Double brackets are acceptable (`df[mask]['column_name']`).
-* **Writing / Assigning:** Always use a single set of brackets with `.loc` (`df.loc[mask, 'column_name'] = value`).
+-   **Reading / Filtering:** Double brackets are acceptable (`df[mask]['column_name']`).
+-   **Writing / Assigning:** Always use a single set of brackets with `.loc` (`df.loc[mask, 'column_name'] = value`).
 
-**Filtering by a List isin()**
+**Filtering by a List `isin()`**
 
 Checks if values in a column match any element in a list. It returns a boolean mask (True/False), making it ideal for filtering.
 
@@ -905,10 +904,9 @@ print(df_sales)
 
 ```
 
-.any()
-Checking for "At Least One True"
-.any() evaluates boolean values (True/False) across a Series or DataFrame and returns True if at least one value is True.
-Checking for missing data in a column:
+`.any()`
+
+Checking for "At Least One True" .any() evaluates boolean values (True/False) across a Series or DataFrame and returns True if at least one value is True. Checking for missing data in a column:
 
 ```{python}
 
@@ -949,8 +947,6 @@ In statements that use multiple conditions, pandas uses logical operators to ind
 ## Resources for more information
 
 -   [pandas Boolean indexing documentation](https://pandas.pydata.org/docs/user_guide/indexing.html#boolean-indexing)
-
-
 
 # Grouping and aggregation
 
@@ -1013,9 +1009,9 @@ planets.groupby(['type']).sum()[['moons']]
 
 ​You can also use other methods instead of sum. ​For example, min, max, mean, median, count, and many others. ​
 
-Groupby will work on multiple columns too. ​When we pass a list containing the type ​and magnetic field columns to the groupby() method ​and then apply the mean() method to the result, ​we get a dataframe that contains a row ​for each unique combination of planet type ​and magnetic field. ​Again, the columns contain the mean calculated values ​for each numerical column for each group. ​Groupby() is very useful, ​because it helps you to better understand your data. ​
+Groupby will work on multiple columns too. ​When we pass a list containing the type ​and magnetic field columns to the `groupby()` method ​and then apply the `mean()` method to the result, ​we get a dataframe that contains a row ​for each unique combination of planet type ​and magnetic field. ​Again, the columns contain the mean calculated values ​for each numerical column for each group. ​`Groupby()` is very useful, ​because it helps you to better understand your data. ​
 
-Another important method to use on the groupby objects ​is the agg() method. 
+Another important method to use on the `groupby()` objects ​is the `agg()` method. 
 
 ​Agg is short for aggregate. ​This method allows you ​to apply multiple calculations to groups of data. ​Let's start simple. ​What if we want to group the planets by their type ​and then calculate both the mean and the median values ​of the numeric columns for each group? ​We call the agg() method after the groupby() statement. ​In its argument field, we enter a list of the calculations ​we want to apply to the data. ​If these calculations are existing methods ​of groupby objects, they can just be entered as strings, but if there are non numeric columns in the dataframe that are not used in the group by, you will have to drop them with `.select_dtypes('number')` before calculating the aggregations or it will throw an error by trying to calculate a mean over a string, for example. `TypeError: dtype 'str' does not support operation 'mean'`
 
@@ -1172,7 +1168,7 @@ The following example applies the **sum()** and **mean()** functions across axis
 clothes[['price_usd', 'mass_g']].agg(['sum', 'mean'], axis=1)
 ```
 
-## **groupby() with agg()**
+## groupby() with agg()
 
 The **groupby()** and **agg()** functions are often used together. In such cases, first apply the **groupby()** function to a dataframe, then apply the **agg()** function to the result of the groupby.
 
@@ -1183,7 +1179,7 @@ clothes.groupby('color').agg({'price_usd': ['mean', 'max'],
                              'mass_g': ['mean', 'max']})
 ```
 
-## **MultiIndex**
+## MultiIndex
 
 You might have noticed that, when functions are applied to a groupby object, the resulting dataframe has tiered indices. This is an example of **MultiIndex**.
 
@@ -1413,6 +1409,7 @@ right
 As expected, the result is a dataframe ​that has all the keys from the right dataframe, ​but none of the keys from the left ​that weren't also in the right. ​So Mercury and Venus are excluded. ​
 
 # .apply() — Applying Custom Logic
+
 .apply() runs a function across every value in a column (or across entire rows/columns). Use it when standard built-in vectorized operations aren't enough for complex logic.
 
 Pattern 1: With lambda (Quick, one-liner transformations)
@@ -1459,4 +1456,3 @@ df_employees['bonus'] = df_employees.apply(calculate_bonus, axis=1)
 
 print(df_employees[['name', 'department', 'salary_k', 'performance', 'bonus']])
 ```
-

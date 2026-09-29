@@ -11,7 +11,7 @@ Of course data requires a few extra techniques and ​practices that in the ware
 
 You'll need to make sense of raw data content by reordering categorizing and ​reshaping it. ​You'll find a lot of different terms in the world of this process. *​Data wrangling* *data remediation,* *data munching* and *data cleaning*. ​They're all the most common. ​We combine all of these practices into a familiar term that most data ​professionals are familiar with:
 
-# **Exploratory data analysis or EDA**. ​
+# Exploratory data analysis or EDA. ​
 
 **Exploratory data analysis or EDA is the process of investigating, ​organizing and analyzing data sets. ​And summarizing their main characteristics often employing data wrangling and ​visualization methods.**
 
@@ -87,15 +87,15 @@ One of Deloitte’s most important cloud-based software solution clients was fac
 
 -   A lack of personalized data dashboards displaying strategic company metrics
 
-### **Following up on marketing leads**
+### Following up on marketing leads
 
 Deloitte’s client offers a range of cloud-based analysis services and software products to businesses around the globe, making it a monumental task to follow up on each of the thousands of inquiries and potential sales leads they receive on a monthly basis. As a result, Deloitte’s client was seeking a solution to help them more adequately track and act on these leads.   
 
-### **Tracking marketing campaign performance**
+### Tracking marketing campaign performance
 
 Relying on just four data analysts for analysis of marketing campaign performance for a \$1B multinational corporation was quickly becoming unsustainable. Before Deloitte stepped in to help, the client’s performance tracking system was a series of data tables updated manually and kept in a spreadsheet tab. Each region kept their own performance data, creating issues of consistency and hours of wasted energy for the analysts who had to compile and merge the data to get a corporation-wide performance picture.  
 
-### **Personalizing data dashboards**
+### Personalizing data dashboards
 
 Because of differing needs for each level of management and varying marketing regions across the globe, the client needed to be able to easily parse and group data specific to their employees' needs across the corporation. Because they were working off of multiple spreadsheets across several different departments and locales, the client found they could not easily filter the data according to their needs, and therefore were not able to adequately shift strategy to improve performance. 
 

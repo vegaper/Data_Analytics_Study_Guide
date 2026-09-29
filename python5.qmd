@@ -120,7 +120,7 @@ print('{0}, {1}'.format(var_a, var_b))
 
 The string **format()** method is a versatile and convenient way to take values that are stored in different variables and insert them into a string.
 
-## **Literal string interpolation (f-strings)**
+## Literal string interpolation (f-strings)
 
 Another string formatting technique that you’ll often encounter when using Python version 3.6+ is literal string interpolation, also known as f-strings. F-strings further minimize the syntax required to embed expressions into strings. They’re called f-strings because the expressions always begin with f (or F—they’re the same).
 
@@ -136,11 +136,11 @@ print(f'var_a = {var_a} \nvar_b = {var_b}')
 
 In these examples, the braces still function as the way to indicate where values should be inserted into the string, but they allow you to make the insertion directly, without having to call the **format()** method.
 
-## **Float formatting options**
+## Float formatting options
 
 In addition to inserting expressions into strings, string formatting can format their appearance. There are too many options to list here, but the [Python string documentation](https://docs.python.org/3/library/string.html) is a good place to review these techniques. Here are some of the most useful.
 
-### **To use these options, build your expression within braces as follows.**
+### To use these options, build your expression within braces as follows.
 
 1.  The float variable is what’s being formatted
 
@@ -173,7 +173,7 @@ decimal = 0.2497856
 print(f'{decimal:.4%}')
 ```
 
-## **String methods**
+## String methods
 
 As one of the primary object classes in Python, strings have many built-in methods designed to facilitate working with them. There are too many of these methods to cover all of them here in depth, but some of the most useful include:
 
@@ -188,7 +188,7 @@ print(my_string.count('y'))
 print(my_string.count('y', 2, 7))
 ```
 
-### **str.find(sub)**
+### str.find(sub)
 
 Return the lowest index in the string where substring **sub** is found. Return -1 if **sub** is not found.
 
@@ -198,7 +198,7 @@ my_string = 'Happy birthday'
 my_string.find('birth')
 ```
 
-### **str.join()**
+### str.join()
 
 Return a string which is the concatenation of the strings in iterable. The separator between elements is the string providing this method.
 
@@ -209,7 +209,7 @@ iterable_of_strings = ['Happy', 'birthday', 'to', 'you']
 separator_string.join(iterable_of_strings)
 ```
 
-### **str.partition(sep)**
+### str.partition(sep)
 
 Split the string at the first occurrence of **sep**, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator. If the separator is not found, return a 3-tuple containing the string itself, followed by two empty strings.
 
@@ -219,7 +219,7 @@ my_string = 'https://www.google.com/'
 my_string.partition('.')
 ```
 
-### **str.replace(old, new\[, count\])**
+### str.replace(old, new\[, count\])
 
 Return a copy of the string with all occurrences of substring **old** replaced by **new**. If the optional argument **count** is given, only the first **count** occurrences are replaced.
 
@@ -229,7 +229,7 @@ my_string = 'https://www.google.com/'
 my_string.replace('google', 'youtube')
 ```
 
-### **str.split(\[sep\])**
+### str.split(\[sep\])
 
 Return a list of the words in the string, using **sep** (optional) as the delimiter string. If no **sep** is given, whitespace characters are used as the delimiter. Any number of consecutive whitespaces would indicate a split point, so **' '** (a single whitespace) would split the same way as **' '** (two or more whitespaces).
 

@@ -35,7 +35,7 @@ As you’ve learned, there are far too many Python functions to memorize all of 
 
 The following reference guide will help you identify the most common Pandas tools used for structuring data. Note that this is just for reference. For detailed information on how each method works, including explanations of every parameter and examples, refer to the linked documentation.
 
-## **Combine data**
+## Combine data
 
 Note that for many situations that require combining data, you can use a number of different functions, methods, or approaches. Usually you’re not limited to a single “correct” function. So if these functions and methods seem very similar, don’t worry! It’s because they are! The best way to learn them, determine what works best for you, and understand them is to use them!
 
@@ -372,7 +372,7 @@ As you’ve been learning, the purpose of exploratory data analysis (EDA) is jus
 
 One of the most important tools at your disposal when exploring data is the **histogram**. A histogram is a graphical representation of a frequency distribution, which shows how frequently each value in a dataset or variable occurs. It’s essential for data professionals to understand the distributions of their data, because this knowledge drives many downstream decisions around experiment design, modeling, and further analysis. In this reading, you’ll learn about histograms, what they are, how to make them, and how to interpret them.
 
-## **Introduction to histograms**
+## Introduction to histograms
 
 Histograms are commonly used to illustrate the shape of a distribution, including the presence of any outliers, the center of the distribution, and the spread of the data. Histograms are typically represented by a series of bars, where each bar represents a range of values. Bar height represents the frequency or count of the data points within that range.
 
@@ -382,11 +382,11 @@ The following example is a histogram of the number of seconds between eruptions 
 
 The x-axis represents the number of seconds between eruptions. The y-axis represents the eruption count. So, as indicated by the second bar in the graph, there are 20 eruptions that occurred after a wait time of 45-49 seconds. 
 
-## **The importance of histograms**
+## The importance of histograms
 
 Histograms are an essential tool for understanding the characteristics of a dataset. They provide a visual representation of the data’s distribution and enable data professionals to identify patterns, trends, or outliers within the data. Histograms can also help data professionals choose appropriate statistical tests and models for the data and determine whether the data meets any assumptions required for the analysis. Histograms are widely used in any field and any situation that requires any kind of data analysis, including finance, health care, engineering, and social sciences.
 
-## **How to interpret histograms**
+## How to interpret histograms
 
 Interpreting histograms involves understanding the shape, center, and spread of the distribution. There are several common shapes of histograms, including:
 
@@ -412,7 +412,7 @@ The examples provided are not the only distributions you’ll encounter, but the
 
 Now, return to the Old Faithful geyser histogram at the beginning of this reading. Ask yourself: what type of distribution is represented by that graph? In addition to the shape, it’s important to understand the center and spread. The center of the distribution is typically represented by the mean or median, while the spread is represented by the standard deviation or range of the data. The center and spread can provide insights into data concentration and variability.
 
-## **How to create histograms**
+## How to create histograms
 
 Python’s seaborn and matplotlib libraries provide simple and powerful options to create histograms
 
@@ -473,6 +473,6 @@ plt.show();{python}
 
 ```
 
-## **Key takeaways**
+## Key takeaways
 
 Histograms help data professionals understand the frequency distributions of their dataset and variables. Knowledge of the shape and type of data distribution will affect important downstream decisions, such as statistical tests and model architecture selection. Additionally, knowing the shape of your data gives valuable insights into the story that your data is telling you by helping you understand its distributional trends.

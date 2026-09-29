@@ -482,7 +482,7 @@ Pandas (ddof=1 default): Designed specifically for statistical analysis and data
 
 :::
 
-### **Example: Real estate prices** 
+### Example: Real estate prices 
 
 Imagine you're a data professional working for a real estate company. The real estate agents on your team like to inform their clients about the variation in rental prices in different residential areas. Part of your job is calculating the standard deviation of monthly rental prices for apartments in specific neighborhoods, and sharing this information with your team. Let’s say you have sample data on monthly rental prices for one-bedroom apartments in two different neighborhoods: Emerald Woods and Rock Park. Assume you calculate the mean and standard deviation for each dataset.  
 

@@ -439,7 +439,7 @@ In this reading, you’ll get an overview of the main attributes of four common 
 
 ## Discrete probability distributions 
 
-### **Uniform distribution**
+### Uniform distribution
 
 The uniform distribution describes events whose outcomes are all equally likely, or have equal probability. 
 
@@ -453,7 +453,7 @@ You can visualize a distribution with a graph, such as a histogram. For a discre
 
 ***Note:** The uniform distribution applies to both discrete and continuous random variables.*
 
-### **Binomial distribution**
+### Binomial distribution
 
 The **binomial distribution** models the probability of events with only two possible outcomes: success or failure. These outcomes are mutually exclusive and cannot occur at the same time. 
 
@@ -499,13 +499,13 @@ Data professionals might use the binomial distribution to model the probability 
 
 In machine learning, the binomial distribution is often used to classify data. For example, a data professional may train an algorithm to recognize whether a digital image is or is not a specific type of animal, like a cat or a dog. 
 
-### **Bernoulli distribution**
+### Bernoulli distribution
 
 The Bernoulli distribution is similar to the binomial distribution as it also models events that have only two possible outcomes (success or failure). The only difference is that the Bernoulli distribution refers to only a single trial of an experiment, while the binomial refers to repeated trials. A classic example of a Bernoulli trial is a single coin toss. 
 
 On the histogram, the x-axis represents the possible outcomes of a coin toss, and the y-axis represents the probability of each outcome. 
 
-### **Poisson distribution**
+### Poisson distribution
 
 The **Poisson distribution** models the probability that a certain number of events will occur during a specific time period. 
 

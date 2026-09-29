@@ -17,7 +17,7 @@ Data Analyst and Data Scientist are common titles, with responsibilities ranging
 
 You have been learning about the role of data analytics professionals within organizations and the work they perform. You’ve also examined some general classifications for data professional roles.  Additionally, you explored what a typical data analytics profession might experience during the initial days in a new position. Large organizations often have more data needs, requiring the creation of teams to take on projects. In this reading, you will learn more about how organizations build data analytics teams and look at some best practices when constructing them.
 
-## **Designing data analytics teams**
+## Designing data analytics teams
 
 The idea of companies creating teams of data professionals developed over time and largely out of necessity. Originally, the responsibilities of data collection, management, and analysis fell onto the CIO (chief information officer) of the company. CIOs in the past would typically hand the responsibilities over to the IT (Informational technology) team. 
 

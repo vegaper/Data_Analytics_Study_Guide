@@ -133,7 +133,7 @@ Overall, data professionals with varied skills help organizations transform oper
 
 Data scientist and data analyst are roles that work directly with data. These professionals gather, clean, analyze, and share insights from data with stakeholders. An increasing number of industries turn to data analysis to create insights that inform various tasks like guide decision-making, identify user preferences, or determine how to use resources more effectively. With more industries looking for data professionals, there is a great chance that you will find one that matches your interests.
 
-## **Key attributes**
+## Key attributes
 
 -   **What they do:** Uncover trends, patterns, and insights from data
 
@@ -141,7 +141,7 @@ Data scientist and data analyst are roles that work directly with data. These pr
 
 -   Entry-level data scientist or analyst positions may not require considerable data analysis experience and be less restrictive about requiring those hired to hold a traditional degree.
 
-## **Sample job titles**
+## Sample job titles
 
 -   Data scientist
 
@@ -157,13 +157,13 @@ Data scientist and data analyst are roles that work directly with data. These pr
 
 Data professionals that work in data management and infrastructural roles are primarily responsible for the systems that distribute data and maintain its integrity. They work alongside data analytics professionals and help support their work. Their main responsibility is to ensure the functionality of data systems and the compliance with local, state, and federal regulations involving data security and ethics. 
 
-## **Key attributes**
+## Key attributes
 
 -   **What they do:** Manage data sources and the overall data infrastructure
 
 -   **How they do it:** Work with the tools and databases used to manage data within a business
 
-## **Sample job titles**
+## Sample job titles
 
 -   Data engineer
 
@@ -179,13 +179,13 @@ Data professionals that work in data management and infrastructural roles are pr
 
 Data analytics and business intelligence share a lot of commonalities. Both fields have professionals that use data to create insights that inform decision-making. A major difference is that **business intelligence is more focused on creating processes and information channels that transform relevant data**. Business intelligence professionals create tables, reports, and dashboards that empower stakeholders, giving them access to the data they need to inform the entire decision-making process on a continual basis. These roles often serve as a complement to core data analytics/data science professionals.
 
-## **Key attributes**
+## Key attributes
 
 -   **What they do:** Perform predictive analysis that enables organizations to determine likely future trends
 
 -   **How they do it:** Create tables, reports and dashboards that empower their organization
 
-## **Sample job titles**
+## Sample job titles
 
 -   BI architect
 

@@ -1,10 +1,10 @@
-
-
-# Reference guide: Python operators
-
+---
+title: "Reference guide: Python operators"
+format: html
+---
 You’ve encountered many Python operators already. Many of them likely feel very familiar to you. After all, there’s nothing novel about addition and subtraction in Python. But there are many more operators than the ones used for basic arithmetic\! Operators are characters that enact specific arithmetic, logical actions, or processes. Data professionals use operators all the time in their work, and they’re a rudimentary part of Python programming, so it’s important to learn them. This reading is a guide to the various operators available to you in Python.  
 
-## **Comparators** 
+# Comparators 
 
 In Python, you can use comparison operators to compare values. When a comparison is made, Python returns a Boolean result—True or False. Python uses the following comparators:
 
@@ -22,7 +22,7 @@ In Python, you can use comparison operators to compare values. When a comparison
 * The single equals sign (=) is reserved for assignment statements. If you use a single equal sign to make a comparison, the computer will return a **SyntaxError**.  
 * If you try to compare data types that aren’t compatible, like checking if a string is greater than an integer, Python will throw a **TypeError**. 
 
-## **Logical operators**
+# Logical operators
 
 Python also has three logical operators that can be combined with comparators to create more complex statements. These operators are:
 
@@ -42,7 +42,7 @@ print(x \< 3 and x \!= 0)
 print(x \>= len(my\_list) or x \== min(my\_list))  
 print(x not in my\_list)
 
-## **Arithmetic operators**
+# Arithmetic operators
 
 Python is also capable of performing mathematical operations using a set of built-in operators. These arithmetic operators are:
 
