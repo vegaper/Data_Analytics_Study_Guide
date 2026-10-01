@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs
+
   resources:
     - "*.pdf" # Automatically copies all PDF files in the project to the build directory
   render:
@@ -43,6 +43,7 @@ jupyter: python3
 
 website:
   title: "Google Advanced Data Analytics"
+  output-dir: docs
 
   # Barra de navegación superior
   navbar:
@@ -187,7 +188,6 @@ website:
             text: "Calculate Statistics with Python"
           - href: Exemplar_Explore_descriptive_statistics.html
             text: "Practice: explore descriptive statistics"
-
           - href: probability.html
             text: "Probability"          
           - href: discrete_probability.html
@@ -196,29 +196,24 @@ website:
             text: "Continuous Probability Distributions"
           - href: Exemplar_Explore_probability_distributions.html
             text: "Practice: Explore probability distributions"
-
           - href: sampling.html
             text: "Sampling"
           - href: sampling_distributions.html
             text: "Sampling Distributions"
           - href: Exemplar_Explore_sampling.html
             text: "Practice: Explore Sampling"
-
           - href: confidence_intervals.html
             text: "Confidence Intervals"
           - href: Exemplar_Explore_confidence_intervals.html
             text: "Practice: Explore Confidence Intervals"
-
           - href: hypothesis_testing.html
             text: "Hypothesis Testing"
           - href: hypothesis_testing_python.html
             text: "Use Python to conduct a hypothesis test"
           - href: Exemplar_Explore_hypothesis_testing.html
             text: "Practice: Explore hypothesis testing"
-
           - href: sample_size.html
-            text: "Calculating Sample Size"
-          
+            text: "Calculating Sample Size"          
           - section: "Reference materials"
             contents:
               - href: Annotated_follow-along_guide_Compute_descriptive_statistics_with_Python.html
