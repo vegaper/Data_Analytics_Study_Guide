@@ -3836,10 +3836,7 @@ vertical-align: -.125em;
 }</script>
 <script>var requirejs,require,define;!function(global,setTimeout){var req,s,head,baseElement,dataMain,src,interactiveScript,currentlyAddingScript,mainScript,subPath,version="2.3.6",commentRegExp=/\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/gm,cjsRequireRegExp=/[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,jsSuffixRegExp=/\.js$/,currDirRegExp=/^\.\//,op=Object.prototype,ostring=op.toString,hasOwn=op.hasOwnProperty,isBrowser=!("undefined"==typeof window||"undefined"==typeof navigator||!window.document),isWebWorker=!isBrowser&&"undefined"!=typeof importScripts,readyRegExp=isBrowser&&"PLAYSTATION 3"===navigator.platform?/^complete$/:/^(complete|loaded)$/,defContextName="_",isOpera="undefined"!=typeof opera&&"[object Opera]"===opera.toString(),contexts={},cfg={},globalDefQueue=[],useInteractive=!1;function commentReplace(e,t){return t||""}function isFunction(e){return"[object Function]"===ostring.call(e)}function isArray(e){return"[object Array]"===ostring.call(e)}function each(e,t){var i;if(e)for(i=0;i<e.length&&(!e[i]||!t(e[i],i,e));i+=1);}function eachReverse(e,t){var i;if(e)for(i=e.length-1;-1<i&&(!e[i]||!t(e[i],i,e));i-=1);}function hasProp(e,t){return hasOwn.call(e,t)}function getOwn(e,t){return hasProp(e,t)&&e[t]}function eachProp(e,t){var i;for(i in e)if(hasProp(e,i)&&t(e[i],i))break}function mixin(i,e,r,n){return e&&eachProp(e,function(e,t){!r&&hasProp(i,t)||(!n||"object"!=typeof e||!e||isArray(e)||isFunction(e)||e instanceof RegExp?i[t]=e:(i[t]||(i[t]={}),mixin(i[t],e,r,n)))}),i}function bind(e,t){return function(){return t.apply(e,arguments)}}function scripts(){return document.getElementsByTagName("script")}function defaultOnError(e){throw e}function getGlobal(e){if(!e)return e;var t=global;return each(e.split("."),function(e){t=t[e]}),t}function makeError(e,t,i,r){var n=new Error(t+"\nhttps://requirejs.org/docs/errors.html#"+e);return n.requireType=e,n.requireModules=r,i&&(n.originalError=i),n}if(void 0===define){if(void 0!==requirejs){if(isFunction(requirejs))return;cfg=requirejs,requirejs=void 0}void 0===require||isFunction(require)||(cfg=require,require=void 0),req=requirejs=function(e,t,i,r){var n,o,a=defContextName;return isArray(e)||"string"==typeof e||(o=e,isArray(t)?(e=t,t=i,i=r):e=[]),o&&o.context&&(a=o.context),(n=getOwn(contexts,a))||(n=contexts[a]=req.s.newContext(a)),o&&n.configure(o),n.require(e,t,i)},req.config=function(e){return req(e)},req.nextTick=void 0!==setTimeout?function(e){setTimeout(e,4)}:function(e){e()},require||(require=req),req.version=version,req.jsExtRegExp=/^\/|:|\?|\.js$/,req.isBrowser=isBrowser,s=req.s={contexts:contexts,newContext:newContext},req({}),each(["toUrl","undef","defined","specified"],function(t){req[t]=function(){var e=contexts[defContextName];return e.require[t].apply(e,arguments)}}),isBrowser&&(head=s.head=document.getElementsByTagName("head")[0],baseElement=document.getElementsByTagName("base")[0],baseElement&&(head=s.head=baseElement.parentNode)),req.onError=defaultOnError,req.createNode=function(e,t,i){var r=e.xhtml?document.createElementNS("http://www.w3.org/1999/xhtml","html:script"):document.createElement("script");return r.type=e.scriptType||"text/javascript",r.charset="utf-8",r.async=!0,r},req.load=function(t,i,r){var e,n=t&&t.config||{};if(isBrowser)return(e=req.createNode(n,i,r)).setAttribute("data-requirecontext",t.contextName),e.setAttribute("data-requiremodule",i),!e.attachEvent||e.attachEvent.toString&&e.attachEvent.toString().indexOf("[native code")<0||isOpera?(e.addEventListener("load",t.onScriptLoad,!1),e.addEventListener("error",t.onScriptError,!1)):(useInteractive=!0,e.attachEvent("onreadystatechange",t.onScriptLoad)),e.src=r,n.onNodeCreated&&n.onNodeCreated(e,n,i,r),currentlyAddingScript=e,baseElement?head.insertBefore(e,baseElement):head.appendChild(e),currentlyAddingScript=null,e;if(isWebWorker)try{setTimeout(function(){},0),importScripts(r),t.completeLoad(i)}catch(e){t.onError(makeError("importscripts","importScripts failed for "+i+" at "+r,e,[i]))}},isBrowser&&!cfg.skipDataMain&&eachReverse(scripts(),function(e){if(head||(head=e.parentNode),dataMain=e.getAttribute("data-main"))return mainScript=dataMain,cfg.baseUrl||-1!==mainScript.indexOf("!")||(mainScript=(src=mainScript.split("/")).pop(),subPath=src.length?src.join("/")+"/":"./",cfg.baseUrl=subPath),mainScript=mainScript.replace(jsSuffixRegExp,""),req.jsExtRegExp.test(mainScript)&&(mainScript=dataMain),cfg.deps=cfg.deps?cfg.deps.concat(mainScript):[mainScript],!0}),define=function(e,i,t){var r,n;"string"!=typeof e&&(t=i,i=e,e=null),isArray(i)||(t=i,i=null),!i&&isFunction(t)&&(i=[],t.length&&(t.toString().replace(commentRegExp,commentReplace).replace(cjsRequireRegExp,function(e,t){i.push(t)}),i=(1===t.length?["require"]:["require","exports","module"]).concat(i))),useInteractive&&(r=currentlyAddingScript||getInteractiveScript())&&(e||(e=r.getAttribute("data-requiremodule")),n=contexts[r.getAttribute("data-requirecontext")]),n?(n.defQueue.push([e,i,t]),n.defQueueMap[e]=!0):globalDefQueue.push([e,i,t])},define.amd={jQuery:!0},req.exec=function(text){return eval(text)},req(cfg)}function newContext(u){var i,e,l,c,d,g={waitSeconds:7,baseUrl:"./",paths:{},bundles:{},pkgs:{},shim:{},config:{}},p={},f={},r={},h=[],m={},n={},v={},x=1,b=1;function q(e,t,i){var r,n,o,a,s,u,c,d,p,f,l=t&&t.split("/"),h=g.map,m=h&&h["*"];if(e&&(u=(e=e.split("/")).length-1,g.nodeIdCompat&&jsSuffixRegExp.test(e[u])&&(e[u]=e[u].replace(jsSuffixRegExp,"")),"."===e[0].charAt(0)&&l&&(e=l.slice(0,l.length-1).concat(e)),function(e){var t,i;for(t=0;t<e.length;t++)if("."===(i=e[t]))e.splice(t,1),t-=1;else if(".."===i){if(0===t||1===t&&".."===e[2]||".."===e[t-1])continue;0<t&&(e.splice(t-1,2),t-=2)}}(e),e=e.join("/")),i&&h&&(l||m)){e:for(o=(n=e.split("/")).length;0<o;o-=1){if(s=n.slice(0,o).join("/"),l)for(a=l.length;0<a;a-=1)if((r=getOwn(h,l.slice(0,a).join("/")))&&(r=getOwn(r,s))){c=r,d=o;break e}!p&&m&&getOwn(m,s)&&(p=getOwn(m,s),f=o)}!c&&p&&(c=p,d=f),c&&(n.splice(0,d,c),e=n.join("/"))}return getOwn(g.pkgs,e)||e}function E(t){isBrowser&&each(scripts(),function(e){if(e.getAttribute("data-requiremodule")===t&&e.getAttribute("data-requirecontext")===l.contextName)return e.parentNode.removeChild(e),!0})}function w(e){var t=getOwn(g.paths,e);if(t&&isArray(t)&&1<t.length)return t.shift(),l.require.undef(e),l.makeRequire(null,{skipMap:!0})([e]),!0}function y(e){var t,i=e?e.indexOf("!"):-1;return-1<i&&(t=e.substring(0,i),e=e.substring(i+1,e.length)),[t,e]}function S(e,t,i,r){var n,o,a,s,u=null,c=t?t.name:null,d=e,p=!0,f="";return e||(p=!1,e="_@r"+(x+=1)),u=(s=y(e))[0],e=s[1],u&&(u=q(u,c,r),o=getOwn(m,u)),e&&(u?f=i?e:o&&o.normalize?o.normalize(e,function(e){return q(e,c,r)}):-1===e.indexOf("!")?q(e,c,r):e:(u=(s=y(f=q(e,c,r)))[0],f=s[1],i=!0,n=l.nameToUrl(f))),{prefix:u,name:f,parentMap:t,unnormalized:!!(a=!u||o||i?"":"_unnormalized"+(b+=1)),url:n,originalName:d,isDefine:p,id:(u?u+"!"+f:f)+a}}function k(e){var t=e.id,i=getOwn(p,t);return i||(i=p[t]=new l.Module(e)),i}function M(e,t,i){var r=e.id,n=getOwn(p,r);!hasProp(m,r)||n&&!n.defineEmitComplete?(n=k(e)).error&&"error"===t?i(n.error):n.on(t,i):"defined"===t&&i(m[r])}function O(i,e){var t=i.requireModules,r=!1;e?e(i):(each(t,function(e){var t=getOwn(p,e);t&&(t.error=i,t.events.error&&(r=!0,t.emit("error",i)))}),r||req.onError(i))}function j(){globalDefQueue.length&&(each(globalDefQueue,function(e){var t=e[0];"string"==typeof t&&(l.defQueueMap[t]=!0),h.push(e)}),globalDefQueue=[])}function P(e){delete p[e],delete f[e]}function R(){var e,r,t=1e3*g.waitSeconds,n=t&&l.startTime+t<(new Date).getTime(),o=[],a=[],s=!1,u=!0;if(!i){if(i=!0,eachProp(f,function(e){var t=e.map,i=t.id;if(e.enabled&&(t.isDefine||a.push(e),!e.error))if(!e.inited&&n)w(i)?s=r=!0:(o.push(i),E(i));else if(!e.inited&&e.fetched&&t.isDefine&&(s=!0,!t.prefix))return u=!1}),n&&o.length)return(e=makeError("timeout","Load timeout for modules: "+o,null,o)).contextName=l.contextName,O(e);u&&each(a,function(e){!function n(o,a,s){var e=o.map.id;o.error?o.emit("error",o.error):(a[e]=!0,each(o.depMaps,function(e,t){var i=e.id,r=getOwn(p,i);!r||o.depMatched[t]||s[i]||(getOwn(a,i)?(o.defineDep(t,m[i]),o.check()):n(r,a,s))}),s[e]=!0)}(e,{},{})}),n&&!r||!s||!isBrowser&&!isWebWorker||d||(d=setTimeout(function(){d=0,R()},50)),i=!1}}function a(e){hasProp(m,e[0])||k(S(e[0],null,!0)).init(e[1],e[2])}function o(e,t,i,r){e.detachEvent&&!isOpera?r&&e.detachEvent(r,t):e.removeEventListener(i,t,!1)}function s(e){var t=e.currentTarget||e.srcElement;return o(t,l.onScriptLoad,"load","onreadystatechange"),o(t,l.onScriptError,"error"),{node:t,id:t&&t.getAttribute("data-requiremodule")}}function T(){var e;for(j();h.length;){if(null===(e=h.shift())[0])return O(makeError("mismatch","Mismatched anonymous define() module: "+e[e.length-1]));a(e)}l.defQueueMap={}}return c={require:function(e){return e.require?e.require:e.require=l.makeRequire(e.map)},exports:function(e){if(e.usingExports=!0,e.map.isDefine)return e.exports?m[e.map.id]=e.exports:e.exports=m[e.map.id]={}},module:function(e){return e.module?e.module:e.module={id:e.map.id,uri:e.map.url,config:function(){return getOwn(g.config,e.map.id)||{}},exports:e.exports||(e.exports={})}}},(e=function(e){this.events=getOwn(r,e.id)||{},this.map=e,this.shim=getOwn(g.shim,e.id),this.depExports=[],this.depMaps=[],this.depMatched=[],this.pluginMaps={},this.depCount=0}).prototype={init:function(e,t,i,r){r=r||{},this.inited||(this.factory=t,i?this.on("error",i):this.events.error&&(i=bind(this,function(e){this.emit("error",e)})),this.depMaps=e&&e.slice(0),this.errback=i,this.inited=!0,this.ignore=r.ignore,r.enabled||this.enabled?this.enable():this.check())},defineDep:function(e,t){this.depMatched[e]||(this.depMatched[e]=!0,this.depCount-=1,this.depExports[e]=t)},fetch:function(){if(!this.fetched){this.fetched=!0,l.startTime=(new Date).getTime();var e=this.map;if(!this.shim)return e.prefix?this.callPlugin():this.load();l.makeRequire(this.map,{enableBuildCallback:!0})(this.shim.deps||[],bind(this,function(){return e.prefix?this.callPlugin():this.load()}))}},load:function(){var e=this.map.url;n[e]||(n[e]=!0,l.load(this.map.id,e))},check:function(){if(this.enabled&&!this.enabling){var t,e,i=this.map.id,r=this.depExports,n=this.exports,o=this.factory;if(this.inited){if(this.error)this.emit("error",this.error);else if(!this.defining){if(this.defining=!0,this.depCount<1&&!this.defined){if(isFunction(o)){if(this.events.error&&this.map.isDefine||req.onError!==defaultOnError)try{n=l.execCb(i,o,r,n)}catch(e){t=e}else n=l.execCb(i,o,r,n);if(this.map.isDefine&&void 0===n&&((e=this.module)?n=e.exports:this.usingExports&&(n=this.exports)),t)return t.requireMap=this.map,t.requireModules=this.map.isDefine?[this.map.id]:null,t.requireType=this.map.isDefine?"define":"require",O(this.error=t)}else n=o;if(this.exports=n,this.map.isDefine&&!this.ignore&&(m[i]=n,req.onResourceLoad)){var a=[];each(this.depMaps,function(e){a.push(e.normalizedMap||e)}),req.onResourceLoad(l,this.map,a)}P(i),this.defined=!0}this.defining=!1,this.defined&&!this.defineEmitted&&(this.defineEmitted=!0,this.emit("defined",this.exports),this.defineEmitComplete=!0)}}else hasProp(l.defQueueMap,i)||this.fetch()}},callPlugin:function(){var u=this.map,c=u.id,e=S(u.prefix);this.depMaps.push(e),M(e,"defined",bind(this,function(e){var o,t,i,r=getOwn(v,this.map.id),n=this.map.name,a=this.map.parentMap?this.map.parentMap.name:null,s=l.makeRequire(u.parentMap,{enableBuildCallback:!0});return this.map.unnormalized?(e.normalize&&(n=e.normalize(n,function(e){return q(e,a,!0)})||""),M(t=S(u.prefix+"!"+n,this.map.parentMap,!0),"defined",bind(this,function(e){this.map.normalizedMap=t,this.init([],function(){return e},null,{enabled:!0,ignore:!0})})),void((i=getOwn(p,t.id))&&(this.depMaps.push(t),this.events.error&&i.on("error",bind(this,function(e){this.emit("error",e)})),i.enable()))):r?(this.map.url=l.nameToUrl(r),void this.load()):((o=bind(this,function(e){this.init([],function(){return e},null,{enabled:!0})})).error=bind(this,function(e){this.inited=!0,(this.error=e).requireModules=[c],eachProp(p,function(e){0===e.map.id.indexOf(c+"_unnormalized")&&P(e.map.id)}),O(e)}),o.fromText=bind(this,function(e,t){var i=u.name,r=S(i),n=useInteractive;t&&(e=t),n&&(useInteractive=!1),k(r),hasProp(g.config,c)&&(g.config[i]=g.config[c]);try{req.exec(e)}catch(e){return O(makeError("fromtexteval","fromText eval for "+c+" failed: "+e,e,[c]))}n&&(useInteractive=!0),this.depMaps.push(r),l.completeLoad(i),s([i],o)}),void e.load(u.name,s,o,g))})),l.enable(e,this),this.pluginMaps[e.id]=e},enable:function(){(f[this.map.id]=this).enabled=!0,this.enabling=!0,each(this.depMaps,bind(this,function(e,t){var i,r,n;if("string"==typeof e){if(e=S(e,this.map.isDefine?this.map:this.map.parentMap,!1,!this.skipMap),this.depMaps[t]=e,n=getOwn(c,e.id))return void(this.depExports[t]=n(this));this.depCount+=1,M(e,"defined",bind(this,function(e){this.undefed||(this.defineDep(t,e),this.check())})),this.errback?M(e,"error",bind(this,this.errback)):this.events.error&&M(e,"error",bind(this,function(e){this.emit("error",e)}))}i=e.id,r=p[i],hasProp(c,i)||!r||r.enabled||l.enable(e,this)})),eachProp(this.pluginMaps,bind(this,function(e){var t=getOwn(p,e.id);t&&!t.enabled&&l.enable(e,this)})),this.enabling=!1,this.check()},on:function(e,t){var i=this.events[e];i||(i=this.events[e]=[]),i.push(t)},emit:function(e,t){each(this.events[e],function(e){e(t)}),"error"===e&&delete this.events[e]}},(l={config:g,contextName:u,registry:p,defined:m,urlFetched:n,defQueue:h,defQueueMap:{},Module:e,makeModuleMap:S,nextTick:req.nextTick,onError:O,configure:function(e){if(e.baseUrl&&"/"!==e.baseUrl.charAt(e.baseUrl.length-1)&&(e.baseUrl+="/"),"string"==typeof e.urlArgs){var i=e.urlArgs;e.urlArgs=function(e,t){return(-1===t.indexOf("?")?"?":"&")+i}}var r=g.shim,n={paths:!0,bundles:!0,config:!0,map:!0};eachProp(e,function(e,t){n[t]?(g[t]||(g[t]={}),mixin(g[t],e,!0,!0)):g[t]=e}),e.bundles&&eachProp(e.bundles,function(e,t){each(e,function(e){e!==t&&(v[e]=t)})}),e.shim&&(eachProp(e.shim,function(e,t){isArray(e)&&(e={deps:e}),!e.exports&&!e.init||e.exportsFn||(e.exportsFn=l.makeShimExports(e)),r[t]=e}),g.shim=r),e.packages&&each(e.packages,function(e){var t;t=(e="string"==typeof e?{name:e}:e).name,e.location&&(g.paths[t]=e.location),g.pkgs[t]=e.name+"/"+(e.main||"main").replace(currDirRegExp,"").replace(jsSuffixRegExp,"")}),eachProp(p,function(e,t){e.inited||e.map.unnormalized||(e.map=S(t,null,!0))}),(e.deps||e.callback)&&l.require(e.deps||[],e.callback)},makeShimExports:function(t){return function(){var e;return t.init&&(e=t.init.apply(global,arguments)),e||t.exports&&getGlobal(t.exports)}},makeRequire:function(o,a){function s(e,t,i){var r,n;return a.enableBuildCallback&&t&&isFunction(t)&&(t.__requireJsBuild=!0),"string"==typeof e?isFunction(t)?O(makeError("requireargs","Invalid require call"),i):o&&hasProp(c,e)?c[e](p[o.id]):req.get?req.get(l,e,o,s):(r=S(e,o,!1,!0).id,hasProp(m,r)?m[r]:O(makeError("notloaded",'Module name "'+r+'" has not been loaded yet for context: '+u+(o?"":". Use require([])")))):(T(),l.nextTick(function(){T(),(n=k(S(null,o))).skipMap=a.skipMap,n.init(e,t,i,{enabled:!0}),R()}),s)}return a=a||{},mixin(s,{isBrowser:isBrowser,toUrl:function(e){var t,i=e.lastIndexOf("."),r=e.split("/")[0];return-1!==i&&(!("."===r||".."===r)||1<i)&&(t=e.substring(i,e.length),e=e.substring(0,i)),l.nameToUrl(q(e,o&&o.id,!0),t,!0)},defined:function(e){return hasProp(m,S(e,o,!1,!0).id)},specified:function(e){return e=S(e,o,!1,!0).id,hasProp(m,e)||hasProp(p,e)}}),o||(s.undef=function(i){j();var e=S(i,o,!0),t=getOwn(p,i);t.undefed=!0,E(i),delete m[i],delete n[e.url],delete r[i],eachReverse(h,function(e,t){e[0]===i&&h.splice(t,1)}),delete l.defQueueMap[i],t&&(t.events.defined&&(r[i]=t.events),P(i))}),s},enable:function(e){getOwn(p,e.id)&&k(e).enable()},completeLoad:function(e){var t,i,r,n=getOwn(g.shim,e)||{},o=n.exports;for(j();h.length;){if(null===(i=h.shift())[0]){if(i[0]=e,t)break;t=!0}else i[0]===e&&(t=!0);a(i)}if(l.defQueueMap={},r=getOwn(p,e),!t&&!hasProp(m,e)&&r&&!r.inited){if(!(!g.enforceDefine||o&&getGlobal(o)))return w(e)?void 0:O(makeError("nodefine","No define call for "+e,null,[e]));a([e,n.deps||[],n.exportsFn])}R()},nameToUrl:function(e,t,i){var r,n,o,a,s,u,c=getOwn(g.pkgs,e);if(c&&(e=c),u=getOwn(v,e))return l.nameToUrl(u,t,i);if(req.jsExtRegExp.test(e))a=e+(t||"");else{for(r=g.paths,o=(n=e.split("/")).length;0<o;o-=1)if(s=getOwn(r,n.slice(0,o).join("/"))){isArray(s)&&(s=s[0]),n.splice(0,o,s);break}a=n.join("/"),a=("/"===(a+=t||(/^data\:|^blob\:|\?/.test(a)||i?"":".js")).charAt(0)||a.match(/^[\w\+\.\-]+:/)?"":g.baseUrl)+a}return g.urlArgs&&!/^blob\:/.test(a)?a+g.urlArgs(e,a):a},load:function(e,t){req.load(l,e,t)},execCb:function(e,t,i,r){return t.apply(r,i)},onScriptLoad:function(e){if("load"===e.type||readyRegExp.test((e.currentTarget||e.srcElement).readyState)){interactiveScript=null;var t=s(e);l.completeLoad(t.id)}},onScriptError:function(e){var i=s(e);if(!w(i.id)){var r=[];return eachProp(p,function(e,t){0!==t.indexOf("_@r")&&each(e.depMaps,function(e){if(e.id===i.id)return r.push(t),!0})}),O(makeError("scripterror",'Script error for "'+i.id+(r.length?'", needed by: '+r.join(", "):'"'),e,[i.id]))}}}).require=l.makeRequire(),l}function getInteractiveScript(){return interactiveScript&&"interactive"===interactiveScript.readyState||eachReverse(scripts(),function(e){if("interactive"===e.readyState)return interactiveScript=e}),interactiveScript}}(this,"undefined"==typeof setTimeout?void 0:setTimeout);</script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
 
 <style type="text/css">
@@ -4788,17 +4785,17 @@ text-transform: uppercase;
   <ul>
   <li><a href="#how-to-import-a-dataset-from-a-csv-file" id="toc-how-to-import-a-dataset-from-a-csv-file" class="nav-link" data-scroll-target="#how-to-import-a-dataset-from-a-csv-file"><span class="header-section-number">1.1</span> How to import a dataset from a CSV file </a>
   <ul class="collapse">
-  <li><a href="#importing-a-csv-file-using-pandas" id="toc-importing-a-csv-file-using-pandas" class="nav-link" data-scroll-target="#importing-a-csv-file-using-pandas"><span class="header-section-number">1.1.1</span> <strong>Importing a CSV file using pandas</strong></a></li>
+  <li><a href="#importing-a-csv-file-using-pandas" id="toc-importing-a-csv-file-using-pandas" class="nav-link" data-scroll-target="#importing-a-csv-file-using-pandas"><span class="header-section-number">1.1.1</span> Importing a CSV file using pandas</a></li>
   </ul></li>
   <li><a href="#how-to-import-data-by-connecting-to-a-database" id="toc-how-to-import-data-by-connecting-to-a-database" class="nav-link" data-scroll-target="#how-to-import-data-by-connecting-to-a-database"><span class="header-section-number">1.2</span> How to import data by connecting to a database</a>
   <ul class="collapse">
-  <li><a href="#downloading-data-from-bigquery" id="toc-downloading-data-from-bigquery" class="nav-link" data-scroll-target="#downloading-data-from-bigquery"><span class="header-section-number">1.2.1</span> <strong>Downloading data from BigQuery</strong></a>
+  <li><a href="#downloading-data-from-bigquery" id="toc-downloading-data-from-bigquery" class="nav-link" data-scroll-target="#downloading-data-from-bigquery"><span class="header-section-number">1.2.1</span> Downloading data from BigQuery</a>
   <ul class="collapse">
-  <li><a href="#step-1-access-bigquery" id="toc-step-1-access-bigquery" class="nav-link" data-scroll-target="#step-1-access-bigquery"><strong>Step 1: Access BigQuery</strong></a></li>
-  <li><a href="#step-2-perform-a-query" id="toc-step-2-perform-a-query" class="nav-link" data-scroll-target="#step-2-perform-a-query"><strong>Step 2: Perform a query</strong></a></li>
+  <li><a href="#step-1-access-bigquery" id="toc-step-1-access-bigquery" class="nav-link" data-scroll-target="#step-1-access-bigquery">Step 1: Access BigQuery</a></li>
+  <li><a href="#step-2-perform-a-query" id="toc-step-2-perform-a-query" class="nav-link" data-scroll-target="#step-2-perform-a-query">Step 2: Perform a query</a></li>
   </ul></li>
-  <li><a href="#using-notebooks-within-bigquery" id="toc-using-notebooks-within-bigquery" class="nav-link" data-scroll-target="#using-notebooks-within-bigquery"><span class="header-section-number">1.2.2</span> <strong>Using notebooks within BigQuery</strong></a></li>
-  <li><a href="#using-notebooks-outside-of-bigquery" id="toc-using-notebooks-outside-of-bigquery" class="nav-link" data-scroll-target="#using-notebooks-outside-of-bigquery"><span class="header-section-number">1.2.3</span> <strong>Using notebooks outside of BigQuery</strong></a></li>
+  <li><a href="#using-notebooks-within-bigquery" id="toc-using-notebooks-within-bigquery" class="nav-link" data-scroll-target="#using-notebooks-within-bigquery"><span class="header-section-number">1.2.2</span> Using notebooks within BigQuery</a></li>
+  <li><a href="#using-notebooks-outside-of-bigquery" id="toc-using-notebooks-outside-of-bigquery" class="nav-link" data-scroll-target="#using-notebooks-outside-of-bigquery"><span class="header-section-number">1.2.3</span> Using notebooks outside of BigQuery</a></li>
   </ul></li>
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><span class="header-section-number">1.3</span> Key takeaways</a></li>
   <li><a href="#resources-for-more-information" id="toc-resources-for-more-information" class="nav-link" data-scroll-target="#resources-for-more-information"><span class="header-section-number">1.4</span> Resources for more information</a></li>
@@ -4807,9 +4804,9 @@ text-transform: uppercase;
   <ul>
   <li><a href="#python-reference-guide-for-eda-discovering" id="toc-python-reference-guide-for-eda-discovering" class="nav-link" data-scroll-target="#python-reference-guide-for-eda-discovering"><span class="header-section-number">2.1</span> Python reference guide for EDA: Discovering</a>
   <ul class="collapse">
-  <li><a href="#dataframe.infox" id="toc-dataframe.infox" class="nav-link" data-scroll-target="#dataframe.infox"><span class="header-section-number">2.1.1</span> <strong>DataFrame.info(X)</strong></a></li>
-  <li><a href="#dataframe.describe" id="toc-dataframe.describe" class="nav-link" data-scroll-target="#dataframe.describe"><span class="header-section-number">2.1.2</span> <strong>DataFrame.describe()</strong></a></li>
-  <li><a href="#dataframe.shape" id="toc-dataframe.shape" class="nav-link" data-scroll-target="#dataframe.shape"><span class="header-section-number">2.1.3</span> <strong>DataFrame.shape</strong></a></li>
+  <li><a href="#dataframe.infox" id="toc-dataframe.infox" class="nav-link" data-scroll-target="#dataframe.infox"><span class="header-section-number">2.1.1</span> DataFrame.info(X)</a></li>
+  <li><a href="#dataframe.describe" id="toc-dataframe.describe" class="nav-link" data-scroll-target="#dataframe.describe"><span class="header-section-number">2.1.2</span> DataFrame.describe()</a></li>
+  <li><a href="#dataframe.shape" id="toc-dataframe.shape" class="nav-link" data-scroll-target="#dataframe.shape"><span class="header-section-number">2.1.3</span> DataFrame.shape</a></li>
   </ul></li>
   <li><a href="#key-takeaways-1" id="toc-key-takeaways-1" class="nav-link" data-scroll-target="#key-takeaways-1"><span class="header-section-number">2.2</span> Key takeaways</a></li>
   <li><a href="#resources-for-more-information-1" id="toc-resources-for-more-information-1" class="nav-link" data-scroll-target="#resources-for-more-information-1"><span class="header-section-number">2.3</span> Resources for more information</a></li>
@@ -4873,7 +4870,7 @@ text-transform: uppercase;
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;example_filepath/file&#39;</span>, mode<span class="op">=</span><span class="st">&#39;r&#39;</span>) <span class="im">as</span> <span class="bu">file</span>: </span>
 <span id="cb1-2"><a href="#cb1-2"></a>    data <span class="op">=</span> <span class="bu">file</span>.read()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="importing-a-csv-file-using-pandas" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="importing-a-csv-file-using-pandas"><span class="header-section-number">1.1.1</span> <strong>Importing a CSV file using pandas</strong></h3>
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="importing-a-csv-file-using-pandas"><span class="header-section-number">1.1.1</span> Importing a CSV file using pandas</h3>
 <p>Instead of using Python’s standard library to read a file, you can use pandas to import the CSV file into a dataframe. First, of course, you’ll want to import the pandas library into your Python notebook.</p>
 <p><strong>import pandas as pd</strong></p>
 <p>Next, you’ll use the <strong>read_csv()</strong> function to load the data into a dataframe. The file path then goes in the argument field.  </p>
@@ -4888,13 +4885,13 @@ text-transform: uppercase;
 <p>There are a number of database solutions that you can connect to with Python, such as BigQuery, MySQL, SQLite, and Oracle. Databases are a convenient way for companies and organizations to store huge amounts of data. </p>
 <p>If the dataset is small enough, it can be downloaded and manipulated locally on your computer. However, often the datasets kept in databases are too large to access in their entirety on a personal computer. In this case you have a number of different options, most of which involve querying the database with SQL to obtain specific tables of interest. In other words, you extract select parts—usually specified rows and/or columns—from the whole dataset. The manner in which querying is done can vary with respect to systems, platforms, and interfaces. Because of this variability, this reference guide will only present a couple of different ways to query databases. Specifically, it will explore BigQuery, Google’s data warehouse that provides a wide range of tools and services to facilitate analysis.</p>
 <section id="downloading-data-from-bigquery" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="downloading-data-from-bigquery"><span class="header-section-number">1.2.1</span> <strong>Downloading data from BigQuery</strong></h3>
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="downloading-data-from-bigquery"><span class="header-section-number">1.2.1</span> Downloading data from BigQuery</h3>
 <section id="step-1-access-bigquery" class="level4">
-<h4 class="anchored" data-anchor-id="step-1-access-bigquery"><strong>Step 1: Access BigQuery</strong></h4>
+<h4 class="anchored" data-anchor-id="step-1-access-bigquery">Step 1: Access BigQuery</h4>
 <p>BigQuery allows you to upload data for storage, and it also has a number of publicly available datasets to explore. You can access these public datasets for free using <a href="https://cloud.google.com/bigquery/docs/sandbox">BigQuery Sandbox</a>, which requires a free Google account. Sandbox gives you 10 GB of active storage and 1 TB of processed query data each month for free.</p>
 </section>
 <section id="step-2-perform-a-query" class="level4">
-<h4 class="anchored" data-anchor-id="step-2-perform-a-query"><strong>Step 2: Perform a query</strong></h4>
+<h4 class="anchored" data-anchor-id="step-2-perform-a-query">Step 2: Perform a query</h4>
 <p>Once you have authenticated your account and created a new project as indicated in the instructions linked in step one, you’re ready to query a database. Note that if it is your first time logging in, you may encounter a window asking “New to the BigQueryUI?” with a link to a quickstart guide.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -4917,12 +4914,12 @@ text-transform: uppercase;
 </section>
 </section>
 <section id="using-notebooks-within-bigquery" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="using-notebooks-within-bigquery"><span class="header-section-number">1.2.2</span> <strong>Using notebooks within BigQuery</strong></h3>
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="using-notebooks-within-bigquery"><span class="header-section-number">1.2.2</span> Using notebooks within BigQuery</h3>
 <p>Another way to access data on BigQuery is by using the tools within the BigQuery platform itself. This workflow more closely resembles what data professionals would use when working with very large datasets stored in the cloud. Essentially, <strong>you set up a virtual machine on BigQuery</strong>. A virtual machine is a computer that has its own CPU, memory, software, etc., just like any other computer, only it does not have its own dedicated hardware; they most often exist as a partition on a server. You can work in a Jupyter notebook on the virtual machine on the BigQuery platform, from which you can query and pull in data directly. </p>
 <p>This process requires you to set up a payment method. However, new users get a $300 credit, and a ML instance is only a few cents per minute, so you’ll get approximately 2,000 hours of free usage before incurring any charges. There are a lot of great tutorials for setting this up. For instance, if you search for “How to use Jupyter notebook in Google Cloud AI,” you’ll find a number of useful videos and blogs on the topic.</p>
 </section>
 <section id="using-notebooks-outside-of-bigquery" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="using-notebooks-outside-of-bigquery"><span class="header-section-number">1.2.3</span> <strong>Using notebooks outside of BigQuery</strong></h3>
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="using-notebooks-outside-of-bigquery"><span class="header-section-number">1.2.3</span> Using notebooks outside of BigQuery</h3>
 <p>It’s also possible to query data on BigQuery from notebooks that are not on the BigQuery platform. However, the details of this process are dependent on a number of factors, including the platform that is hosting the notebook, the operating environment, and the specific location of the data being accessed. Therefore, we will not go into depth on this method. Feel free to explore this on your own, though. You’ll find many helpful online resources that are just a search away.</p>
 </section>
 </section>
@@ -4946,7 +4943,7 @@ text-transform: uppercase;
 <h2 data-number="2.1" class="anchored" data-anchor-id="python-reference-guide-for-eda-discovering"><span class="header-section-number">2.1</span> Python reference guide for EDA: Discovering</h2>
 <p>Use the following pandas methods and attributes to help you learn about a dataset when you encounter it for the first time.</p>
 <p>Note: The following code will create a sample dataset:</p>
-<div id="a128e5ab" class="cell" data-execution_count="2">
+<div id="bb0d3d85" class="cell" data-execution_count="2">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -4972,7 +4969,7 @@ text-transform: uppercase;
 <ul>
 <li><p>The <strong>head()</strong> method will display the first <em>n</em> rows of the dataframe. </p></li>
 <li><p>In the argument field, input the number of rows you want displayed in a Python notebook. The default is 5 rows. </p>
-<div id="3fc560bb" class="cell" data-execution_count="3">
+<div id="a64e0d87" class="cell" data-execution_count="3">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5047,12 +5044,12 @@ text-transform: uppercase;
 </div></li>
 </ul>
 <section id="dataframe.infox" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="dataframe.infox"><span class="header-section-number">2.1.1</span> <strong>DataFrame.info(X)</strong></h3>
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="dataframe.infox"><span class="header-section-number">2.1.1</span> DataFrame.info(X)</h3>
 <ul>
 <li><p>The <strong>info()</strong> method will display a summary of the dataframe, including the range index, dtypes, column headers, and memory usage.</p></li>
 <li><p>Leaving the argument field blank will return a full summary. As an option, in the argument field you can type in <strong>show_counts=True</strong>, which will return the count of non-null values for each column. </p></li>
 </ul>
-<div id="6c3f2d62" class="cell" data-execution_count="4">
+<div id="4d3aa8cd" class="cell" data-execution_count="4">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5075,12 +5072,12 @@ memory usage: 554.0 bytes</code></pre>
 </div>
 </section>
 <section id="dataframe.describe" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="dataframe.describe"><span class="header-section-number">2.1.2</span> <strong>DataFrame.describe()</strong></h3>
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="dataframe.describe"><span class="header-section-number">2.1.2</span> DataFrame.describe()</h3>
 <ul>
 <li><p>The <strong>describe()</strong> method will return descriptive statistics of the entire dataset, including total count, mean, minimum, maximum, dispersion, and distribution. </p></li>
 <li><p>Leaving the argument field blank will default to returning a summary of the data frame’s statistics. As an option, you can use “include=[X]” and “exclude=[X]” which will limit the results to specific data types, depending on what you input in the brackets. </p></li>
 </ul>
-<div id="0e4ad75f" class="cell" data-execution_count="5">
+<div id="14c7b13d" class="cell" data-execution_count="5">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5164,11 +5161,11 @@ memory usage: 554.0 bytes</code></pre>
 </div>
 </section>
 <section id="dataframe.shape" class="level3" data-number="2.1.3">
-<h3 data-number="2.1.3" class="anchored" data-anchor-id="dataframe.shape"><span class="header-section-number">2.1.3</span> <strong>DataFrame.shape</strong></h3>
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="dataframe.shape"><span class="header-section-number">2.1.3</span> DataFrame.shape</h3>
 <ul>
 <li><strong>shape</strong> is an attribute that returns a tuple representing the dimensions of the dataframe by number of rows and columns. Remember that attributes are not followed by parentheses. The code will look something like this: </li>
 </ul>
-<div id="186504d6" class="cell" data-execution_count="6">
+<div id="16b74583" class="cell" data-execution_count="6">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5193,7 +5190,7 @@ memory usage: 554.0 bytes</code></pre>
 <p>Now that you have a better understanding of ​exploratory data analysis and why it’s important, ​let’s do some discovering on a dataset similar to one ​you might work with in ​your career as a data professional. ​The National Oceanic and Atmospheric Administration, ​or NOAA, keeps ​a daily record of ​lightning strikes across much of North America. ​Let’s imagine we’ve been tasked with performing EDA on ​this dataset so that it can be used to ​predict future lightning strikes in this region. ​In this video, we will use ​Python to do the EDA practice of ​discovering on data gathered by the NOAA in 2018. ​We will talk through the first ​steps data professionals would ​typically do when encountering ​a dataset for the first time. ​</p>
 <p>Let’s open up a Jupyter Python notebook to begin. ​First, we want to import the dataset we wish to ​analyze and ​the applicable python libraries we want to use. </p>
 <p>​​The NOAA dataset we will use is in the public domain, ​but we have provided ​a file to download so you can follow along. ​To begin, import ​the Python libraries and packages you plan to use. ​In our case, we’ll use Pandas, ​NumPy and matplotlib.pyplot. ​To save time and increase efficiency, ​rename each library or ​package with a two-letter abbreviation, ​pd, np and plt, dt respectively. ​Another quick tip for saving time. </p>
-<div id="f3a66b36" class="cell" data-execution_count="7">
+<div id="c0edd36c" class="cell" data-execution_count="7">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -5205,7 +5202,7 @@ memory usage: 554.0 bytes</code></pre>
 <p>​Instead of clicking Run cell, ​you can always use the keyboard shortcut, ​Control or Command Enter. ​You may recall that Python packages ​like Pandas and NumPy are ​open source code packages that have been pre-designed and ​coded to help analyze and ​manipulate data more efficiently.  ​Pyplot is a package focused ​on plotting charts and visualizations. ​Most data professionals import ​all their commonly used libraries, ​packages, and modules at ​the beginning of any coding session. ​But you can import them at ​any time while working with data in a Python notebook.  ​The pandas conversion function to ​date time is incredibly ​helpful when working with dates and times. ​We will first convert our date column to datetime, ​which will split up the date objects into ​separate data points of year, month, and day. </p>
 <p>​This is good practice because throughout your career, ​you’ll be grouping data by ​various time segments. We’ll get to that later. </p>
 <p>​After running these initial functions, ​you are ready to begin your EDA ​discovering practice with this dataset. </p>
-<div id="5c1a6299" class="cell" data-execution_count="8">
+<div id="6f4b4a15" class="cell" data-execution_count="8">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df <span class="op">=</span> pd.read_csv(<span class="vs">r&#39;Datasets/eda_using_basic_data_functions_in_python_dataset1</span><span class="dv">.</span><span class="vs">csv&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5213,7 +5210,7 @@ memory usage: 554.0 bytes</code></pre>
 </div>
 <p>​Let’s begin with the head method or function. ​Head will return as many rows of ​data as you input in the argument field. ​We’ll look first at the top ten rows. ​When I input head with a ​ten in the argument of field and click “Run”, ​the first ten rows of ​the dataset are now in our notebook. </p>
 <p>​This dataset contains three columns of data, ​date, number of strikes, ​and center point geom. ​At this point in the exercise, ​we will need to clearly understand ​what each of these columns means. ​Date and number of strikes are fairly straightforward. ​You’ll want to pay attention to ​any dates and their format, ​which in this case is year, month, date. ​You’ll also find when looking at the date column, ​that lightning strike data is recorded almost every ​day for at least one location in the year 2018. ​Some column headers are obvious, ​but some like the column header, ​center point geom aren’t. ​If you are not sure about what ​the column headers mean ​while you’re working on a project, ​you could go back to the public documentation available ​from the NOAA to confirm its meaning. </p>
-<div id="5617dc44" class="cell" data-execution_count="9">
+<div id="9b67989c" class="cell" data-execution_count="9">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Inspect the first 10 rows.</span></span>
@@ -5301,7 +5298,7 @@ memory usage: 554.0 bytes</code></pre>
 </div>
 <p>​For this video, the information is provided. ​The center point geom column refers to ​the longitude and latitude of the recorded strikes. ​</p>
 <p>We know the number of columns, ​but we also want to know ​how many rows and data we’ll be working with.</p>
-<div id="7e2eeb7b" class="cell" data-execution_count="10">
+<div id="e370a64e" class="cell" data-execution_count="10">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5311,7 +5308,7 @@ memory usage: 554.0 bytes</code></pre>
 </div>
 </div>
 <p> ​Another great EDA discovering tool is the info function. ​The method called Info gives ​the total number and datatypes of individual entries. ​Keep in mind that datatypes are called D types in Pandas. ​If we type df.info into our notebook and run it, ​we will get this output. </p>
-<div id="bfcf5af3" class="cell" data-execution_count="11">
+<div id="a5cfd2ad" class="cell" data-execution_count="11">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5333,7 +5330,7 @@ memory usage: 165.0 MB</code></pre>
 <p><code>info</code> will provide the total number of rows (3,401,012) and columns (3). It will also state the names and data types of each column, as well as the size of the dataframe in memory.</p>
 <p>In this case, notice that the <code>date</code> column is an ‘object’ type rather than a ‘date’ type. Objects are strings. When dates are encoded as strings, they cannot be manipulated as easily. Converting string dates to datetime will enable you to work with them much more easily.</p>
 <p>Let’s convert to datetime using the pandas function <code>to_datetime()</code>.</p>
-<div id="faf83eed" class="cell" data-execution_count="12">
+<div id="725c58b4" class="cell" data-execution_count="12">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Convert date column to datetime</span></span>
@@ -5347,7 +5344,7 @@ memory usage: 165.0 MB</code></pre>
 <p>Remember, your dataset has over three million rows. ​If we don’t do any categorizing or grouping, ​we can end up with a notebook that is ​stuck endlessly trying to run the code. ​</p>
 <p>We’ve already converted our date column to datetime, ​which makes it easy for ​us to manipulate the data in the column. ​We want to group ​our daily strikes into something more manageable, ​like months, for example. ​Let’s make our date reference ​the number each month corresponds to in a year. ​That is, January is one, ​February is two, and so on. </p>
 <p>​We’ll do that by creating the column month using ​the code df, date,.dt.month. ​Dt in this instance stands for datetime. </p>
-<div id="8c335fff" class="cell" data-execution_count="13">
+<div id="47111462" class="cell" data-execution_count="13">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Create a new `month` column</span></span>
@@ -5411,7 +5408,7 @@ memory usage: 165.0 MB</code></pre>
 </div>
 </div>
 <p>​Next, we’ll make it easier to interpret on a chart. ​Let’s convert the month data, ​which are currently numbers to month name abbreviations. ​We’ll do this by creating another column, ​month underscore txt. ​This code will take the string of characters or ​month names and slice to ​include only the first three letters. </p>
-<div id="a46c6bfe" class="cell" data-execution_count="14">
+<div id="de88f8b1" class="cell" data-execution_count="14">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Create a new `month_txt` column.</span></span>
@@ -5482,7 +5479,7 @@ memory usage: 165.0 MB</code></pre>
 </div>
 <p>​Before we try to plot this data on a chart, ​we need to sum the numbers of ​strikes in all locations by month. </p>
 <p>​We can do this by creating a DataFrame ​using the groupby function in which we will ​include the columns month and month_txt ​because these are the columns we will ​use to group and order the lightning strikes. ​We’ll use the sum function to add ​the lightning strikes for each month together. </p>
-<div id="8a7d873a" class="cell" data-execution_count="15">
+<div id="2e338efc" class="cell" data-execution_count="15">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Create a new helper dataframe for plotting.</span></span>
@@ -5583,7 +5580,7 @@ memory usage: 165.0 MB</code></pre>
 </div>
 <p>​For our last lines of code in this video, ​let’s plot the number of strikes ​by month for the year 2018 ​into a bar chart and ​then total number of strikes by state on a map. ​This will help us get a good sense of the data story. </p>
 <p>​You’ll find that this looks like a big block of code, ​but because we are using the matplotlib.pyplot, ​the actual code for ​the visualization is not too difficult to follow.</p>
-<div id="e21d1b3d" class="cell" data-execution_count="16">
+<div id="93d913e2" class="cell" data-execution_count="16">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>plt.bar(x<span class="op">=</span>df_by_month[<span class="st">&#39;month_txt&#39;</span>],height<span class="op">=</span> df_by_month[<span class="st">&#39;number_of_strikes&#39;</span>], label<span class="op">=</span><span class="st">&quot;Number of strikes&quot;</span>)</span>
@@ -6130,7 +6127,7 @@ memory usage: 165.0 MB</code></pre>
 <span id="cb22-67"><a href="#cb22-67"></a>    data <span class="op">=</span> <span class="bu">file</span>.read()</span>
 <span id="cb22-68"><a href="#cb22-68"></a><span class="in">```</span></span>
 <span id="cb22-69"><a href="#cb22-69"></a></span>
-<span id="cb22-70"><a href="#cb22-70"></a><span class="fu">### **Importing a CSV file using pandas**</span></span>
+<span id="cb22-70"><a href="#cb22-70"></a><span class="fu">### Importing a CSV file using pandas</span></span>
 <span id="cb22-71"><a href="#cb22-71"></a></span>
 <span id="cb22-72"><a href="#cb22-72"></a>Instead of using Python&#39;s standard library to read a file, you can use pandas to import the CSV file into a dataframe. First, of course, you’ll want to import the pandas library into your Python notebook.</span>
 <span id="cb22-73"><a href="#cb22-73"></a></span>
@@ -6153,13 +6150,13 @@ memory usage: 165.0 MB</code></pre>
 <span id="cb22-90"><a href="#cb22-90"></a></span>
 <span id="cb22-91"><a href="#cb22-91"></a>If the dataset is small enough, it can be downloaded and manipulated locally on your computer. However, often the datasets kept in databases are too large to access in their entirety on a personal computer. In this case you have a number of different options, most of which involve querying the database with SQL to obtain specific tables of interest. In other words, you extract select parts—usually specified rows and/or columns—from the whole dataset. The manner in which querying is done can vary with respect to systems, platforms, and interfaces. Because of this variability, this reference guide will only present a couple of different ways to query databases. Specifically, it will explore BigQuery, Google’s data warehouse that provides a wide range of tools and services to facilitate analysis.</span>
 <span id="cb22-92"><a href="#cb22-92"></a></span>
-<span id="cb22-93"><a href="#cb22-93"></a><span class="fu">### **Downloading data from BigQuery**</span></span>
+<span id="cb22-93"><a href="#cb22-93"></a><span class="fu">### Downloading data from BigQuery</span></span>
 <span id="cb22-94"><a href="#cb22-94"></a></span>
-<span id="cb22-95"><a href="#cb22-95"></a><span class="fu">#### **Step 1: Access BigQuery**</span></span>
+<span id="cb22-95"><a href="#cb22-95"></a><span class="fu">#### Step 1: Access BigQuery</span></span>
 <span id="cb22-96"><a href="#cb22-96"></a></span>
 <span id="cb22-97"><a href="#cb22-97"></a>BigQuery allows you to upload data for storage, and it also has a number of publicly available datasets to explore. You can access these public datasets for free using <span class="co">[</span><span class="ot">BigQuery Sandbox</span><span class="co">](https://cloud.google.com/bigquery/docs/sandbox)</span>, which requires a free Google account. Sandbox gives you 10 GB of active storage and 1 TB of processed query data each month for free.</span>
 <span id="cb22-98"><a href="#cb22-98"></a></span>
-<span id="cb22-99"><a href="#cb22-99"></a><span class="fu">#### **Step 2: Perform a query**</span></span>
+<span id="cb22-99"><a href="#cb22-99"></a><span class="fu">#### Step 2: Perform a query</span></span>
 <span id="cb22-100"><a href="#cb22-100"></a></span>
 <span id="cb22-101"><a href="#cb22-101"></a>Once you have authenticated your account and created a new project as indicated in the instructions linked in step one, you’re ready to query a database. Note that if it is your first time logging in, you may encounter a window asking “New to the BigQueryUI?” with a link to a quickstart guide.</span>
 <span id="cb22-102"><a href="#cb22-102"></a></span>
@@ -6179,13 +6176,13 @@ memory usage: 165.0 MB</code></pre>
 <span id="cb22-116"><a href="#cb22-116"></a></span>
 <span id="cb22-117"><a href="#cb22-117"></a>Once you are satisfied with your query, click the “Run” button at the top of the SQL query panel. The results will display below, and there is a button to “Save results,” which allows you to save the resulting table in different locations and formats. From there, you can read the data into your notebook.</span>
 <span id="cb22-118"><a href="#cb22-118"></a></span>
-<span id="cb22-119"><a href="#cb22-119"></a><span class="fu">### **Using notebooks within BigQuery**</span></span>
+<span id="cb22-119"><a href="#cb22-119"></a><span class="fu">### Using notebooks within BigQuery</span></span>
 <span id="cb22-120"><a href="#cb22-120"></a></span>
 <span id="cb22-121"><a href="#cb22-121"></a>Another way to access data on BigQuery is by using the tools within the BigQuery platform itself. This workflow more closely resembles what data professionals would use when working with very large datasets stored in the cloud. Essentially, **you set up a virtual machine on BigQuery**. A virtual machine is a computer that has its own CPU, memory, software, etc., just like any other computer, only it does not have its own dedicated hardware; they most often exist as a partition on a server. You can work in a Jupyter notebook on the virtual machine on the BigQuery platform, from which you can query and pull in data directly. </span>
 <span id="cb22-122"><a href="#cb22-122"></a></span>
 <span id="cb22-123"><a href="#cb22-123"></a>This process requires you to set up a payment method. However, new users get a \$300 credit, and a ML instance is only a few cents per minute, so you’ll get approximately 2,000 hours of free usage before incurring any charges. There are a lot of great tutorials for setting this up. For instance, if you search for “How to use Jupyter notebook in Google Cloud AI,” you’ll find a number of useful videos and blogs on the topic.</span>
 <span id="cb22-124"><a href="#cb22-124"></a></span>
-<span id="cb22-125"><a href="#cb22-125"></a><span class="fu">### **Using notebooks outside of BigQuery**</span></span>
+<span id="cb22-125"><a href="#cb22-125"></a><span class="fu">### Using notebooks outside of BigQuery</span></span>
 <span id="cb22-126"><a href="#cb22-126"></a></span>
 <span id="cb22-127"><a href="#cb22-127"></a>It’s also possible to query data on BigQuery from notebooks that are not on the BigQuery platform. However, the details of this process are dependent on a number of factors, including the platform that is hosting the notebook, the operating environment, and the specific location of the data being accessed. Therefore, we will not go into depth on this method. Feel free to explore this on your own, though. You’ll find many helpful online resources that are just a search away.</span>
 <span id="cb22-128"><a href="#cb22-128"></a></span>
@@ -6243,7 +6240,7 @@ memory usage: 165.0 MB</code></pre>
 <span id="cb22-182"><a href="#cb22-182"></a>    df.head()</span>
 <span id="cb22-183"><a href="#cb22-183"></a>    <span class="in">```</span></span>
 <span id="cb22-184"><a href="#cb22-184"></a></span>
-<span id="cb22-185"><a href="#cb22-185"></a><span class="fu">### **DataFrame.info(X)**</span></span>
+<span id="cb22-185"><a href="#cb22-185"></a><span class="fu">### DataFrame.info(X)</span></span>
 <span id="cb22-186"><a href="#cb22-186"></a></span>
 <span id="cb22-187"><a href="#cb22-187"></a><span class="ss">-   </span>The **info()** method will display a summary of the dataframe, including the range index, dtypes, column headers, and memory usage.</span>
 <span id="cb22-188"><a href="#cb22-188"></a></span>
@@ -6253,7 +6250,7 @@ memory usage: 165.0 MB</code></pre>
 <span id="cb22-194"><a href="#cb22-194"></a>df.info()</span>
 <span id="cb22-195"><a href="#cb22-195"></a><span class="in">```</span></span>
 <span id="cb22-196"><a href="#cb22-196"></a></span>
-<span id="cb22-197"><a href="#cb22-197"></a><span class="fu">### **DataFrame.describe()**</span></span>
+<span id="cb22-197"><a href="#cb22-197"></a><span class="fu">### DataFrame.describe()</span></span>
 <span id="cb22-198"><a href="#cb22-198"></a></span>
 <span id="cb22-199"><a href="#cb22-199"></a><span class="ss">-   </span>The **describe()** method will return descriptive statistics of the entire dataset, including total count, mean, minimum, maximum, dispersion, and distribution. </span>
 <span id="cb22-200"><a href="#cb22-200"></a></span>
@@ -6263,7 +6260,7 @@ memory usage: 165.0 MB</code></pre>
 <span id="cb22-206"><a href="#cb22-206"></a>df.describe()</span>
 <span id="cb22-207"><a href="#cb22-207"></a><span class="in">```</span></span>
 <span id="cb22-208"><a href="#cb22-208"></a></span>
-<span id="cb22-209"><a href="#cb22-209"></a><span class="fu">### **DataFrame.shape**</span></span>
+<span id="cb22-209"><a href="#cb22-209"></a><span class="fu">### DataFrame.shape</span></span>
 <span id="cb22-210"><a href="#cb22-210"></a></span>
 <span id="cb22-211"><a href="#cb22-211"></a><span class="ss">-   </span>**shape** is an attribute that returns a tuple representing the dimensions of the dataframe by number of rows and columns. Remember that attributes are not followed by parentheses. The code will look something like this: </span>
 <span id="cb22-212"><a href="#cb22-212"></a></span>

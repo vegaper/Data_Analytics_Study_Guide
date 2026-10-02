@@ -3836,10 +3836,7 @@ vertical-align: -.125em;
 }</script>
 <script>var requirejs,require,define;!function(global,setTimeout){var req,s,head,baseElement,dataMain,src,interactiveScript,currentlyAddingScript,mainScript,subPath,version="2.3.6",commentRegExp=/\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/gm,cjsRequireRegExp=/[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,jsSuffixRegExp=/\.js$/,currDirRegExp=/^\.\//,op=Object.prototype,ostring=op.toString,hasOwn=op.hasOwnProperty,isBrowser=!("undefined"==typeof window||"undefined"==typeof navigator||!window.document),isWebWorker=!isBrowser&&"undefined"!=typeof importScripts,readyRegExp=isBrowser&&"PLAYSTATION 3"===navigator.platform?/^complete$/:/^(complete|loaded)$/,defContextName="_",isOpera="undefined"!=typeof opera&&"[object Opera]"===opera.toString(),contexts={},cfg={},globalDefQueue=[],useInteractive=!1;function commentReplace(e,t){return t||""}function isFunction(e){return"[object Function]"===ostring.call(e)}function isArray(e){return"[object Array]"===ostring.call(e)}function each(e,t){var i;if(e)for(i=0;i<e.length&&(!e[i]||!t(e[i],i,e));i+=1);}function eachReverse(e,t){var i;if(e)for(i=e.length-1;-1<i&&(!e[i]||!t(e[i],i,e));i-=1);}function hasProp(e,t){return hasOwn.call(e,t)}function getOwn(e,t){return hasProp(e,t)&&e[t]}function eachProp(e,t){var i;for(i in e)if(hasProp(e,i)&&t(e[i],i))break}function mixin(i,e,r,n){return e&&eachProp(e,function(e,t){!r&&hasProp(i,t)||(!n||"object"!=typeof e||!e||isArray(e)||isFunction(e)||e instanceof RegExp?i[t]=e:(i[t]||(i[t]={}),mixin(i[t],e,r,n)))}),i}function bind(e,t){return function(){return t.apply(e,arguments)}}function scripts(){return document.getElementsByTagName("script")}function defaultOnError(e){throw e}function getGlobal(e){if(!e)return e;var t=global;return each(e.split("."),function(e){t=t[e]}),t}function makeError(e,t,i,r){var n=new Error(t+"\nhttps://requirejs.org/docs/errors.html#"+e);return n.requireType=e,n.requireModules=r,i&&(n.originalError=i),n}if(void 0===define){if(void 0!==requirejs){if(isFunction(requirejs))return;cfg=requirejs,requirejs=void 0}void 0===require||isFunction(require)||(cfg=require,require=void 0),req=requirejs=function(e,t,i,r){var n,o,a=defContextName;return isArray(e)||"string"==typeof e||(o=e,isArray(t)?(e=t,t=i,i=r):e=[]),o&&o.context&&(a=o.context),(n=getOwn(contexts,a))||(n=contexts[a]=req.s.newContext(a)),o&&n.configure(o),n.require(e,t,i)},req.config=function(e){return req(e)},req.nextTick=void 0!==setTimeout?function(e){setTimeout(e,4)}:function(e){e()},require||(require=req),req.version=version,req.jsExtRegExp=/^\/|:|\?|\.js$/,req.isBrowser=isBrowser,s=req.s={contexts:contexts,newContext:newContext},req({}),each(["toUrl","undef","defined","specified"],function(t){req[t]=function(){var e=contexts[defContextName];return e.require[t].apply(e,arguments)}}),isBrowser&&(head=s.head=document.getElementsByTagName("head")[0],baseElement=document.getElementsByTagName("base")[0],baseElement&&(head=s.head=baseElement.parentNode)),req.onError=defaultOnError,req.createNode=function(e,t,i){var r=e.xhtml?document.createElementNS("http://www.w3.org/1999/xhtml","html:script"):document.createElement("script");return r.type=e.scriptType||"text/javascript",r.charset="utf-8",r.async=!0,r},req.load=function(t,i,r){var e,n=t&&t.config||{};if(isBrowser)return(e=req.createNode(n,i,r)).setAttribute("data-requirecontext",t.contextName),e.setAttribute("data-requiremodule",i),!e.attachEvent||e.attachEvent.toString&&e.attachEvent.toString().indexOf("[native code")<0||isOpera?(e.addEventListener("load",t.onScriptLoad,!1),e.addEventListener("error",t.onScriptError,!1)):(useInteractive=!0,e.attachEvent("onreadystatechange",t.onScriptLoad)),e.src=r,n.onNodeCreated&&n.onNodeCreated(e,n,i,r),currentlyAddingScript=e,baseElement?head.insertBefore(e,baseElement):head.appendChild(e),currentlyAddingScript=null,e;if(isWebWorker)try{setTimeout(function(){},0),importScripts(r),t.completeLoad(i)}catch(e){t.onError(makeError("importscripts","importScripts failed for "+i+" at "+r,e,[i]))}},isBrowser&&!cfg.skipDataMain&&eachReverse(scripts(),function(e){if(head||(head=e.parentNode),dataMain=e.getAttribute("data-main"))return mainScript=dataMain,cfg.baseUrl||-1!==mainScript.indexOf("!")||(mainScript=(src=mainScript.split("/")).pop(),subPath=src.length?src.join("/")+"/":"./",cfg.baseUrl=subPath),mainScript=mainScript.replace(jsSuffixRegExp,""),req.jsExtRegExp.test(mainScript)&&(mainScript=dataMain),cfg.deps=cfg.deps?cfg.deps.concat(mainScript):[mainScript],!0}),define=function(e,i,t){var r,n;"string"!=typeof e&&(t=i,i=e,e=null),isArray(i)||(t=i,i=null),!i&&isFunction(t)&&(i=[],t.length&&(t.toString().replace(commentRegExp,commentReplace).replace(cjsRequireRegExp,function(e,t){i.push(t)}),i=(1===t.length?["require"]:["require","exports","module"]).concat(i))),useInteractive&&(r=currentlyAddingScript||getInteractiveScript())&&(e||(e=r.getAttribute("data-requiremodule")),n=contexts[r.getAttribute("data-requirecontext")]),n?(n.defQueue.push([e,i,t]),n.defQueueMap[e]=!0):globalDefQueue.push([e,i,t])},define.amd={jQuery:!0},req.exec=function(text){return eval(text)},req(cfg)}function newContext(u){var i,e,l,c,d,g={waitSeconds:7,baseUrl:"./",paths:{},bundles:{},pkgs:{},shim:{},config:{}},p={},f={},r={},h=[],m={},n={},v={},x=1,b=1;function q(e,t,i){var r,n,o,a,s,u,c,d,p,f,l=t&&t.split("/"),h=g.map,m=h&&h["*"];if(e&&(u=(e=e.split("/")).length-1,g.nodeIdCompat&&jsSuffixRegExp.test(e[u])&&(e[u]=e[u].replace(jsSuffixRegExp,"")),"."===e[0].charAt(0)&&l&&(e=l.slice(0,l.length-1).concat(e)),function(e){var t,i;for(t=0;t<e.length;t++)if("."===(i=e[t]))e.splice(t,1),t-=1;else if(".."===i){if(0===t||1===t&&".."===e[2]||".."===e[t-1])continue;0<t&&(e.splice(t-1,2),t-=2)}}(e),e=e.join("/")),i&&h&&(l||m)){e:for(o=(n=e.split("/")).length;0<o;o-=1){if(s=n.slice(0,o).join("/"),l)for(a=l.length;0<a;a-=1)if((r=getOwn(h,l.slice(0,a).join("/")))&&(r=getOwn(r,s))){c=r,d=o;break e}!p&&m&&getOwn(m,s)&&(p=getOwn(m,s),f=o)}!c&&p&&(c=p,d=f),c&&(n.splice(0,d,c),e=n.join("/"))}return getOwn(g.pkgs,e)||e}function E(t){isBrowser&&each(scripts(),function(e){if(e.getAttribute("data-requiremodule")===t&&e.getAttribute("data-requirecontext")===l.contextName)return e.parentNode.removeChild(e),!0})}function w(e){var t=getOwn(g.paths,e);if(t&&isArray(t)&&1<t.length)return t.shift(),l.require.undef(e),l.makeRequire(null,{skipMap:!0})([e]),!0}function y(e){var t,i=e?e.indexOf("!"):-1;return-1<i&&(t=e.substring(0,i),e=e.substring(i+1,e.length)),[t,e]}function S(e,t,i,r){var n,o,a,s,u=null,c=t?t.name:null,d=e,p=!0,f="";return e||(p=!1,e="_@r"+(x+=1)),u=(s=y(e))[0],e=s[1],u&&(u=q(u,c,r),o=getOwn(m,u)),e&&(u?f=i?e:o&&o.normalize?o.normalize(e,function(e){return q(e,c,r)}):-1===e.indexOf("!")?q(e,c,r):e:(u=(s=y(f=q(e,c,r)))[0],f=s[1],i=!0,n=l.nameToUrl(f))),{prefix:u,name:f,parentMap:t,unnormalized:!!(a=!u||o||i?"":"_unnormalized"+(b+=1)),url:n,originalName:d,isDefine:p,id:(u?u+"!"+f:f)+a}}function k(e){var t=e.id,i=getOwn(p,t);return i||(i=p[t]=new l.Module(e)),i}function M(e,t,i){var r=e.id,n=getOwn(p,r);!hasProp(m,r)||n&&!n.defineEmitComplete?(n=k(e)).error&&"error"===t?i(n.error):n.on(t,i):"defined"===t&&i(m[r])}function O(i,e){var t=i.requireModules,r=!1;e?e(i):(each(t,function(e){var t=getOwn(p,e);t&&(t.error=i,t.events.error&&(r=!0,t.emit("error",i)))}),r||req.onError(i))}function j(){globalDefQueue.length&&(each(globalDefQueue,function(e){var t=e[0];"string"==typeof t&&(l.defQueueMap[t]=!0),h.push(e)}),globalDefQueue=[])}function P(e){delete p[e],delete f[e]}function R(){var e,r,t=1e3*g.waitSeconds,n=t&&l.startTime+t<(new Date).getTime(),o=[],a=[],s=!1,u=!0;if(!i){if(i=!0,eachProp(f,function(e){var t=e.map,i=t.id;if(e.enabled&&(t.isDefine||a.push(e),!e.error))if(!e.inited&&n)w(i)?s=r=!0:(o.push(i),E(i));else if(!e.inited&&e.fetched&&t.isDefine&&(s=!0,!t.prefix))return u=!1}),n&&o.length)return(e=makeError("timeout","Load timeout for modules: "+o,null,o)).contextName=l.contextName,O(e);u&&each(a,function(e){!function n(o,a,s){var e=o.map.id;o.error?o.emit("error",o.error):(a[e]=!0,each(o.depMaps,function(e,t){var i=e.id,r=getOwn(p,i);!r||o.depMatched[t]||s[i]||(getOwn(a,i)?(o.defineDep(t,m[i]),o.check()):n(r,a,s))}),s[e]=!0)}(e,{},{})}),n&&!r||!s||!isBrowser&&!isWebWorker||d||(d=setTimeout(function(){d=0,R()},50)),i=!1}}function a(e){hasProp(m,e[0])||k(S(e[0],null,!0)).init(e[1],e[2])}function o(e,t,i,r){e.detachEvent&&!isOpera?r&&e.detachEvent(r,t):e.removeEventListener(i,t,!1)}function s(e){var t=e.currentTarget||e.srcElement;return o(t,l.onScriptLoad,"load","onreadystatechange"),o(t,l.onScriptError,"error"),{node:t,id:t&&t.getAttribute("data-requiremodule")}}function T(){var e;for(j();h.length;){if(null===(e=h.shift())[0])return O(makeError("mismatch","Mismatched anonymous define() module: "+e[e.length-1]));a(e)}l.defQueueMap={}}return c={require:function(e){return e.require?e.require:e.require=l.makeRequire(e.map)},exports:function(e){if(e.usingExports=!0,e.map.isDefine)return e.exports?m[e.map.id]=e.exports:e.exports=m[e.map.id]={}},module:function(e){return e.module?e.module:e.module={id:e.map.id,uri:e.map.url,config:function(){return getOwn(g.config,e.map.id)||{}},exports:e.exports||(e.exports={})}}},(e=function(e){this.events=getOwn(r,e.id)||{},this.map=e,this.shim=getOwn(g.shim,e.id),this.depExports=[],this.depMaps=[],this.depMatched=[],this.pluginMaps={},this.depCount=0}).prototype={init:function(e,t,i,r){r=r||{},this.inited||(this.factory=t,i?this.on("error",i):this.events.error&&(i=bind(this,function(e){this.emit("error",e)})),this.depMaps=e&&e.slice(0),this.errback=i,this.inited=!0,this.ignore=r.ignore,r.enabled||this.enabled?this.enable():this.check())},defineDep:function(e,t){this.depMatched[e]||(this.depMatched[e]=!0,this.depCount-=1,this.depExports[e]=t)},fetch:function(){if(!this.fetched){this.fetched=!0,l.startTime=(new Date).getTime();var e=this.map;if(!this.shim)return e.prefix?this.callPlugin():this.load();l.makeRequire(this.map,{enableBuildCallback:!0})(this.shim.deps||[],bind(this,function(){return e.prefix?this.callPlugin():this.load()}))}},load:function(){var e=this.map.url;n[e]||(n[e]=!0,l.load(this.map.id,e))},check:function(){if(this.enabled&&!this.enabling){var t,e,i=this.map.id,r=this.depExports,n=this.exports,o=this.factory;if(this.inited){if(this.error)this.emit("error",this.error);else if(!this.defining){if(this.defining=!0,this.depCount<1&&!this.defined){if(isFunction(o)){if(this.events.error&&this.map.isDefine||req.onError!==defaultOnError)try{n=l.execCb(i,o,r,n)}catch(e){t=e}else n=l.execCb(i,o,r,n);if(this.map.isDefine&&void 0===n&&((e=this.module)?n=e.exports:this.usingExports&&(n=this.exports)),t)return t.requireMap=this.map,t.requireModules=this.map.isDefine?[this.map.id]:null,t.requireType=this.map.isDefine?"define":"require",O(this.error=t)}else n=o;if(this.exports=n,this.map.isDefine&&!this.ignore&&(m[i]=n,req.onResourceLoad)){var a=[];each(this.depMaps,function(e){a.push(e.normalizedMap||e)}),req.onResourceLoad(l,this.map,a)}P(i),this.defined=!0}this.defining=!1,this.defined&&!this.defineEmitted&&(this.defineEmitted=!0,this.emit("defined",this.exports),this.defineEmitComplete=!0)}}else hasProp(l.defQueueMap,i)||this.fetch()}},callPlugin:function(){var u=this.map,c=u.id,e=S(u.prefix);this.depMaps.push(e),M(e,"defined",bind(this,function(e){var o,t,i,r=getOwn(v,this.map.id),n=this.map.name,a=this.map.parentMap?this.map.parentMap.name:null,s=l.makeRequire(u.parentMap,{enableBuildCallback:!0});return this.map.unnormalized?(e.normalize&&(n=e.normalize(n,function(e){return q(e,a,!0)})||""),M(t=S(u.prefix+"!"+n,this.map.parentMap,!0),"defined",bind(this,function(e){this.map.normalizedMap=t,this.init([],function(){return e},null,{enabled:!0,ignore:!0})})),void((i=getOwn(p,t.id))&&(this.depMaps.push(t),this.events.error&&i.on("error",bind(this,function(e){this.emit("error",e)})),i.enable()))):r?(this.map.url=l.nameToUrl(r),void this.load()):((o=bind(this,function(e){this.init([],function(){return e},null,{enabled:!0})})).error=bind(this,function(e){this.inited=!0,(this.error=e).requireModules=[c],eachProp(p,function(e){0===e.map.id.indexOf(c+"_unnormalized")&&P(e.map.id)}),O(e)}),o.fromText=bind(this,function(e,t){var i=u.name,r=S(i),n=useInteractive;t&&(e=t),n&&(useInteractive=!1),k(r),hasProp(g.config,c)&&(g.config[i]=g.config[c]);try{req.exec(e)}catch(e){return O(makeError("fromtexteval","fromText eval for "+c+" failed: "+e,e,[c]))}n&&(useInteractive=!0),this.depMaps.push(r),l.completeLoad(i),s([i],o)}),void e.load(u.name,s,o,g))})),l.enable(e,this),this.pluginMaps[e.id]=e},enable:function(){(f[this.map.id]=this).enabled=!0,this.enabling=!0,each(this.depMaps,bind(this,function(e,t){var i,r,n;if("string"==typeof e){if(e=S(e,this.map.isDefine?this.map:this.map.parentMap,!1,!this.skipMap),this.depMaps[t]=e,n=getOwn(c,e.id))return void(this.depExports[t]=n(this));this.depCount+=1,M(e,"defined",bind(this,function(e){this.undefed||(this.defineDep(t,e),this.check())})),this.errback?M(e,"error",bind(this,this.errback)):this.events.error&&M(e,"error",bind(this,function(e){this.emit("error",e)}))}i=e.id,r=p[i],hasProp(c,i)||!r||r.enabled||l.enable(e,this)})),eachProp(this.pluginMaps,bind(this,function(e){var t=getOwn(p,e.id);t&&!t.enabled&&l.enable(e,this)})),this.enabling=!1,this.check()},on:function(e,t){var i=this.events[e];i||(i=this.events[e]=[]),i.push(t)},emit:function(e,t){each(this.events[e],function(e){e(t)}),"error"===e&&delete this.events[e]}},(l={config:g,contextName:u,registry:p,defined:m,urlFetched:n,defQueue:h,defQueueMap:{},Module:e,makeModuleMap:S,nextTick:req.nextTick,onError:O,configure:function(e){if(e.baseUrl&&"/"!==e.baseUrl.charAt(e.baseUrl.length-1)&&(e.baseUrl+="/"),"string"==typeof e.urlArgs){var i=e.urlArgs;e.urlArgs=function(e,t){return(-1===t.indexOf("?")?"?":"&")+i}}var r=g.shim,n={paths:!0,bundles:!0,config:!0,map:!0};eachProp(e,function(e,t){n[t]?(g[t]||(g[t]={}),mixin(g[t],e,!0,!0)):g[t]=e}),e.bundles&&eachProp(e.bundles,function(e,t){each(e,function(e){e!==t&&(v[e]=t)})}),e.shim&&(eachProp(e.shim,function(e,t){isArray(e)&&(e={deps:e}),!e.exports&&!e.init||e.exportsFn||(e.exportsFn=l.makeShimExports(e)),r[t]=e}),g.shim=r),e.packages&&each(e.packages,function(e){var t;t=(e="string"==typeof e?{name:e}:e).name,e.location&&(g.paths[t]=e.location),g.pkgs[t]=e.name+"/"+(e.main||"main").replace(currDirRegExp,"").replace(jsSuffixRegExp,"")}),eachProp(p,function(e,t){e.inited||e.map.unnormalized||(e.map=S(t,null,!0))}),(e.deps||e.callback)&&l.require(e.deps||[],e.callback)},makeShimExports:function(t){return function(){var e;return t.init&&(e=t.init.apply(global,arguments)),e||t.exports&&getGlobal(t.exports)}},makeRequire:function(o,a){function s(e,t,i){var r,n;return a.enableBuildCallback&&t&&isFunction(t)&&(t.__requireJsBuild=!0),"string"==typeof e?isFunction(t)?O(makeError("requireargs","Invalid require call"),i):o&&hasProp(c,e)?c[e](p[o.id]):req.get?req.get(l,e,o,s):(r=S(e,o,!1,!0).id,hasProp(m,r)?m[r]:O(makeError("notloaded",'Module name "'+r+'" has not been loaded yet for context: '+u+(o?"":". Use require([])")))):(T(),l.nextTick(function(){T(),(n=k(S(null,o))).skipMap=a.skipMap,n.init(e,t,i,{enabled:!0}),R()}),s)}return a=a||{},mixin(s,{isBrowser:isBrowser,toUrl:function(e){var t,i=e.lastIndexOf("."),r=e.split("/")[0];return-1!==i&&(!("."===r||".."===r)||1<i)&&(t=e.substring(i,e.length),e=e.substring(0,i)),l.nameToUrl(q(e,o&&o.id,!0),t,!0)},defined:function(e){return hasProp(m,S(e,o,!1,!0).id)},specified:function(e){return e=S(e,o,!1,!0).id,hasProp(m,e)||hasProp(p,e)}}),o||(s.undef=function(i){j();var e=S(i,o,!0),t=getOwn(p,i);t.undefed=!0,E(i),delete m[i],delete n[e.url],delete r[i],eachReverse(h,function(e,t){e[0]===i&&h.splice(t,1)}),delete l.defQueueMap[i],t&&(t.events.defined&&(r[i]=t.events),P(i))}),s},enable:function(e){getOwn(p,e.id)&&k(e).enable()},completeLoad:function(e){var t,i,r,n=getOwn(g.shim,e)||{},o=n.exports;for(j();h.length;){if(null===(i=h.shift())[0]){if(i[0]=e,t)break;t=!0}else i[0]===e&&(t=!0);a(i)}if(l.defQueueMap={},r=getOwn(p,e),!t&&!hasProp(m,e)&&r&&!r.inited){if(!(!g.enforceDefine||o&&getGlobal(o)))return w(e)?void 0:O(makeError("nodefine","No define call for "+e,null,[e]));a([e,n.deps||[],n.exportsFn])}R()},nameToUrl:function(e,t,i){var r,n,o,a,s,u,c=getOwn(g.pkgs,e);if(c&&(e=c),u=getOwn(v,e))return l.nameToUrl(u,t,i);if(req.jsExtRegExp.test(e))a=e+(t||"");else{for(r=g.paths,o=(n=e.split("/")).length;0<o;o-=1)if(s=getOwn(r,n.slice(0,o).join("/"))){isArray(s)&&(s=s[0]),n.splice(0,o,s);break}a=n.join("/"),a=("/"===(a+=t||(/^data\:|^blob\:|\?/.test(a)||i?"":".js")).charAt(0)||a.match(/^[\w\+\.\-]+:/)?"":g.baseUrl)+a}return g.urlArgs&&!/^blob\:/.test(a)?a+g.urlArgs(e,a):a},load:function(e,t){req.load(l,e,t)},execCb:function(e,t,i,r){return t.apply(r,i)},onScriptLoad:function(e){if("load"===e.type||readyRegExp.test((e.currentTarget||e.srcElement).readyState)){interactiveScript=null;var t=s(e);l.completeLoad(t.id)}},onScriptError:function(e){var i=s(e);if(!w(i.id)){var r=[];return eachProp(p,function(e,t){0!==t.indexOf("_@r")&&each(e.depMaps,function(e){if(e.id===i.id)return r.push(t),!0})}),O(makeError("scripterror",'Script error for "'+i.id+(r.length?'", needed by: '+r.join(", "):'"'),e,[i.id]))}}}).require=l.makeRequire(),l}function getInteractiveScript(){return interactiveScript&&"interactive"===interactiveScript.readyState||eachReverse(scripts(),function(e){if("interactive"===e.readyState)return interactiveScript=e}),interactiveScript}}(this,"undefined"==typeof setTimeout?void 0:setTimeout);</script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
   <script>/*
  * Polyfill service v3.111.0
@@ -4925,9 +4922,9 @@ text-transform: uppercase;
   <ul>
   <li><a href="#the-fundamentals-of-pandas" id="toc-the-fundamentals-of-pandas" class="nav-link active" data-scroll-target="#the-fundamentals-of-pandas"><span class="header-section-number">1</span> The fundamentals of Pandas</a>
   <ul>
-  <li><a href="#primary-data-structures" id="toc-primary-data-structures" class="nav-link" data-scroll-target="#primary-data-structures"><span class="header-section-number">1.1</span> <strong>Primary data structures</strong></a></li>
-  <li><a href="#create-a-dataframe" id="toc-create-a-dataframe" class="nav-link" data-scroll-target="#create-a-dataframe"><span class="header-section-number">1.2</span> <strong>Create a DataFrame</strong></a></li>
-  <li><a href="#attributes-and-methods" id="toc-attributes-and-methods" class="nav-link" data-scroll-target="#attributes-and-methods"><span class="header-section-number">1.3</span> <strong>Attributes and methods</strong></a>
+  <li><a href="#primary-data-structures" id="toc-primary-data-structures" class="nav-link" data-scroll-target="#primary-data-structures"><span class="header-section-number">1.1</span> Primary data structures</a></li>
+  <li><a href="#create-a-dataframe" id="toc-create-a-dataframe" class="nav-link" data-scroll-target="#create-a-dataframe"><span class="header-section-number">1.2</span> Create a DataFrame</a></li>
+  <li><a href="#attributes-and-methods" id="toc-attributes-and-methods" class="nav-link" data-scroll-target="#attributes-and-methods"><span class="header-section-number">1.3</span> Attributes and methods</a>
   <ul class="collapse">
   <li><a href="#quick-guide-to-dataset-dimensions-counts-in-pandas" id="toc-quick-guide-to-dataset-dimensions-counts-in-pandas" class="nav-link" data-scroll-target="#quick-guide-to-dataset-dimensions-counts-in-pandas"><span class="header-section-number">1.3.1</span> Quick Guide to Dataset Dimensions &amp; Counts in Pandas</a></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.3.2</span> </a></li>
@@ -4981,7 +4978,7 @@ text-transform: uppercase;
   </ul></li>
   <li><a href="#dealing-with-operations-on-data-frame-data-points-using-accesors" id="toc-dealing-with-operations-on-data-frame-data-points-using-accesors" class="nav-link" data-scroll-target="#dealing-with-operations-on-data-frame-data-points-using-accesors"><span class="header-section-number">3</span> Dealing with operations on Data frame data points, using accesors</a>
   <ul>
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><span class="header-section-number">3.1</span> <strong>Key takeaways</strong></a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><span class="header-section-number">3.1</span> Key takeaways</a></li>
   <li><a href="#resources-for-more-information" id="toc-resources-for-more-information" class="nav-link" data-scroll-target="#resources-for-more-information"><span class="header-section-number">3.2</span> Resources for more information</a></li>
   </ul></li>
   <li><a href="#boolean-masking" id="toc-boolean-masking" class="nav-link" data-scroll-target="#boolean-masking"><span class="header-section-number">4</span> Boolean masking</a>
@@ -5002,8 +4999,8 @@ text-transform: uppercase;
   <li><a href="#built-in-aggregation-functions" id="toc-built-in-aggregation-functions" class="nav-link" data-scroll-target="#built-in-aggregation-functions"><span class="header-section-number">5.1.1</span> Built-in aggregation functions</a></li>
   </ul></li>
   <li><a href="#agg" id="toc-agg" class="nav-link" data-scroll-target="#agg"><span class="header-section-number">5.2</span> agg()</a></li>
-  <li><a href="#groupby-with-agg" id="toc-groupby-with-agg" class="nav-link" data-scroll-target="#groupby-with-agg"><span class="header-section-number">5.3</span> <strong>groupby() with agg()</strong></a></li>
-  <li><a href="#multiindex" id="toc-multiindex" class="nav-link" data-scroll-target="#multiindex"><span class="header-section-number">5.4</span> <strong>MultiIndex</strong></a></li>
+  <li><a href="#groupby-with-agg" id="toc-groupby-with-agg" class="nav-link" data-scroll-target="#groupby-with-agg"><span class="header-section-number">5.3</span> groupby() with agg()</a></li>
+  <li><a href="#multiindex" id="toc-multiindex" class="nav-link" data-scroll-target="#multiindex"><span class="header-section-number">5.4</span> MultiIndex</a></li>
   <li><a href="#key-takeaways-1" id="toc-key-takeaways-1" class="nav-link" data-scroll-target="#key-takeaways-1"><span class="header-section-number">5.5</span> Key takeaways</a></li>
   <li><a href="#resources-for-more-information-2" id="toc-resources-for-more-information-2" class="nav-link" data-scroll-target="#resources-for-more-information-2"><span class="header-section-number">5.6</span> Resources for more information</a></li>
   </ul></li>
@@ -5043,7 +5040,7 @@ text-transform: uppercase;
 <p>I’ll give you a demonstration of pandas, ​and what it’s like to use it. ​Later, we’ll go into greater detail ​on its unique classes, processes, and functions.</p>
 <p>​First of all, you can load data into pandas easily ​from different formats ​like comma-separated value files, or CSVs, ​Excel, and other spreadsheets, databases, and more. ​</p>
 <p>Here, I’m loading a CSV file ​that I’m accessing via a web URL. ​The file contains information ​for some of the passengers from the Titanic, ​including their names, what class ticket they had, ​their age, ticket price, and cabin number.</p>
-<div id="e86b71c1" class="cell" data-execution_count="2">
+<div id="4ae090be" class="cell" data-execution_count="2">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -5460,7 +5457,7 @@ text-transform: uppercase;
 </div>
 <p>​By the way, this table of data is called a dataframe. ​The dataframe is a core data structure in pandas. ​Notice that the dataframe is made up of rows and columns, ​and it can contain data of many different data types ​including integers, floats, strings, booleans, and more. ​</p>
 <p>If I want to calculate the average age of the passengers, ​we do so by selecting the age column ​and calling the mean method on it. ​I can also get the max, min, ​and standard deviation with minimal effort. ​I can also quickly check ​how many passengers were in each class. ​</p>
-<div id="edcceea6" class="cell" data-execution_count="3">
+<div id="3be20449" class="cell" data-execution_count="3">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Calculate the mean of the Age column.</span></span>
@@ -5483,7 +5480,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Checking summary statistics of the entire dataset ​only requires one line of code. ​</p>
-<div id="ad553fb0" class="cell" data-execution_count="4">
+<div id="4a42ef5e" class="cell" data-execution_count="4">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># The describe() method returns summary statistics of the dataframe.</span></span>
@@ -5596,7 +5593,7 @@ Name: count, dtype: int64</code></pre>
 <p>This method gives me the number of rows ​as well as the mean, standard deviation, ​minimum and maximum values, ​along with the quartiles for every numeric column. ​</p>
 <p>These concepts are all covered ​in greater depth elsewhere in the program. ​For now, I just want you to pay close attention ​to the power of pandas ​and all that you can accomplish with it. ​</p>
 <p>Pandas also allows me to filter ​based on simple or complex logic. ​For example, here I’m selecting ​only the third class passengers who were older than 60.</p>
-<div id="29553a67" class="cell" data-execution_count="5">
+<div id="3cf66914" class="cell" data-execution_count="5">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Filter the data to return only rows where value in Age column is greater than 60</span></span>
@@ -5708,7 +5705,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>​In addition to all of these data analysis tools, ​pandas also gives us ways to manipulate and change the data. ​For example, I can add a column that represents ​the inflation adjusted price of a ticket from 1912 to 2023.</p>
-<div id="47eb8837" class="cell" data-execution_count="6">
+<div id="395aa4f3" class="cell" data-execution_count="6">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Create a new column called 2023_Fare that contains the inflation-adjusted</span></span>
@@ -5925,7 +5922,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <p>​Florence Briggs Thayer paid 71.28 pounds ​for her first class ticket. ​Today, that ticket would have cost her ​10,417 pounds sterling. ​</p>
 <p>If you’re wondering how I knew her name was ​Florence Briggs Thayer, ​it’s because I can also select rows, columns, ​or individual cells from the data using indexing. ​Her name is in row one, column three. ​I can also do more complex data groupings and aggregations. ​</p>
-<div id="08300cfb" class="cell" data-execution_count="7">
+<div id="21f9db50" class="cell" data-execution_count="7">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Use iloc to access data using index numbers.</span></span>
@@ -5937,7 +5934,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>For example, ​here I’m grouping the passengers by class and sex, ​and then calculating ​the mean cost of a ticket for each group. ​Hopefully you’re excited to start working with pandas. ​I know I’m looking forward to guiding you as you learn more ​about this powerful and fun data analysis tool.</p>
-<div id="a6e72e6b" class="cell" data-execution_count="8">
+<div id="59283fd0" class="cell" data-execution_count="8">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Group customers by Sex and Pclass and calculate the total paid for each group</span></span>
@@ -6023,7 +6020,7 @@ Name: count, dtype: int64</code></pre>
 <h1 data-number="1"><span class="header-section-number">1</span> The fundamentals of Pandas</h1>
 <p>You’ve learned that Python has many open-source libraries and packages—including NumPy and pandas—that make it one of the most useful coding languages. In this reading, you will review the basics of pandas dataframes and learn more about how to work with them. Understanding the fundamentals of pandas is essential to becoming a capable and competent data professional.</p>
 <section id="primary-data-structures" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="primary-data-structures"><span class="header-section-number">1.1</span> <strong>Primary data structures</strong></h2>
+<h2 data-number="1.1" class="anchored" data-anchor-id="primary-data-structures"><span class="header-section-number">1.1</span> Primary data structures</h2>
 <p>Pandas has two primary data structures: <strong>Series</strong> and <strong>DataFrame</strong>. </p>
 <ul>
 <li><p><strong>Series:</strong> A Series is a one-dimensional labeled array that can hold any data type. It’s similar to a column in a spreadsheet or a one-dimensional NumPy array. Each element in a series has an associated label called an index. The index allows for more efficient and intuitive data manipulation by making it easier to reference specific elements of your data.</p></li>
@@ -6031,9 +6028,9 @@ Name: count, dtype: int64</code></pre>
 </ul>
 </section>
 <section id="create-a-dataframe" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="create-a-dataframe"><span class="header-section-number">1.2</span> <strong>Create a DataFrame</strong></h2>
+<h2 data-number="1.2" class="anchored" data-anchor-id="create-a-dataframe"><span class="header-section-number">1.2</span> Create a DataFrame</h2>
 <p>To use pandas in your notebook, first import it. Similar to NumPy, pandas has its own standard alias, <strong>pd</strong>, that’s used by data professionals around the world:</p>
-<div id="c61a14b1" class="cell" data-execution_count="9">
+<div id="bce9c8d6" class="cell" data-execution_count="9">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -6042,7 +6039,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <p>Once you’ve imported pandas into your working environment, create a dataframe. Here are some of the ways to create a <strong>DataFrame</strong> object in a Jupyter Notebook</p>
 <p>From a dictionary:</p>
-<div id="bc527dbf" class="cell" data-execution_count="10">
+<div id="970cd701" class="cell" data-execution_count="10">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>d <span class="op">=</span> {<span class="st">&#39;col1&#39;</span>: [<span class="dv">1</span>, <span class="dv">2</span>], <span class="st">&#39;col2&#39;</span>: [<span class="dv">3</span>, <span class="dv">4</span>]}</span>
@@ -6079,7 +6076,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>From a numpy array:</p>
-<div id="1170b86b" class="cell" data-execution_count="11">
+<div id="f0787706" class="cell" data-execution_count="11">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df2 <span class="op">=</span> pd.DataFrame(np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]),</span>
@@ -6128,7 +6125,7 @@ Name: count, dtype: int64</code></pre>
 <p><code>df3 = pd.read_csv(r&#39;/file_path/file_name.csv&#39;)</code></p>
 </section>
 <section id="attributes-and-methods" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="attributes-and-methods"><span class="header-section-number">1.3</span> <strong>Attributes and methods</strong></h2>
+<h2 data-number="1.3" class="anchored" data-anchor-id="attributes-and-methods"><span class="header-section-number">1.3</span> Attributes and methods</h2>
 <p>The <strong>DataFrame</strong> class is powerful and convenient because it comes with a suite of built-in features that simplify common data analysis tasks. These features are known as attributes and methods. An attribute is a value associated with an object or class that is referenced by name using dotted expressions. A method is a function that is defined inside a class body and typically performs an action. A simpler way of thinking about the distinction between attributes and methods is to remember that attributes are <em>characteristics</em> of the object, while methods are <em>actions</em> or <em>operations</em>. </p>
 <p><strong>Common DataFrame attributes</strong></p>
 <p>Data professionals use attributes and methods constantly. Some of the most-used <strong>DataFrame</strong> attributes include:</p>
@@ -6167,7 +6164,7 @@ Name: count, dtype: int64</code></pre>
 </tbody>
 </table>
 <p>Usage:</p>
-<div id="6eb1376a" class="cell" data-execution_count="12">
+<div id="dc44aaa6" class="cell" data-execution_count="12">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>dataframe.columns</span>
@@ -6286,7 +6283,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="section" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="section"><span class="header-section-number">1.3.2</span> </h3>
-<div id="5e4380a6" class="cell" data-execution_count="13">
+<div id="92095596" class="cell" data-execution_count="13">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Mini dataset with 6 rows and missing values</span></span>
@@ -6352,7 +6349,7 @@ Name: count, dtype: int64</code></pre>
 <section id="total-rows-lendf" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="total-rows-lendf"><span class="header-section-number">1.3.3</span> Total Rows: <code>len(df)</code></h3>
 <p>Counts every row in the DataFrame, including rows with <code>None</code>/<code>NaN</code></p>
-<div id="1d0bea65" class="cell" data-execution_count="14">
+<div id="ad2c87d9" class="cell" data-execution_count="14">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="bu">len</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6365,7 +6362,7 @@ Name: count, dtype: int64</code></pre>
 <section id="dimensions-df.shape" class="level3" data-number="1.3.4">
 <h3 data-number="1.3.4" class="anchored" data-anchor-id="dimensions-df.shape"><span class="header-section-number">1.3.4</span> Dimensions: <code>df.shape</code></h3>
 <p>Returns a <code>(rows, columns)</code> tuple.</p>
-<div id="046144d1" class="cell" data-execution_count="15">
+<div id="e2f4592a" class="cell" data-execution_count="15">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6378,7 +6375,7 @@ Name: count, dtype: int64</code></pre>
 <section id="number-of-data-cells" class="level3" data-number="1.3.5">
 <h3 data-number="1.3.5" class="anchored" data-anchor-id="number-of-data-cells"><span class="header-section-number">1.3.5</span> Number of data cells</h3>
 <p>calculates the total number of cells (rows <span class="math inline">\(\times\)</span> columns).</p>
-<div id="a29d3295" class="cell" data-execution_count="16">
+<div id="5afd274f" class="cell" data-execution_count="16">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>df.size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6391,7 +6388,7 @@ Name: count, dtype: int64</code></pre>
 <section id="non-null-counts-df.count" class="level3" data-number="1.3.6">
 <h3 data-number="1.3.6" class="anchored" data-anchor-id="non-null-counts-df.count"><span class="header-section-number">1.3.6</span> Non-Null Counts: <code>df.count()</code></h3>
 <p>Counts <strong>only non-missing values</strong> per column. Notice it shows <code>5</code> instead of <code>6</code> because each column has one missing value.</p>
-<div id="d7c222a7" class="cell" data-execution_count="17">
+<div id="c8ce2b8a" class="cell" data-execution_count="17">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>df.count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6408,7 +6405,7 @@ dtype: int64</code></pre>
 <section id="single-column-default-ignores-nans" class="level4">
 <h4 class="anchored" data-anchor-id="single-column-default-ignores-nans">Single Column (Default: ignores <code>NaN</code>s)</h4>
 <p>Counts distinct values and sorts them by highest frequency.</p>
-<div id="96e57ea7" class="cell" data-execution_count="18">
+<div id="2b0f84f2" class="cell" data-execution_count="18">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>df[<span class="st">&quot;device&quot;</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6424,7 +6421,7 @@ Name: count, dtype: int64</code></pre>
 <section id="single-column-including-nans" class="level4">
 <h4 class="anchored" data-anchor-id="single-column-including-nans">Single Column (Including <code>NaN</code>s)</h4>
 <p>Pass <code>dropna=False</code> to explicitly show missing value counts.</p>
-<div id="db6c4aa7" class="cell" data-execution_count="19">
+<div id="012c19a3" class="cell" data-execution_count="19">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df[<span class="st">&quot;device&quot;</span>].value_counts(dropna<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6442,7 +6439,7 @@ Name: count, dtype: int64</code></pre>
 <section id="multi-column-counts-dflabel-device.value_counts" class="level3" data-number="1.3.8">
 <h3 data-number="1.3.8" class="anchored" data-anchor-id="multi-column-counts-dflabel-device.value_counts"><span class="header-section-number">1.3.8</span> Multi-Column Counts: <code>df[[&#39;label&#39;, &#39;device&#39;]].value_counts()</code></h3>
 <p>Counts occurrences of unique combinations across multiple columns.</p>
-<div id="9b8545e4" class="cell" data-execution_count="20">
+<div id="eddcaccd" class="cell" data-execution_count="20">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>df[[<span class="st">&quot;label&quot;</span>, <span class="st">&quot;device&quot;</span>]].value_counts(dropna<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6461,7 +6458,7 @@ Name: count, dtype: int64</code></pre>
 <section id="grouped-row-counts-df.groupby.size" class="level3" data-number="1.3.9">
 <h3 data-number="1.3.9" class="anchored" data-anchor-id="grouped-row-counts-df.groupby.size"><span class="header-section-number">1.3.9</span> Grouped Row Counts: <code>df.groupby().size()</code></h3>
 <p>Used inside a <code>groupby</code> workflow. By default, it sorts by the group labels rather than the counts.</p>
-<div id="2859d192" class="cell" data-execution_count="21">
+<div id="72aa3cb8" class="cell" data-execution_count="21">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>df.groupby([<span class="st">&quot;label&quot;</span>, <span class="st">&quot;device&quot;</span>], dropna<span class="op">=</span><span class="va">False</span>).size()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6484,7 +6481,7 @@ dtype: int64</code></pre>
 <section id="converting-value_counts-to-a-dataframe" class="level4">
 <h4 class="anchored" data-anchor-id="converting-value_counts-to-a-dataframe">Converting <code>value_counts()</code> to a DataFrame</h4>
 <p>Running <code>value_counts()</code> produces a Series with <code>device</code> in the index:</p>
-<div id="ba303fd6" class="cell" data-execution_count="22">
+<div id="3e4c974b" class="cell" data-execution_count="22">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Returns a Series (index = device, values = counts)</span></span>
@@ -6498,7 +6495,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Applying <code>.reset_index()</code> flattens it into a 2-column DataFrame:</p>
-<div id="be25cb65" class="cell" data-execution_count="23">
+<div id="fca7089c" class="cell" data-execution_count="23">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df[<span class="st">&quot;device&quot;</span>].value_counts().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6533,7 +6530,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Flattening <code>groupby().size()</code> with Custom Names</p>
-<div id="7cc83ada" class="cell" data-execution_count="24">
+<div id="f2c8e987" class="cell" data-execution_count="24">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>df.groupby([<span class="st">&quot;label&quot;</span>, <span class="st">&quot;device&quot;</span>], dropna<span class="op">=</span><span class="va">False</span>).size().reset_index(name<span class="op">=</span><span class="st">&quot;count&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6592,7 +6589,7 @@ Name: count, dtype: int64</code></pre>
 <section id="cleaning-up-row-numbers-after-filtering-droptrue" class="level4">
 <h4 class="anchored" data-anchor-id="cleaning-up-row-numbers-after-filtering-droptrue">Cleaning Up Row Numbers After Filtering (<code>drop=True</code>)</h4>
 <p>When you filter a DataFrame, the original row numbers are preserved, leaving gaps in your index:</p>
-<div id="45607f61" class="cell" data-execution_count="25">
+<div id="82b4ab94" class="cell" data-execution_count="25">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>ios_only <span class="op">=</span> df[df[<span class="st">&quot;device&quot;</span>] <span class="op">==</span> <span class="st">&quot;iOS&quot;</span>]</span>
@@ -6633,7 +6630,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Use <code>reset_index(drop=True)</code> to re-number the rows from <code>0</code> without saving the old scrambled row numbers as a new column:</p>
-<div id="fc3b0b50" class="cell" data-execution_count="26">
+<div id="8886e2e5" class="cell" data-execution_count="26">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>ios_only.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6732,7 +6729,7 @@ Name: count, dtype: int64</code></pre>
 <li><strong>List of Values</strong> (e.g., <code>[&#39;row_1&#39;]</code> or <code>[&#39;A&#39;]</code>) <span class="math inline">\(\rightarrow\)</span> Returns a 2D <strong>DataFrame</strong>.</li>
 </ul>
 <p>We define a single master DataFrame <code>df</code> with custom string row labels to use across all examples:</p>
-<div id="294a2b4f" class="cell" data-execution_count="27">
+<div id="58ff0dec" class="cell" data-execution_count="27">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
@@ -6804,7 +6801,7 @@ Name: count, dtype: int64</code></pre>
 <h2 data-number="2.1" class="anchored" data-anchor-id="row-selection"><span class="header-section-number">2.1</span> Row Selection</h2>
 <section id="selection-by-label-.loc" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="selection-by-label-.loc"><span class="header-section-number">2.1.1</span> Selection by Label (<code>.loc</code>)</h3>
-<div id="9050d791" class="cell" data-execution_count="28">
+<div id="c7a06ba1" class="cell" data-execution_count="28">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Select single row as Series</span></span>
@@ -6871,7 +6868,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="selection-by-position-.iloc" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="selection-by-position-.iloc"><span class="header-section-number">2.1.2</span> Selection by Position (<code>.iloc</code>)</h3>
-<div id="88fe4c2d" class="cell" data-execution_count="29">
+<div id="2ad062c4" class="cell" data-execution_count="29">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Select 2nd row (index position 1) as Series</span></span>
@@ -6936,7 +6933,7 @@ Name: count, dtype: int64</code></pre>
 <p>Using explicit <code>.loc[:, ...]</code> or <code>.iloc[:, ...]</code> follows the <code>[rows, columns]</code> rule by specifying <code>:</code> for all rows.</p>
 <section id="selection-by-label-.loc-1" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="selection-by-label-.loc-1"><span class="header-section-number">2.2.1</span> Selection by Label (<code>.loc</code>)</h3>
-<div id="3fd72df0" class="cell" data-execution_count="30">
+<div id="2a0cee04" class="cell" data-execution_count="30">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Select a single column as a Series (All rows, column &#39;B&#39;)</span></span>
@@ -7001,7 +6998,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="selection-by-position-.iloc-1" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="selection-by-position-.iloc-1"><span class="header-section-number">2.2.2</span> Selection by Position (<code>.iloc</code>)</h3>
-<div id="b6bfe227" class="cell" data-execution_count="31">
+<div id="2beb9ef4" class="cell" data-execution_count="31">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Select the first column (position 0) as a Series</span></span>
@@ -7076,7 +7073,7 @@ Name: count, dtype: int64</code></pre>
 <li><p>Cannot create new columns (<code>df.new_col = ...</code> fails silently).</p></li>
 <li><p>Fails if column names contain spaces or match DataFrame methods (e.g., <code>df.count</code>).</p></li>
 </ul>
-<div id="7137efb8" class="cell" data-execution_count="32">
+<div id="f1624651" class="cell" data-execution_count="32">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>df.A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -7094,46 +7091,46 @@ Name: A, dtype: str</code></pre>
 <section id="bracket-notation-slicing-trap" class="level3" data-number="2.3.2">
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="bracket-notation-slicing-trap"><span class="header-section-number">2.3.2</span> Bracket Notation Slicing Trap</h3>
 <p>The direct bracket operator <code>[]</code> is “overloaded”—its behavior changes depending on whether it is called on a <strong>DataFrame</strong> or a <strong>Series</strong>:</p>
-<div id="df9408b8" class="cell" data-execution_count="33">
+<div id="5881ecc8" class="cell" data-execution_count="33">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>df.C.value_counts()[:<span class="dv">20</span>].rename_axis(<span class="st">&#39;unique_values&#39;</span>).reset_index(name<span class="op">=</span><span class="st">&#39;counts&#39;</span>).style.background_gradient()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <style type="text/css">
-#T_33690_row0_col1 {
+#T_39719_row0_col1 {
 background-color: #023858;
 color: #f1f1f1;
 }
-#T_33690_row1_col1, #T_33690_row2_col1 {
+#T_39719_row1_col1, #T_39719_row2_col1 {
 background-color: #fff7fb;
 color: #000000;
 }
 </style>
 
-<table id="T_33690" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table id="T_39719" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th"> </th>
-<th id="T_33690_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">unique_values</th>
-<th id="T_33690_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">counts</th>
+<th id="T_39719_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">unique_values</th>
+<th id="T_39719_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">counts</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_33690_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
-<td id="T_33690_row0_col0" class="data row0 col0">coconut</td>
-<td id="T_33690_row0_col1" class="data row0 col1">3</td>
+<td id="T_39719_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
+<td id="T_39719_row0_col0" class="data row0 col0">coconut</td>
+<td id="T_39719_row0_col1" class="data row0 col1">3</td>
 </tr>
 <tr class="even">
-<td id="T_33690_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
-<td id="T_33690_row1_col0" class="data row1 col0">cassava</td>
-<td id="T_33690_row1_col1" class="data row1 col1">1</td>
+<td id="T_39719_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
+<td id="T_39719_row1_col0" class="data row1 col0">cassava</td>
+<td id="T_39719_row1_col1" class="data row1 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_33690_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
-<td id="T_33690_row2_col0" class="data row2 col0">clarinet</td>
-<td id="T_33690_row2_col1" class="data row2 col1">1</td>
+<td id="T_39719_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
+<td id="T_39719_row2_col0" class="data row2 col0">clarinet</td>
+<td id="T_39719_row2_col1" class="data row2 col1">1</td>
 </tr>
 </tbody>
 </table>
@@ -7173,7 +7170,7 @@ Tip
 </section>
 <section id="cheat-sheet-examples" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="cheat-sheet-examples"><span class="header-section-number">2.4</span> Cheat Sheet &amp; Examples</h2>
-<div id="a19cd662" class="cell" data-execution_count="34">
+<div id="4d37a66a" class="cell" data-execution_count="34">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># --- DATAFRAME LEVEL ---</span></span>
@@ -7189,7 +7186,7 @@ row_4    clarinet
 Name: C, dtype: str</code></pre>
 </div>
 </div>
-<div id="25fab509" class="cell" data-execution_count="35">
+<div id="2802c830" class="cell" data-execution_count="35">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># 2. Select Multiple Columns (List of Strings)</span></span>
@@ -7239,7 +7236,7 @@ Name: C, dtype: str</code></pre>
 </div>
 </div>
 </div>
-<div id="dd5749d7" class="cell" data-execution_count="36">
+<div id="cda87f61" class="cell" data-execution_count="36">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># 3. Slice Rows directly on DataFrame (Slice object)</span></span>
@@ -7287,7 +7284,7 @@ Name: C, dtype: str</code></pre>
 </div>
 </div>
 </div>
-<div id="0c07bf53" class="cell" data-execution_count="37">
+<div id="4c306e4b" class="cell" data-execution_count="37">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># --- SERIES LEVEL ---</span></span>
@@ -7295,7 +7292,7 @@ Name: C, dtype: str</code></pre>
 <span id="cb51-3"><a href="#cb51-3"></a>counts <span class="op">=</span> df[<span class="st">&#39;C&#39;</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="9d0b8d72" class="cell" data-execution_count="38">
+<div id="187f7576" class="cell" data-execution_count="38">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># 2. Slice top N rows of the Series using [:N]</span></span>
@@ -7308,7 +7305,7 @@ cassava    1
 Name: count, dtype: int64</code></pre>
 </div>
 </div>
-<div id="2ed6639b" class="cell" data-execution_count="39">
+<div id="eaf2e3f1" class="cell" data-execution_count="39">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># 3. Best Practice Equivalent</span></span>
@@ -7379,7 +7376,7 @@ Name: count, dtype: int64</code></pre>
 <p>To select specific rows <strong>and</strong> columns at the same time, supply both arguments: <code>[rows, columns]</code>.</p>
 <section id="using-.loc-labels" class="level3" data-number="2.5.1">
 <h3 data-number="2.5.1" class="anchored" data-anchor-id="using-.loc-labels"><span class="header-section-number">2.5.1</span> Using <code>.loc</code> (Labels)</h3>
-<div id="40016ca1" class="cell" data-execution_count="40">
+<div id="4f0a8bcb" class="cell" data-execution_count="40">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="co">#reset the dataset to its original state</span></span>
@@ -7444,7 +7441,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="using-.iloc-positions" class="level3" data-number="2.5.2">
 <h3 data-number="2.5.2" class="anchored" data-anchor-id="using-.iloc-positions"><span class="header-section-number">2.5.2</span> Using <code>.iloc</code> (Positions)</h3>
-<div id="c44194ad" class="cell" data-execution_count="41">
+<div id="85530582" class="cell" data-execution_count="41">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Specific row positions, column range 0 to 2 (excludes position 3)</span></span>
@@ -7531,7 +7528,7 @@ Trap 2: Mixing Numeric Positions on String Indices
 <p>Because <code>df</code> has <strong>custom string row labels</strong> (<code>&#39;row_0&#39;</code>, <code>&#39;row_1&#39;</code>, etc.), using integers inside <code>.loc</code> will raise a <code>KeyError</code> because <code>.loc</code> looks for literal labels named <code>0</code>, <code>1</code>, etc.</p>
 </div>
 </div>
-<div id="ae32aa9b" class="cell" data-execution_count="42">
+<div id="d8a51f04" class="cell" data-execution_count="42">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># This raises KeyError because 0:3 are integers, not matching &#39;row_0&#39; labels:</span></span>
@@ -7557,7 +7554,7 @@ Default RangeIndex Behavior
 <p>If your DataFrame uses default integer indexing (<code>0, 1, 2...</code>), <code>.loc[0:3]</code> <strong>will work</strong>, but remember: <code>.loc</code> treats <code>0:3</code> as <strong>labels</strong>, so it will include row index <code>3</code> (4 rows total)!</p>
 </div>
 </div>
-<div id="57176619" class="cell" data-execution_count="43">
+<div id="d30c2c97" class="cell" data-execution_count="43">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># Create a copy with default numeric index (0, 1, 2, 3, 4)</span></span>
@@ -7625,7 +7622,7 @@ Default RangeIndex Behavior
 <li><p><code>.cat</code> (Categorical Accessor): Operates on category-encoded columns (category dtype).</p></li>
 </ul>
 <p>Example: When you write code on a Pandas column, Pandas assumes by default that you are talking to the container, not the text inside, usin the accessor it will iterate through the cells and apply the operation to each cell:</p>
-<div id="588e591a" class="cell" data-execution_count="44">
+<div id="8f566d42" class="cell" data-execution_count="44">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -7681,7 +7678,7 @@ Default RangeIndex Behavior
 </div>
 </div>
 <section id="key-takeaways" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="key-takeaways"><span class="header-section-number">3.1</span> <strong>Key takeaways</strong></h2>
+<h2 data-number="3.1" class="anchored" data-anchor-id="key-takeaways"><span class="header-section-number">3.1</span> Key takeaways</h2>
 <p>Pandas dataframes are a convenient way to work with tabular data. Each row and each column can be represented by a pandas <strong>Series</strong>, which is similar to a one-dimensional array. Both dataframes and series have a large collection of methods and attributes to perform common tasks and retrieve information. Pandas also has its own special notation to select data. As you work more with pandas, you’ll become more comfortable with this notation and its many applications in data science.</p>
 </section>
 <section id="resources-for-more-information" class="level2" data-number="3.2">
@@ -7702,7 +7699,7 @@ Default RangeIndex Behavior
 <p>​Suppose you have a dataframe of planets, their radii, ​and the number of moons each planet has. ​Now, suppose that you want to keep the rows ​of any planets that have fewer than 20 moons ​and filter out the rest. ​</p>
 <p>A boolean mask is a panda Series object ​indicating whether this condition is true or false ​for each value in the “moons” column. ​The data contained in this series is type bool. ​Boolean masking effectively overlays this boolean series ​onto the dataframe’s index. ​The result is that any rows in the dataframe ​that are indicated as True in the Boolean mask ​remain in the dataframe, ​and any row that are indicated as False get filtered out. ​Here’s how to perform this operation in pandas. </p>
 <p>​We’ll begin by creating a dataframe ​from a predefined dictionary ​using the pandas DataFrame function. ​The dataframe is called “planets.” </p>
-<div id="54344674" class="cell" data-execution_count="45">
+<div id="8e497e26" class="cell" data-execution_count="45">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Instantiate a dictionary of planetary data.</span></span>
@@ -7786,7 +7783,7 @@ Default RangeIndex Behavior
 </div>
 <p>​</p>
 <p>The next step is to create the boolean mask ​by writing a logical statement. ​Remember, the objective is to keep planets ​that have fewer than 20 moons and to filter out the rest. ​So, we define the mask by writing ​“planets at the moons column is less than 20”. ​This results in a Series object ​that consists of the row indices ​where each index contains a True or False value ​depending on whether that row satisfies the given condition. ​This is the boolean mask. </p>
-<div id="bdc8f80f" class="cell" data-execution_count="46">
+<div id="ef749eee" class="cell" data-execution_count="46">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Create a Boolean mask of planets with fewer than 20 moons.</span></span>
@@ -7806,7 +7803,7 @@ Name: moons, dtype: bool</code></pre>
 </div>
 </div>
 <p>​To apply this mask to the dataframe, ​insert it into selector brackets ​and apply it to the dataframe. </p>
-<div id="1d514c4e" class="cell" data-execution_count="47">
+<div id="471990ca" class="cell" data-execution_count="47">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Apply the Boolean mask to the dataframe to filter it so it contains</span></span>
@@ -7864,7 +7861,7 @@ Name: moons, dtype: bool</code></pre>
 </div>
 </div>
 <p>​It’s also possible to apply the conditional logic ​directly to the dataframe, skipping the part ​where we assign it to a variable named “mask.” ​But breaking out the steps individually ​can make the code easier to follow. ​Note that we haven’t permanently modified the dataframe. </p>
-<div id="915991b1" class="cell" data-execution_count="48">
+<div id="9fc1229f" class="cell" data-execution_count="48">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Define the Boolean mask and apply it in a single line.</span></span>
@@ -7940,7 +7937,7 @@ Name: moons, dtype: bool</code></pre>
 </div>
 </div>
 <p>​Applying the boolean mask using the conditional logic ​only gives a filtered “view” of it. ​So, when you call the planet’s variable again ​it returns the full dataframe. ​However, we can assign the result to a named variable. </p>
-<div id="0d1561c4" class="cell" data-execution_count="49">
+<div id="ad22b181" class="cell" data-execution_count="49">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>moons_under_20 <span class="op">=</span> planets[mask]</span>
@@ -7999,7 +7996,7 @@ Name: moons, dtype: bool</code></pre>
 <p>​This may be useful if you’ll need ​to reference the list of planets ​with moons under 20 again later. ​Sometimes you’ll need to filter data ​based on multiple conditions. ​Pandas uses logical operators to indicate ​which data to keep and which to filter out ​and statements that use multiple conditions. ​</p>
 <p>These operators are: The ampersand for “and” ​the vertical bar for “or” and the tilde for “not”. </p>
 <p>​Let’s review how this works. ​Here’s how to create a boolean mask ​that selects all planets ​that have fewer than 10 moons or greater than 50 moons. </p>
-<div id="14c4e827" class="cell" data-execution_count="50">
+<div id="d8ef16a4" class="cell" data-execution_count="50">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Create a Boolean mask of planets with fewer than 10 moons OR more than 50 moons.</span></span>
@@ -8021,7 +8018,7 @@ Name: moons, dtype: bool</code></pre>
 <p>​Notice that each condition is self-contained ​and a set of parentheses, ​and the two conditions are separated by a vertical bar, ​which is the logical operator that represents “or”. </p>
 <p>​It’s very important that each component ​of the logical statement be in the parenthesis. ​Otherwise, your statement will throw an error, or worse, ​return something that isn’t what you intended. ​</p>
 <p>To apply the mask, call the dataframe and put the statement ​or the variable it’s assigned to in selector brackets. ​</p>
-<div id="0432edf4" class="cell" data-execution_count="51">
+<div id="6431a5c8" class="cell" data-execution_count="51">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>planets[mask]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -8084,7 +8081,7 @@ Name: moons, dtype: bool</code></pre>
 </div>
 <p>Here’s an example of how to select all planets ​that have more than 20 moons, ​but not planets with 80 moons ​and not planets with a radius less than 50,000 kilometers. </p>
 <p>​</p>
-<div id="1c9a2792" class="cell" data-execution_count="52">
+<div id="ca4022f0" class="cell" data-execution_count="52">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Create a Boolean mask of planets with more than 20 moons, excluding them if they</span></span>
@@ -8137,7 +8134,7 @@ Name: moons, dtype: bool</code></pre>
 <li><p><strong>(<code>[&#39;column_name&#39;] = new_value</code>):</strong> Python updates the requested column <strong>on the photocopy</strong>.</p></li>
 <li><p>The update completes on a temporary object that is immediately discarded. The original DataFrame (<code>df</code>) remains untouched, and pandas often raises a <code>SettingWithCopyWarning</code>.</p></li>
 </ol>
-<div id="e4bb8509" class="cell" data-execution_count="53">
+<div id="74ae5f33" class="cell" data-execution_count="53">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="co"># Create sample DataFrame</span></span>
@@ -8193,7 +8190,7 @@ Notice that &#39;Year Founded&#39; is STILL 2000!</code></pre>
                           │             │
               Which rows? ┘             └ Which column?</code></pre>
 <p>This instructs pandas to access the exact memory location of the original DataFrame and update the cell in place without generating intermediate copies.</p>
-<div id="3d0be7ac" class="cell" data-execution_count="54">
+<div id="1f63b7da" class="cell" data-execution_count="54">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a><span class="bu">print</span>(<span class="st">&quot;---  Testing .loc[row, col] ---&quot;</span>)</span>
@@ -8222,7 +8219,7 @@ Result after .loc Assignment:
 </ul>
 <p><strong>Filtering by a List <code>isin()</code></strong></p>
 <p>Checks if values in a column match any element in a list. It returns a boolean mask (True/False), making it ideal for filtering.</p>
-<div id="9e3d1c5d" class="cell" data-execution_count="55">
+<div id="fec1e8d2" class="cell" data-execution_count="55">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>df_filtered <span class="op">=</span> planets[planets[<span class="st">&#39;planet&#39;</span>].isin([<span class="st">&#39;Earth&#39;</span>, <span class="st">&#39;Mars&#39;</span>])]</span>
@@ -8260,7 +8257,7 @@ Result after .loc Assignment:
 </div>
 </div>
 </div>
-<div id="38c26030" class="cell" data-execution_count="56">
+<div id="5e8d79f9" class="cell" data-execution_count="56">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="co"># Sample DataFrame with missing values and numbers</span></span>
@@ -8285,7 +8282,7 @@ Result after .loc Assignment:
 </div>
 <p><code>.any()</code></p>
 <p>Checking for “At Least One True” .any() evaluates boolean values (True/False) across a Series or DataFrame and returns True if at least one value is True. Checking for missing data in a column:</p>
-<div id="5b82f377" class="cell" data-execution_count="57">
+<div id="5db05dcd" class="cell" data-execution_count="57">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>df_sales.isna().<span class="bu">any</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -8299,7 +8296,7 @@ dtype: bool</code></pre>
 </div>
 </div>
 <p>Checking if any row satisfies a condition:</p>
-<div id="0bcac39a" class="cell" data-execution_count="58">
+<div id="1ad07957" class="cell" data-execution_count="58">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># 2. Check if any store had returned items &gt; 0</span></span>
@@ -8312,7 +8309,7 @@ Were there any returns registered? True</code></pre>
 </div>
 </div>
 <p>Checking across entire DataFrames (Axis 0 vs Axis 1):</p>
-<div id="39e517ef" class="cell" data-execution_count="59">
+<div id="224b29a6" class="cell" data-execution_count="59">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a><span class="co"># Column-by-column check: Returns True/False for every column</span></span>
@@ -8326,7 +8323,7 @@ returned_items    False
 dtype: bool</code></pre>
 </div>
 </div>
-<div id="d85a7361" class="cell" data-execution_count="60">
+<div id="ba2347e9" class="cell" data-execution_count="60">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Row-by-row check: Returns True if a specific row has at least one NaN</span></span>
@@ -8382,7 +8379,7 @@ dtype: bool</code></pre>
 <p>Groupby() is a pandas DataFrame method ​that groups rows of the dataframe together ​based on their values at one or more columns, ​which allows further analysis of the groups. ​</p>
 <p>Let’s return to our planet’s dataset to demonstrate ​some different ways to use the groupby() method. ​This time we’ll add a little more data, ​including the type of planet, ​whether or not it has a ring system, ​average temperature in degrees Celsius, ​and whether or not it has a global magnetic field. ​As always, when learning a new data tool, ​it’s helpful to begin by applying it to a small example. </p>
 <p>​This will better enable you ​to understand exactly what’s happening. ​First, let’s examine the mechanics ​of what happens when you use groupby(). ​When you call the groupby() method on a dataframe, ​it creates a groupby object. ​If you do nothing else, ​the groupby object isn’t very helpful. ​You’ll basically get a statement saying, ​“Here’s your object. ​It’s stored at this address in the computer’s memory.” ​But once you have this object, ​there are all kinds of things you can do with it. </p>
-<div id="6660ec8e" class="cell" data-execution_count="61">
+<div id="b6ab2a84" class="cell" data-execution_count="61">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -8509,18 +8506,18 @@ dtype: bool</code></pre>
 </div>
 </div>
 </div>
-<div id="9221ed48" class="cell" data-execution_count="62">
+<div id="4ac77bc4" class="cell" data-execution_count="62">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># The groupby() function returns a groupby object.</span></span>
 <span id="cb93-2"><a href="#cb93-2"></a>planets.groupby([<span class="st">&#39;type&#39;</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="62">
-<pre><code>&lt;pandas.api.typing.DataFrameGroupBy object at 0x00000272C00D9480&gt;</code></pre>
+<pre><code>&lt;pandas.api.typing.DataFrameGroupBy object at 0x00000226AE859480&gt;</code></pre>
 </div>
 </div>
 <p>​For example, if we group the dataframe by the type column ​and then apply the sum method to the groupby object, ​the computer returns a dataframe object with three rows, ​one for each planet type and three columns, ​one for each numerical column. </p>
-<div id="eddd5aef" class="cell" data-execution_count="63">
+<div id="02a72c07" class="cell" data-execution_count="63">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># Apply the sum() function to the groupby object to get the sum</span></span>
@@ -8574,7 +8571,7 @@ dtype: bool</code></pre>
 <p>​<strong>Note:</strong> Beginning in pandas v.1.5.0, numerical aggregation functions like <strong>sum()</strong>, <strong>mean()</strong>, <strong>median()</strong>, etc. must have their <strong>numeric_only</strong> keyword argument set to <strong>True</strong> when used with a <strong>groupby()</strong> operation or else pandas will throw an error if your data also contains non-numerical columns.</p>
 <p>Only the numerical columns are returned, ​because the sum method only works on numerical data. ​The type column is an index of this dataframe. ​This information can be interpreted ​as the sum of all the values ​in each group at these respective columns. ​So for example, radii of all the gas giant planets ​sum to 128,143 kilometers. ​That information probably isn’t very useful in most cases, ​but the total number of moons ​could definitely be something we want to calculate. </p>
 <p>​If you want to isolate the information ​at particular columns, just insert the columns ​as a list in selector brackets, ​following the groupby() statement. </p>
-<div id="afa85597" class="cell" data-execution_count="64">
+<div id="b12e3b61" class="cell" data-execution_count="64">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># Apply the sum function to the groupby object and select</span></span>
@@ -8619,7 +8616,7 @@ dtype: bool</code></pre>
 <p>Groupby will work on multiple columns too. ​When we pass a list containing the type ​and magnetic field columns to the <code>groupby()</code> method ​and then apply the <code>mean()</code> method to the result, ​we get a dataframe that contains a row ​for each unique combination of planet type ​and magnetic field. ​Again, the columns contain the mean calculated values ​for each numerical column for each group. ​<code>Groupby()</code> is very useful, ​because it helps you to better understand your data. ​</p>
 <p>Another important method to use on the <code>groupby()</code> objects ​is the <code>agg()</code> method. </p>
 <p>​Agg is short for aggregate. ​This method allows you ​to apply multiple calculations to groups of data. ​Let’s start simple. ​What if we want to group the planets by their type ​and then calculate both the mean and the median values ​of the numeric columns for each group? ​We call the agg() method after the groupby() statement. ​In its argument field, we enter a list of the calculations ​we want to apply to the data. ​If these calculations are existing methods ​of groupby objects, they can just be entered as strings, but if there are non numeric columns in the dataframe that are not used in the group by, you will have to drop them with <code>.select_dtypes(&#39;number&#39;)</code> before calculating the aggregations or it will throw an error by trying to calculate a mean over a string, for example. <code>TypeError: dtype &#39;str&#39; does not support operation &#39;mean&#39;</code></p>
-<div id="e1824071" class="cell" data-execution_count="65">
+<div id="9c145034" class="cell" data-execution_count="65">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># Group by type, then use the agg() function to get the mean and median</span></span>
@@ -8694,7 +8691,7 @@ dtype: bool</code></pre>
 <p>​We can groupby multiple columns ​and apply multiple aggregation functions to each group. ​For instance, we can group the planets by type ​and whether or not they have a magnetic field, ​and then use the agg() method ​to calculate the mean and max values of each group. ​</p>
 <p>And we can even define our own functions and apply them. ​For example, suppose we want to calculate ​the 90th percentile of each group. ​</p>
 <p>We can define a function called percentile_90 ​that uses the quantile method on the array ​and returns the value at the 90th percentile. ​Then, we can call this custom function in our aggregation. ​</p>
-<div id="e4e9b968" class="cell" data-execution_count="66">
+<div id="4757fc66" class="cell" data-execution_count="66">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># Define a function that returns the 90 percentile of an array.</span></span>
@@ -8801,7 +8798,7 @@ dtype: bool</code></pre>
 <li><p>Iteration: Iterating over groups or values</p></li>
 </ul>
 <p>Here are some examples that use the <strong>groupby()</strong> function on a dataframe consisting of different articles of clothing:</p>
-<div id="ea02d4ac" class="cell" data-execution_count="67">
+<div id="e0e2d195" class="cell" data-execution_count="67">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a>clothes <span class="op">=</span> pd.DataFrame({<span class="st">&#39;type&#39;</span>: [<span class="st">&#39;pants&#39;</span>, <span class="st">&#39;shirt&#39;</span>, <span class="st">&#39;shirt&#39;</span>, <span class="st">&#39;pants&#39;</span>, <span class="st">&#39;shirt&#39;</span>, <span class="st">&#39;pants&#39;</span>],</span>
@@ -8876,7 +8873,7 @@ dtype: bool</code></pre>
 </div>
 </div>
 <p>Grouping the dataframe by <strong>type</strong> results in a <strong>DataFrameGroupBy</strong> object:</p>
-<div id="07f7244c" class="cell" data-execution_count="68">
+<div id="871a92c1" class="cell" data-execution_count="68">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1"></a>grouped <span class="op">=</span> clothes.groupby(<span class="st">&#39;type&#39;</span>)</span>
@@ -8884,12 +8881,12 @@ dtype: bool</code></pre>
 <span id="cb100-3"><a href="#cb100-3"></a><span class="bu">print</span>(<span class="bu">type</span>(grouped))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;pandas.api.typing.DataFrameGroupBy object at 0x00000272C0101250&gt;
+<pre><code>&lt;pandas.api.typing.DataFrameGroupBy object at 0x00000226AE885250&gt;
 &lt;class &#39;pandas.api.typing.DataFrameGroupBy&#39;&gt;</code></pre>
 </div>
 </div>
 <p>However, an aggregation function can be applied to the groupby object:</p>
-<div id="c70ee199" class="cell" data-execution_count="69">
+<div id="1cbbc4b0" class="cell" data-execution_count="69">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1"></a>grouped <span class="op">=</span> clothes.groupby(<span class="st">&#39;type&#39;</span>)</span>
@@ -8931,7 +8928,7 @@ dtype: bool</code></pre>
 </div>
 <p>In the preceding example, <strong>groupby()</strong> combined all the items into groups based on their type and returned a <strong>DataFrame</strong> object containing the mean of each group for each numeric column in the dataframe. Note: In future versions of pandas it will be necessary to specify a <strong>numeric_only</strong> parameter when applying certain aggregation functions—like mean—to a groupby object. <strong>numeric_only</strong> refers to the datatype of each column. In earlier versions of pandas (like the version on this platform) it isn’t necessary to specify <strong>numeric_only=True</strong>, but in future versions this must be done. Otherwise, it will be necessary to indicate the specific columns to be captured.)</p>
 <p>In addition, groups may be created based on multiple columns:</p>
-<div id="19910988" class="cell" data-execution_count="70">
+<div id="42efe3cf" class="cell" data-execution_count="70">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a>clothes.groupby([<span class="st">&#39;type&#39;</span>, <span class="st">&#39;color&#39;</span>]).<span class="bu">min</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -8986,7 +8983,7 @@ dtype: bool</code></pre>
 </div>
 <p>In the preceding example, <strong>groupby()</strong> was called directly on the clothes dataframe. The data was grouped first by <strong>type</strong>, then by <strong>color</strong>. This resulted in four groups—the number of different existing combinations of values for type and color. Then, the <strong>min()</strong> function was applied to the result to filter each group by its minimum value.</p>
 <p>To simply return the number of observations there are in each group, use the <strong>size()</strong> method. This will result in a <strong>Series</strong> object with the relevant information:</p>
-<div id="66a91e90" class="cell" data-execution_count="71">
+<div id="646cf469" class="cell" data-execution_count="71">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1"></a>clothes.groupby([<span class="st">&#39;type&#39;</span>, <span class="st">&#39;color&#39;</span>]).size()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9024,7 +9021,7 @@ dtype: int64</code></pre>
 </ul>
 <p>Following are some examples of how <strong>agg()</strong> can be used. Note that they demonstrate how this function can be used by itself (without <strong>groupby()</strong>). Note also that, due to platform limitations, some of the following code blocks are not executable. In these cases, output is provided as an image.</p>
 <p>The following example applies the <strong>sum()</strong> and <strong>mean()</strong> functions to the <strong>price</strong> and <strong>mass_g</strong> columns of the <strong>clothes</strong> dataframe.</p>
-<div id="45bc480e" class="cell" data-execution_count="72">
+<div id="ab04cdb2" class="cell" data-execution_count="72">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1"></a>clothes[[<span class="st">&#39;price_usd&#39;</span>, <span class="st">&#39;mass_g&#39;</span>]].agg([<span class="st">&#39;sum&#39;</span>, <span class="st">&#39;mean&#39;</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9064,7 +9061,7 @@ dtype: int64</code></pre>
 <li><p>The <strong>sum()</strong> and <strong>mean()</strong> functions are entered as strings in a list, without their parentheses. This will work for any built-in aggregation function.</p></li>
 </ul>
 <p>Passsing a dictionary instead of a list of strings allows us to specify the columns and operations distinctinctly. In this example different functions are applied to different columns.</p>
-<div id="61117331" class="cell" data-execution_count="73">
+<div id="afc6ad95" class="cell" data-execution_count="73">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1"></a>clothes.agg(</span>
@@ -9113,7 +9110,7 @@ dtype: int64</code></pre>
 <li><p>The resulting dataframe contains <strong>NaN</strong> values where a given function was not designated to be used.</p></li>
 </ul>
 <p>The following example applies the <strong>sum()</strong> and <strong>mean()</strong> functions across axis 1. In other words, instead of applying the functions down each column, they’re applied over each row.</p>
-<div id="8ffa3ef2" class="cell" data-execution_count="74">
+<div id="82effffd" class="cell" data-execution_count="74">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1"></a>clothes[[<span class="st">&#39;price_usd&#39;</span>, <span class="st">&#39;mass_g&#39;</span>]].agg([<span class="st">&#39;sum&#39;</span>, <span class="st">&#39;mean&#39;</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9169,10 +9166,10 @@ dtype: int64</code></pre>
 </div>
 </section>
 <section id="groupby-with-agg" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="groupby-with-agg"><span class="header-section-number">5.3</span> <strong>groupby() with agg()</strong></h2>
+<h2 data-number="5.3" class="anchored" data-anchor-id="groupby-with-agg"><span class="header-section-number">5.3</span> groupby() with agg()</h2>
 <p>The <strong>groupby()</strong> and <strong>agg()</strong> functions are often used together. In such cases, first apply the <strong>groupby()</strong> function to a dataframe, then apply the <strong>agg()</strong> function to the result of the groupby.</p>
 <p>In the following example, the items in <strong>clothes</strong> are grouped by <strong>color</strong>, then each of those groups has the <strong>mean()</strong> and <strong>max()</strong> functions applied to them at the <strong>price_usd</strong> and <strong>mass_g</strong> columns.</p>
-<div id="62aa7ad4" class="cell" data-execution_count="75">
+<div id="8bfeb86d" class="cell" data-execution_count="75">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1"></a>clothes.groupby(<span class="st">&#39;color&#39;</span>).agg({<span class="st">&#39;price_usd&#39;</span>: [<span class="st">&#39;mean&#39;</span>, <span class="st">&#39;max&#39;</span>],</span>
@@ -9234,11 +9231,11 @@ dtype: int64</code></pre>
 </div>
 </section>
 <section id="multiindex" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="multiindex"><span class="header-section-number">5.4</span> <strong>MultiIndex</strong></h2>
+<h2 data-number="5.4" class="anchored" data-anchor-id="multiindex"><span class="header-section-number">5.4</span> MultiIndex</h2>
 <p>You might have noticed that, when functions are applied to a groupby object, the resulting dataframe has tiered indices. This is an example of <strong>MultiIndex</strong>.</p>
 <p>MultiIndex is a hierarchical system of dataframe indexing. It enables you to store and manipulate data with any number of dimensions in lower dimensional data structures such as series and dataframes. This facilitates complex data manipulation. </p>
 <p>This course will not require any deep knowledge of hierarchical indexing, but it’s helpful to be familiar with it. Consider the following example:</p>
-<div id="20c05ac6" class="cell" data-execution_count="76">
+<div id="34a4185c" class="cell" data-execution_count="76">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1"></a>grouped <span class="op">=</span> clothes.groupby([<span class="st">&#39;color&#39;</span>, <span class="st">&#39;type&#39;</span>]).agg([<span class="st">&#39;mean&#39;</span>, <span class="st">&#39;min&#39;</span>])</span>
@@ -9313,7 +9310,7 @@ dtype: int64</code></pre>
 </div>
 <p>Notice that <strong>color</strong> and <strong>type</strong> are positioned lower than the column names in the output. This indicates that <strong>color</strong> and <strong>type</strong> are no longer columns, but named row indices. Similarly, notice that <strong>price_usd</strong> and <strong>mass_g</strong> are positioned above <strong>mean</strong> and <strong>min</strong> in the output of column names, indicating a hierarchical column index. </p>
 <p>If you inspect the row index, you’ll get a <strong>MultiIndex</strong> object containing information about the row indices:</p>
-<div id="1e1fe72e" class="cell" data-execution_count="77">
+<div id="e471ba02" class="cell" data-execution_count="77">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a>grouped.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9327,7 +9324,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>The column index shows a <strong>MultiIndex</strong> object containing information about the column indices:</p>
-<div id="e017cc87" class="cell" data-execution_count="78">
+<div id="7cb81fb8" class="cell" data-execution_count="78">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1"></a>grouped.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9341,7 +9338,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>To perform selection on a dataframe with a MultiIndex, use <strong>loc</strong> selection and put indices in parentheses. Here are some examples on <strong>grouped</strong>, which is a dataframe with a two-level row index and a two-level column index. For reference, here is the <strong>grouped</strong> dataframe:</p>
-<div id="50b6fff2" class="cell" data-execution_count="79">
+<div id="4172f6c2" class="cell" data-execution_count="79">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1"></a>grouped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9414,7 +9411,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>To select a first-level (top) column:</p>
-<div id="a6370515" class="cell" data-execution_count="80">
+<div id="885bf106" class="cell" data-execution_count="80">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1"></a>grouped.loc[:, <span class="st">&#39;price_usd&#39;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9469,7 +9466,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>To select a second-level (bottom) column:</p>
-<div id="1025942a" class="cell" data-execution_count="81">
+<div id="99b26429" class="cell" data-execution_count="81">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a>grouped.loc[:, (<span class="st">&#39;price_usd&#39;</span>, <span class="st">&#39;min&#39;</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9484,7 +9481,7 @@ Name: (price_usd, min), dtype: int64</code></pre>
 </div>
 </div>
 <p>To select first-level (left-most) row:</p>
-<div id="ac30fa35" class="cell" data-execution_count="82">
+<div id="4e1590d3" class="cell" data-execution_count="82">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1"></a>grouped.loc[<span class="st">&#39;blue&#39;</span>, :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9537,7 +9534,7 @@ Name: (price_usd, min), dtype: int64</code></pre>
 </div>
 </div>
 <p>To select a bottom-level (right-most) row:</p>
-<div id="12b237a8" class="cell" data-execution_count="83">
+<div id="3cf862bd" class="cell" data-execution_count="83">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1"></a>grouped.loc[(<span class="st">&#39;green&#39;</span>, <span class="st">&#39;shirt&#39;</span>), :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9551,7 +9548,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 </div>
 </div>
 <p>And you can even select individual values:</p>
-<div id="1f531130" class="cell" data-execution_count="84">
+<div id="e64aeaf6" class="cell" data-execution_count="84">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1"></a>grouped.loc[(<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;shirt&#39;</span>), (<span class="st">&#39;mass_g&#39;</span>, <span class="st">&#39;mean&#39;</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9561,7 +9558,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 </div>
 </div>
 <p>If you want to remove the row MultiIndex from a groupby result, include <strong>as_index=False</strong> as a parameter to your <strong>groupby()</strong> statement:</p>
-<div id="3eef9462" class="cell" data-execution_count="85">
+<div id="699792bf" class="cell" data-execution_count="85">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1"></a>clothes.groupby([<span class="st">&#39;color&#39;</span>, <span class="st">&#39;type&#39;</span>], as_index<span class="op">=</span><span class="va">False</span>).mean(numeric_only<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -9645,7 +9642,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <p>The two axes of a dataframe are zero, ​which runs vertically over rows; ​and one, which runs horizontally across columns. </p>
 <p><img role="img" src="data:image/png;base64,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zCI20k7qxsZf/vIXTZw4Uf8xcqSemDVLlmVp9uzZmjdvnqZPn65bbrklvhayYMECTZ48We3atVNdXZ0mT56sqVOnKiMjQ6+9tlCzZs3UTTfdpDvuuEMvvvii7r77bl122WW68cYbVVJyvrKyMtWlS5f488XEFkiO42jWrFl6/fXX9dhjj+l73/teg/m+SZ7n6c9/fk1vvrm02c05xAZwouTYUHQfLtd15ff75bpuo5tJPM+L32dZlgKBgDIyMtS1a1cNGzZMQ4b8DxUUdEx+GE6xppd8QDNirXrs2DG9++67OnjwoFavWqWf/OQnuuuuu/T3vy/Rvn37tH79+gY7bI0ePVojRozQzp07df7552vixInKyMiQ67qyrOP7WLiuq6uuukq33Xab9u7dq8mTJ2vMmGv0xBNPqLS0tMHrSO7m2ALoZPd9kyLDvq6CwWD83ABNTeFwmImJKWFKfo/E3kcxzb2/Yyf+qqurU319vSQpKytLOTk5CgQykmeHAYxspJ3TP7IRW8NQ9APdtm1t2bJFY8aMUVlZmb773e8qKysrvv20tLRU7du316uvvqqhQ4dKkjaXlel/Xn21Nm/erKKiIs2Z84KuvPIH8jzp9dcXavbs2brxxhs1ceJE+f1+HT16VOXl5Vq7dq1WrFihF154QVdeeaUWLFigjh0jayWRUImMDDiOo5kzZzYY2TidIwa7du3Snj2Ro3Kaf8udvtcJpKbjyxzLshQKhfT2229ry5Ytys7OVjh6uGts2eTz+eLhruiyIScnR7169VJJSYnOPfdcFRQUsBnlG0RspJ3THxsnM3fuXN1333265Uc/0v++915lZGTI8zyFQiH99re/1XPPPaef//znmjJlimpqajR+/HgtXrxY999/v15++WXl5ubq73//u3r27KmFCxdq1qxZuvnmm3XDDTdo5cqVKi0t1TXXXKN+/fqpvr5eo0aN0po1a/T2229r0KBBUvREXrEFTSgU0qxZs7Ro0SI99tjj+v73T89mlMQwA3BqeJ6nZ555RqWlpcrLy1MoFJLjOPHICAaD8jxPOTk5OuusszRw4EANGDBAPXr0UF5eXrObM3Hq8RPH1xbbDlpVVaW33npLknTJ8EtUUFCgtm3bql27durUqZNGjBihDh066M0339S+/fs1d+5cLV68WDfffLMefPBB3X777dq8ebOefvpp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OI4qKipUVlam7du2qaam6dGNxp77zTf/qTFjxmjMmDG69dZbNXbsWP3oRz/S+++/nzwrAACtUquLjdhmiT179ujPf/6zJOngwYN64403dPTo0aS5j0uOhaysLI0ePVr/+Mc/9PDDD6uwsLDB/S3ZNLNx40b98pfTtXv3bk2bNk2LFi3SfffdF739l9q2bVvyQwAAaHVaXWzELF++XLW1tXrwwQd13XXXadu2bSorK4vff+DAAS1YsEBz5szRgQMHZFmWXNfVokWL9NRTT6msrEzBYFCVlZWqqqqS53mqqanRO++8o1/84he666679Pjjj2vlypWqq6s7Yd+LcDispUuXasOGDRo3bpymTZum0aNHa8aMGZo4caLee+89vfnmm6qvDzZ4HAAArU2rjI0jR45oyZIlCgQCuvLKK3XJJZeooqJCK1asUDgcliRlZmZq3bp1uv322/Xkk09Kkt59912NGzdO8+fPl8/n0+eff64777xTCxYsUH19vf72t7/pnnvu0eLFi1VWVqa5c+fqtttu05o1a04YGTl48KA2bNigXr16ady4ccrOzpbnebJtWyNHjlRRUZHWr1+v+vq6Bo8DAKC1aZWxsX79eq1atUpDhw7VoEGDNHjwEHXp0kUrV67Url27JEn5+fmaMmWKLr74Yr388sv605/+pCeeeEJ5eXmaPn26+vTpI0ny+XyybVtVVVVatmyZKioqdPfdd+vVV1/V73//e40ePVpt2rQ5YWSjpqZGR44cUY8ePdS1a9cG9/Xp00fnnHOOKioqdOzYsQb3AQDQ2rTK2Hj77be1d+9elZScr927d6u2tkaFhYXasGGDNmzYEJ+vuLhYDz/8sGzb1p133qmlS5dq6tSp+uEPfyhF9//w+/2ybZ8yMjLUq1cvZWVl6f3339eHH36ogoICTZkyRYMHD0747hGu68qyLLVp00ZZWVlSwrVMfD6fLMtSMBiUz+dr+MBmcXgrACC9tLrYqKys1FtvvSVJmj9/nsaPH6977rlHq1evVnl5udauXasjR47E57/kkkv07W9/WwcOHFD79u01duzY+H2O48h1Xbmuo7y8NpowYYLGj5+gTZs26ZFHHtGkSZM0c+ZMffHFFydsRsnKylJ2drYqKirih83adiQUjh2rUlVVldq1a6ecnJwGjwMAoLVpdbGxevVqrVq1Sv3799fQoUPV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" class="img-fluid">​</p>
 <p>We’ll use our basic planets dataset ​to demonstrate how concat works. ​This data has four planets, their radii, ​and their number of moons, ​but it’s missing the data ​for Jupiter, Saturn, Uranus, and Neptune.</p>
-<div id="f3d94e25" class="cell" data-execution_count="86">
+<div id="6f847ec0" class="cell" data-execution_count="86">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -9705,7 +9702,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 </div>
 </div>
 <p> ​Now suppose we want to add this data, ​which exists as a separate dataframe. ​Let’s examine this second dataset ​with information about Jupiter, Saturn, Uranus, ​and Neptune before joining them. </p>
-<div id="350f2c0c" class="cell" data-execution_count="87">
+<div id="3bacc8b6" class="cell" data-execution_count="87">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1"></a><span class="co"># Instantiate a dictionary of planetary data.</span></span>
@@ -9762,7 +9759,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 </div>
 </div>
 <p>​Notice that this data is in the same format ​as the data in the df1 dataframe. ​It has the same columns for planet, radius, and moons. ​To combine the two dataframes, ​we’ll want to add df2 as new rows below df1. ​To concatenate the first dataset ​with information about Mercury, Venus, Earth, ​and Mars with the second, ​which has information about Jupiter, ​Saturn, Uranus, and Neptune, ​we call PD concat and insert a list ​of the dataframes we want to concatenate. ​Then we need to include an axis keyword argument. ​This instructs the function ​to combine the data either side-by-side ​or one on top of the other. ​We want our resulting dataframe ​to have eight rows and three columns, ​which means we want to combine ​the data vertically. ​In other words, ​we want to add new data by extending axis zero, ​the vertical axis. </p>
-<div id="4a115107" class="cell" data-execution_count="88">
+<div id="8b5425b7" class="cell" data-execution_count="88">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1"></a><span class="co"># The pd.concat() function can combine the two dataframes along axis 0,</span></span>
@@ -9839,7 +9836,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 </div>
 </div>
 <p>​Perfect! ​The data was added as new rows. ​Notice that each row retains ​its index number from its original dataframe. ​If you want the numbering to restart, ​just reset the index. </p>
-<div id="e40bc5da" class="cell" data-execution_count="89">
+<div id="0b1cc03a" class="cell" data-execution_count="89">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1"></a><span class="co"># Reset the row indices.</span></span>
@@ -9921,7 +9918,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <h2 data-number="6.2" class="anchored" data-anchor-id="merge"><span class="header-section-number">6.2</span> Merge</h2>
 <p>The merge function is a pandas function ​that joins two dataframes together. ​<strong>It only combines data by extending ​along axis one horizontally.</strong> ​</p>
 <p>Let’s return to the planets. ​Now we have the radius and number of moons ​for all eight planets, ​but suppose we want to add the data ​for the planet type, ​whether it has rings, ​its average temperature, ​whether it has a magnetic field, ​and whether it has life on it. ​Perhaps this data exists as a separate dataframe, ​but it’s missing Mercury and Venus ​and it has some recently discovered planets ​from other star systems, Janssen and Tadmor. </p>
-<div id="474b5427" class="cell" data-execution_count="90">
+<div id="2ef0445b" class="cell" data-execution_count="90">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1"></a>data <span class="op">=</span> {<span class="st">&#39;planet&#39;</span>: [<span class="st">&#39;Earth&#39;</span>, <span class="st">&#39;Mars&#39;</span>,<span class="st">&#39;Jupiter&#39;</span>, <span class="st">&#39;Saturn&#39;</span>, <span class="st">&#39;Uranus&#39;</span>,</span>
@@ -10037,7 +10034,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <p>​We can also join the data so all of the keys ​in the left dataframe are included, ​even if they aren’t in the right dataframe. ​This is called a <strong>left join</strong>. ​Finally, we can join the data so all the keys ​in the right dataframe are included, ​even if they aren’t in the left dataframe. ​This is called a <strong>right join</strong>. ​</p>
 <p>Let’s examine how each type ​of join affects our planet data. ​First we’ll call the function ​and enter df3 and df4 ​as the left and right positional arguments, respectively. ​Then we include the keyword argument “on,” ​which lets us specify what our keys ​to match on should be. </p>
 <p>​In this case, we want to use the “planet” column. ​Now we have the “how” keyword argument. ​This is where we enter the kind of join we want. ​Let’s try “inner” first.</p>
-<div id="eea8f928" class="cell" data-execution_count="91">
+<div id="c84c2332" class="cell" data-execution_count="91">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1"></a><span class="co"># Use pd.merge() to combine dataframes.</span></span>
@@ -10137,7 +10134,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 </div>
 </div>
 <p> ​This merged the data ​and only kept the planets ​that appeared in both dataframes. ​This means we’re missing data ​for Mercury and Venus ​from the left dataframe ​as well as for Janssen and Tadmor ​from the right dataframe. ​Now let’s try an outer join. </p>
-<div id="3c945f4c" class="cell" data-execution_count="92">
+<div id="730292e2" class="cell" data-execution_count="92">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb131-1"><a href="#cb131-1"></a><span class="co"># Use pd.merge() to combine dataframes.</span></span>
@@ -10282,7 +10279,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 </div>
 <p>​Our function call will remain ​the same except for the “how” keyword argument, ​which we’ll set to “outer.” ​As expected, this results in a dataframe ​that contains all the keys ​from both initial dataframes. ​Notice that, because Janssen and Tadmor ​aren’t in the left dataframe, ​they don’t have information for radius and moons, ​so these columns get filled in with NaNs. ​Similarly, because Mercury and Venus ​aren’t in the right dataframe, ​they too are missing some information ​in the final table, ​which is represented by NaNs. ​</p>
 <p>Next we’ll do a left join. ​</p>
-<div id="d2f6aa4e" class="cell" data-execution_count="93">
+<div id="2222a0d4" class="cell" data-execution_count="93">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1"></a><span class="co"># Use pd.merge() to combine dataframes.</span></span>
@@ -10405,7 +10402,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 </div>
 <p>Again, the function gets the same syntax ​except for the “how” argument, ​which is set to “left.” ​This results in a dataframe ​that retains all the keys ​from the left dataframe ​and only the keys from the right dataframe ​that exist in the left dataframe too. </p>
 <p>​So Janssen and Tadmor are excluded. ​Finally, we’ll perform a right join. ​</p>
-<div id="021f926f" class="cell" data-execution_count="94">
+<div id="fba271d6" class="cell" data-execution_count="94">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1"></a><span class="co"># Use pd.merge() to combine dataframes.</span></span>
@@ -10533,7 +10530,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <h1 data-number="7"><span class="header-section-number">7</span> .apply() — Applying Custom Logic</h1>
 <p>.apply() runs a function across every value in a column (or across entire rows/columns). Use it when standard built-in vectorized operations aren’t enough for complex logic.</p>
 <p>Pattern 1: With lambda (Quick, one-liner transformations)</p>
-<div id="6e284fca" class="cell" data-execution_count="95">
+<div id="87b5a9c6" class="cell" data-execution_count="95">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1"></a><span class="co">## Sample DataFrame for custom transformations</span></span>
@@ -10545,7 +10542,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <span id="cb134-7"><a href="#cb134-7"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="f9c0bfcc" class="cell" data-execution_count="96">
+<div id="8d5d0b52" class="cell" data-execution_count="96">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1"></a><span class="co"># Example A: Simple lambda function (Convert salary to thousands)</span></span>
@@ -10553,7 +10550,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 </details>
 </div>
 <p>Pattern 2: With Custom Functions (For multi-step conditional logic)</p>
-<div id="7f2e8b92" class="cell" data-execution_count="97">
+<div id="cf379f79" class="cell" data-execution_count="97">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1"></a><span class="kw">def</span> performance_tier(score):</span>
@@ -10567,7 +10564,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 </details>
 </div>
 <p>Pattern 3: Operating across multiple columns (axis=1)</p>
-<div id="6dd02bfb" class="cell" data-execution_count="98">
+<div id="57f4b321" class="cell" data-execution_count="98">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb137-1"><a href="#cb137-1"></a><span class="co"># Pass entire rows to calculate logic using multiple columns</span></span>
@@ -11148,7 +11145,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <span id="cb139-116"><a href="#cb139-116"></a></span>
 <span id="cb139-117"><a href="#cb139-117"></a>You’ve learned that Python has many open-source libraries and packages—including NumPy and pandas—that make it one of the most useful coding languages. In this reading, you will review the basics of pandas dataframes and learn more about how to work with them. Understanding the fundamentals of pandas is essential to becoming a capable and competent data professional.</span>
 <span id="cb139-118"><a href="#cb139-118"></a></span>
-<span id="cb139-119"><a href="#cb139-119"></a><span class="fu">## **Primary data structures**</span></span>
+<span id="cb139-119"><a href="#cb139-119"></a><span class="fu">## Primary data structures</span></span>
 <span id="cb139-120"><a href="#cb139-120"></a></span>
 <span id="cb139-121"><a href="#cb139-121"></a>Pandas has two primary data structures: **Series** and **DataFrame**. </span>
 <span id="cb139-122"><a href="#cb139-122"></a></span>
@@ -11156,7 +11153,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <span id="cb139-124"><a href="#cb139-124"></a></span>
 <span id="cb139-125"><a href="#cb139-125"></a><span class="ss">-   </span>**DataFrame:** A dataframe is a two-dimensional labeled data structure—essentially a table or spreadsheet—where each column and row is represented by a Series.</span>
 <span id="cb139-126"><a href="#cb139-126"></a></span>
-<span id="cb139-127"><a href="#cb139-127"></a><span class="fu">## **Create a DataFrame**</span></span>
+<span id="cb139-127"><a href="#cb139-127"></a><span class="fu">## Create a DataFrame</span></span>
 <span id="cb139-128"><a href="#cb139-128"></a></span>
 <span id="cb139-129"><a href="#cb139-129"></a>To use pandas in your notebook, first import it. Similar to NumPy, pandas has its own standard alias, **pd**, that’s used by data professionals around the world:</span>
 <span id="cb139-130"><a href="#cb139-130"></a></span>
@@ -11187,7 +11184,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <span id="cb139-161"><a href="#cb139-161"></a></span>
 <span id="cb139-162"><a href="#cb139-162"></a><span class="in">`df3 = pd.read_csv(r&#39;/file_path/file_name.csv&#39;)`</span></span>
 <span id="cb139-163"><a href="#cb139-163"></a></span>
-<span id="cb139-164"><a href="#cb139-164"></a><span class="fu">## **Attributes and methods**</span></span>
+<span id="cb139-164"><a href="#cb139-164"></a><span class="fu">## Attributes and methods</span></span>
 <span id="cb139-165"><a href="#cb139-165"></a></span>
 <span id="cb139-166"><a href="#cb139-166"></a>The **DataFrame** class is powerful and convenient because it comes with a suite of built-in features that simplify common data analysis tasks. These features are known as attributes and methods. An attribute is a value associated with an object or class that is referenced by name using dotted expressions. A method is a function that is defined inside a class body and typically performs an action. A simpler way of thinking about the distinction between attributes and methods is to remember that attributes are *characteristics* of the object, while methods are *actions* or *operations*. </span>
 <span id="cb139-167"><a href="#cb139-167"></a></span>
@@ -11731,7 +11728,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <span id="cb139-771"><a href="#cb139-771"></a><span class="bu">print</span>(df[[<span class="st">&#39;clean_name&#39;</span>, <span class="st">&#39;hire_year&#39;</span>, <span class="st">&#39;hire_day_of_week&#39;</span>, <span class="st">&#39;dept_code&#39;</span>]])</span>
 <span id="cb139-772"><a href="#cb139-772"></a><span class="in">```</span></span>
 <span id="cb139-773"><a href="#cb139-773"></a></span>
-<span id="cb139-774"><a href="#cb139-774"></a><span class="fu">## **Key takeaways**</span></span>
+<span id="cb139-774"><a href="#cb139-774"></a><span class="fu">## Key takeaways</span></span>
 <span id="cb139-775"><a href="#cb139-775"></a></span>
 <span id="cb139-776"><a href="#cb139-776"></a>Pandas dataframes are a convenient way to work with tabular data. Each row and each column can be represented by a pandas **Series**, which is similar to a one-dimensional array. Both dataframes and series have a large collection of methods and attributes to perform common tasks and retrieve information. Pandas also has its own special notation to select data. As you work more with pandas, you’ll become more comfortable with this notation and its many applications in data science.</span>
 <span id="cb139-777"><a href="#cb139-777"></a></span>
@@ -12214,7 +12211,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <span id="cb139-1314"><a href="#cb139-1314"></a>clothes[[<span class="st">&#39;price_usd&#39;</span>, <span class="st">&#39;mass_g&#39;</span>]].agg([<span class="st">&#39;sum&#39;</span>, <span class="st">&#39;mean&#39;</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb139-1315"><a href="#cb139-1315"></a><span class="in">```</span></span>
 <span id="cb139-1316"><a href="#cb139-1316"></a></span>
-<span id="cb139-1317"><a href="#cb139-1317"></a><span class="fu">## **groupby() with agg()**</span></span>
+<span id="cb139-1317"><a href="#cb139-1317"></a><span class="fu">## groupby() with agg()</span></span>
 <span id="cb139-1318"><a href="#cb139-1318"></a></span>
 <span id="cb139-1319"><a href="#cb139-1319"></a>The **groupby()** and **agg()** functions are often used together. In such cases, first apply the **groupby()** function to a dataframe, then apply the **agg()** function to the result of the groupby.</span>
 <span id="cb139-1320"><a href="#cb139-1320"></a></span>
@@ -12225,7 +12222,7 @@ Name: (green, shirt), dtype: float64</code></pre>
 <span id="cb139-1327"><a href="#cb139-1327"></a>                             <span class="st">&#39;mass_g&#39;</span>: [<span class="st">&#39;mean&#39;</span>, <span class="st">&#39;max&#39;</span>]})</span>
 <span id="cb139-1328"><a href="#cb139-1328"></a><span class="in">```</span></span>
 <span id="cb139-1329"><a href="#cb139-1329"></a></span>
-<span id="cb139-1330"><a href="#cb139-1330"></a><span class="fu">## **MultiIndex**</span></span>
+<span id="cb139-1330"><a href="#cb139-1330"></a><span class="fu">## MultiIndex</span></span>
 <span id="cb139-1331"><a href="#cb139-1331"></a></span>
 <span id="cb139-1332"><a href="#cb139-1332"></a>You might have noticed that, when functions are applied to a groupby object, the resulting dataframe has tiered indices. This is an example of **MultiIndex**.</span>
 <span id="cb139-1333"><a href="#cb139-1333"></a></span>

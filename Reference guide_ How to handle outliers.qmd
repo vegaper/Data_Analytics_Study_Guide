@@ -1,8 +1,6 @@
 ---
-title: Reference guide: How to handle outliers
-format:
-  html:
-    page-layout: full
+title: "Reference guide: How to handle outliers"
+format: html
 jupyter: python3
 ---
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>reference-guide_-how-to-handle-outliers – Google Advanced Data Analytics</title>
+<title>Reference guide: How to handle outliers – Google Advanced Data Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4051,7 +4051,7 @@ text-transform: uppercase;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Reference guide: How to handle outliers</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -4776,24 +4776,34 @@ text-transform: uppercase;
     <h2 id="toc-title">En este tema</h2>
    
   <ul>
-  <li><a href="#reference-guide-how-to-handle-outliers" id="toc-reference-guide-how-to-handle-outliers" class="nav-link active" data-scroll-target="#reference-guide-how-to-handle-outliers"><span class="header-section-number">1</span> Reference guide: How to handle outliers</a>
-  <ul>
-  <li><a href="#delete-them" id="toc-delete-them" class="nav-link" data-scroll-target="#delete-them"><span class="header-section-number">1.1</span> <strong>1. Delete them</strong></a></li>
-  <li><a href="#reassign-them" id="toc-reassign-them" class="nav-link" data-scroll-target="#reassign-them"><span class="header-section-number">1.2</span> <strong>2. Reassign them</strong></a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.3</span> </a></li>
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><span class="header-section-number">1.4</span> <strong>Key Takeaways</strong></a></li>
-  </ul></li>
+  <li><a href="#delete-them" id="toc-delete-them" class="nav-link active" data-scroll-target="#delete-them"><span class="header-section-number">1</span> 1. Delete them</a></li>
+  <li><a href="#reassign-them" id="toc-reassign-them" class="nav-link" data-scroll-target="#reassign-them"><span class="header-section-number">2</span> 2. Reassign them</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><span class="header-section-number">3</span> Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Reference guide: How to handle outliers</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
 
 
 
+<div class="quarto-title-meta column-body">
 
-<section id="reference-guide-how-to-handle-outliers" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Reference guide: How to handle outliers</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>Previously, you watched two videos about how to detect outliers and why handling outliers can be an important part of data cleaning. At this point, you likely have a good understanding of this. It is important to not only detect outliers, but also to have a plan for them.</p>
 <p>That is precisely what you will review in this reading. Once you’ve detected outliers in your dataset—whether global, contextual, or collective—how do you handle them? When it comes to exploratory data analysis, or EDA, there are essentially three main ways to handle outliers: delete, reassign, or leave them in.</p>
 <p>Whether you keep outliers as they are, delete them, or reassign values is a decision that you make on a dataset-by-dataset basis. To help you make the decision, you can start with these general guidelines:</p>
@@ -4803,140 +4813,68 @@ text-transform: uppercase;
 <li><p><strong>Leave them:</strong> For a dataset that you plan to do EDA/analysis on and nothing else, or for a dataset you are preparing for a model that is resistant to outliers, it is most likely that you are going to leave them in.</p></li>
 </ul>
 <p>The videos discussing outliers went into detail on how to handle outliers when you leave them in the dataset. In this reading, you will learn about some techniques for deleting and reassigning outliers.</p>
-<section id="delete-them" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="delete-them"><span class="header-section-number">1.1</span> <strong>1. Delete them</strong></h2>
+<section id="delete-them" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="delete-them"><span class="header-section-number">1</span> 1. Delete them</h2>
 <p>For one way to delete outlier values, recall the coding you saw in the walkthrough video on outliers. In that video, the instructor coded a box plot to help you visualize two different outliers, as shown here:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>box <span class="op">=</span> sns.boxplot(x<span class="op">=</span>df[<span class="st">&#39;number_of_strikes&#39;</span>])</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>g <span class="op">=</span> plt.gca()</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>box.set_xticklabels(np.array([readable_numbers(x) <span class="cf">for</span> x <span class="kw">in</span> g.get_xticks()]))</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>plt.xlabel(<span class="st">&#39;Number of strikes&#39;</span>)</span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a>plt.title(<span class="st">&#39;Yearly number of lightning strikes&#39;</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The instructor then used the following code to find the lower limit—8.6M.</p>
-<p># Calculate 25th percentile of annual strikes<br>
-percentile25 = df[‘number_of_strikes’].quantile(0.25)</p>
-<p># Calculate 75th percentile of annual strikes<br>
-percentile75 = df[‘number_of_strikes’].quantile(0.75)</p>
-<p># Calculate interquartile range<br>
-iqr = percentile75 - percentile25</p>
-<p># Calculate upper and lower thresholds for outliers<br>
-upper_limit = percentile75 + 1.5 * iqr<br>
-lower_limit = percentile25 - 1.5 * iqr</p>
-<p>print(‘Lower limit is:’, lower_limit)<br>
-print(upper_limit)</p>
-<p>Lower limit is: 8585016.625<br>
-47356671.625</p>
+<span id="cb1-2"><a href="#cb1-2"></a>g <span class="op">=</span> plt.gca()</span>
+<span id="cb1-3"><a href="#cb1-3"></a>box.set_xticklabels(np.array([readable_numbers(x) <span class="cf">for</span> x <span class="kw">in</span> g.get_xticks()]))</span>
+<span id="cb1-4"><a href="#cb1-4"></a>plt.xlabel(<span class="st">&#39;Number of strikes&#39;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>plt.title(<span class="st">&#39;Yearly number of lightning strikes&#39;</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To find the lower limit —8.6M.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Calculate 25th percentile of annual strikes</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>percentile25 <span class="op">=</span> df[<span class="st">&#39;number_of_strikes&#39;</span>].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Calculate 75th percentile of annual strikes</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>percentile75 <span class="op">=</span> df[<span class="st">&#39;number_of_strikes&#39;</span>].quantile(<span class="fl">0.75</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># Calculate interquartile range</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>iqr <span class="op">=</span> percentile75 <span class="op">-</span> percentile25</span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co"># Calculate upper and lower thresholds for outliers</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>upper_limit <span class="op">=</span> percentile75 <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> iqr</span>
+<span id="cb2-12"><a href="#cb2-12"></a>lower_limit <span class="op">=</span> percentile25 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> iqr</span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="bu">print</span>(<span class="st">&#39;Lower limit is: &#39;</span>, lower_limit)</span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="bu">print</span>(upper_limit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Lower limit is: 8585016.625 47356671.625</p>
 <p>Next, a Boolean mask was used to filter the dataframe so it only contained rows where the number of strikes was less than the lower limit.</p>
-<p>print(df[df[‘number_of_strikes’] &lt; lower_limit])</p>
-<p>number_of_strikes year<br>
-1 209166 2019<br>
-33 7378836 1987</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">print</span>(df[df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">&lt;</span> lower_limit])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>number_of_strikes year 1 209166 2019 33 7378836 1987</p>
 <p>Once you know the cutoff points for outliers, if you want to delete them, you can use a Boolean mask to select all rows such that: lower limit ≤ values ≤ upper limit.</p>
-<p>mask = (df[‘number_of_strikes’] &gt;= lower_limit) &amp; (df[‘number_of_strikes’]<br>
-&lt;=upper_limit)<br>
-df = df[mask].copy()<br>
-print(df)</p>
-<p>number_of_strikes year<br>
-0 15620068 2020<br>
-2 44600989 2018<br>
-3 35095195 2017<br>
-4 41582229 2016<br>
-5 37894191 2015<br>
-6 34919173 2014<br>
-7 27600898 2013<br>
-8 28807552 2012<br>
-9 31392058 2011<br>
-10 29068965 2010<br>
-11 30100585 2009<br>
-12 29790934 2008<br>
-13 30529064 2007<br>
-14 33292382 2006<br>
-15 38168699 2005<br>
-16 40023951 2004<br>
-17 39092327 2003<br>
-18 29916767 2002<br>
-19 25470095 2001<br>
-20 26276135 2000<br>
-21 27758681 1999<br>
-22 28802221 1998<br>
-23 26986915 1997<br>
-24 26190094 1996<br>
-25 22763540 1995<br>
-26 25094010 1994<br>
-27 24206929 1993<br>
-28 16371876 1992<br>
-29 16900934 1991<br>
-30 15839052 1990<br>
-31 14245186 1989<br>
-32 9150440 1988</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>mask <span class="op">=</span> (df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">&gt;=</span> lower_limit) <span class="op">&amp;</span> (df[<span class="st">&#39;number_of_strikes&#39;</span>]</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="op">&lt;=</span>upper_limit)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>df <span class="op">=</span> df[mask].copy()</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>number_of_strikes year 0 15620068 2020 2 44600989 2018 3 35095195 2017 4 41582229 2016 5 37894191 2015 6 34919173 2014 7 27600898 2013 8 28807552 2012 9 31392058 2011 10 29068965 2010 11 30100585 2009 12 29790934 2008 13 30529064 2007 14 33292382 2006 15 38168699 2005 16 40023951 2004 17 39092327 2003 18 29916767 2002 19 25470095 2001 20 26276135 2000 21 27758681 1999 22 28802221 1998 23 26986915 1997 24 26190094 1996 25 22763540 1995 26 25094010 1994 27 24206929 1993 28 16371876 1992 29 16900934 1991 30 15839052 1990 31 14245186 1989 32 9150440 1988</p>
 <p>Next, you’ll consider reassigning outliers by deriving new values that are a better fit for the dataset.</p>
 </section>
-<section id="reassign-them" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="reassign-them"><span class="header-section-number">1.2</span> <strong>2. Reassign them</strong></h2>
+<section id="reassign-them" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="reassign-them"><span class="header-section-number">2</span> 2. Reassign them</h2>
 <p>Instead of deleting outliers, you can always reassign them, that is, change the values to ones that fit within the general distribution of the dataset. There are two common ways to do this, but many different ways can be used, depending on your use case:</p>
 <p><strong>1. Create a floor and ceiling at a quantile:</strong> For example, you could place walls at the 90th and 10th percentile of the distribution of data values. Any value above the 90% mark or below the 10% mark are changed to fit within the walls you set. Here is an example of what that code might look like:</p>
-<p>tenth_percentile = np.percentile(df[‘number_of_strikes’], 10)<br>
-ninetieth_percentile = np.percentile(df[‘number_of_strikes’], 90)<br>
-df[‘number_of_strikes’] = df[‘number_of_strikes’].apply(lambda x: (<br>
-tenth_percentile if x &lt; tenth_percentile<br>
-else ninetieth_percentile if x &gt; ninetieth_percentile<br>
-else x))</p>
-<p>0 15620068.0<br>
-1 14657650.6<br>
-2 38815238.6<br>
-3 35095195.0<br>
-4 38815238.6<br>
-5 37894191.0<br>
-6 34919173.0<br>
-7 27600898.0<br>
-8 28807552.0<br>
-9 31392058.0<br>
-10 29068965.0<br>
-11 30100585.0<br>
-12 29790934.0<br>
-13 30529064.0<br>
-14 33292382.0<br>
-15 38168699.0<br>
-16 38815238.6<br>
-17 38815238.6<br>
-18 29916767.0<br>
-19 25470095.0<br>
-20 26276135.0<br>
-21 27758681.0<br>
-22 28802221.0<br>
-23 26986915.0<br>
-24 26190094.0<br>
-25 22763540.0<br>
-26 25094010.0<br>
-27 24206929.0<br>
-28 16371876.0<br>
-29 16900934.0<br>
-30 15839052.0<br>
-31 14657650.6<br>
-32 14657650.6<br>
-33 14657650.6<br>
-Name: number_of_strikes, dtype: float64</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>tenth_percentile <span class="op">=</span> np.percentile(df[<span class="st">&#39;number_of_strikes&#39;</span>], <span class="dv">10</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>ninetieth_percentile <span class="op">=</span> np.percentile(df[<span class="st">&#39;number_of_strikes&#39;</span>], <span class="dv">90</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;number_of_strikes&#39;</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: (</span>
+<span id="cb5-4"><a href="#cb5-4"></a>tenth_percentile <span class="cf">if</span> x <span class="op">&lt;</span> tenth_percentile</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="cf">else</span> ninetieth_percentile <span class="cf">if</span> x <span class="op">&gt;</span> ninetieth_percentile</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="cf">else</span> x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>0 15620068.0 1 14657650.6 2 38815238.6 3 35095195.0 4 38815238.6 5 37894191.0 6 34919173.0 7 27600898.0 8 28807552.0 9 31392058.0 10 29068965.0 11 30100585.0 12 29790934.0 13 30529064.0 14 33292382.0 15 38168699.0 16 38815238.6 17 38815238.6 18 29916767.0 19 25470095.0 20 26276135.0 21 27758681.0 22 28802221.0 23 26986915.0 24 26190094.0 25 22763540.0 26 25094010.0 27 24206929.0 28 16371876.0 29 16900934.0 30 15839052.0 31 14657650.6 32 14657650.6 33 14657650.6 Name: number_of_strikes, dtype: float64</p>
 <p><strong>2. Impute the average:</strong> In some cases, it might be best to reassign all outlier values to match the median or mean value. This will ensure that your median and distribution are based solely on the non-outlier values, leaving the original outliers excluded. The actual imputation or reassigning of values can be pretty simple if you’ve already found the outliers. The following code block calculates the median of the values greater than the lower limit. Then it imputes the median where values are lower than the lower limit.</p>
-<p>median = np.median(df[‘number_of_strikes’][df[‘number_of_strikes’] &gt;=<br>
-lower_limit])</p>
-<p>df[‘number_of_strikes’] = np.where(df[‘number_of_strikes’] &lt; lower_limit,<br>
-median, df[‘number_of_strikes’] )</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>median <span class="op">=</span> np.median(df[<span class="st">&#39;number_of_strikes&#39;</span>][df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">&gt;=</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>lower_limit])</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a>df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">=</span> np.where(df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">&lt;</span> lower_limit,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>median, df[<span class="st">&#39;number_of_strikes&#39;</span>] )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Note:</strong> Outside of EDA, machine learning and regression modeling have more complex variations on dealing with outliers. You will learn more about those topics later.</p>
 </section>
-<section id="section" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="section"><span class="header-section-number">1.3</span> </h2>
-</section>
-<section id="key-takeaways" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="key-takeaways"><span class="header-section-number">1.4</span> <strong>Key Takeaways</strong></h2>
+<section id="key-takeaways" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="key-takeaways"><span class="header-section-number">3</span> Key Takeaways</h2>
 <p>After detecting the outliers in a dataset, it is essential that you determine a strategy for how to handle them. Because every dataset and data-based problem is different, your strategy will vary. For the most part, you will be choosing between deleting, reassigning, or leaving outliers.</p>
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -5390,174 +5328,113 @@ median, df[‘number_of_strikes’] )</p>
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu"># Reference guide: How to handle outliers</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a>Previously, you watched two videos about how to detect outliers and why handling outliers can be an important part of data cleaning. At this point, you likely have a good understanding of this. It is important to not only detect outliers, but also to have a plan for them.</span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a>That is precisely what you will review in this reading. Once you’ve detected outliers in your dataset—whether global, contextual, or collective—how do you handle them? When it comes to exploratory data analysis, or EDA, there are essentially three main ways to handle outliers: delete, reassign, or leave them in.</span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a>Whether you keep outliers as they are, delete them, or reassign values is a decision that you make on a dataset-by-dataset basis. To help you make the decision, you can start with these general guidelines:</span>
-<span id="cb2-8"><a href="#cb2-8"></a></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="ss">-   </span>**Delete them:** If you are sure the outliers are mistakes, typos, or errors and the dataset will be used for modeling or machine learning, then you are more likely to decide to delete outliers. Of the three choices, you’ll use this one the least.</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="ss">-   </span>**Reassign them:** If the dataset is small and/or the data will be used for modeling or machine learning, you are more likely to choose a path of deriving new values to replace the outlier values.</span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="ss">-   </span>**Leave them:** For a dataset that you plan to do EDA/analysis on and nothing else, or for a dataset you are preparing for a model that is resistant to outliers, it is most likely that you are going to leave them in.</span>
-<span id="cb2-14"><a href="#cb2-14"></a></span>
-<span id="cb2-15"><a href="#cb2-15"></a>The videos discussing outliers went into detail on how to handle outliers when you leave them in the dataset. In this reading, you will learn about some techniques for deleting and reassigning outliers.</span>
-<span id="cb2-16"><a href="#cb2-16"></a></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="fu">## **1. Delete them**</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a></span>
-<span id="cb2-19"><a href="#cb2-19"></a>For one way to delete outlier values, recall the coding you saw in the walkthrough video on outliers. In that video, the instructor coded a box plot to help you visualize two different outliers, as shown here:</span>
-<span id="cb2-20"><a href="#cb2-20"></a></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="in">``` python</span></span>
-<span id="cb2-22"><a href="#cb2-22"></a>box <span class="op">=</span> sns.boxplot(x<span class="op">=</span>df[<span class="st">&#39;number_of_strikes&#39;</span>])</span>
-<span id="cb2-23"><a href="#cb2-23"></a></span>
-<span id="cb2-24"><a href="#cb2-24"></a>g <span class="op">=</span> plt.gca()</span>
-<span id="cb2-25"><a href="#cb2-25"></a></span>
-<span id="cb2-26"><a href="#cb2-26"></a>box.set_xticklabels(np.array([readable_numbers(x) <span class="cf">for</span> x <span class="kw">in</span> g.get_xticks()]))</span>
-<span id="cb2-27"><a href="#cb2-27"></a></span>
-<span id="cb2-28"><a href="#cb2-28"></a>plt.xlabel(<span class="st">&#39;Number of strikes&#39;</span>)</span>
-<span id="cb2-29"><a href="#cb2-29"></a></span>
-<span id="cb2-30"><a href="#cb2-30"></a>plt.title(<span class="st">&#39;Yearly number of lightning strikes&#39;</span>)<span class="op">;</span></span>
-<span id="cb2-31"><a href="#cb2-31"></a><span class="in">```</span></span>
-<span id="cb2-32"><a href="#cb2-32"></a></span>
-<span id="cb2-33"><a href="#cb2-33"></a>The instructor then used the following code to find the lower limit—8.6M.</span>
-<span id="cb2-34"><a href="#cb2-34"></a></span>
-<span id="cb2-35"><a href="#cb2-35"></a><span class="sc">\#</span> Calculate 25th percentile of annual strikes\</span>
-<span id="cb2-36"><a href="#cb2-36"></a>percentile25 = df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span>.quantile(0.25)</span>
-<span id="cb2-37"><a href="#cb2-37"></a></span>
-<span id="cb2-38"><a href="#cb2-38"></a><span class="sc">\#</span> Calculate 75th percentile of annual strikes\</span>
-<span id="cb2-39"><a href="#cb2-39"></a>percentile75 = df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span>.quantile(0.75)</span>
-<span id="cb2-40"><a href="#cb2-40"></a></span>
-<span id="cb2-41"><a href="#cb2-41"></a><span class="sc">\#</span> Calculate interquartile range\</span>
-<span id="cb2-42"><a href="#cb2-42"></a>iqr = percentile75 - percentile25</span>
-<span id="cb2-43"><a href="#cb2-43"></a></span>
-<span id="cb2-44"><a href="#cb2-44"></a><span class="sc">\#</span> Calculate upper and lower thresholds for outliers\</span>
-<span id="cb2-45"><a href="#cb2-45"></a>upper_limit = percentile75 + 1.5 <span class="sc">\*</span> iqr\</span>
-<span id="cb2-46"><a href="#cb2-46"></a>lower_limit = percentile25 - 1.5 <span class="sc">\*</span> iqr</span>
-<span id="cb2-47"><a href="#cb2-47"></a></span>
-<span id="cb2-48"><a href="#cb2-48"></a>print(&#39;Lower limit is: &#39;, lower_limit)\</span>
-<span id="cb2-49"><a href="#cb2-49"></a>print(upper_limit)</span>
-<span id="cb2-50"><a href="#cb2-50"></a></span>
-<span id="cb2-51"><a href="#cb2-51"></a>Lower limit is: 8585016.625\</span>
-<span id="cb2-52"><a href="#cb2-52"></a>47356671.625</span>
-<span id="cb2-53"><a href="#cb2-53"></a></span>
-<span id="cb2-54"><a href="#cb2-54"></a>Next, a Boolean mask was used to filter the dataframe so it only contained rows where the number of strikes was less than the lower limit.</span>
-<span id="cb2-55"><a href="#cb2-55"></a></span>
-<span id="cb2-56"><a href="#cb2-56"></a>print(df<span class="sc">\[</span>df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span> <span class="sc">\&lt;</span> lower_limit<span class="sc">\]</span>)</span>
-<span id="cb2-57"><a href="#cb2-57"></a></span>
-<span id="cb2-58"><a href="#cb2-58"></a>number_of_strikes year\</span>
-<span id="cb2-59"><a href="#cb2-59"></a>1 209166 2019\</span>
-<span id="cb2-60"><a href="#cb2-60"></a>33 7378836 1987</span>
-<span id="cb2-61"><a href="#cb2-61"></a></span>
-<span id="cb2-62"><a href="#cb2-62"></a>Once you know the cutoff points for outliers, if you want to delete them, you can use a Boolean mask to select all rows such that: lower limit ≤ values ≤ upper limit.</span>
-<span id="cb2-63"><a href="#cb2-63"></a></span>
-<span id="cb2-64"><a href="#cb2-64"></a>mask = (df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span> <span class="sc">\&gt;</span>= lower_limit) &amp; (df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span>\</span>
-<span id="cb2-65"><a href="#cb2-65"></a><span class="sc">\&lt;</span>=upper_limit)\</span>
-<span id="cb2-66"><a href="#cb2-66"></a>df = df<span class="sc">\[</span>mask<span class="sc">\]</span>.copy()\</span>
-<span id="cb2-67"><a href="#cb2-67"></a>print(df)</span>
-<span id="cb2-68"><a href="#cb2-68"></a></span>
-<span id="cb2-69"><a href="#cb2-69"></a>number_of_strikes year\</span>
-<span id="cb2-70"><a href="#cb2-70"></a>0 15620068 2020\</span>
-<span id="cb2-71"><a href="#cb2-71"></a>2 44600989 2018\</span>
-<span id="cb2-72"><a href="#cb2-72"></a>3 35095195 2017\</span>
-<span id="cb2-73"><a href="#cb2-73"></a>4 41582229 2016\</span>
-<span id="cb2-74"><a href="#cb2-74"></a>5 37894191 2015\</span>
-<span id="cb2-75"><a href="#cb2-75"></a>6 34919173 2014\</span>
-<span id="cb2-76"><a href="#cb2-76"></a>7 27600898 2013\</span>
-<span id="cb2-77"><a href="#cb2-77"></a>8 28807552 2012\</span>
-<span id="cb2-78"><a href="#cb2-78"></a>9 31392058 2011\</span>
-<span id="cb2-79"><a href="#cb2-79"></a>10 29068965 2010\</span>
-<span id="cb2-80"><a href="#cb2-80"></a>11 30100585 2009\</span>
-<span id="cb2-81"><a href="#cb2-81"></a>12 29790934 2008\</span>
-<span id="cb2-82"><a href="#cb2-82"></a>13 30529064 2007\</span>
-<span id="cb2-83"><a href="#cb2-83"></a>14 33292382 2006\</span>
-<span id="cb2-84"><a href="#cb2-84"></a>15 38168699 2005\</span>
-<span id="cb2-85"><a href="#cb2-85"></a>16 40023951 2004\</span>
-<span id="cb2-86"><a href="#cb2-86"></a>17 39092327 2003\</span>
-<span id="cb2-87"><a href="#cb2-87"></a>18 29916767 2002\</span>
-<span id="cb2-88"><a href="#cb2-88"></a>19 25470095 2001\</span>
-<span id="cb2-89"><a href="#cb2-89"></a>20 26276135 2000\</span>
-<span id="cb2-90"><a href="#cb2-90"></a>21 27758681 1999\</span>
-<span id="cb2-91"><a href="#cb2-91"></a>22 28802221 1998\</span>
-<span id="cb2-92"><a href="#cb2-92"></a>23 26986915 1997\</span>
-<span id="cb2-93"><a href="#cb2-93"></a>24 26190094 1996\</span>
-<span id="cb2-94"><a href="#cb2-94"></a>25 22763540 1995\</span>
-<span id="cb2-95"><a href="#cb2-95"></a>26 25094010 1994\</span>
-<span id="cb2-96"><a href="#cb2-96"></a>27 24206929 1993\</span>
-<span id="cb2-97"><a href="#cb2-97"></a>28 16371876 1992\</span>
-<span id="cb2-98"><a href="#cb2-98"></a>29 16900934 1991\</span>
-<span id="cb2-99"><a href="#cb2-99"></a>30 15839052 1990\</span>
-<span id="cb2-100"><a href="#cb2-100"></a>31 14245186 1989\</span>
-<span id="cb2-101"><a href="#cb2-101"></a>32 9150440 1988</span>
-<span id="cb2-102"><a href="#cb2-102"></a></span>
-<span id="cb2-103"><a href="#cb2-103"></a>Next, you’ll consider reassigning outliers by deriving new values that are a better fit for the dataset.</span>
-<span id="cb2-104"><a href="#cb2-104"></a></span>
-<span id="cb2-105"><a href="#cb2-105"></a><span class="fu">## **2. Reassign them**</span></span>
-<span id="cb2-106"><a href="#cb2-106"></a></span>
-<span id="cb2-107"><a href="#cb2-107"></a>Instead of deleting outliers, you can always reassign them, that is, change the values to ones that fit within the general distribution of the dataset. There are two common ways to do this, but many different ways can be used, depending on your use case:</span>
-<span id="cb2-108"><a href="#cb2-108"></a></span>
-<span id="cb2-109"><a href="#cb2-109"></a>**1. Create a floor and ceiling at a quantile:** For example, you could place walls at the 90th and 10th percentile of the distribution of data values. Any value above the 90% mark or below the 10% mark are changed to fit within the walls you set. Here is an example of what that code might look like:</span>
-<span id="cb2-110"><a href="#cb2-110"></a></span>
-<span id="cb2-111"><a href="#cb2-111"></a>tenth_percentile = np.percentile(df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span>, 10)\</span>
-<span id="cb2-112"><a href="#cb2-112"></a>ninetieth_percentile = np.percentile(df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span>, 90)\</span>
-<span id="cb2-113"><a href="#cb2-113"></a>df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span> = df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span>.apply(lambda x: (\</span>
-<span id="cb2-114"><a href="#cb2-114"></a>tenth_percentile if x <span class="sc">\&lt;</span> tenth_percentile\</span>
-<span id="cb2-115"><a href="#cb2-115"></a>else ninetieth_percentile if x <span class="sc">\&gt;</span> ninetieth_percentile\</span>
-<span id="cb2-116"><a href="#cb2-116"></a>else x))</span>
-<span id="cb2-117"><a href="#cb2-117"></a></span>
-<span id="cb2-118"><a href="#cb2-118"></a>0 15620068.0\</span>
-<span id="cb2-119"><a href="#cb2-119"></a>1 14657650.6\</span>
-<span id="cb2-120"><a href="#cb2-120"></a>2 38815238.6\</span>
-<span id="cb2-121"><a href="#cb2-121"></a>3 35095195.0\</span>
-<span id="cb2-122"><a href="#cb2-122"></a>4 38815238.6\</span>
-<span id="cb2-123"><a href="#cb2-123"></a>5 37894191.0\</span>
-<span id="cb2-124"><a href="#cb2-124"></a>6 34919173.0\</span>
-<span id="cb2-125"><a href="#cb2-125"></a>7 27600898.0\</span>
-<span id="cb2-126"><a href="#cb2-126"></a>8 28807552.0\</span>
-<span id="cb2-127"><a href="#cb2-127"></a>9 31392058.0\</span>
-<span id="cb2-128"><a href="#cb2-128"></a>10 29068965.0\</span>
-<span id="cb2-129"><a href="#cb2-129"></a>11 30100585.0\</span>
-<span id="cb2-130"><a href="#cb2-130"></a>12 29790934.0\</span>
-<span id="cb2-131"><a href="#cb2-131"></a>13 30529064.0\</span>
-<span id="cb2-132"><a href="#cb2-132"></a>14 33292382.0\</span>
-<span id="cb2-133"><a href="#cb2-133"></a>15 38168699.0\</span>
-<span id="cb2-134"><a href="#cb2-134"></a>16 38815238.6\</span>
-<span id="cb2-135"><a href="#cb2-135"></a>17 38815238.6\</span>
-<span id="cb2-136"><a href="#cb2-136"></a>18 29916767.0\</span>
-<span id="cb2-137"><a href="#cb2-137"></a>19 25470095.0\</span>
-<span id="cb2-138"><a href="#cb2-138"></a>20 26276135.0\</span>
-<span id="cb2-139"><a href="#cb2-139"></a>21 27758681.0\</span>
-<span id="cb2-140"><a href="#cb2-140"></a>22 28802221.0\</span>
-<span id="cb2-141"><a href="#cb2-141"></a>23 26986915.0\</span>
-<span id="cb2-142"><a href="#cb2-142"></a>24 26190094.0\</span>
-<span id="cb2-143"><a href="#cb2-143"></a>25 22763540.0\</span>
-<span id="cb2-144"><a href="#cb2-144"></a>26 25094010.0\</span>
-<span id="cb2-145"><a href="#cb2-145"></a>27 24206929.0\</span>
-<span id="cb2-146"><a href="#cb2-146"></a>28 16371876.0\</span>
-<span id="cb2-147"><a href="#cb2-147"></a>29 16900934.0\</span>
-<span id="cb2-148"><a href="#cb2-148"></a>30 15839052.0\</span>
-<span id="cb2-149"><a href="#cb2-149"></a>31 14657650.6\</span>
-<span id="cb2-150"><a href="#cb2-150"></a>32 14657650.6\</span>
-<span id="cb2-151"><a href="#cb2-151"></a>33 14657650.6\</span>
-<span id="cb2-152"><a href="#cb2-152"></a>Name: number_of_strikes, dtype: float64</span>
-<span id="cb2-153"><a href="#cb2-153"></a></span>
-<span id="cb2-154"><a href="#cb2-154"></a>**2. Impute the average:** In some cases, it might be best to reassign all outlier values to match the median or mean value. This will ensure that your median and distribution are based solely on the non-outlier values, leaving the original outliers excluded. The actual imputation or reassigning of values can be pretty simple if you’ve already found the outliers. The following code block calculates the median of the values greater than the lower limit. Then it imputes the median where values are lower than the lower limit.</span>
-<span id="cb2-155"><a href="#cb2-155"></a></span>
-<span id="cb2-156"><a href="#cb2-156"></a>median = np.median(df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]\[</span>df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span> <span class="sc">\&gt;</span>=\</span>
-<span id="cb2-157"><a href="#cb2-157"></a>lower_limit<span class="sc">\]</span>)</span>
-<span id="cb2-158"><a href="#cb2-158"></a></span>
-<span id="cb2-159"><a href="#cb2-159"></a>df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span> = np.where(df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span> <span class="sc">\&lt;</span> lower_limit,\</span>
-<span id="cb2-160"><a href="#cb2-160"></a>median, df<span class="sc">\[</span>&#39;number_of_strikes&#39;<span class="sc">\]</span> )</span>
-<span id="cb2-161"><a href="#cb2-161"></a></span>
-<span id="cb2-162"><a href="#cb2-162"></a>**Note:** Outside of EDA, machine learning and regression modeling have more complex variations on dealing with outliers. You will learn more about those topics later.</span>
-<span id="cb2-163"><a href="#cb2-163"></a></span>
-<span id="cb2-164"><a href="#cb2-164"></a><span class="fu">## </span></span>
-<span id="cb2-165"><a href="#cb2-165"></a></span>
-<span id="cb2-166"><a href="#cb2-166"></a><span class="fu">## **Key Takeaways**</span></span>
-<span id="cb2-167"><a href="#cb2-167"></a></span>
-<span id="cb2-168"><a href="#cb2-168"></a>After detecting the outliers in a dataset, it is essential that you determine a strategy for how to handle them. Because every dataset and data-based problem is different, your strategy will vary. For the most part, you will be choosing between deleting, reassigning, or leaving outliers.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> &quot;Reference guide: How to handle outliers&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">---</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a>Previously, you watched two videos about how to detect outliers and why handling outliers can be an important part of data cleaning. At this point, you likely have a good understanding of this. It is important to not only detect outliers, but also to have a plan for them.</span>
+<span id="cb7-8"><a href="#cb7-8"></a></span>
+<span id="cb7-9"><a href="#cb7-9"></a>That is precisely what you will review in this reading. Once you’ve detected outliers in your dataset—whether global, contextual, or collective—how do you handle them? When it comes to exploratory data analysis, or EDA, there are essentially three main ways to handle outliers: delete, reassign, or leave them in.</span>
+<span id="cb7-10"><a href="#cb7-10"></a></span>
+<span id="cb7-11"><a href="#cb7-11"></a>Whether you keep outliers as they are, delete them, or reassign values is a decision that you make on a dataset-by-dataset basis. To help you make the decision, you can start with these general guidelines:</span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="ss">-   </span>**Delete them:** If you are sure the outliers are mistakes, typos, or errors and the dataset will be used for modeling or machine learning, then you are more likely to decide to delete outliers. Of the three choices, you’ll use this one the least.</span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="ss">-   </span>**Reassign them:** If the dataset is small and/or the data will be used for modeling or machine learning, you are more likely to choose a path of deriving new values to replace the outlier values.</span>
+<span id="cb7-16"><a href="#cb7-16"></a></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="ss">-   </span>**Leave them:** For a dataset that you plan to do EDA/analysis on and nothing else, or for a dataset you are preparing for a model that is resistant to outliers, it is most likely that you are going to leave them in.</span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a>The videos discussing outliers went into detail on how to handle outliers when you leave them in the dataset. In this reading, you will learn about some techniques for deleting and reassigning outliers.</span>
+<span id="cb7-20"><a href="#cb7-20"></a></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="fu">## 1. Delete them</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a>For one way to delete outlier values, recall the coding you saw in the walkthrough video on outliers. In that video, the instructor coded a box plot to help you visualize two different outliers, as shown here:</span>
+<span id="cb7-24"><a href="#cb7-24"></a></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="in">``` python</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a>box <span class="op">=</span> sns.boxplot(x<span class="op">=</span>df[<span class="st">&#39;number_of_strikes&#39;</span>])</span>
+<span id="cb7-27"><a href="#cb7-27"></a>g <span class="op">=</span> plt.gca()</span>
+<span id="cb7-28"><a href="#cb7-28"></a>box.set_xticklabels(np.array([readable_numbers(x) <span class="cf">for</span> x <span class="kw">in</span> g.get_xticks()]))</span>
+<span id="cb7-29"><a href="#cb7-29"></a>plt.xlabel(<span class="st">&#39;Number of strikes&#39;</span>)</span>
+<span id="cb7-30"><a href="#cb7-30"></a>plt.title(<span class="st">&#39;Yearly number of lightning strikes&#39;</span>)<span class="op">;</span></span>
+<span id="cb7-31"><a href="#cb7-31"></a><span class="in">```</span></span>
+<span id="cb7-32"><a href="#cb7-32"></a></span>
+<span id="cb7-33"><a href="#cb7-33"></a>To find the lower limit —8.6M.</span>
+<span id="cb7-34"><a href="#cb7-34"></a></span>
+<span id="cb7-35"><a href="#cb7-35"></a><span class="in">``` python</span></span>
+<span id="cb7-36"><a href="#cb7-36"></a><span class="co"># Calculate 25th percentile of annual strikes</span></span>
+<span id="cb7-37"><a href="#cb7-37"></a>percentile25 <span class="op">=</span> df[<span class="st">&#39;number_of_strikes&#39;</span>].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb7-38"><a href="#cb7-38"></a></span>
+<span id="cb7-39"><a href="#cb7-39"></a><span class="co"># Calculate 75th percentile of annual strikes</span></span>
+<span id="cb7-40"><a href="#cb7-40"></a>percentile75 <span class="op">=</span> df[<span class="st">&#39;number_of_strikes&#39;</span>].quantile(<span class="fl">0.75</span>)</span>
+<span id="cb7-41"><a href="#cb7-41"></a></span>
+<span id="cb7-42"><a href="#cb7-42"></a><span class="co"># Calculate interquartile range</span></span>
+<span id="cb7-43"><a href="#cb7-43"></a>iqr <span class="op">=</span> percentile75 <span class="op">-</span> percentile25</span>
+<span id="cb7-44"><a href="#cb7-44"></a></span>
+<span id="cb7-45"><a href="#cb7-45"></a><span class="co"># Calculate upper and lower thresholds for outliers</span></span>
+<span id="cb7-46"><a href="#cb7-46"></a>upper_limit <span class="op">=</span> percentile75 <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> iqr</span>
+<span id="cb7-47"><a href="#cb7-47"></a>lower_limit <span class="op">=</span> percentile25 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> iqr</span>
+<span id="cb7-48"><a href="#cb7-48"></a></span>
+<span id="cb7-49"><a href="#cb7-49"></a><span class="bu">print</span>(<span class="st">&#39;Lower limit is: &#39;</span>, lower_limit)</span>
+<span id="cb7-50"><a href="#cb7-50"></a><span class="bu">print</span>(upper_limit)</span>
+<span id="cb7-51"><a href="#cb7-51"></a><span class="in">```</span></span>
+<span id="cb7-52"><a href="#cb7-52"></a></span>
+<span id="cb7-53"><a href="#cb7-53"></a>Lower limit is: 8585016.625 47356671.625</span>
+<span id="cb7-54"><a href="#cb7-54"></a></span>
+<span id="cb7-55"><a href="#cb7-55"></a>Next, a Boolean mask was used to filter the dataframe so it only contained rows where the number of strikes was less than the lower limit.</span>
+<span id="cb7-56"><a href="#cb7-56"></a></span>
+<span id="cb7-57"><a href="#cb7-57"></a><span class="in">``` python</span></span>
+<span id="cb7-58"><a href="#cb7-58"></a><span class="bu">print</span>(df[df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">&lt;</span> lower_limit])</span>
+<span id="cb7-59"><a href="#cb7-59"></a><span class="in">```</span></span>
+<span id="cb7-60"><a href="#cb7-60"></a></span>
+<span id="cb7-61"><a href="#cb7-61"></a>number_of_strikes year 1 209166 2019 33 7378836 1987</span>
+<span id="cb7-62"><a href="#cb7-62"></a></span>
+<span id="cb7-63"><a href="#cb7-63"></a>Once you know the cutoff points for outliers, if you want to delete them, you can use a Boolean mask to select all rows such that: lower limit ≤ values ≤ upper limit.</span>
+<span id="cb7-64"><a href="#cb7-64"></a></span>
+<span id="cb7-65"><a href="#cb7-65"></a><span class="in">``` python</span></span>
+<span id="cb7-66"><a href="#cb7-66"></a>mask <span class="op">=</span> (df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">&gt;=</span> lower_limit) <span class="op">&amp;</span> (df[<span class="st">&#39;number_of_strikes&#39;</span>]</span>
+<span id="cb7-67"><a href="#cb7-67"></a><span class="op">&lt;=</span>upper_limit)</span>
+<span id="cb7-68"><a href="#cb7-68"></a>df <span class="op">=</span> df[mask].copy()</span>
+<span id="cb7-69"><a href="#cb7-69"></a><span class="bu">print</span>(df)</span>
+<span id="cb7-70"><a href="#cb7-70"></a><span class="in">```</span></span>
+<span id="cb7-71"><a href="#cb7-71"></a></span>
+<span id="cb7-72"><a href="#cb7-72"></a>number_of_strikes year 0 15620068 2020 2 44600989 2018 3 35095195 2017 4 41582229 2016 5 37894191 2015 6 34919173 2014 7 27600898 2013 8 28807552 2012 9 31392058 2011 10 29068965 2010 11 30100585 2009 12 29790934 2008 13 30529064 2007 14 33292382 2006 15 38168699 2005 16 40023951 2004 17 39092327 2003 18 29916767 2002 19 25470095 2001 20 26276135 2000 21 27758681 1999 22 28802221 1998 23 26986915 1997 24 26190094 1996 25 22763540 1995 26 25094010 1994 27 24206929 1993 28 16371876 1992 29 16900934 1991 30 15839052 1990 31 14245186 1989 32 9150440 1988</span>
+<span id="cb7-73"><a href="#cb7-73"></a></span>
+<span id="cb7-74"><a href="#cb7-74"></a>Next, you’ll consider reassigning outliers by deriving new values that are a better fit for the dataset.</span>
+<span id="cb7-75"><a href="#cb7-75"></a></span>
+<span id="cb7-76"><a href="#cb7-76"></a><span class="fu">## 2. Reassign them</span></span>
+<span id="cb7-77"><a href="#cb7-77"></a></span>
+<span id="cb7-78"><a href="#cb7-78"></a>Instead of deleting outliers, you can always reassign them, that is, change the values to ones that fit within the general distribution of the dataset. There are two common ways to do this, but many different ways can be used, depending on your use case:</span>
+<span id="cb7-79"><a href="#cb7-79"></a></span>
+<span id="cb7-80"><a href="#cb7-80"></a>**1. Create a floor and ceiling at a quantile:** For example, you could place walls at the 90th and 10th percentile of the distribution of data values. Any value above the 90% mark or below the 10% mark are changed to fit within the walls you set. Here is an example of what that code might look like:</span>
+<span id="cb7-81"><a href="#cb7-81"></a></span>
+<span id="cb7-82"><a href="#cb7-82"></a><span class="in">``` python</span></span>
+<span id="cb7-83"><a href="#cb7-83"></a>tenth_percentile <span class="op">=</span> np.percentile(df[<span class="st">&#39;number_of_strikes&#39;</span>], <span class="dv">10</span>)</span>
+<span id="cb7-84"><a href="#cb7-84"></a>ninetieth_percentile <span class="op">=</span> np.percentile(df[<span class="st">&#39;number_of_strikes&#39;</span>], <span class="dv">90</span>)</span>
+<span id="cb7-85"><a href="#cb7-85"></a>df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;number_of_strikes&#39;</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: (</span>
+<span id="cb7-86"><a href="#cb7-86"></a>tenth_percentile <span class="cf">if</span> x <span class="op">&lt;</span> tenth_percentile</span>
+<span id="cb7-87"><a href="#cb7-87"></a><span class="cf">else</span> ninetieth_percentile <span class="cf">if</span> x <span class="op">&gt;</span> ninetieth_percentile</span>
+<span id="cb7-88"><a href="#cb7-88"></a><span class="cf">else</span> x))</span>
+<span id="cb7-89"><a href="#cb7-89"></a><span class="in">```</span></span>
+<span id="cb7-90"><a href="#cb7-90"></a></span>
+<span id="cb7-91"><a href="#cb7-91"></a>0 15620068.0 1 14657650.6 2 38815238.6 3 35095195.0 4 38815238.6 5 37894191.0 6 34919173.0 7 27600898.0 8 28807552.0 9 31392058.0 10 29068965.0 11 30100585.0 12 29790934.0 13 30529064.0 14 33292382.0 15 38168699.0 16 38815238.6 17 38815238.6 18 29916767.0 19 25470095.0 20 26276135.0 21 27758681.0 22 28802221.0 23 26986915.0 24 26190094.0 25 22763540.0 26 25094010.0 27 24206929.0 28 16371876.0 29 16900934.0 30 15839052.0 31 14657650.6 32 14657650.6 33 14657650.6 Name: number_of_strikes, dtype: float64</span>
+<span id="cb7-92"><a href="#cb7-92"></a></span>
+<span id="cb7-93"><a href="#cb7-93"></a>**2. Impute the average:** In some cases, it might be best to reassign all outlier values to match the median or mean value. This will ensure that your median and distribution are based solely on the non-outlier values, leaving the original outliers excluded. The actual imputation or reassigning of values can be pretty simple if you’ve already found the outliers. The following code block calculates the median of the values greater than the lower limit. Then it imputes the median where values are lower than the lower limit.</span>
+<span id="cb7-94"><a href="#cb7-94"></a></span>
+<span id="cb7-95"><a href="#cb7-95"></a><span class="in">``` python</span></span>
+<span id="cb7-96"><a href="#cb7-96"></a>median <span class="op">=</span> np.median(df[<span class="st">&#39;number_of_strikes&#39;</span>][df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">&gt;=</span></span>
+<span id="cb7-97"><a href="#cb7-97"></a>lower_limit])</span>
+<span id="cb7-98"><a href="#cb7-98"></a></span>
+<span id="cb7-99"><a href="#cb7-99"></a>df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">=</span> np.where(df[<span class="st">&#39;number_of_strikes&#39;</span>] <span class="op">&lt;</span> lower_limit,</span>
+<span id="cb7-100"><a href="#cb7-100"></a>median, df[<span class="st">&#39;number_of_strikes&#39;</span>] )</span>
+<span id="cb7-101"><a href="#cb7-101"></a><span class="in">```</span></span>
+<span id="cb7-102"><a href="#cb7-102"></a></span>
+<span id="cb7-103"><a href="#cb7-103"></a>**Note:** Outside of EDA, machine learning and regression modeling have more complex variations on dealing with outliers. You will learn more about those topics later.</span>
+<span id="cb7-104"><a href="#cb7-104"></a></span>
+<span id="cb7-105"><a href="#cb7-105"></a><span class="fu">## Key Takeaways</span></span>
+<span id="cb7-106"><a href="#cb7-106"></a></span>
+<span id="cb7-107"><a href="#cb7-107"></a>After detecting the outliers in a dataset, it is essential that you determine a strategy for how to handle them. Because every dataset and data-based problem is different, your strategy will vary. For the most part, you will be choosing between deleting, reassigning, or leaving outliers.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

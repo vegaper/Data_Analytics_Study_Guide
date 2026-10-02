@@ -1,8 +1,8 @@
 project:
   type: website
-
+  output-dir: docs   
   resources:
-    - "*.pdf" # Automatically copies all PDF files in the project to the build directory
+    - "*.pdf"
   render:
     - "*.qmd"
     - "*.md"
@@ -43,7 +43,6 @@ jupyter: python3
 
 website:
   title: "Google Advanced Data Analytics"
-  output-dir: docs
 
   # Barra de navegación superior
   navbar:

@@ -4,7 +4,6 @@ format: html
 jupyter: python3
 ---
 
-
 ```{python}
 #| include: false
 import _setup
@@ -22,7 +21,7 @@ Earlier, we talked about how data professionals ​make point estimates about po
 
 **​A point estimate uses ​a single value to estimate a population parameter. ​In contrast, an interval estimate uses ​a range of values to estimate a population parameter.**
 
-​A confidence interval is a type of interval estimate. ​For example, for penguin weight, ​you might construct a 95\% confidence interval ​between 28-32 pounds, ​or for the election poll, ​you might construct a 99\% ​confidence interval between 51-57%.
+​A confidence interval is a type of interval estimate. ​For example, for penguin weight, ​you might construct a 95% confidence interval ​between 28-32 pounds, ​or for the election poll, ​you might construct a 99% ​confidence interval between 51-57%.
 
 ​In this video, we'll go over the main components of ​a confidence interval and discuss how ​confidence intervals help you ​express the uncertainty of an estimate.
 
@@ -36,13 +35,13 @@ Earlier, we talked about how data professionals ​make point estimates about po
 
 Along with a sample statistic and margin of error, ​a confidence interval also includes a confidence level. **​The confidence level describes ​the likelihood that a particular sampling method ​will produce a confidence interval ​that includes the population parameter.**
 
-​For example, say you use a 95\% confidence level to ​calculate a confidence interval between 28-32 pounds. ​Technically, this means that if you ​took 100 random samples from ​the penguin population and calculated ​a 95\% confidence interval for each sample, ​then approximately 95 of the 100 intervals, ​or 95\% of the total, ​would contain the actual population mean. ​One such interval will be the range ​of values between 28-32 pounds.
+​For example, say you use a 95% confidence level to ​calculate a confidence interval between 28-32 pounds. ​Technically, this means that if you ​took 100 random samples from ​the penguin population and calculated ​a 95% confidence interval for each sample, ​then approximately 95 of the 100 intervals, ​or 95% of the total, ​would contain the actual population mean. ​One such interval will be the range ​of values between 28-32 pounds.
 
 ​If this explanation seems rather ​abstract right now, don't worry. ​In a later video, ​we'll discuss confidence level in more detail.
 
-​As a data professional, ​you can choose your own confidence level based ​on the desired accuracy of your estimate. ​Common confidence levels are 90, 95, ​and 99\%. 95\% is a popular choice. ​For example, most election polls ​report a 95\% confidence level, ​and most A/B tests recommend ​using a confidence level of 95\%. ​Note that there's nothing magical about 95\%. ​This is a choice based on tradition and ​statistical research and education. ​You can adjust the confidence level to ​meet the requirements of your analysis.
+​As a data professional, ​you can choose your own confidence level based ​on the desired accuracy of your estimate. ​Common confidence levels are 90, 95, ​and 99%. 95% is a popular choice. ​For example, most election polls ​report a 95% confidence level, ​and most A/B tests recommend ​using a confidence level of 95%. ​Note that there's nothing magical about 95%. ​This is a choice based on tradition and ​statistical research and education. ​You can adjust the confidence level to ​meet the requirements of your analysis.
 
-​Let's explore another example. ​Imagine you're a data ​professional working for a fashion company. ​Your manager asks you to estimate ​sales revenue for the new line of spring clothing. ​When you meet with stakeholders, you might say, ​"I think we'll do \$1 million in sales," or you might say, ​"Based on a 95\% confidence level, ​I estimate that our sales revenue will be ​between \$950,000 and \$1,050,000. ​The first statement offers a point estimate. ​The second statement provides a confidence level and ​an interval estimate and ​communicates the uncertainty in the estimate. ​It gives your stakeholders ​more information and helps them make ​more informed decisions about ​issues related to future sales revenue. ​As a data professional, ​you also have to make sure ​your stakeholders understand your results, ​so it's your job to clearly ​communicate how to interpret a confidence interval. ​We'll discuss interpretation more later on.
+​Let's explore another example. ​Imagine you're a data ​professional working for a fashion company. ​Your manager asks you to estimate ​sales revenue for the new line of spring clothing. ​When you meet with stakeholders, you might say, ​"I think we'll do \$1 million in sales," or you might say, ​"Based on a 95% confidence level, ​I estimate that our sales revenue will be ​between \$950,000 and \$1,050,000. ​The first statement offers a point estimate. ​The second statement provides a confidence level and ​an interval estimate and ​communicates the uncertainty in the estimate. ​It gives your stakeholders ​more information and helps them make ​more informed decisions about ​issues related to future sales revenue. ​As a data professional, ​you also have to make sure ​your stakeholders understand your results, ​so it's your job to clearly ​communicate how to interpret a confidence interval. ​We'll discuss interpretation more later on.
 
 ------------------------------------------------------------------------
 
@@ -54,7 +53,7 @@ Confidence intervals are one of the most misunderstood concepts in statistics. 
 
 By the end of this video, ​you'll have a better understanding of how to interpret a confidence interval. ​You'll also learn some common forms of misinterpretation and how to avoid them. 
 
-​Let's explore an example. ​Imagine you're data professional who works for ​an urban planning company in a large city. ​The city government asked your team to design new parks and ​walkways that feature red maple trees. ​For planning purposes, your manager asks you to estimate the mean height of all ​the red maple trees in the city, that's approximately 10,000 trees. ​Instead of measuring every single tree, you collect a sample of 50 trees. ​The mean height of the sample is 50ft with a standard deviation of 7.5ft. ​Based on a 95\% confidence level, you calculate a confidence interval for ​mean height that stretches between 48ft and 52ft. 
+​Let's explore an example. ​Imagine you're data professional who works for ​an urban planning company in a large city. ​The city government asked your team to design new parks and ​walkways that feature red maple trees. ​For planning purposes, your manager asks you to estimate the mean height of all ​the red maple trees in the city, that's approximately 10,000 trees. ​Instead of measuring every single tree, you collect a sample of 50 trees. ​The mean height of the sample is 50ft with a standard deviation of 7.5ft. ​Based on a 95% confidence level, you calculate a confidence interval for ​mean height that stretches between 48ft and 52ft. 
 
 ```{python}
 #| echo: false
@@ -129,15 +128,15 @@ plt.tight_layout()
 plt.show()
 ```
 
-​This interval estimate will help your team design new parks and ​walkways that meet city ordinances for landscaping. ​At this point, you may be wondering what does it mean to choose a 95\% confidence ​level and to say that you are 95\% confident in an interval estimate? ​Earlier, you learned that the confidence level expresses the uncertainty ​of the estimation process. ​Let's talk about what this means from a more technical perspective. 
+​This interval estimate will help your team design new parks and ​walkways that meet city ordinances for landscaping. ​At this point, you may be wondering what does it mean to choose a 95% confidence ​level and to say that you are 95% confident in an interval estimate? ​Earlier, you learned that the confidence level expresses the uncertainty ​of the estimation process. ​Let's talk about what this means from a more technical perspective. 
 
-​95\% confidence means that if you take repeated random samples from a population ​and construct a confidence interval for each sample using the same method, you can expect that **95\% of these intervals will capture the population mean**. ​You can also expect that 5\% of the total will not capture the population mean. 
+​95% confidence means that if you take repeated random samples from a population ​and construct a confidence interval for each sample using the same method, you can expect that **95% of these intervals will capture the population mean**. ​You can also expect that 5% of the total will not capture the population mean. 
 
 ​In practice, data professionals usually select one random sample and ​generate one confidence interval which may or may not contain the actual mean. ​This is because repeated random sampling is often difficult, expensive and ​time consuming. 
 
-​Confidence intervals give data professionals a way to quantify ​the uncertainty due to random sampling. ​In our example, ​you have a 95\% confidence interval that the mean height is between 48 and 52 ft. 
+​Confidence intervals give data professionals a way to quantify ​the uncertainty due to random sampling. ​In our example, ​you have a 95% confidence interval that the mean height is between 48 and 52 ft. 
 
-​For the purpose of this example, let's say the actual mean height of all, ​10,000 red maples is 51 ft. ​In practice, you would have no way of knowing this unless you measured every ​single tree in the city. ​This means that if you were to take 20 random samples of 50 trees and ​calculate a confidence interval for each sample. ​You can expect 19 out of your 20 intervals or ​95\% of the total will capture the population mean of 51 ft. 
+​For the purpose of this example, let's say the actual mean height of all, ​10,000 red maples is 51 ft. ​In practice, you would have no way of knowing this unless you measured every ​single tree in the city. ​This means that if you were to take 20 random samples of 50 trees and ​calculate a confidence interval for each sample. ​You can expect 19 out of your 20 intervals or ​95% of the total will capture the population mean of 51 ft. 
 
 ```{python}
 #| echo: false
@@ -245,27 +244,27 @@ plt.show()
 
 ​One such interval will be the range of values between 48 and 52 ft.
 
-​Let's pause for a moment. ​I know that's a lot of new info to digest. ​Confidence intervals can be a bit tricky, ​that's why they're misinterpreted so often. ​To better understand what it means to say, you have 95\% confidence in your estimate, ​let's explore our urban planning example in more detail. ​Imagine you take another 20 random samples of 50 trees using the same ​sampling method. ​Because each sample is randomly selected from a large population, ​the mean will vary from one sample to the next. 
+​Let's pause for a moment. ​I know that's a lot of new info to digest. ​Confidence intervals can be a bit tricky, ​that's why they're misinterpreted so often. ​To better understand what it means to say, you have 95% confidence in your estimate, ​let's explore our urban planning example in more detail. ​Imagine you take another 20 random samples of 50 trees using the same ​sampling method. ​Because each sample is randomly selected from a large population, ​the mean will vary from one sample to the next. 
 
 ​Remember this is called sampling variability. ​For your first sample of 50 trees, the mean height is 50 ft. ​For your second sample of 50 trees, the mean height turns out to be 49.5 ft. ​For your third sample you get a mean height of 51.5 ft and so on. 
 
 Because of sampling variability, the mean height for ​any given sample will not necessarily be equal to the actual population mean. Confidence intervals help express this uncertainty. ​The confidence intervals you calculate based on each sample mean ​will also vary from one sample to the next and ​any given interval will not necessarily contain the population mean of 51 ft. 
 
-​For example, your first sample has a mean height of 50 ft and ​a confidence interval between 48 ft and 52 ft. ​This interval captures the population mean of 51 ft. ​Your second sample has a mean height of 49.5 ft and ​a confidence interval between 47.5 to 50.5 ft. ​This interval does not capture the population mean of 51 ft. ​However, a 95\% confidence level means that you can expect that 19 ​out of your 20 intervals or 95\% of the total will capture the population mean. ​In other words, this method will produce an interval that contains the population ​mean with the success rate of 95\% and that's a pretty good success rate. ​Now that you have a better understanding of how to interpret a confidence interval, ​let's review three common misinterpretations of this concept. 
+​For example, your first sample has a mean height of 50 ft and ​a confidence interval between 48 ft and 52 ft. ​This interval captures the population mean of 51 ft. ​Your second sample has a mean height of 49.5 ft and ​a confidence interval between 47.5 to 50.5 ft. ​This interval does not capture the population mean of 51 ft. ​However, a 95% confidence level means that you can expect that 19 ​out of your 20 intervals or 95% of the total will capture the population mean. ​In other words, this method will produce an interval that contains the population ​mean with the success rate of 95% and that's a pretty good success rate. ​Now that you have a better understanding of how to interpret a confidence interval, ​let's review three common misinterpretations of this concept. 
 
 ​Being aware of these misinterpretations will help you avoid them in the future. 
 
-​The first common misinterpretation of confidence intervals is that a 95\% ​confidence interval means that 95\% of all the data values in your data set ​fall within the interval. ​This is not necessarily true. ​For example, your 95\% confidence interval for tree heights is between 48 ft and 52. ​ft It may not be accurate to say that 95\% of all the values in your ​data set fall in this interval. ​It's possible that over 5% of the tree heights in your dataset are outside ​this interval either shorter than 48 ft or taller than 52 ft. 
+​The first common misinterpretation of confidence intervals is that a 95% ​confidence interval means that 95% of all the data values in your data set ​fall within the interval. ​This is not necessarily true. ​For example, your 95% confidence interval for tree heights is between 48 ft and 52. ​ft It may not be accurate to say that 95% of all the values in your ​data set fall in this interval. ​It's possible that over 5% of the tree heights in your dataset are outside ​this interval either shorter than 48 ft or taller than 52 ft. 
 
-​The second common misinterpretation, is that a 95\% confidence interval implies ​that 95\% of all possible sample means fall within the range of the interval. ​This is not necessarily true. 
+​The second common misinterpretation, is that a 95% confidence interval implies ​that 95% of all possible sample means fall within the range of the interval. ​This is not necessarily true. 
 
-​For example, your 95\% confidence interval for ​tree height is between 48 ft and 52 ft. ​Imagine you take repeated samples using the same sampling method. ​It's possible that over 5% of your sample means will be less than 48 ft or ​greater than 52 ft. 
+​For example, your 95% confidence interval for ​tree height is between 48 ft and 52 ft. ​Imagine you take repeated samples using the same sampling method. ​It's possible that over 5% of your sample means will be less than 48 ft or ​greater than 52 ft. 
 
 ​The third common misinterpretation is to assume that a confidence interval refers ​to the only possible source of error in your results. ​While every confidence interval includes a margin of error, ​many other kinds of errors can enter into statistical analysis. ​For example, the questions in a survey may be poorly designed or ​sampling bias may affect the sample data. ​The margin of error is a useful measure of uncertainty and makes your estimate more ​reliable, but it's not the only possible source of error in your analysis. 
 
 ​So when you're interpreting a confidence interval, remember ​that the uncertainty lies in an estimation process based on random sampling. 
 
-**​A 95\% confidence level refers to the success rate of that process. ​In other words, you can expect 95\% of the random intervals you generate to ​capture the population Parameter.** ​Knowing how to properly interpret confidence intervals will give you ​a better understanding of your estimate and help you share useful and ​accurate information with stakeholders. 
+**​A 95% confidence level refers to the success rate of that process. ​In other words, you can expect 95% of the random intervals you generate to ​capture the population Parameter.** ​Knowing how to properly interpret confidence intervals will give you ​a better understanding of your estimate and help you share useful and ​accurate information with stakeholders. 
 
 ​You may need to explain the common misinterpretations, too, and ​why they're incorrect. ​You don't want your stakeholders to get the wrong idea or ​base their decisions on a misinterpretation. ​Understanding how to effectively communicate your results to stakeholders ​is an important part of being a data professional.
 
@@ -275,16 +274,15 @@ Recently, you learned that data professionals use confidence intervals to help d
 
 In this reading, we’ll review the correct way to interpret a confidence interval. We’ll also discuss some common forms of misinterpretation and how to avoid them.
 
-Correct interpretation
-Example: mean weight Let’s explore an example to get a better understanding of how to interpret a confidence interval. Imagine you want to estimate the mean weight of a population of 10,000 penguins. Instead of weighing every single penguin, you select a sample of 100 penguins. The mean weight of your sample is 30 pounds. Based on your sample data, you construct a 95\% confidence interval between 28 pounds and 32 pounds. 95 CI \[28, 32\] Interpret the confidence interval Earlier, you learned that the confidence level expresses the uncertainty of the estimation process. Let’s discuss what 95\% confidence means from a more technical perspective.
+Correct interpretation Example: mean weight Let’s explore an example to get a better understanding of how to interpret a confidence interval. Imagine you want to estimate the mean weight of a population of 10,000 penguins. Instead of weighing every single penguin, you select a sample of 100 penguins. The mean weight of your sample is 30 pounds. Based on your sample data, you construct a 95% confidence interval between 28 pounds and 32 pounds. 95 CI \[28, 32\] Interpret the confidence interval Earlier, you learned that the confidence level expresses the uncertainty of the estimation process. Let’s discuss what 95% confidence means from a more technical perspective.
 
-Technically, 95\% confidence means that if you take repeated random samples from a population, and construct a confidence interval for each sample using the same method, you can expect that 95\% of these intervals will capture the population mean. You can also expect that 5% of the total will not capture the population mean.
+Technically, 95% confidence means that if you take repeated random samples from a population, and construct a confidence interval for each sample using the same method, you can expect that 95% of these intervals will capture the population mean. You can also expect that 5% of the total will not capture the population mean.
 
 The confidence level refers to the long-term success rate of the method, or the estimation process based on random sampling.
 
 For the purpose of our example, let’s imagine that the mean weight of all 10,000 penguins is 31 pounds, although you wouldn’t know this unless you actually weighed every penguin. So, you take a sample of the population.
 
-Imagine you take 20 random samples of 100 penguins each from the penguin population, and calculate a 95\% confidence interval for each sample. You can expect that approximately 19 of the 20 intervals, or 95\% of the total, will contain the actual population mean weight of 31 pounds. One such interval will be the range of values between 28 pounds and 32 pounds.
+Imagine you take 20 random samples of 100 penguins each from the penguin population, and calculate a 95% confidence interval for each sample. You can expect that approximately 19 of the 20 intervals, or 95% of the total, will contain the actual population mean weight of 31 pounds. One such interval will be the range of values between 28 pounds and 32 pounds.
 
 ![In practice, data professionals usually select one random sample and generate one confidence interval, which may or may not contain the actual population mean. This is because repeated random sampling is often difficult, expensive, and time-consuming. Confidence intervals give data professionals a way to quantify the uncertainty due to random sampling.](images/paste-61.png)
 
@@ -292,11 +290,11 @@ Imagine you take 20 random samples of 100 penguins each from the penguin populat
 
 Now that you have a better understanding of how to properly interpret a confidence interval, let’s review some common misinterpretations and how to avoid them. 
 
-### Misinterpretation 1: 95\% refers to the probability that the population mean falls within the constructed interval
+### Misinterpretation 1: 95% refers to the probability that the population mean falls within the constructed interval
 
-One incorrect statement that is often made about a confidence interval at a 95\% level of confidence is that there is a 95\% probability that the population mean falls within the constructed interval. 
+One incorrect statement that is often made about a confidence interval at a 95% level of confidence is that there is a 95% probability that the population mean falls within the constructed interval. 
 
-In our example, this would mean that there’s a 95\% chance that the mean weight of the penguin population falls in the interval between 28 pounds and 32 pounds. 
+In our example, this would mean that there’s a 95% chance that the mean weight of the penguin population falls in the interval between 28 pounds and 32 pounds. 
 
 This is incorrect. The population mean is a constant. 
 
@@ -310,21 +308,21 @@ For example, any given random sample of 100 penguins may have a different mean w
 | 27.3 lbs                       | 31 lbs                                |
 | 29.6 lbs                       | 31 lbs                                |
 
-So, it’s not strictly correct to say there is a 95\% chance that your confidence interval captures the population mean because this implies that the population mean is variable. Intervals change from sample to sample, but the value of the population mean you’re trying to capture does not.
+So, it’s not strictly correct to say there is a 95% chance that your confidence interval captures the population mean because this implies that the population mean is variable. Intervals change from sample to sample, but the value of the population mean you’re trying to capture does not.
 
-What you can say is that if you take repeated random samples from the population, and construct a confidence interval for each sample using the same method, you can expect 95\% of your intervals to capture the population mean. 
+What you can say is that if you take repeated random samples from the population, and construct a confidence interval for each sample using the same method, you can expect 95% of your intervals to capture the population mean. 
 
-**Pro tip:** Remember that a 95\% confidence level refers to the success rate of the estimation process. 
+**Pro tip:** Remember that a 95% confidence level refers to the success rate of the estimation process. 
 
-### Misinterpretation 2: 95\% refers to the percentage of data values that fall within the interval
+### Misinterpretation 2: 95% refers to the percentage of data values that fall within the interval
 
-Another common mistake is to interpret a 95\% confidence interval as saying that 95\% of all of the data values in the population fall within the interval. This is not necessarily true. A 95\% confidence interval shows a range of values that likely includes the actual population mean. This is *not* the same as a range that contains 95\% of the data values in the population. 
+Another common mistake is to interpret a 95% confidence interval as saying that 95% of all of the data values in the population fall within the interval. This is not necessarily true. A 95% confidence interval shows a range of values that likely includes the actual population mean. This is *not* the same as a range that contains 95% of the data values in the population. 
 
-For example, your 95\% confidence interval for the mean penguin weight is between 28 pounds and 32 pounds. It may not be accurate to say that 95\% of all weight values fall within this interval. It’s possible that over 5% of the penguin weights in the population are outside this interval—either less than 28 pounds or greater than 32 pounds. 
+For example, your 95% confidence interval for the mean penguin weight is between 28 pounds and 32 pounds. It may not be accurate to say that 95% of all weight values fall within this interval. It’s possible that over 5% of the penguin weights in the population are outside this interval—either less than 28 pounds or greater than 32 pounds. 
 
-### Misinterpretation 3: 95\% refers to the percentage of sample means that fall within the interval
+### Misinterpretation 3: 95% refers to the percentage of sample means that fall within the interval
 
-A third common misinterpretation is that a 95\% confidence interval implies that 95\% of all possible sample *means* fall within the range of the interval. This is not necessarily true. For example, your 95\% confidence interval for mean penguin weight is between 28 pounds and 32 pounds. Imagine you take repeated samples of 100 penguins and calculate the mean weight for each sample. It’s possible that *over* 5% of your sample means will be less than 28 pounds or greater than 32 pounds.
+A third common misinterpretation is that a 95% confidence interval implies that 95% of all possible sample *means* fall within the range of the interval. This is not necessarily true. For example, your 95% confidence interval for mean penguin weight is between 28 pounds and 32 pounds. Imagine you take repeated samples of 100 penguins and calculate the mean weight for each sample. It’s possible that *over* 5% of your sample means will be less than 28 pounds or greater than 32 pounds.
 
 ![](images/paste-62.png)
 
@@ -380,7 +378,8 @@ $$
 
 This table shows the $z$-scores that ​correspond to popular confidence levels. ​1.645 for 90 percent, ​1.96 for 95 percent, ​and 2.58 for 99 percent. ​If you choose a 95 percent confidence level, ​use a $z$-score of 1.96 to calculate the margin of error. 
 
-To calculate the critical $z$-scores in python for a two tailed confidence level (we will see later what a two tail means): 
+To calculate the critical $z$-scores in python for a two tailed confidence level (we will see later what a two tail means):
+
 ```{python}
 import numpy as np
 import pandas as pd
@@ -412,13 +411,11 @@ $$
 SE(\hat{p})=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
 $$
 
-​Your sample proportion is ​0.55 and your sample size is 100. ​If you enter the numbers into the formula, ​you get a standard error of about 0.05. 
-$$
+​Your sample proportion is ​0.55 and your sample size is 100. ​If you enter the numbers into the formula, ​you get a standard error of about 0.05.  $$
 SE(\hat{p})=\sqrt{\frac{0.55(1-0.55)}{100}}=0.05
 $$
 
-​Let's put that altogether. ​The margin of error is your $z$-score of ​1.96 multiplied by your standard error of 0.05. 
-$$
+​Let's put that altogether. ​The margin of error is your $z$-score of ​1.96 multiplied by your standard error of 0.05.  $$
 ME = \text{z-score} \times SE = 1.96 \times 0.05 =0.098
 $$
 
@@ -440,7 +437,7 @@ $$
 ME = \text{z-score} \times SE = 1.96 \times 0.01576071 =0.03089099
 $$
 
-95\%CI\[0.509109,0.570891\]
+95%CI\[0.509109,0.570891\]
 
 Your integral will stretch from ​50.9 percent to 57.1 percent. ​The lower limit of your interval is now above 50 percent. ​This should give the Davis team ​more confidence about the upcoming election. 
 
@@ -480,13 +477,13 @@ Let's review the steps for constructing a confidence interval. ​
 
 First, identify your sample statistic. ​Your sample represents the average duration of battery life for ​100 cell phones. ​In this example you're working with the sample mean. ​
 
-Next choose a confidence level Management request that you choose in ​95\% confidence level. ​This is the company standard for new products. ​
+Next choose a confidence level Management request that you choose in ​95% confidence level. ​This is the company standard for new products. ​
 
 Your third step is to find the margin of error which refers to the range of values ​above and below your sample statistic, you can calculate the margin of error by ​multiplying the $z$-score by the standard error. 
 
 ​You may recall that the $z$-score you use depends on your confidence level. 
 
-​The $z$-score for a 95\% confidence level is 1.96. ​
+​The $z$-score for a 95% confidence level is 1.96. ​
 
 Now you can calculate the standard error, ​which measures the variability of your sample statistic. ​It shows how much your sample mean is likely to differ from the actual ​population mean. ​The larger the standard error, the more variability. ​The formula for the standard error of the mean is the population standard ​deviation divided by the square root of the sample size. 
 
@@ -508,21 +505,21 @@ The upper limit of your interval is the sample mean, plus the margin of error. 
 
 ​The lower limit is the sample mean minus the margin of error, ​this is 20.5 minus 0.294 equals 20.206 or ​about 20 hours and 12 minutes. 
 
-95\%CI\[20:12,20:48\]
+95%CI\[20:12,20:48\]
 
-​So you have a 95\% confidence interval for the battery life of the phone that ​stretches from 20 hours and 12 minutes to 20 hours and 48 minutes. ​The confidence interval gives company management important information. ​The lower limit of your interval 20 hours and ​12 minutes is above the company's goal of 20 hours. ​This helps the marketing team feel confident about advertising ​the battery life of the cell phone to be at least 20 hours. ​You present your findings to the company's stakeholders and ​the results satisfy everyone except the head of marketing. ​The marketing director has put a lot of time and ​effort into developing the ad campaign and wants to be even more confident. 
+​So you have a 95% confidence interval for the battery life of the phone that ​stretches from 20 hours and 12 minutes to 20 hours and 48 minutes. ​The confidence interval gives company management important information. ​The lower limit of your interval 20 hours and ​12 minutes is above the company's goal of 20 hours. ​This helps the marketing team feel confident about advertising ​the battery life of the cell phone to be at least 20 hours. ​You present your findings to the company's stakeholders and ​the results satisfy everyone except the head of marketing. ​The marketing director has put a lot of time and ​effort into developing the ad campaign and wants to be even more confident. 
 
-​The director requests that you analyze the data using a 99\% confidence level To ​make the marketing director happy you recalculate your results. ​Use the same sample data but using 99\% confidence level instead of 95\%
+​The director requests that you analyze the data using a 99% confidence level To ​make the marketing director happy you recalculate your results. ​Use the same sample data but using 99% confidence level instead of 95%
 
 $$
 ME = z-score \times SE = 2.58 \times 0.15 =0.387\
 $$
 
-99\%CI\[20:07,20:53\]
+99%CI\[20:07,20:53\]
 
 ​Your confidence interval now stretches from 20 hours and ​seven minutes to 20 hours and 53 minutes. ​The lower limit of your interval is still above 20 hours. ​This result should give company management even more confidence about the battery ​life and hopefully satisfy the marketing director. 
 
-​You may notice that **as the confidence level gets higher, the confidence interval ​gets wider,** With the confidence level of 95\%, the interval covers 36 minutes, ​with the confidence level of 99\%, the interval covers 46 minutes. ​This is because a wider confidence interval is more likely to include ​the actual population parameter. ​Note that in this example we know that the population standard deviation is ​1.5 hours. 
+​You may notice that **as the confidence level gets higher, the confidence interval ​gets wider,** With the confidence level of 95%, the interval covers 36 minutes, ​with the confidence level of 99%, the interval covers 46 minutes. ​This is because a wider confidence interval is more likely to include ​the actual population parameter. ​Note that in this example we know that the population standard deviation is ​1.5 hours. 
 
 **​However, in practice, the population standard deviation is often unknown and ​has to be estimated based on the sample standard deviation. ​This is because it's difficult to get complete data on a large population if you ​don't know the population standard deviation, ​this changes the calculations for the confidence interval**.
 
@@ -544,7 +541,7 @@ First, let’s briefly discuss the different methods you use to construct confid
 
 For large sample sizes, you use $z$-scores to calculate the margin of error, just like you did earlier to estimate mean battery life for cell phones. This is because of the central limit theorem: for large sample sizes, the sample mean is approximately normally distributed. For a standard normal distribution, also called a **z-distribution**, you use $z$-scores to make calculations about your data. 
 
-### Small sample: T-scores 
+### Small sample: T-scores
 
 For small sample sizes, you need to use a different distribution, called the $t$-distribution. Statistically speaking, this is because there is more uncertainty involved in estimating the standard error for small sample sizes. You don't need to worry about the technical details, which are beyond the scope of this course. For now, just know that **if you're working with a small sample size, and your data is approximately normally distributed, you should use the** $t$-distribution **rather than the standard normal distribution.**
 
@@ -594,7 +591,7 @@ First, identify your sample statistic. Your sample represents the average emissi
 
 ### Step 2: Choose a confidence level 
 
-Next, choose a confidence level. The engineering team requests that you choose a 95\% confidence level. 
+Next, choose a confidence level. The engineering team requests that you choose a 95% confidence level. 
 
 ### Step 3: Find the margin of error  
 
@@ -620,7 +617,7 @@ print(rf"Confidence Level: {int(confidence_level * 100)}%")
 print(rf"Calculated t-score: {t_score:.3f}")
 ```
 
-Based on a degree of freedom of 14, and a confidence level of 95\%, your $t$-score is 2.145.
+Based on a degree of freedom of 14, and a confidence level of 95%, your $t$-score is 2.145.
 
 Now you can calculate the standard error, which measures the variability of your sample statistic. 
 
@@ -642,13 +639,13 @@ se
 
 The margin of error is your $t$-score multiplied by your standard error. This is 2.145 \* 9.04 = 19.39.
 
-### Step 4: Calculate the interval 
+### Step 4: Calculate the interval
 
 Finally, calculate your confidence interval. The upper limit of your interval is the sample mean plus the margin of error. This is 430 + 19.39 = 449.39 grams of CO~2~ per mile. 
 
 The lower limit is the sample mean minus the margin of error. This is 430 − 19.39 = 410.61 grams of CO~2~ per mile. 
 
-You have a 95\% confidence interval that stretches from 410.61 grams of CO~2~ per mile to 449.39 grams of CO~2~ per mile.
+You have a 95% confidence interval that stretches from 410.61 grams of CO~2~ per mile to 449.39 grams of CO~2~ per mile.
 
 **95 CI \[410.61, 449.39\]**
 
@@ -666,21 +663,21 @@ To learn more about constructing confidence intervals for different sample sizes
 
 -   This [article from Scribbr](https://www.scribbr.com/statistics/$t$-distribution/) contains a useful overview of the $t$-distribution and how to use it when constructing a confidence interval.
 
-------------------------
+------------------------------------------------------------------------
+
 # Work with confidence intervals in Python
 
-Earlier, we talked about how data professionals use sample ​data to make point estimates about population parameters. ​For example, a data professional might take a random sample of 100 home ​prices in Mexico city to estimate the average price of all homes in Mexico city. 
+Earlier, we talked about how data professionals use sample ​data to make point estimates about population parameters. ​For example, a data professional might take a random sample of 100 home ​prices in Mexico city to estimate the average price of all homes in Mexico city.
 
-​A point estimate can provide a general idea of a population parameter, but ​estimates usually include some error due to sampling variability. ​And in practice, taking repeated samples to get improved estimates is often ​too expensive and time consuming. ​So, data professionals use confidence intervals to describe the uncertainty of ​an estimate, and give stakeholders more information to work with. 
+​A point estimate can provide a general idea of a population parameter, but ​estimates usually include some error due to sampling variability. ​And in practice, taking repeated samples to get improved estimates is often ​too expensive and time consuming. ​So, data professionals use confidence intervals to describe the uncertainty of ​an estimate, and give stakeholders more information to work with.
 
-​In this video, you'll use python to construct confidence interval for ​a point estimate. ​We'll continue with our previous scenario, in which you're a data professional ​working for the Department of Education of a large nation, ​recall that you're analyzing data on the literacy rate for each district. 
-​You'll continue to use the data that you worked with before. ​If you need to access the data, do so now. 
+​In this video, you'll use python to construct confidence interval for ​a point estimate. ​We'll continue with our previous scenario, in which you're a data professional ​working for the Department of Education of a large nation, ​recall that you're analyzing data on the literacy rate for each district. ​You'll continue to use the data that you worked with before. ​If you need to access the data, do so now.
 
-​In the previous video we imagine that the Department of Education asked you to ​collect the data on district literacy rates. ​You were only able to survey 50 randomly chosen districts, ​instead of all 634 districts included in your original data set. 
+​In the previous video we imagine that the Department of Education asked you to ​collect the data on district literacy rates. ​You were only able to survey 50 randomly chosen districts, ​instead of all 634 districts included in your original data set.
 
-​You use python to simulate taking a random sample of 50 districts, and ​making a point estimate of the population mean or literacy rate for all districts. 
+​You use python to simulate taking a random sample of 50 districts, and ​making a point estimate of the population mean or literacy rate for all districts.
 
-​Now, as the next step, imagine that the department asks you to construct a 95\% ​confidence interval for your estimate of the mean district literacy rate. ​You can use python to construct the confidence interval. 
+​Now, as the next step, imagine that the department asks you to construct a 95% ​confidence interval for your estimate of the mean district literacy rate. ​You can use python to construct the confidence interval.
 
 ​Let's open up a jupyter notebook and begin, ​first import the python packages you plan to use, numpy and pandas. ​To save time rename your packages with abbreviations, np and pd. ​To load the scipy stats module right from scipy import stats. ​You can also use the same sample data that you worked with in a previous video, ​write the code to have python simulate the same random sample of district literacy ​rate data. ​
 
@@ -696,11 +693,11 @@ sampled_data = education_districtwise.sample(n=sample_size, replace=True, random
 sampled_data.head()
 ```
 
-​The output shows the districts selected randomly from your dataset. ​Each has a different literacy rate. 
+​The output shows the districts selected randomly from your dataset. ​Each has a different literacy rate.
 
-​In previous videos, you constructed a confidence interval step by step, ​let's review the four main steps. ​One, identify a sample statistic, two, choose a confidence level, ​three, find the margin of error, four, calculate the interval. 
+​In previous videos, you constructed a confidence interval step by step, ​let's review the four main steps. ​One, identify a sample statistic, two, choose a confidence level, ​three, find the margin of error, four, calculate the interval.
 
-​Earlier, you worked through these steps, ​one by one to construct a confidence interval. 
+​Earlier, you worked through these steps, ​one by one to construct a confidence interval.
 
 ​With python you can construct a confidence interval with just a single line of code, ​and get your results faster. ​If you're working with a large sample size, say larger than 30, ​you can construct a confidence interval for ​the mean using scipy stats.`norm.interval` function. ​
 
@@ -714,37 +711,29 @@ ci = stats.norm.interval(confidence = 0.95, loc = sample_mean, scale = sample_se
 ci
 ```
 
-This function includes the following arguments. 
-​-   `confidence` refers to the confidence level, 
--   `loc` refers to the sample mean, ​and 
--   `scale` refers to the sample standard error. ​
+This function includes the following arguments. ​- `confidence` refers to the confidence level, - `loc` refers to the sample mean, ​and - `scale` refers to the sample standard error. ​
 
-Let's explore each argument in more detail. 
+Let's explore each argument in more detail.
 
-​First, `confidence` or your confidence level. ​The Education Department requests a confidence level of 95\%, ​which is the accepted standard for government funded research. 
+​First, `confidence` or your confidence level. ​The Education Department requests a confidence level of 95%, ​which is the accepted standard for government funded research.
 
-​Second, `loc`, or the sample mean, ​this is the mean literacy rate of your sample of 50 districts. 
+​Second, `loc`, or the sample mean, ​this is the mean literacy rate of your sample of 50 districts.
 
-​Third, `scale`, or the sample standard error. ​Recall that standard error measures the variability of your sample data. ​You may remember that the formula for the sample standard error is the sample ​standard deviation divided by the square root of the sample size. ​You can write code to express the formula and ​have python do the calculation for you. 
+​Third, `scale`, or the sample standard error. ​Recall that standard error measures the variability of your sample data. ​You may remember that the formula for the sample standard error is the sample ​standard deviation divided by the square root of the sample size. ​You can write code to express the formula and ​have python do the calculation for you.
 
-​Python makes this process super efficient. ​You have a 95\% confidence interval for the mean district literacy rate, ​that stretches from about 71.4% to 77.0%. ​The Department of Education will use your estimate of the mean district literacy ​rate to help make decisions about distributing funds to different states. 
+​Python makes this process super efficient. ​You have a 95% confidence interval for the mean district literacy rate, ​that stretches from about 71.4% to 77.0%. ​The Department of Education will use your estimate of the mean district literacy ​rate to help make decisions about distributing funds to different states.
 
-​Now, imagine that a senior director in the Department wants to ​be even more confident about your results. 
-​The director wants to make sure you have a reliable estimate, and ​suggest that you recalculate your interval with a 99\% confidence level. 
+​Now, imagine that a senior director in the Department wants to ​be even more confident about your results. ​The director wants to make sure you have a reliable estimate, and ​suggest that you recalculate your interval with a 99% confidence level.
 
-​To choose a new confidence level, copy and paste your previous code. ​Change your confidence from 0.95 to 0.99 to compute ​a 99\% confidence interval based on the sample data. ​Now, run the code, and here's your confidence interval. 
+​To choose a new confidence level, copy and paste your previous code. ​Change your confidence from 0.95 to 0.99 to compute ​a 99% confidence interval based on the sample data. ​Now, run the code, and here's your confidence interval.
 
 ```{python}
 ci = stats.norm.interval(confidence = 0.99, loc = sample_mean, scale = sample_se)
 ci
 ```
 
-​You have a 99\% confidence interval for the mean district literacy ​rate that stretches from about 70.5\% to 77.9\%. 
+​You have a 99% confidence interval for the mean district literacy ​rate that stretches from about 70.5% to 77.9%.
 
-​You may notice that as the confidence level gets higher, ​the confidence interval gets wider. 
-​With a confidence level of 95\%, the interval covers 5.6\% points. 
-​With the confidence level of 99\%, the interval covers 7\% points. 
-​This is because a wider confidence interval is more likely to include ​the actual population parameter. 
+​You may notice that as the confidence level gets higher, ​the confidence interval gets wider. ​With a confidence level of 95%, the interval covers 5.6% points. ​With the confidence level of 99%, the interval covers 7% points. ​This is because a wider confidence interval is more likely to include ​the actual population parameter.
 
-​In our scenario for this video, you only have data on 50 districts. ​However, in earlier videos, you computed the mean literacy rate for ​all 634 districts in your data set as about 73.4\%. ​So, as it turns out, ​both your confidence intervals capture the actual population mean. ​Your results will help the Department of Education decide ​how to distribute government resources to improve literacy. 
-
+​In our scenario for this video, you only have data on 50 districts. ​However, in earlier videos, you computed the mean literacy rate for ​all 634 districts in your data set as about 73.4%. ​So, as it turns out, ​both your confidence intervals capture the actual population mean. ​Your results will help the Department of Education decide ​how to distribute government resources to improve literacy.
